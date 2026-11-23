@@ -104,8 +104,8 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 |---|---|---|---|---|---|
 | 1 | d3 | 完了 | 43 | `04db453` | 全問 draft、全検証成功。temperature 1問、p95 4問に補足 |
 | 2 | d1 | 完了 | 39 | `6406ca5` | 全問 draft、全検証成功。用語の補足対象なし |
-| 3 | d4 | 完了 | 36 | この分野のコミット | 全問 draft、全検証成功。4用語各1問に補足 |
-| 4 | d5 | 未着手 | 32 | | |
+| 3 | d4 | 完了 | 36 | `753c978` | 全問 draft、全検証成功。4用語各1問に補足 |
+| 4 | d5 | 完了 | 32 | この分野のコミット | 全問 draft、全検証成功。OCR 1問に補足 |
 | 5 | d6 | 未着手 | 32 | | |
 | 6 | d2 | 未着手 | 30 | | |
 | 7 | d7 | 未着手 | 16 | | |
@@ -137,9 +137,17 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 - 用語の補足：few-shot、temperature、top_p、p95が各1問、ほか9用語は0問。
 - 原文の明らかな誤りは見つからなかった。補足の候補（未追加）：pass@3・pass^3（`ccarp-bj-4.3-match-attempt-budgets`）、top_k（`ccarp-bj-4.4-diagnose-versioned-sampling-rejection`）。記号や名前だけでは意味が分かりにくいため記録した。
 
+### d5（2026-11-23）
+
+- 32問（single 23、multi 9）をdraftにした。全選択肢の理由を訳し、承認の時点・実行回数・契約や法令の適用条件・公平性の評価条件を保持した。
+- `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功、全408問との照合成功。CCAR-Pは計150問draft。
+- 用語の補足：OCR 1問、ほか12用語は0問。原文の明らかな誤りは見つからなかった。
+- 補足の候補（未追加）：HIPAA・ePHI（`ccarp-bj-5.4-encrypted-ephi-custodian`、`ccarp-bj-5.4-hipaa-feature-path-change`）、BAA（`ccarp-bj-5.4-hipaa-feature-path-change`）、DPIA（`ccarp-bj-5.4-gdpr-significant-decision-gates`）、FedRAMP（`ccarp-bj-5.4-federal-internal-search-boundary`）。原文にある展開形は和訳し、それ以外の説明は足していない。
+
 ### 用語 → 問題 ID（完了分野）
 
 - temperature：`ccarp-bj-3.3-output-cap-truncation`、`ccarp-bj-4.4-diagnose-versioned-sampling-rejection`
 - p95：`ccarp-bj-3.3-parallel-independent-tool-latency`、`ccarp-bj-3.3-quality-and-tail-latency-gates`、`ccarp-bj-3.3-reranking-complete-tradeoff`、`ccarp-bj-3.3-route-specific-model-tradeoffs`、`ccarp-bj-4.5-reranking-overhead-versus-token-savings`
 - few-shot：`ccarp-bj-4.2-protect-heldout-incident-families`
 - top_p：`ccarp-bj-4.4-diagnose-versioned-sampling-rejection`
+- OCR：`ccarp-bj-5.4-hipaa-feature-path-change`

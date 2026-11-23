@@ -214,3 +214,14 @@
 | confounding | 交絡 | |
 | statistical power | 検出力 | |
 | correlation ID | 相関ID | |
+| residual risk | 残余リスク | |
+| automation bias | 自動化バイアス | |
+| anchoring | アンカリング | |
+| pseudonymization / pseudonymized | 仮名化 / 仮名化された | |
+| de-identification | 非識別化 | |
+| erasure | 消去 | 個人データの権利対応の文脈 |
+| business associate agreement | 業務提携契約 | 略語BAAは英語のまま |
+| covered entity | 対象事業者 | HIPAAの文脈 |
+| electronic protected health information | 電子保護医療情報 | 略語ePHIは英語のまま |
+| data protection impact assessment | データ保護影響評価 | 略語DPIAは英語のまま |
+| confabulation | 作話 | |
