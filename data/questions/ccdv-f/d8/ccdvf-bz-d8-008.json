@@ -38,7 +38,31 @@
     "explanation": "Tools are actions the model invokes, resources are data the application exposes for context, and prompts are reusable templates the user invokes. Their control differs: model, application, and user respectively."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Model Context Protocol が定義する3つの基本要素はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ツール、リソース、プロンプト。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "モデル、プロンプト、埋め込み。",
+        "note": "モデルと埋め込みは、MCP の基本要素ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "エージェント、サブエージェント、フック。",
+        "note": "これらはプロトコルの基本要素ではなく、Claude Code の概念です。"
+      },
+      {
+        "id": "d",
+        "text": "関数、スキーマ、トランスポート。",
+        "note": "スキーマとトランスポートは仕組みであり、基本要素ではありません。"
+      }
+    ],
+    "explanation": "ツールはモデルが呼び出す操作、リソースはアプリケーションがコンテキスト用に公開するデータ、プロンプトはユーザーが呼び出す再利用可能なテンプレートです。制御する主体はそれぞれ異なり、順にモデル、アプリケーション、ユーザーです。"
   },
   "references": [
     {

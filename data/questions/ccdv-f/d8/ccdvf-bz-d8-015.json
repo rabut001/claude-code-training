@@ -38,7 +38,31 @@
     "explanation": "A Skill needs a description precise enough to be selected at the right moment and body content concrete enough to change the output: steps, structure, rules, and an example to pattern-match."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude にコンプライアンスレポートを生成させるため、Skill を作成しています。最も効果的な内容はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "正しくレポートを生成するよう Claude に伝える、簡潔な1行の指示。",
+        "note": "曖昧すぎて、確実に適用されたり、出力を変えたりすることができません。"
+      },
+      {
+        "id": "b",
+        "text": "レポートの提出データを保存する社内サービスの、ソースコード全体。",
+        "note": "実装のソースはレポートの作成には関係がなく、コンテキストの無駄になります。"
+      },
+      {
+        "id": "c",
+        "text": "コンプライアンスレポートを依頼する権限のある従業員の一覧。",
+        "note": "認可はアクセス制御の問題であり、アプリケーションで強制します。"
+      },
+      {
+        "id": "d",
+        "text": "適用する状況に加え、手順、必須セクション、規則、例。",
+        "note": ""
+      }
+    ],
+    "explanation": "Skill には、適切なタイミングで選ばれるための十分に正確な説明と、出力を変えるための十分に具体的な本文が必要です。ステップ、構造、規則、見本となる例を含めます。"
   },
   "references": [
     {

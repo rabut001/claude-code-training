@@ -38,7 +38,31 @@
     "explanation": "This is MCP's purpose: build the integration once behind a standard protocol so every compatible client can use it, instead of writing one bespoke adapter per application."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "複数の異なる Claude 利用アプリケーションが、それぞれ連携を実装し直さずに社内チケット管理システムを使えるよう、公開したいと考えています。MCP サーバーを構築すると何が得られますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "チケットデータの読み書きを伴うリクエストでの、推論の高速化。",
+        "note": "MCP は連携用のプロトコルであり、推論速度には影響しません。"
+      },
+      {
+        "id": "b",
+        "text": "蓄積したチケット履歴による、モデルの自動的なファインチューニング。",
+        "note": "いかなるファインチューニングとも関係ありません。"
+      },
+      {
+        "id": "c",
+        "text": "対応するクライアントなら、専用のコードなしで利用できる標準インターフェース。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "サーバー側の認証を不要にする、マネージドな認証層。",
+        "note": "サーバーには引き続き認証が必要であり、複数のクライアントを使う場合は、より注意が必要なこともよくあります。"
+      }
+    ],
+    "explanation": "これが MCP の目的です。アプリケーションごとに専用アダプターを書く代わりに、標準プロトコルの背後に連携を一度構築すれば、対応するすべてのクライアントが使えます。"
   },
   "references": [
     {

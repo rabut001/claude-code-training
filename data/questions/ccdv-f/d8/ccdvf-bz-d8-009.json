@@ -38,7 +38,31 @@
     "explanation": "The host launches the server as a subprocess and talks over stdin and stdout, with no ports and no network exposure. Remote servers use an HTTP-based transport instead."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "MCP サーバーが、同じマシン上のホストアプリケーションのローカルなサブプロセスとして実行されます。自然なトランスポートの選択はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ホストの公開ネットワークインターフェースのポートにバインドした WebSocket。",
+        "note": "ローカルなサブプロセスには不要で、ネットワーク上の攻撃対象領域を不必要に公開します。"
+      },
+      {
+        "id": "b",
+        "text": "サブプロセスの標準ストリームで JSON-RPC をやり取りする stdio。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "通信中にメッセージを失わないよう、各リクエストをキューに入れる SMTP。",
+        "note": "メールは、同期的な RPC プロトコルのトランスポートではありません。"
+      },
+      {
+        "id": "d",
+        "text": "両プロセスが毎秒ポーリングする、ディスク上の共有ファイル。",
+        "note": "ファイルのポーリングは遅く、競合が起きやすく、仕様にも含まれません。"
+      }
+    ],
+    "explanation": "ホストがサーバーをサブプロセスとして起動し、stdin と stdout を通じて通信するため、ポートもネットワークへの公開も不要です。一方、リモートサーバーには HTTP ベースのトランスポートを使います。"
   },
   "references": [
     {

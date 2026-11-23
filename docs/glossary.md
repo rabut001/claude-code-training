@@ -140,3 +140,13 @@
 | delimiter | 区切り | |
 | code fence | コードフェンス | |
 | structural / semantic validation | 構造の検証 / 意味の検証 | |
+| client-side tool / server-side tool | クライアント側ツール / サーバー側ツール | |
+| built-in tool / custom tool | 組み込みツール / カスタムツール | |
+| pagination | ページ分割 | |
+| attack surface | 攻撃対象領域 | |
+| primitive | 基本要素 | MCP の文脈 |
+| resource | リソース | MCP の文脈 |
+| transport | トランスポート | |
+| embedding | 埋め込み | |
+| parameterised query | パラメーター化クエリー | |
+| sanitise | 無害化する | |

@@ -38,7 +38,31 @@
     "explanation": "With a custom tool, Claude returns a tool_use block and your application runs the code, then returns a tool_result. Server-side tools execute inside the API request, so you receive results without dispatching anything."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "クライアント側ツールとサーバー側ツールの違いについて、正しいものはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "クライアント側ツールは Anthropic が実行し、サーバー側ツールは自分たちが実行する。",
+        "note": "両者が逆です。"
+      },
+      {
+        "id": "b",
+        "text": "クライアント側ツールは自分たちのコードで動き、サーバー側ツールはリクエスト内で動く。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "クライアント側ツールとは、エンドユーザーの Web ブラウザー内で実行するツールである。",
+        "note": "「クライアント」は、自分たちのアプリケーションを意味し、通常はバックエンドのサービスです。"
+      },
+      {
+        "id": "d",
+        "text": "これらの用語は置き換え可能であり、同じ実行方式を表す。",
+        "note": "コードを誰が実行するかによって、構成とセキュリティ上の態勢の両方が変わります。"
+      }
+    ],
+    "explanation": "カスタムツールでは、Claude が tool_use ブロックを返し、アプリケーションがコードを実行して tool_result を返します。サーバー側ツールは API リクエスト内で実行されるため、何も振り分けずに結果を受け取れます。"
   },
   "references": [
     {

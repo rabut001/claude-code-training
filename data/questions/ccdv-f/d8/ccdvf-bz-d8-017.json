@@ -38,7 +38,31 @@
     "explanation": "Selection is driven almost entirely by the description, and four near-identical names with thin descriptions give the model nothing to discriminate on. Fewer, sharply differentiated tools beat many overlapping ones."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントに get_user、fetch_user、lookup_user、user_info があり、どれも説明は1行です。頻繁に誤ったものを選びます。修正方法はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "選択肢をより幅広く探索するよう、temperature を上げる。",
+        "note": "すでに曖昧な選択にランダムさを増やすと、さらに悪化します。"
+      },
+      {
+        "id": "b",
+        "text": "デフォルトで get_user を優先するよう、システムプロンプトでモデルに指示する。",
+        "note": "分かりにくいツール群にプロンプトで対処しても、曖昧さは残ります。"
+      },
+      {
+        "id": "c",
+        "text": "共通のインターフェースを持つよう、4つすべてを MCP サーバーの背後に移す。",
+        "note": "トランスポートを変えても、用途が重なる4つのツールを区別できるようにはなりません。"
+      },
+      {
+        "id": "d",
+        "text": "ツールを統合するか、重複をなくせるほど正確にそれぞれを説明する。",
+        "note": ""
+      }
+    ],
+    "explanation": "選択はほぼ説明によって決まります。ほとんど同じ4つの名前と薄い説明では、モデルに区別の手掛かりがありません。用途が重なる多数のツールより、違いが明確な少数のツールが優れています。"
   },
   "references": [
     {

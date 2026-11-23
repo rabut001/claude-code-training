@@ -38,7 +38,31 @@
     "explanation": "Unbounded tool output is one of the fastest ways to exhaust a context window and a budget. Bound results by default with a ceiling the caller cannot exceed, and offer pagination when more is genuinely needed."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "データベースに問い合わせるツールが、1〜200,000行の結果を返す可能性があります。ツールの契約には何を含めるべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "問い合わせパラメーター以外は含めず、問い合わせが生成したものをそのまま返す。",
+        "note": "200,000行の結果は、1回の呼び出しでウィンドウと予算を使い果たします。"
+      },
+      {
+        "id": "b",
+        "text": "モデルが必要と判断したら、行数制限を解除できるパラメーター。",
+        "note": "モデルが制御する例外設定は、制限ではなく提案です。"
+      },
+      {
+        "id": "c",
+        "text": "デフォルト値と厳格な上限を持つ件数制限と、大きな結果用のページ分割。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "返す前に結果セットを要約する、2回目のモデル呼び出し。",
+        "note": "役立つ場合もありますが、コストが増え、問い合わせ自体は制限されません。"
+      }
+    ],
+    "explanation": "上限のないツール出力は、コンテキストウィンドウと予算を急速に使い果たす主な原因の1つです。呼び出し元が超えられない上限を設けて、デフォルトで結果を制限し、本当に追加が必要な場合はページ分割を提供してください。"
   },
   "references": [
     {

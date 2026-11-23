@@ -38,7 +38,31 @@
     "explanation": "This is precisely the duplication MCP exists to remove: implement once against an open standard, and any compatible client can consume it, leaving one codebase to maintain and secure."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "ある企業が、Claude Code、社内チャットアプリ、CI ボット向けに、同じ Jira 連携を3回構築しました。ここで MCP は何を提供しますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "連携を一度実装し、すべてのクライアントで再利用できる1つのサーバー。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Jira インスタンス自体に届くツール呼び出しの、高速な実行。",
+        "note": "MCP はインターフェースを標準化するもので、性能の最適化ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "クライアントごとの設定を不要にする、プロトコルによる認証の処理。",
+        "note": "認証の設定は引き続き必要です。MCP が定義するのはプロトコルだけです。"
+      },
+      {
+        "id": "d",
+        "text": "MCP ツールを呼び出すリクエストに適用される、低いトークン単価。",
+        "note": "ツールの公開方法によって、トークンの料金は変わりません。"
+      }
+    ],
+    "explanation": "これは、まさに MCP が解消するために存在する重複です。オープンな標準に従って一度実装すれば、対応するすべてのクライアントが利用でき、保守して安全に保つコードベースを1つにできます。"
   },
   "references": [
     {
