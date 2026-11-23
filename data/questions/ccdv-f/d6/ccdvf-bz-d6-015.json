@@ -38,7 +38,31 @@
     "explanation": "A tool schema turns a formatting request into a typed contract: the model produces arguments conforming to your JSON Schema, so you read structured data instead of scraping prose."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "機械で読める構造化出力を、最も信頼できる形で生成する手法はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "有効な JSON 以外は出力しないよう、強く繰り返しモデルに指示する。",
+        "note": "何もしないよりはよいですが、本番環境の解析に防御がない状態は残ります。"
+      },
+      {
+        "id": "b",
+        "text": "調整した正規表現を使い、レスポンスのテキストからペイロードを抽出する。",
+        "note": "正規表現による抽出は壊れやすく、入れ子や例外的なケースで失敗します。"
+      },
+      {
+        "id": "c",
+        "text": "リクエスト間で出力形式が安定するよう、temperature を0にする。",
+        "note": "決定論的であることは、スキーマへの適合を保証しません。"
+      },
+      {
+        "id": "d",
+        "text": "目的の構造を input_schema とするツールを定義し、その引数を読み取る。",
+        "note": ""
+      }
+    ],
+    "explanation": "ツールスキーマは、書式の依頼を型で定めた契約に変えます。モデルが JSON Schema に適合する引数を生成するため、説明文から抽出する代わりに、構造化されたデータを読み取れます。"
   },
   "references": [
     {

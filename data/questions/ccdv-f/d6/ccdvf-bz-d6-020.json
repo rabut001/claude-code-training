@@ -38,7 +38,31 @@
     "explanation": "A tool schema turns a formatting request into a typed contract, so you stop scraping prose for JSON and remove the entire class of problem rather than patching its symptom."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude に JSON を依頼すると、いつも前置きの1文が付き、Markdown のコードフェンスで囲まれて返されます。最もすっきりした修正はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "呼び出しのたびに、正規表現でフェンスと前置きを取り除く。",
+        "note": "形式が少し変わるまでは機能しますが、症状への対処であり、壊れやすさが残ります。"
+      },
+      {
+        "id": "b",
+        "text": "Markdown も前置きも出力しないよう、より強くモデルに指示する。",
+        "note": "指示に従うかは確率的なので、防御的な解析は引き続き必要です。"
+      },
+      {
+        "id": "c",
+        "text": "目的の構造に合うツールを定義し、その引数を直接読み取る。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "呼び出し間でレスポンスの形式が変化しなくなるよう、temperature を0にする。",
+        "note": "決定論的であることは、コードフェンスが付かないことを保証しません。"
+      }
+    ],
+    "explanation": "ツールスキーマは、書式の依頼を型で定めた契約に変えます。そのため、説明文から JSON を抽出する必要がなくなり、症状を繕う代わりに、その種類の問題全体を取り除けます。"
   },
   "references": [
     {

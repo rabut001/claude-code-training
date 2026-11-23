@@ -38,7 +38,31 @@
     "explanation": "Task isolation is the canonical answer when analysis exceeds one window. Each subagent reads its batch in its own context and returns a short conclusion, so the parent reasons over 60 findings rather than 60 raw files."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントが根本原因を見つけるために60個のログファイルを分析する必要があります。すべてを読み込むとコンテキストウィンドウを超えます。最も効果的な構造はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "60個すべてを一度に収めるため、各ファイルを先頭100行に切り詰める。",
+        "note": "恣意的に切り詰めると、まさに重要な行を捨てる可能性があります。"
+      },
+      {
+        "id": "b",
+        "text": "ウィンドウがより大きなモデルに移行し、ファイル全体を読み込む。",
+        "note": "一時的には機能しますが、コストが増え、量が増えると再び行き詰まります。"
+      },
+      {
+        "id": "c",
+        "text": "分離したコンテキストで、ファイルをまとめた組ごとにサブエージェントを割り当て、判明したことだけを返させる。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "原因が含まれる可能性が最も高いファイルを1つ、ユーザーに選んでもらう。",
+        "note": "本来のタスクである分析を、ユーザーに押し戻すことになります。"
+      }
+    ],
+    "explanation": "分析が1つのウィンドウに収まらない場合、タスクの分離が典型的な対処です。各サブエージェントが自分のコンテキストで割り当てられたファイル群を読み、短い結論を返すことで、親は60個の生のファイルではなく、60件の発見事項に基づいて推論します。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Clear delimiters let the model distinguish \"this is your instruction\" from \"this is the document to operate on\", which matters most when retrieved content might otherwise read as an instruction."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "複雑な Claude のプロンプトで、セクションを分けるために XML タグが推奨されるのはなぜですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "Claude は XML を標準で解析し、ほかの形式は処理の信頼性が低いから。",
+        "note": "Claude はプレーンテキスト、Markdown、JSON も問題なく扱えます。"
+      },
+      {
+        "id": "b",
+        "text": "タグ付きのセクションはよく圧縮され、長いプロンプトのトークンコストが減るから。",
+        "note": "タグはトークンを増やします。利点は圧縮ではなく、明確さです。"
+      },
+      {
+        "id": "c",
+        "text": "指示、例、データの間に、曖昧さのない境界を示すから。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "ツールを定義するすべてのリクエストで、API が構造化された区切りを要求するから。",
+        "note": "ツール使用に、そのような書式の要件はありません。"
+      }
+    ],
+    "explanation": "明確な区切りがあれば、モデルは「これが指示」と「これが処理対象の文書」を区別できます。これは、検索した内容がそうしなければ指示のように読めてしまう場合に、特に重要です。"
   },
   "references": [
     {

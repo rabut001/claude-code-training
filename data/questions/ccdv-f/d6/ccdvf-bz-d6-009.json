@@ -38,7 +38,31 @@
     "explanation": "Examples are most powerful for conveying format and conventions, especially edge cases where a prose rule would be long and ambiguous but a single demonstration is instantly clear."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "few-shot の例が最も価値を発揮するのは、どのような場合ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "タスクが単純で、指示がすでに明確な場合。",
+        "note": "単純なタスクに例が必要なことはまれで、トークンが増えるだけです。"
+      },
+      {
+        "id": "b",
+        "text": "出力形式や例外的なケースの規約を、説明するより見せるほうが容易な場合。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "タスクをまったく変えずに、入力トークン数を減らす必要がある場合。",
+        "note": "例は入力トークンを減らすのではなく増やします。"
+      },
+      {
+        "id": "d",
+        "text": "学習していない非公開データに、モデルがアクセスする必要がある場合。",
+        "note": "例では不足しているデータを提供できません。それは検索の役割です。"
+      }
+    ],
+    "explanation": "例は、書式や規約を伝えるうえで最も効果的です。特に、文章で規則を書くと長く曖昧になる一方、1つの実例ならすぐ明確になるような、例外的なケースに有効です。"
   },
   "references": [
     {

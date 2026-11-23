@@ -38,7 +38,31 @@
     "explanation": "Specificity about structure, length, and required content is what makes output consistent and machine-consumable. It states the format, the size bound, and exactly which facts must appear."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "一貫した、利用可能な出力が得られる可能性が最も高いプロンプトはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "「この文書を、ビジネスの読者向けに正確かつ完全に要約してください」。",
+        "note": "「正確かつ完全に」は測定できず、書式も定まりません。"
+      },
+      {
+        "id": "b",
+        "text": "「この文書の、とても良い要約を作ってください。網羅的でありつつ簡潔にしてください」。",
+        "note": "「網羅的でありつつ簡潔」は矛盾しており、構造も示していません。"
+      },
+      {
+        "id": "c",
+        "text": "「この文書を要約してください。語調は専門的に、長さは適切にしてください」。",
+        "note": "「専門的」と「適切」は主観的であり、呼び出しごとにぶれます。"
+      },
+      {
+        "id": "d",
+        "text": "「決定事項、担当者、期限を、それぞれ20語未満の3つの箇条書きで要約してください」。",
+        "note": ""
+      }
+    ],
+    "explanation": "構造、長さ、必要な内容を具体的に指定することで、一貫し、機械で処理できる出力になります。この指示は、書式、大きさの上限、必ず含めるべき事実を明示しています。"
   },
   "references": [
     {

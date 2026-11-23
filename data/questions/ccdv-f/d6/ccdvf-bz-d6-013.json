@@ -38,7 +38,31 @@
     "explanation": "A single confused category is a boundary problem, so sharpen the boundary. Demonstrating true positives alongside the near-misses it is being confused with is targeted, cheap, and measurable."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "分類用プロンプトは全体として良好に動作していますが、ある出現頻度の低いカテゴリーを一貫して誤分類します。最も的を絞った修正はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "推論能力の高い、より大きなモデル階層に処理を移す。",
+        "note": "費用の高い大ざっぱな方法であり、定義の曖昧さを解消できるとは限りません。"
+      },
+      {
+        "id": "b",
+        "text": "そのカテゴリーを正確に定義し、紛らわしい非該当ケースも含めた例を示す。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "ラベルを付ける前に熟考する余地を作るため、max_tokens を増やす。",
+        "note": "出力の長さと、どのラベルが選ばれるかは無関係です。"
+      },
+      {
+        "id": "d",
+        "text": "類似するカテゴリーを削除し、そのまれなカテゴリーとの混同をなくす。",
+        "note": "カテゴリーの削除は、タスクの解決ではなく変更です。"
+      }
+    ],
+    "explanation": "1つのカテゴリーだけが混同されるのは境界の問題なので、その境界を明確にします。真陽性の例と、それと混同される紛らわしい非該当例を並べて示すことは、的を絞った、安価で測定可能な方法です。"
   },
   "references": [
     {

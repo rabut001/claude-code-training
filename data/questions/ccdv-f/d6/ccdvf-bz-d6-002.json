@@ -38,7 +38,31 @@
     "explanation": "Pruning removes superseded material outright whereas compaction compresses it. Pruning is right when content has been invalidated, because summarising it would only preserve noise."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "圧縮とは異なる、コンテキストの枝刈りに当たるものはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "セッションの最初の20ターンを、1つの段落にまとめる。",
+        "note": "それは圧縮です。削除ではなく、情報を圧縮しています。"
+      },
+      {
+        "id": "b",
+        "text": "操作しなくても多くの履歴が収まるよう、コンテキストウィンドウの上限を増やす。",
+        "note": "設定の変更であって、コンテキスト管理の手法ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "各エージェントが資料の半分だけを保持するよう、タスクを2つのエージェントに分ける。",
+        "note": "それは、サブエージェントによるタスクの分離です。"
+      },
+      {
+        "id": "d",
+        "text": "その後に書き直されたファイルなど、すでに関係がなくなった情報を削除する。",
+        "note": ""
+      }
+    ],
+    "explanation": "枝刈りは、置き換えられて不要になった情報を完全に削除するのに対し、圧縮は情報を縮めます。内容が無効になった場合は、要約してもノイズを保持するだけなので、枝刈りが適切です。"
   },
   "references": [
     {

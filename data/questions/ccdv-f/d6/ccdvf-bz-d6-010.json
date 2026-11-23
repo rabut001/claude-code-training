@@ -38,7 +38,31 @@
     "explanation": "Delimiting and framing untrusted input as data is the prompt-layer defence, and it must be paired with an architectural one, because no single layer is sufficient against adversarial text."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "プロンプトテンプレートに、ユーザー入力を「当社のポリシーについて、次の質問に答えてください：{user_input}」と直接挿入しています。ユーザーが、指示そのものを含むテキストを送信しました。最適な構造上の対策はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "入力をデータとして区切り、その経路では特権的な機能を使えないようにする。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "ユーザーが渡したテキストより優先される、システムプロンプトに頼る。",
+        "note": "システムプロンプトには影響力がありますが、優先順位を保証する仕組みではありません。"
+      },
+      {
+        "id": "c",
+        "text": "\"ignore\" や \"disregard\" といった単語を含む送信内容をすべて拒否する。",
+        "note": "キーワードのブロックリストは、言い換えやエンコードで簡単に回避されます。"
+      },
+      {
+        "id": "d",
+        "text": "紛れ込んだ指示に従いにくくするため、サンプリング用の temperature を下げる。",
+        "note": "temperature は、インジェクションへの影響の受けやすさに関係しません。"
+      }
+    ],
+    "explanation": "信頼できない入力を区切り、データとして位置付けることは、プロンプト層の防御です。敵対的なテキストに対して単独で十分な層はないため、構成上の防御と組み合わせる必要があります。"
   },
   "references": [
     {

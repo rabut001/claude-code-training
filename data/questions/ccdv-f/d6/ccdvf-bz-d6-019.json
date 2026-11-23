@@ -38,7 +38,31 @@
     "explanation": "Filtering tool output at the source is usually the largest single win in context management. You pay for those tokens on every subsequent turn and they dilute the signal the model needs."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "ツールが40,000トークンの生の HTML を返しますが、関連するのは約300トークンです。最適な処理はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "情報が失われないよう、HTML 文書全体を挿入する。",
+        "note": "繰り返し発生する莫大なコストに加え、シグナルが大幅に薄まります。"
+      },
+      {
+        "id": "b",
+        "text": "挿入する前に、関連部分を抽出し、定型文を捨てる。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "すべて挿入したうえで、無関係なセクションを無視するようモデルに指示する。",
+        "note": "すべてのトークンに引き続き料金がかかり、指示しても注意をそらすものはなくなりません。"
+      },
+      {
+        "id": "d",
+        "text": "先頭の5,000文字を挿入し、残りを捨てる。",
+        "note": "恣意的に切り詰めると、定型文と同じように、関連部分も切り捨ててしまう可能性があります。"
+      }
+    ],
+    "explanation": "ツール出力を発生元で絞り込むことは、通常、コンテキスト管理で単独では最も大きな改善になります。そのトークンには以降のすべてのターンで料金がかかり、モデルが必要とするシグナルも薄まるためです。"
   },
   "references": [
     {

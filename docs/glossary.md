@@ -129,3 +129,14 @@
 | managed deployment | マネージド環境へのデプロイ | |
 | context isolation | コンテキストの分離 | |
 | entity | エンティティー | |
+| context pruning | コンテキストの枝刈り | |
+| context bloat | コンテキストの肥大化 | |
+| task isolation | タスクの分離 | |
+| prefill / prefilling | 事前入力 | アシスタントターンの冒頭を指定する文脈 |
+| defensive parsing | 防御的な解析 | |
+| chain of thought / chain-of-thought | 思考の連鎖 | |
+| true positive | 真陽性 | |
+| near-miss case | 紛らわしい非該当ケース | 分類の境界を説明する文脈 |
+| delimiter | 区切り | |
+| code fence | コードフェンス | |
+| structural / semantic validation | 構造の検証 / 意味の検証 | |

@@ -38,7 +38,31 @@
     "explanation": "Compaction is lossy by design, so what it keeps must be chosen deliberately. Constraints, decisions, and open items should be retained explicitly, or better still kept in structured state that is never summarised."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "積極的に圧縮した結果、セッションの初期に合意した制約に反する判断をエージェントがするようになりました。何が問題でしたか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "制約を意図的に保持する代わりに、要約が出来事の説明になっていた。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "圧縮は本質的に危険で、本番環境のエージェントでは避けるべきだった。",
+        "note": "長いセッションでは圧縮が必要です。問題は実装にありました。"
+      },
+      {
+        "id": "c",
+        "text": "コンテキストウィンドウがタスクに必要な大きさを超え、最近の情報が薄まった。",
+        "note": "ウィンドウの大きさが、情報の損失を引き起こしたわけではありません。"
+      },
+      {
+        "id": "d",
+        "text": "圧縮の要約ステップで、temperature が高すぎた。",
+        "note": "temperature が影響するのは表現であり、どの種類の事実が残るかではありません。"
+      }
+    ],
+    "explanation": "圧縮は設計上、情報を失うため、何を保持するかを意図的に選ぶ必要があります。制約、決定、未解決事項は明示的に残すべきで、さらに望ましいのは、要約しない構造化された状態に保持することです。"
   },
   "references": [
     {

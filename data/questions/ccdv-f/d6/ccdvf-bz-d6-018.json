@@ -38,7 +38,31 @@
     "explanation": "Chain of thought earns its token cost on multi-step reasoning, where explicit intermediate steps both improve accuracy and show you where a wrong answer went wrong."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "思考の連鎖を促すプロンプトが最も役立つタスクはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "初期の誤りが気づかれずに後へ伝わる、複数段階の計算。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "顧客の短い文を、肯定的、中立的、否定的のいずれかに分類する処理。",
+        "note": "1つのラベルを判断するために、見える形の推論は必要ありません。"
+      },
+      {
+        "id": "c",
+        "text": "構造化されていないページの文章から、メールアドレスを抽出する処理。",
+        "note": "パターンの抽出は直接行えるため、推論のステップは効果なくコストを増やします。"
+      },
+      {
+        "id": "d",
+        "text": "マーケティング文案の1文をフランス語に翻訳する処理。",
+        "note": "翻訳は直接的な変換であり、相互に依存する推論の連鎖ではありません。"
+      }
+    ],
+    "explanation": "思考の連鎖は、複数段階の推論でトークンのコストに見合う効果があります。明示的な途中のステップが正確さを高めるとともに、誤答がどこで間違ったかを示します。"
   },
   "references": [
     {
