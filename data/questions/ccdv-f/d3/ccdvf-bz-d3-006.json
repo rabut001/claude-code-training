@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d3-006",
+  "exam": "ccdv-f",
+  "domain": "d3",
+  "subdomain": "Claude Code Operation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A developer wants Claude Code to stop reading a large generated directory that wastes context on every session. Where does that belong?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Typed as a reminder at the beginning of each new working session.",
+        "note": "Manual repetition every session, by every developer, indefinitely."
+      },
+      {
+        "id": "b",
+        "text": "In committed project configuration and CLAUDE.md, so it applies to everyone.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "In a custom slash command the developer invokes before starting work.",
+        "note": "Still requires someone to remember to invoke it."
+      },
+      {
+        "id": "d",
+        "text": "In a subagent definition that handles work touching that directory.",
+        "note": "Subagents isolate context for delegated subtasks, not project-wide exclusions."
+      }
+    ],
+    "explanation": "A persistent, project-wide, team-shared fact belongs in committed project configuration, because anything depending on a human remembering will eventually be forgotten by someone."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Memory",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/memory"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D3-006",
+    "license": "MIT"
+  }
+}

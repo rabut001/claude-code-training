@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-034",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An application shows users a confidence percentage that it asks Claude to produce alongside each answer. A reviewer objects. What is the strongest objection?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The extra tokens materially increase the cost of every request made.",
+        "note": "True but trivial next to presenting users with a misleading signal."
+      },
+      {
+        "id": "b",
+        "text": "A self-reported figure is not calibrated, so it misleads users who trust it.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Percentages should be rendered as a visual indicator rather than a number.",
+        "note": "A presentation preference; the underlying number is still uncalibrated."
+      },
+      {
+        "id": "d",
+        "text": "Confidence should be requested in a separate call to keep the answer clean.",
+        "note": "A second call produces an equally uncalibrated figure at twice the cost."
+      }
+    ],
+    "explanation": "A self-assessed number looks like a measurement but is not derived from any calibrated process. It is frequently high on confidently wrong answers, which is exactly when users need it to be low."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Reduce hallucinations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-034",
+    "license": "MIT"
+  }
+}

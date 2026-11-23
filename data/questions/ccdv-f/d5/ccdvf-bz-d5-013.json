@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-013",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Which statement about max_tokens is correct?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It reserves capacity and is billed in full whether or not it is consumed.",
+        "note": "There is no reservation charge for an unused ceiling."
+      },
+      {
+        "id": "b",
+        "text": "It sets the size of the context window available to the request.",
+        "note": "The context window is a model property, not a per-request output limit."
+      },
+      {
+        "id": "c",
+        "text": "It bounds generated tokens; reaching it yields stop_reason \"max_tokens\".",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "It limits how many tool calls the model is permitted to make in a turn.",
+        "note": "Tool call count is not governed by max_tokens."
+      }
+    ],
+    "explanation": "It caps output length and billing follows tokens actually produced. Hitting the cap truncates the response and reports it in stop_reason, which your code should detect rather than assume completeness."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-013",
+    "license": "MIT"
+  }
+}

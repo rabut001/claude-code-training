@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.4-reproducible-implementation-package",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.4 Document architectures and provide implementation guidance",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "implementation-guidance",
+    "release-manifest",
+    "reproducibility"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A receiving team must reproduce an accepted Claude warranty-analysis pilot in staging. The handoff contains the application repository and screenshots, but prompts are loaded from a mutable shared folder, the retrieval collection is unnamed, and the tool's accepted interface version is missing. What implementation guidance should be added before claiming the accepted system is reproducible?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A larger set of approved answer screenshots and a note that the receiving team may use whichever prompts and retrieval collection are newest.",
+        "note": "Screenshots describe outputs, not the component versions that produced them; choosing current components can create a different system."
+      },
+      {
+        "id": "b",
+        "text": "The model identifier and an API connectivity check, treating prompt content, retrieval data, and tool compatibility as environment-specific tuning.",
+        "note": "Connectivity and a model identifier omit dependencies that determine behavior and compatibility in the accepted pilot."
+      },
+      {
+        "id": "c",
+        "text": "A written promise from the pilot team to answer staging questions, with the missing dependency details collected only if reproduction fails.",
+        "note": "Access to the original developers is not a reproducible implementation package and leaves predictable setup dependencies undocumented."
+      },
+      {
+        "id": "d",
+        "text": "A release manifest pinning prompts, model configuration, retrieval snapshot, and tool contract, with setup steps and linked acceptance evidence.",
+        "note": "The manifest and instructions identify the accepted configuration and provide a concrete path to deploy and verify that configuration."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    },
+    {
+      "title": "Google SRE: The Evolving SRE Engagement Model",
+      "url": "https://sre.google/sre-book/evolving-sre-engagement-model/"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.4.json",
+    "orig_id": "ccarp-6.4-reproducible-implementation-package",
+    "license": "MIT"
+  }
+}

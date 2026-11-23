@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-008",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Construction with Claude",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "What is the core loop of a tool-using agent built directly on the Messages API?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Send the request once, then parse the final answer from the response.",
+        "note": "A single call has no opportunity to incorporate tool results."
+      },
+      {
+        "id": "b",
+        "text": "While stop_reason is \"tool_use\", run the tool, append the result, and call again.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Submit the goal, then poll a job endpoint until the agent reports completion.",
+        "note": "There is no server-side agent job to poll on the Messages API."
+      },
+      {
+        "id": "d",
+        "text": "Open a persistent socket so the model can invoke your tools directly.",
+        "note": "Anthropic never connects to your tools; your own code executes them."
+      }
+    ],
+    "explanation": "The loop is driven by stop_reason. Each pass executes the requested tool, appends the assistant turn plus the matching tool_result, and re-invokes the model, exiting on \"end_turn\" or a harness guard."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-008",
+    "license": "MIT"
+  }
+}

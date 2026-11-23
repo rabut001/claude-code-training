@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.1-cost-per-acceptable-outcome",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.1 Define evaluation metrics (accuracy, latency, cost, safety, security)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "cost-metrics",
+    "successful-outcomes"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Two configurations each process 100 independent tasks. A spends 48 budget units and completes 80 tasks acceptably; B spends 42 units and completes 60 acceptably. Spend includes all failed attempts, retries, model calls, and tools. Which comparison correctly identifies the lower cost per acceptable outcome?",
+    "options": [
+      {
+        "id": "a",
+        "text": "B: its 0.42 units per submitted task is lower than A's 0.48.",
+        "note": "Dividing by submitted tasks measures cost per submitted task, not cost per acceptable outcome. One task may consume several attempts. B's lower spend accompanies substantially fewer acceptable results."
+      },
+      {
+        "id": "b",
+        "text": "A: its 0.60 units per acceptable task is lower than B's 0.70.",
+        "note": "The relevant denominators are 80 and 60 successful outcomes: 48/80 = 0.60 and 42/60 = 0.70. Including unsuccessful work in total spend captures the cost of obtaining those successes."
+      },
+      {
+        "id": "c",
+        "text": "B: its success-weighted spend is 25.2 units versus A's 38.4.",
+        "note": "Multiplying spend by success rate does not calculate a unit cost. It discounts unsuccessful work instead of charging that work to the outcomes actually achieved."
+      },
+      {
+        "id": "d",
+        "text": "Neither: the spend on failed attempts must be removed before comparison.",
+        "note": "Removing failed-attempt spend would understate what each configuration costs to produce acceptable results. The provided total spend and success counts are sufficient for the requested metric."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Pricing",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.1.json",
+    "orig_id": "ccarp-4.1-cost-per-acceptable-outcome",
+    "license": "MIT"
+  }
+}

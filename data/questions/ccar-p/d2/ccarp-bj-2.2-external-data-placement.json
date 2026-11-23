@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.2-external-data-placement",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.2 Design system prompts, templates, and guardrails",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "prompt-injection",
+    "external-data",
+    "trust-boundaries"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A document-analysis application concatenates fetched supplier text inside a <source> element in its system prompt. A supplier document includes closing tags and instructions to change the task. Under the cited indirect-injection guidance, which redesign best preserves the distinction between trusted instructions and external evidence?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Return an origin-labeled tool_result with JSON-encoded strings and a system-level untrusted-content policy.",
+        "note": "The documented pattern keeps third-party payloads out of trusted instructions and makes their provenance explicit. Encoding and policy improve separation but do not replace permission controls."
+      },
+      {
+        "id": "b",
+        "text": "Keep the supplier document in the system prompt, surrounding it with a generated XML tag and a validation warning.",
+        "note": "Unusual delimiters can aid parsing, but they do not make third-party text a trusted instruction source. XML structure is not an authorization or injection-proof boundary."
+      },
+      {
+        "id": "c",
+        "text": "Remove recognized attack phrases and then concatenate the remaining document into the system prompt.",
+        "note": "A phrase filter can miss paraphrased or novel attacks. Promoting the remainder into trusted instructions preserves the underlying placement problem."
+      },
+      {
+        "id": "d",
+        "text": "Convert the supplier document into a plain user instruction that follows the application's system prompt.",
+        "note": "A lower-priority instruction is still the wrong representation for third-party evidence under the cited handling guidance. A source-labeled tool result preserves the intended data role instead."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    },
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.2.json",
+    "orig_id": "ccarp-2.2-external-data-placement",
+    "license": "MIT"
+  }
+}

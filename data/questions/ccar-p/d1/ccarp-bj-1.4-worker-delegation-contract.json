@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.4-worker-delegation-contract",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.4 Design multi-agent systems and orchestration strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "worker-boundaries",
+    "delegation-contracts"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A lead agent delegates supplier investigations, but workers repeatedly inspect the same suppliers and omit required evidence. The tools function correctly. Which delegation change most directly addresses the coordination problem?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Give each worker the full research request and encourage it to pursue the sources it finds most promising.",
+        "note": "A shared broad request leaves ownership ambiguous. Independent workers can choose the same attractive sources while all neglecting less obvious requirements."
+      },
+      {
+        "id": "b",
+        "text": "Define each worker's objective, supplier scope, source guidance, output format, evidence requirements, and boundaries with other assignments.",
+        "note": "An explicit delegation contract establishes both what to cover and what belongs elsewhere. This directly addresses duplicated work and missing evidence."
+      },
+      {
+        "id": "c",
+        "text": "Increase each worker's token budget and preserve its original task description to avoid disrupting its search strategy.",
+        "note": "More search effort does not clarify which suppliers or evidence each worker owns. It can amplify overlapping work under the same ambiguous assignment."
+      },
+      {
+        "id": "d",
+        "text": "Ask the synthesis agent to remove duplicate paragraphs after workers finish, without changing their assignments or source guidance.",
+        "note": "Post-processing can remove repeated prose but cannot recover evidence nobody collected. The coordination defect starts at delegation, not final wording."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.4.json",
+    "orig_id": "ccarp-1.4-worker-delegation-contract",
+    "license": "MIT"
+  }
+}

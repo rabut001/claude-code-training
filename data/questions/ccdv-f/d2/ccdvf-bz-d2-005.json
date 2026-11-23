@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-005",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a",
+    "b"
+  ],
+  "en": {
+    "question": "A chat UI must show text as it is produced and must also display a running token count when the turn ends. Which two things does the streaming response provide? (Select 2)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Incremental content deltas emitted as the response is generated.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "A terminating event that carries cumulative input and output token usage.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "A guaranteed reduction in the total number of tokens billed for the turn.",
+        "note": "Streaming alters delivery, not billing. The same tokens are generated and charged."
+      },
+      {
+        "id": "d",
+        "text": "The complete response body, delivered before the first delta arrives.",
+        "note": "That describes a non-streaming response and defeats the purpose entirely."
+      },
+      {
+        "id": "e",
+        "text": "A server-held transcript of the conversation for retrieval on the next turn.",
+        "note": "The API is stateless; no transcript is retained server-side."
+      }
+    ],
+    "explanation": "Streaming emits content deltas during generation and closes with a message-level event carrying usage. Those two facts satisfy both stated UI requirements."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Streaming",
+      "url": "https://docs.anthropic.com/en/api/streaming"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-005",
+    "license": "MIT"
+  }
+}

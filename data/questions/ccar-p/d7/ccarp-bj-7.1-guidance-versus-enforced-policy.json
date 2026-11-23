@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.1-guidance-versus-enforced-policy",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.1 Configure Claude tools and environments for teams (e.g., Claude Code)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "claude-md",
+    "managed-policy",
+    "tool-permissions"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An organization manages its developers' Claude Code installations and registers a production-deployment tool. A managed CLAUDE.md says never to invoke that tool from developer laptops. Auditors require a client-enforced prohibition, not merely improved instruction adherence. Which change meets that requirement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep the explanatory guidance and deny the deployment capability through centrally administered client permission policy.",
+        "note": "CLAUDE.md supplies model context, while managed permission settings provide a technical restriction on the registered tool. Keeping both separates the reason for the rule from its enforcement."
+      },
+      {
+        "id": "b",
+        "text": "Repeat the prohibition in each nested CLAUDE.md so the nearest instruction always replaces organization guidance.",
+        "note": "Instruction files contribute context rather than providing an authorization boundary. Nested instructions do not turn a prose prohibition into a client-enforced denial."
+      },
+      {
+        "id": "c",
+        "text": "Put deployment procedures in a skill whose allowed-tools lists only testing tools, leaving the deployment tool registered.",
+        "note": "A skill's allowed-tools grants pre-approval rather than defining an exclusive capability list. Omitting the deployment tool from that field does not prohibit its use."
+      },
+      {
+        "id": "d",
+        "text": "Retain only the managed CLAUDE.md because administrator ownership makes every instruction in it mandatory at execution time.",
+        "note": "Administrator ownership controls distribution of the instruction file, not guaranteed model compliance. Managed instructions remain distinct from enforced permission settings."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "How Claude remembers your project",
+      "url": "https://code.claude.com/docs/en/memory"
+    },
+    {
+      "title": "Settings files and precedence",
+      "url": "https://code.claude.com/docs/en/settings"
+    },
+    {
+      "title": "Extend Claude with skills",
+      "url": "https://code.claude.com/docs/en/skills"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.1.json",
+    "orig_id": "ccarp-7.1-guidance-versus-enforced-policy",
+    "license": "MIT"
+  }
+}

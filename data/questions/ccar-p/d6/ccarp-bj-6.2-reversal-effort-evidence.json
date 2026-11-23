@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.2-reversal-effort-evidence",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.2 Communicate architectural decisions and trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "reversibility",
+    "dependency-risk",
+    "decision-evidence"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A supplier offers a discounted managed retrieval service. The sponsor will accept the discount only if the application can migrate elsewhere within five working days. The API wrapper is portable, but the service uses a proprietary index, export completeness is untested, and rebuilding requires source documents owned by another department. How should the architect characterize reversibility in the decision presentation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Describe exit as a one-day API change because the portable wrapper isolates the provider, and list index rebuilding as routine maintenance.",
+        "note": "Wrapper portability does not establish complete data export, source availability, or the time needed to rebuild and validate retrieval."
+      },
+      {
+        "id": "b",
+        "text": "Mark the exit limit unproven; require an owned export-and-rebuild rehearsal before relying on the discount as a feasible choice.",
+        "note": "The rehearsal must test the actual data and dependency path that determines whether the sponsor's five-day exit constraint can be met."
+      },
+      {
+        "id": "c",
+        "text": "Use the provider's normal export duration as the full migration estimate, and treat obtaining source documents as the receiving team's responsibility.",
+        "note": "Export duration excludes source acquisition, rebuilding, and acceptance testing; transferring responsibility does not remove those dependencies."
+      },
+      {
+        "id": "d",
+        "text": "Count the discount as compensation for a potentially longer exit and approve the service while recording the five-day requirement as aspirational.",
+        "note": "The sponsor made exit time an acceptance condition, so the architect cannot silently convert it into a negotiable aspiration."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.2.json",
+    "orig_id": "ccarp-6.2-reversal-effort-evidence",
+    "license": "MIT"
+  }
+}

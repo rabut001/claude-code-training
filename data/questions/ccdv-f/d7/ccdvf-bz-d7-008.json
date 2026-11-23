@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-008",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "Guardrails and Safe Deployment",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A content-moderation guardrail uses Claude to classify outputs as safe or unsafe before delivery. What is the most important operational consideration?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It should reuse the generation call's model and prompt for consistency.",
+        "note": "An independent check is worth more; sharing prompt and model correlates failures."
+      },
+      {
+        "id": "b",
+        "text": "It should run after delivery so the user never waits on the extra call.",
+        "note": "Checking after delivery defeats the purpose entirely."
+      },
+      {
+        "id": "c",
+        "text": "It is probabilistic too, so it needs its own evals, error rates, and failure policy.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "It supersedes the other safety layers, which can then be retired safely.",
+        "note": "It is one layer in defence in depth, not a replacement for the rest."
+      }
+    ],
+    "explanation": "A model-based filter is a probabilistic component like any other. It needs labelled evaluation, ongoing measurement of both error directions, and an explicit fail-open or fail-closed policy."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Strengthen guardrails",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-008",
+    "license": "MIT"
+  }
+}

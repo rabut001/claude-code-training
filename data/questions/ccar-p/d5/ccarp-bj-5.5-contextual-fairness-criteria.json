@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.5-contextual-fairness-criteria",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.5 Address ethical AI considerations (bias, fairness, transparency)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "contextual-fairness",
+    "metric-tradeoffs",
+    "subgroup-errors",
+    "policy-approval"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An AI-assisted moderation service flags posts for human review. Missed abusive posts expose users to harm, while unnecessary flags delay legitimate speech and consume a constrained review queue. User groups have different observed abuse rates and sample sizes. Equal flagging rates still leave different harmful-error rates. Demographic-specific thresholds require separate policy and privacy approval. What should guide fairness acceptance?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Require identical overall flagging rates and automatically apply group-specific thresholds until that parity measure is achieved.",
+        "note": "Equal flagging rates do not resolve different rates of missed abuse or unnecessary restrictions. Automatically changing group-specific thresholds also bypasses the stated approval requirement."
+      },
+      {
+        "id": "b",
+        "text": "Approve context-specific trade-offs using subgroup harm and uncertainty evidence, review burdens, and evaluated mitigations.",
+        "note": "Fairness depends on the decision context, affected people, error costs, and applicable constraints. Documented criteria and authorized trade-offs are more defensible than treating one parity result as universal proof."
+      },
+      {
+        "id": "c",
+        "text": "Choose the configuration with the highest overall classification accuracy and treat its pooled score as the fairness acceptance criterion.",
+        "note": "Overall accuracy can prefer a configuration that concentrates harmful errors in a smaller group. It does not resolve missed abuse, delayed legitimate speech, or the distribution of review burdens."
+      },
+      {
+        "id": "d",
+        "text": "Equalize false-alarm rates and treat that parity result as sufficient, even if missed abusive posts remain concentrated in one group.",
+        "note": "False-alarm parity addresses one relevant burden but does not establish fairness across all stated harms. Acceptance must also consider missed abuse, uncertainty, context, and authorized trade-offs."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.5.json",
+    "orig_id": "ccarp-5.5-contextual-fairness-criteria",
+    "license": "MIT"
+  }
+}

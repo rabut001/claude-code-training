@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-015",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Output Handling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which technique most reliably produces machine-readable structured output?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Instruct the model firmly and repeatedly to emit nothing but valid JSON.",
+        "note": "Better than nothing, but it still leaves an unguarded parse in production."
+      },
+      {
+        "id": "b",
+        "text": "Extract the payload from the response text using tuned regular expressions.",
+        "note": "Regex extraction is brittle and fails on nesting and edge cases."
+      },
+      {
+        "id": "c",
+        "text": "Set temperature to 0 so the output format stays stable across requests.",
+        "note": "Determinism does not guarantee schema conformance."
+      },
+      {
+        "id": "d",
+        "text": "Define a tool whose input_schema is the target shape and read its arguments.",
+        "note": ""
+      }
+    ],
+    "explanation": "A tool schema turns a formatting request into a typed contract: the model produces arguments conforming to your JSON Schema, so you read structured data instead of scraping prose."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use for structured output",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-015",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.5-context-before-indexing",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.5 Design a RAG pipeline with appropriate chunking and indexing strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "rag",
+    "contextual-retrieval",
+    "indexing"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A technical-manual chunk says, 'Replace this cartridge after the second cycle,' but the product family and operating mode appear only earlier in the manual. Searches that name that family and mode often miss this chunk. How should a Contextual Retrieval preprocessing pipeline address the missing information?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Embed the isolated chunk unchanged and add its product family only after retrieval selects it.",
+        "note": "Adding context after selection cannot help a chunk that was not retrieved. The missing family and mode must be represented when the search index is built."
+      },
+      {
+        "id": "b",
+        "text": "Replace all chunks in the manual with the same generic summary of the manufacturer's product range.",
+        "note": "A shared generic summary does not locate this cartridge instruction within its specific family and operating mode. It also removes the detailed source content needed for the answer."
+      },
+      {
+        "id": "c",
+        "text": "Generate concise, source-grounded chunk context from the full manual and prepend it before embedding and BM25 indexing.",
+        "note": "Chunk-specific context supplies the identity and conditions missing from the isolated text. Including it in both index representations can make the instruction retrievable by those contextual terms."
+      },
+      {
+        "id": "d",
+        "text": "Increase the answer model's output allowance while leaving the chunk representations unchanged.",
+        "note": "More generation space does not change what the retrieval system can find. The needed instruction still lacks its discriminating context in the index."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.5.json",
+    "orig_id": "ccarp-3.5-context-before-indexing",
+    "license": "MIT"
+  }
+}

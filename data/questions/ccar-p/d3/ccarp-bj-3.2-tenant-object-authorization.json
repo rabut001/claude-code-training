@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.2-tenant-object-authorization",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.2 Analyze authentication and authorization requirements to identify security gaps",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "authorization",
+    "tenant-isolation",
+    "client-tools"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A multi-tenant assistant authenticates users before allowing a client tool to fetch project records. The tool accepts project_id and tenant_id from model-generated arguments, and its service credential can read every tenant. A signed-in user requests a project belonging to another customer. Which missing control is most important?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Require another model turn to confirm that the requested tenant name matches the user's request.",
+        "note": "Matching the user's wording does not establish entitlement to another tenant's records. Model-generated confirmation cannot replace an authorization check at the data boundary."
+      },
+      {
+        "id": "b",
+        "text": "Require fresh multifactor authentication before the lookup while retaining model-selected tenant access.",
+        "note": "A fresh authentication challenge can strengthen confidence in identity but does not establish entitlement to another tenant's records. The broadly privileged handler still lacks the required access check."
+      },
+      {
+        "id": "c",
+        "text": "Bind access to the authenticated user's tenant and check project-level permission before returning data.",
+        "note": "Authentication identifies the caller, while tenant and object checks determine which records that caller may access. Model-provided identifiers must not override the trusted authorization context."
+      },
+      {
+        "id": "d",
+        "text": "Hide tenant_id from the visible tool description while leaving the lookup handler unchanged.",
+        "note": "Hiding a parameter does not enforce ownership of project_id. The handler still needs a trusted tenant boundary and an object-level permission decision."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    },
+    {
+      "title": "Anthropic: How tool use works",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works"
+    },
+    {
+      "title": "MCP specification: Authorization Security Considerations",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.2.json",
+    "orig_id": "ccarp-3.2-tenant-object-authorization",
+    "license": "MIT"
+  }
+}

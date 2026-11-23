@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-019",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Model Selection and Trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which task profile most justifies the most capable (and most expensive) model tier?",
+    "options": [
+      {
+        "id": "a",
+        "text": "High-volume sentiment tagging of short social media posts.",
+        "note": "High volume plus a simple task is the classic case for the cheapest tier."
+      },
+      {
+        "id": "b",
+        "text": "Extracting a date from a fixed-format field in a standard invoice header.",
+        "note": "A fixed-format extraction is handled easily by a small model."
+      },
+      {
+        "id": "c",
+        "text": "Translating short user-interface strings into a dozen target languages.",
+        "note": "Short string translation does not require frontier reasoning."
+      },
+      {
+        "id": "d",
+        "text": "Low-volume, high-stakes work where an error is expensive to discover.",
+        "note": ""
+      }
+    ],
+    "explanation": "Premium capability earns its price when volume is low, the reasoning is genuinely hard, and a mistake costs far more than the inference, such as multi-file refactoring or complex legal analysis."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Choosing a model",
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models/choosing-a-model"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-019",
+    "license": "MIT"
+  }
+}

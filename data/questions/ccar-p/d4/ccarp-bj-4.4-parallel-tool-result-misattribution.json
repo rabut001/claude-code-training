@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.4-parallel-tool-result-misattribution",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.4 Diagnose system issues (prompt failure, hallucinations, model mismatch)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "tool-diagnostics",
+    "tool-result-correlation",
+    "concurrency"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An assistant queries two regions concurrently and sometimes assigns the regions each other's totals. Tool execution logs show correct values. The adapter pairs results arriving in completion order with tool_use IDs kept in request order. Which correction addresses the demonstrated fault?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Carry each originating call ID through execution and attach its result to that ID.",
+        "note": "Concurrent calls can finish in a different order from issuance. Preserving each call's identity lets tool_use_id bind the value to the correct request instead of relying on arrival position."
+      },
+      {
+        "id": "b",
+        "text": "Add region-specific reasoning examples while preserving the current result adapter.",
+        "note": "Examples cannot reliably recover data that the application has mislabeled as belonging to another tool call. The incorrect association occurs before the model receives the results."
+      },
+      {
+        "id": "c",
+        "text": "Increase the model's output budget to accommodate a separate paragraph for each region.",
+        "note": "The evidence shows swapped tool-result identities, not truncated output. More generation space does not correct the application's association between a value and its request."
+      },
+      {
+        "id": "d",
+        "text": "Retry the faster region's lookup until both calls have similar response times.",
+        "note": "Similar timings do not guarantee a fixed completion order and introduce unnecessary calls. Correlation must remain correct regardless of which region responds first."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Handle tool calls",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+    },
+    {
+      "title": "Anthropic: How tool use works",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.4.json",
+    "orig_id": "ccarp-4.4-parallel-tool-result-misattribution",
+    "license": "MIT"
+  }
+}

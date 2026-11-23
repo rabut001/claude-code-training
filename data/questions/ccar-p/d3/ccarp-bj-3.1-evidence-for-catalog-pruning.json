@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.1-evidence-for-catalog-pruning",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.1 Evaluate tool/agent configuration for capability bloat",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "capability-bloat",
+    "tool-selection",
+    "task-coverage"
+  ],
+  "answer": [
+    "a",
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "A team proposes pruning an authorized engineering tool catalog because agents are slower and choose the wrong operation more often. Some rarely called tools are required for unusual repair cases. Which evidence should guide pruning without treating low usage alone as proof that a capability is unnecessary? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Measure definition-context tokens separately from call arguments and returned-result tokens.",
+        "note": "This separates upfront catalog overhead from runtime data volume. The appropriate fix differs when definitions rather than results consume the context."
+      },
+      {
+        "id": "b",
+        "text": "Inspect wrong-tool and wrong-argument cases for overlapping names, schemas, and operation descriptions.",
+        "note": "Observed selection failures reveal whether the catalog's interfaces are confusing. Removing or clarifying redundant interfaces can address that mechanism directly."
+      },
+      {
+        "id": "c",
+        "text": "Replay ordinary and rare required tasks with the proposed reduced catalog and compare completed outcomes.",
+        "note": "Outcome checks establish whether removed capabilities were redundant or necessary. Including rare repair tasks prevents a usage-based reduction from silently deleting required behavior."
+      },
+      {
+        "id": "d",
+        "text": "Rank tools by invocation frequency and accept every removal that improves the average frequency of those remaining.",
+        "note": "This statistic improves mechanically when rarely used tools disappear. It does not establish that the remaining catalog can complete the rare tasks the application must support."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing advanced tool use",
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use"
+    },
+    {
+      "title": "Anthropic: Pricing",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.1.json",
+    "orig_id": "ccarp-3.1-evidence-for-catalog-pruning",
+    "license": "MIT"
+  }
+}

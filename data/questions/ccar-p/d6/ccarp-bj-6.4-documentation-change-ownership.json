@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.4-documentation-change-ownership",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.4 Document architectures and provide implementation guidance",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "documentation-maintenance",
+    "change-ownership",
+    "release-gates"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "Three teams independently maintain a reservations assistant's prompt package, booking tool, and document corpus. Quarterly architecture slides now contradict the tool's approval flow and the corpus's deletion procedure. The release policy requires current control and recovery guidance before any affected change reaches production. Which documentation practices directly satisfy that policy without making the original architect a permanent coordinator? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep quarterly slide updates as the canonical architecture record and require on-call engineers to resolve any intervening differences from production logs.",
+        "note": "Quarterly snapshots knowingly leave release-time control and recovery guidance stale, moving the documentation gap into incident response."
+      },
+      {
+        "id": "b",
+        "text": "Assign canonical flow and runbook sections to component owners, and require affected sections and their reviewers to be updated in the change gate.",
+        "note": "Named ownership and release-coupled review keep the relevant implementation guidance current when the components actually change."
+      },
+      {
+        "id": "c",
+        "text": "Link all sections to each team's latest documentation without recording release associations, relying on independent edits to remain compatible automatically.",
+        "note": "Unversioned latest links cannot establish which independently changing instructions describe the released approval and deletion behavior."
+      },
+      {
+        "id": "d",
+        "text": "Associate approved documentation and evidence with each deployed release, preserving prior versions and checking cross-team control contracts before promotion.",
+        "note": "Release associations and contract checks establish which guidance applies, support recovery, and expose inconsistent assumptions before deployment."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    },
+    {
+      "title": "Google SRE: The Evolving SRE Engagement Model",
+      "url": "https://sre.google/sre-book/evolving-sre-engagement-model/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.4.json",
+    "orig_id": "ccarp-6.4-documentation-change-ownership",
+    "license": "MIT"
+  }
+}

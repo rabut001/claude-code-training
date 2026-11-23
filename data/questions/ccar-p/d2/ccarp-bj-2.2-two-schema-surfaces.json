@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.2-two-schema-surfaces",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.2 Design system prompts, templates, and guardrails",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "structured-outputs",
+    "strict-tool-use",
+    "api-contract"
+  ],
+  "answer": [
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "An application needs both a schema-constrained final JSON response and schema-constrained arguments for its create_draft tool. The selected model supports both features. Using the direct Messages API fields documented in the cited structured-output reference, which two configurations address the two output surfaces? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use only a JSON-only instruction and a JSON parser for the final response, treating successful parsing as schema enforcement.",
+        "note": "Parsing establishes JSON syntax, not required fields, types, or other schema constraints. A prompt-only instruction is not the documented constrained-decoding configuration."
+      },
+      {
+        "id": "b",
+        "text": "Set output_config.format to the supported JSON schema for the final response.",
+        "note": "This feature constrains the direct response structure. It is distinct from constraining the arguments of a tool call."
+      },
+      {
+        "id": "c",
+        "text": "Enable strict: true on the create_draft tool with its supported input schema.",
+        "note": "Strict tool use constrains tool names and inputs to their schema. It does not by itself specify the structure of the final response text."
+      },
+      {
+        "id": "d",
+        "text": "Put both schemas only into output_config.format and let its final-response grammar govern tool arguments too.",
+        "note": "The final-response grammar does not apply to tool-use blocks. Separate strict tool configuration is needed for the second surface."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Structured outputs",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.2.json",
+    "orig_id": "ccarp-2.2-two-schema-surfaces",
+    "license": "MIT"
+  }
+}

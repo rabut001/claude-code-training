@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.4-receiving-team-exercise",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.4 Document architectures and provide implementation guidance",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "operational-handoff",
+    "readiness-exercise",
+    "receiving-team"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A team taking over a Claude scheduling assistant has read the design and incident runbooks. During rehearsal, its on-call engineer cannot access the alert details or invoke the documented fallback using team credentials. The handoff agreement requires independent operation, not just document delivery. What is the appropriate acceptance action?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Accept the handoff once every engineer acknowledges reading the runbooks, keeping access repair as a normal post-transfer service request.",
+        "note": "Reading acknowledgment does not satisfy independent operation when the receiving team's actual access prevents the documented response."
+      },
+      {
+        "id": "b",
+        "text": "Fix the access and guidance gaps, repeat the receiving-team exercise, and transfer responsibility progressively with temporary developer backup.",
+        "note": "A repeated hands-on exercise demonstrates the required capability, while progressive transfer and backup reduce transition risk."
+      },
+      {
+        "id": "c",
+        "text": "Have the original architect demonstrate the fallback again and accept that successful demonstration as evidence of receiving-team readiness.",
+        "note": "The architect's access and skill do not establish that the receiving team can operate the service with its own credentials."
+      },
+      {
+        "id": "d",
+        "text": "Remove the alert-detail and fallback steps from the runbook so the documented procedure matches what the receiving team can currently do.",
+        "note": "Deleting unavailable but necessary response steps hides the readiness gap instead of providing the agreed operating capability."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Google SRE: The Evolving SRE Engagement Model",
+      "url": "https://sre.google/sre-book/evolving-sre-engagement-model/"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.4.json",
+    "orig_id": "ccarp-6.4-receiving-team-exercise",
+    "license": "MIT"
+  }
+}

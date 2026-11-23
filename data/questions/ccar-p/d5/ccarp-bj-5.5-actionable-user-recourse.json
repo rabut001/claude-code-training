@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.5-actionable-user-recourse",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.5 Address ethical AI considerations (bias, fairness, transparency)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "recourse",
+    "transparency",
+    "appeals",
+    "data-correction"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A scheduling assistant excludes some workers from preferred shifts because source availability records are outdated. The interface discloses AI use, but affected workers cannot see the relevant reason or challenge the record. Policy requires a usable correction and contest process before the next schedule is finalized. Which governance design best meets that requirement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Give case-specific reasons and a tracked appeal to an empowered reviewer, with record and outcome correction before schedule finalization.",
+        "note": "Notice becomes actionable when affected people can challenge the relevant evidence and someone has authority to change the result in time. Tracking resolution supports accountability and detection of recurring source errors."
+      },
+      {
+        "id": "b",
+        "text": "Publish a model description and aggregate fairness dashboard, directing individual workers to wait for the next monthly metrics update.",
+        "note": "System-level transparency does not correct an individual's outdated record or provide timely contest. The monthly cycle can miss the policy's next-schedule deadline."
+      },
+      {
+        "id": "c",
+        "text": "Offer a rerun button that asks the same assistant to reconsider using the unchanged records, without allowing staff to alter the result.",
+        "note": "Repetition with the same incorrect evidence can reproduce the exclusion. Without source correction or outcome authority, the process does not provide meaningful recourse."
+      },
+      {
+        "id": "d",
+        "text": "Add a feedback mailbox for usability comments and close cases once an automated acknowledgement has been sent to the worker.",
+        "note": "Acknowledgement is not adjudication or correction. A mailbox without decision ownership, remedial authority, and resolution before finalization cannot fulfill the contest requirement."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.5.json",
+    "orig_id": "ccarp-5.5-actionable-user-recourse",
+    "license": "MIT"
+  }
+}

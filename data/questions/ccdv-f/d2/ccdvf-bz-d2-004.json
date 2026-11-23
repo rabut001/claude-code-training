@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-004",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Where should a persistent instruction such as \"You are a claims triage assistant. Never quote a settlement figure.\" be placed in a Messages API request?",
+    "options": [
+      {
+        "id": "a",
+        "text": "In a message with role \"system\" inside the messages array.",
+        "note": "There is no system role inside the messages array in this API; this returns a 400."
+      },
+      {
+        "id": "b",
+        "text": "Prepended to the text of the first user message in the conversation.",
+        "note": "It would function, but it mixes durable configuration into conversational content."
+      },
+      {
+        "id": "c",
+        "text": "In the top-level system parameter of the request.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Repeated at the end of every user message so it stays in effect.",
+        "note": "Wasteful repetition, and it still leaves the instruction inside user-controlled text."
+      }
+    ],
+    "explanation": "The Messages API exposes system as its own top-level parameter. The messages array carries only user and assistant turns."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-004",
+    "license": "MIT"
+  }
+}

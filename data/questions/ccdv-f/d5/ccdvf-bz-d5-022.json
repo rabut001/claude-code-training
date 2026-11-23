@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-022",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Cost and Token Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Which change is most likely to reduce spend on a high-volume summarisation service without reducing quality?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Remove the system prompt entirely to save its tokens on every request.",
+        "note": "Saves very little and usually costs quality, which is a false economy."
+      },
+      {
+        "id": "b",
+        "text": "Set temperature to 0 so the model produces a more economical response.",
+        "note": "Sampling temperature has no effect on price."
+      },
+      {
+        "id": "c",
+        "text": "Trim input boilerplate, cap output length, and cache the stable prefix.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Disable streaming, since incremental delivery carries a billing overhead.",
+        "note": "Streaming is billed identically to a blocking response."
+      }
+    ],
+    "explanation": "Spend is tokens in plus tokens out. Those three reduce token volume rather than degrade the task: less input, no output nobody reads, and a discounted rate on the repeated prefix."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Prompt caching",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-022",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.4-asynchronous-result-consistency",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.4 Design multi-agent systems and orchestration strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "asynchronous-orchestration",
+    "state-consistency",
+    "result-versioning"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A lead agent revises a study from plan A to plan B while asynchronous workers are still running. A late worker returns a valid result for plan A after several plan B results. The final report must use one approved plan and data snapshot. How should the orchestrator prevent a mixed report?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Accept results in arrival order and let the most recently returned findings replace earlier findings on the same topic.",
+        "note": "Arrival order reflects execution timing, not semantic compatibility. A late result can belong to the superseded plan and overwrite current evidence."
+      },
+      {
+        "id": "b",
+        "text": "Broadcast the new plan once and assume every result received after that message was produced under the revised instructions.",
+        "note": "In-flight workers may already have used the old plan or snapshot. A notification alone does not establish which version a returned artifact represents."
+      },
+      {
+        "id": "c",
+        "text": "Combine both sets of findings and ask a synthesis model to prefer whichever passages appear more detailed and internally consistent.",
+        "note": "Detail and internal consistency do not establish that evidence belongs to the approved plan. Content-based preference cannot enforce a version boundary."
+      },
+      {
+        "id": "d",
+        "text": "Identify every assignment and result by plan and data snapshot, reconciling incompatible versions before accepting evidence into synthesis.",
+        "note": "Explicit identities let the coordinator distinguish stale work from current work despite asynchronous arrival. Reconciliation or rerunning is required before incompatible evidence enters the approved report."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.4.json",
+    "orig_id": "ccarp-1.4-asynchronous-result-consistency",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-038",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Understanding Requirements",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Product wants an agent that can \"do anything a junior analyst can do\" in the internal finance system. What is the most important thing to establish before writing code?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Which model tier offers the best reasoning for financial analysis tasks.",
+        "note": "Premature; capability requirements follow from the scope of permitted actions."
+      },
+      {
+        "id": "b",
+        "text": "How many concurrent agent sessions the finance system can sustain.",
+        "note": "A capacity concern that matters later and does not shape the design."
+      },
+      {
+        "id": "c",
+        "text": "Whether the agent should present its reasoning steps to the end user.",
+        "note": "A UX decision, secondary to what the agent is allowed to do."
+      },
+      {
+        "id": "d",
+        "text": "Which actions are reversible, and which require approval before execution.",
+        "note": ""
+      }
+    ],
+    "explanation": "An open-ended mandate over a financial system is a blast-radius question first. The reversible/irreversible split defines the permission boundary every other design decision sits inside."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-038",
+    "license": "MIT"
+  }
+}

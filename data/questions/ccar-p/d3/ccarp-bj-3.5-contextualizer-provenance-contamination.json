@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.5-contextualizer-provenance-contamination",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.5 Design a RAG pipeline with appropriate chunking and indexing strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "rag",
+    "contextualization",
+    "indexing",
+    "source-grounding"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "During a new RAG pipeline's ingestion test, a generated context prefix attributes a component instruction to the wrong product, although the original chunk is intact. Both semantic and BM25 representations were built from that incorrect prefix plus the chunk. Queries for the wrong product now retrieve it. What correction should precede further answer-model tuning?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep the indexed prefix and instruct the answer model to trust whichever product name retrieval ranks highest.",
+        "note": "The ranking is already influenced by the incorrect product attribution. Trusting it reinforces the preprocessing error rather than grounding the answer in the source."
+      },
+      {
+        "id": "b",
+        "text": "Validate and correct the prefix against source context, regenerate affected index entries, and test product-specific retrieval.",
+        "note": "The false attribution entered both search representations during ingestion. Correcting the source-grounded context and its indexed representations removes that retrieval contamination at its origin."
+      },
+      {
+        "id": "c",
+        "text": "Correct the displayed prefix after retrieval but leave both indexed representations unchanged.",
+        "note": "Changing display text can prevent one misleading quotation but leaves the wrong-product candidate ranking intact. The false terms still influence which chunks are selected."
+      },
+      {
+        "id": "d",
+        "text": "Switch to semantic-only retrieval because lexical matching is the only stage affected by contextual text.",
+        "note": "The incorrect prefix was embedded as well as lexically indexed. Removing BM25 alone does not remove the wrong attribution from the semantic representation."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    },
+    {
+      "title": "Anthropic: Reduce hallucinations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.5.json",
+    "orig_id": "ccarp-3.5-contextualizer-provenance-contamination",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.6-realized-productive-capacity",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.6 Align solutions to business value pillars (efficiency, transformation, productivity, cost, performance SLAs)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "productivity",
+    "baseline-comparison",
+    "human-workflow"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An analyst assistant generates assessment drafts four times faster. The business goal is more completed assessments with the same team, not a staffing reduction. Analysts still gather evidence, review drafts, and obtain approval. Which measurement best tests whether the pilot delivers the intended productivity gain?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Approved assessments completed per analyst hour at the required quality, compared with the existing process.",
+        "note": "This measures realized capacity across the whole human workflow. It accounts for evidence collection, review, and approval rather than assuming faster drafting translates directly into more completed work."
+      },
+      {
+        "id": "b",
+        "text": "Drafts generated per model request, compared with the previous prompt template and token allowance.",
+        "note": "More draft output can increase review work without increasing approved assessments. The unit does not represent the team's completed business work."
+      },
+      {
+        "id": "c",
+        "text": "Time until the first generated paragraph appears, averaged across all analyst sessions using the assistant.",
+        "note": "Early text latency measures responsiveness, not the analyst effort or approval throughput needed to establish productive capacity."
+      },
+      {
+        "id": "d",
+        "text": "The fraction of analysts who open the assistant each week, compared with the rollout adoption target.",
+        "note": "Adoption indicates usage but not whether users complete more quality-assured assessments with the same effort. It is not a substitute for an outcome measure."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.6.json",
+    "orig_id": "ccarp-1.6-realized-productive-capacity",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.8-small-always-needed-toolset",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.8 Evaluate progressive discovery vs. monolithic context strategy",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "progressive-discovery",
+    "tool-context",
+    "latency"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An inspection assistant has four compact tools, and every supported task needs all four. Tool selection is accurate and definition tokens are negligible. A proposed progressive-discovery design would require a search before those same tools become available. Which starting configuration is best justified by these facts?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Load the four definitions directly and introduce discovery only if measured catalog growth or selection problems justify it.",
+        "note": "Direct loading is simple when the compact toolset is always relevant. Discovery would add a step without avoiding meaningful unused definition context in this workload."
+      },
+      {
+        "id": "b",
+        "text": "Require discovery for every tool because on-demand loading always reduces total completion latency.",
+        "note": "Discovery adds a search step before invocation. When all definitions are small and always needed, there is no established latency benefit to offset that step."
+      },
+      {
+        "id": "c",
+        "text": "Split the same four tools into vendor-specific deferred groups that are discovered separately.",
+        "note": "All four tools are needed for every task, so grouping does not avoid loading irrelevant capabilities. Separate discovery steps add overhead to an already small and accurate configuration."
+      },
+      {
+        "id": "d",
+        "text": "Replace the four tools with one autonomous dispatcher that selects and invokes them through another model turn.",
+        "note": "Another model-selected dispatcher adds orchestration to an already accurate, compact toolset. No catalog or selection problem in the scenario calls for that additional layer."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Tool search tool",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool"
+    },
+    {
+      "title": "Anthropic Engineering: Introducing advanced tool use",
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.8.json",
+    "orig_id": "ccarp-3.8-small-always-needed-toolset",
+    "license": "MIT"
+  }
+}

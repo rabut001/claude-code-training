@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-047",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Configuration Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "What is the most appropriate content for a project's CLAUDE.md?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A full copy of the API documentation for every dependency in the project.",
+        "note": "Bloats every session with content that is better retrieved on demand."
+      },
+      {
+        "id": "b",
+        "text": "The current sprint's ticket list and the assignee for each item.",
+        "note": "Changes weekly and belongs in the issue tracker."
+      },
+      {
+        "id": "c",
+        "text": "Build and test commands, architectural conventions, and project-specific rules.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Database credentials and API keys, so tooling runs without extra setup.",
+        "note": "Committing secrets is a serious vulnerability regardless of the filename."
+      }
+    ],
+    "explanation": "It should carry durable, project-specific facts that are expensive to rediscover each session and stable enough to be worth committing."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Memory",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/memory"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-047",
+    "license": "MIT"
+  }
+}

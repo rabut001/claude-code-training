@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.5-modular-prompt-ownership",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.5 Implement prompt reuse strategies (caching, modular prompts, Skills)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "modular-prompts",
+    "template-versioning",
+    "instruction-ownership"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Three report-generating services copy the same instruction text, and corrections now reach only some copies. Each service also has its own output contract and request-specific evidence. The immediate goal is consistent maintenance, not lower API processing time. Which reuse approach best addresses that goal?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Version shared instructions centrally; compose each service's output rules and request evidence separately.",
+        "note": "Shared ownership removes duplicated maintenance while preserving distinct service contracts and data roles. This is a prompt-management design, not an automatic cache or instruction-following guarantee."
+      },
+      {
+        "id": "b",
+        "text": "Enable prompt caching independently for each copied prompt and use cache hits as proof that policy corrections are synchronized.",
+        "note": "Caching reuses exact submitted prefixes; it does not update the source copies. Divergent prompts can each have successful cache hits."
+      },
+      {
+        "id": "c",
+        "text": "Merge every service's output rules into one universal prompt and let the model infer the intended service from the evidence.",
+        "note": "This hides the output-contract selection inside inference and can introduce conflicts. Reuse should preserve explicit service-specific requirements instead of relying on incidental request content."
+      },
+      {
+        "id": "d",
+        "text": "Append the newest correction after each service's old instructions without resolving contradictions in the shared policy.",
+        "note": "Append-only patches keep multiple competing statements of the policy. They do not establish one maintainable authoritative version across services."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Effective context engineering for AI agents",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
+    },
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    },
+    {
+      "title": "Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.5.json",
+    "orig_id": "ccarp-2.5-modular-prompt-ownership",
+    "license": "MIT"
+  }
+}

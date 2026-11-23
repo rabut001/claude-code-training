@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.3-sufficient-zero-shot-baseline",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.3 Apply prompt engineering techniques (zero-shot, few-shot, chain-of-thought)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "zero-shot",
+    "minimal-prompts",
+    "evidence-driven-prompting"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A short instructions-only prompt, with no demonstrations, already meets a team's field-extraction quality threshold on representative and edge-case inputs. Response time is close to the allowed limit. What is the most defensible default for this zero-shot prompt?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retain the passing baseline; add demonstrations only to address observed failures.",
+        "note": "The minimal prompt already satisfies the stated quality contract. Examples add input and should be justified by a measured benefit rather than treated as mandatory."
+      },
+      {
+        "id": "b",
+        "text": "Add a fixed quota of examples because few-shot prompting is always more accurate than zero-shot prompting.",
+        "note": "Example relevance and task behavior matter more than meeting a universal quota. Few-shot prompting does not guarantee a quality improvement for an already sufficient prompt."
+      },
+      {
+        "id": "c",
+        "text": "Require a written step-by-step derivation before every extracted field to preserve correctness.",
+        "note": "Visible derivations add output work without evidence of a benefit for this task. Asking for them also does not guarantee that extraction is correct."
+      },
+      {
+        "id": "d",
+        "text": "Remove the field definitions because successful zero-shot results show that instructions are unnecessary.",
+        "note": "Zero-shot means no demonstrations, not no task instructions. Removing the definitions changes the evaluated contract and can introduce ambiguity."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Effective context engineering for AI agents",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
+    },
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.3.json",
+    "orig_id": "ccarp-2.3-sufficient-zero-shot-baseline",
+    "license": "MIT"
+  }
+}

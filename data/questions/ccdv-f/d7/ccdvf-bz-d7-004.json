@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-004",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "AI Application Security",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A retrieval-backed assistant returns a document the requesting user is not entitled to see. Where did the design fail?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The system prompt never mentioned the access control rules that apply.",
+        "note": "A prompt cannot enforce entitlements against an over-broad query."
+      },
+      {
+        "id": "b",
+        "text": "Retrieval was not filtered by the authenticated user's entitlements.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "The model tier was not capable enough to reason about the permission model.",
+        "note": "Permission enforcement is not a reasoning task for the model."
+      },
+      {
+        "id": "d",
+        "text": "The document itself was not tagged with a confidential classification label.",
+        "note": "Labels are metadata; the filter must actually be applied to the query."
+      }
+    ],
+    "explanation": "Access control belongs in the retrieval layer, before content reaches the model. Once an unauthorised document is in context, telling the model to keep it secret is a probabilistic guard on a deterministic boundary."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Mitigate jailbreaks",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-004",
+    "license": "MIT"
+  }
+}

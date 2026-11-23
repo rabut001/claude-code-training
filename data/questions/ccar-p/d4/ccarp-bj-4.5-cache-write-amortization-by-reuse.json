@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.5-cache-write-amortization-by-reuse",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.5 Optimize token usage, latency, and cost-performance trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "cache-economics",
+    "workload-reuse",
+    "cost-accounting"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "For a hypothetical supported deployment, processing a particular eligible prefix normally costs 1 budget unit, a cache write costs 1.4, and a cache read costs 0.2. One workload class uses each prefix once; another uses each identical prefix five times within its valid cache window. Suffix costs and quality are equal. Which policy minimizes these prefix-processing costs?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cache both classes because the cache-read price is below the ordinary-input price.",
+        "note": "The one-use class never earns a read saving and costs 1.4 rather than 1 unit when cached. Read pricing alone omits the write that must first be amortized."
+      },
+      {
+        "id": "b",
+        "text": "Cache the five-use class and leave the one-use class uncached.",
+        "note": "Five uncached uses cost 5 units; one write plus four reads costs 1.4 + 4 × 0.2 = 2.2. One-use prefixes cost less uncached, so this workload-specific policy minimizes both classes under the supplied hypothetical rates."
+      },
+      {
+        "id": "c",
+        "text": "Cache the one-use class and leave the five-use class uncached.",
+        "note": "This pays an unrecovered write premium for one-use prefixes and misses reusable-prefix savings on five-use prefixes. It selects the more expensive treatment for both classes."
+      },
+      {
+        "id": "d",
+        "text": "Cache neither class because a cache write costs more than ordinary processing.",
+        "note": "The write premium is real, but four inexpensive reads more than recover it in the five-use class. Comparing only the first use ignores the measured reuse within the valid cache lifetime."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    },
+    {
+      "title": "Anthropic: Pricing",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.5.json",
+    "orig_id": "ccarp-4.5-cache-write-amortization-by-reuse",
+    "license": "MIT"
+  }
+}

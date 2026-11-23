@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-001",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Context Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A coding agent's quality degrades after about 25 turns: it forgets earlier decisions and repeats work already done. Which technique addresses this most directly?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Compact older turns into a structured summary, keeping recent turns verbatim.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Raise max_tokens so each response has room to restate prior decisions.",
+        "note": "Output length has nothing to do with retaining earlier context."
+      },
+      {
+        "id": "c",
+        "text": "Increase the temperature so the agent stops retreading the same ground.",
+        "note": "Higher temperature increases variation, not recall."
+      },
+      {
+        "id": "d",
+        "text": "Disable tool use so that noisy tool results stop crowding the history.",
+        "note": "Removing capability does not restore context that was already lost."
+      }
+    ],
+    "explanation": "Compaction is the standard answer for long sessions: bulky historical turns are replaced by a dense summary that preserves decisions and state while recent turns stay in full. The information survives; the token cost does not."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-001",
+    "license": "MIT"
+  }
+}

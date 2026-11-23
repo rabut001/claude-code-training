@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-019",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Context Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A tool returns 40,000 tokens of raw HTML, of which roughly 300 tokens are relevant. What is the best handling?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Insert the complete HTML document so that no information is lost.",
+        "note": "Enormous recurring cost plus severe signal dilution."
+      },
+      {
+        "id": "b",
+        "text": "Extract the relevant portion and discard boilerplate before insertion.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Insert it all but instruct the model to ignore the irrelevant sections.",
+        "note": "You still pay for every token, and the instruction does not remove the distraction."
+      },
+      {
+        "id": "d",
+        "text": "Insert the first five thousand characters and discard the remainder.",
+        "note": "Arbitrary truncation is as likely to cut the relevant part as the boilerplate."
+      }
+    ],
+    "explanation": "Filtering tool output at the source is usually the largest single win in context management. You pay for those tokens on every subsequent turn and they dilute the signal the model needs."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D6-019",
+    "license": "MIT"
+  }
+}

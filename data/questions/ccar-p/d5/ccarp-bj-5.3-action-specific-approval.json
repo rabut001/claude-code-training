@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.3-action-specific-approval",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.3 Apply human-in-the-loop validation strategies",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "approval-scope",
+    "review-authority",
+    "replay-prevention",
+    "audit-evidence"
+  ],
+  "answer": [
+    "b",
+    "c",
+    "d"
+  ],
+  "en": {
+    "question": "A reviewer approves moving 12 specified records from workspace A to B. The action may wait in a queue or be retried; a bug can change the destination to C. Policy permits only the exact reviewed operation, requires current reviewer authority at execution, and permits it to execute at most once. Which three controls implement this approval contract? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Cache approval for the move-records tool name so retries can change the record set or destination without a second decision.",
+        "note": "Tool-level approval does not identify the operation the human reviewed. It would authorize the unreviewed move to C and other record sets."
+      },
+      {
+        "id": "b",
+        "text": "Bind the approval to the immutable record set, source, destination, and displayed evidence; require new review for a changed payload.",
+        "note": "Action-specific binding preserves the scope of the actual human decision. A changed destination cannot reuse evidence and consent for the original move."
+      },
+      {
+        "id": "c",
+        "text": "Revalidate the reviewer's current authority immediately before execution, holding the operation if that authority has been revoked.",
+        "note": "Queue delay can separate approval from the policy's required current authority. Checking at execution prevents a cached decision from bypassing revocation."
+      },
+      {
+        "id": "d",
+        "text": "Atomically claim the approved identity in durable shared state before dispatch; hold uncertain retries and retain decision, payload, and outcome records.",
+        "note": "The atomic unused-to-claimed transition prevents concurrent executors from replaying one approval; an audit log alone does not. Holding uncertain dispatches avoids assuming that a timeout means no effect. These are application-owned controls, not a native Claude approval guarantee."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "OWASP Transaction Authorization Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html"
+    },
+    {
+      "title": "Amazon Builders' Library: Making retries safe with idempotent APIs",
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.3.json",
+    "orig_id": "ccarp-5.3-action-specific-approval",
+    "license": "MIT"
+  }
+}

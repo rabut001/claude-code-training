@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.3-isolate-prompt-effect-from-calendar-changes",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.3 Conduct A/B testing and iterative improvements",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "ab-testing",
+    "confounding",
+    "controlled-comparisons"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A team ran the baseline prompt last week and a revised prompt this week. The search index and support staffing also changed between weeks, and user task completion increased. The team needs evidence that the prompt itself caused the improvement. Which next comparison is most informative?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Randomize concurrent eligible traffic between prompts with the other configuration held fixed.",
+        "note": "A concurrent controlled comparison reduces calendar and staffing confounds while holding retrieval and other configuration constant. It is designed to estimate the prompt change rather than the combined weekly changes."
+      },
+      {
+        "id": "b",
+        "text": "Run the baseline on the old index and the revised prompt on the new index for longer.",
+        "note": "Longer observation does not separate prompt effects from index effects when those factors remain tied to different arms. The comparison still tests two bundled configurations."
+      },
+      {
+        "id": "c",
+        "text": "Add more historical baseline sessions until both weeks have the same session count.",
+        "note": "Equal sample counts do not make the weeks comparable in task mix, staffing, or retrieval state. A larger historical comparison can preserve the same causal ambiguity."
+      },
+      {
+        "id": "d",
+        "text": "Normalize each week's completion rate by its total model-token consumption.",
+        "note": "Token normalization changes the metric but does not control the changed index or staffing. It cannot identify which of the simultaneous changes produced the completion improvement."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.3.json",
+    "orig_id": "ccarp-4.3-isolate-prompt-effect-from-calendar-changes",
+    "license": "MIT"
+  }
+}

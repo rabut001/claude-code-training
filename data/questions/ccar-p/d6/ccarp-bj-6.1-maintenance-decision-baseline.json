@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.1-maintenance-decision-baseline",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.1 Conduct structured discovery and requirement gathering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "discovery",
+    "business-baseline",
+    "workflow-boundaries"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A railway proposes using Claude to draft inspection reports. The sponsor wants maintenance decisions made sooner, but only report-writing time has been measured. Engineers must still verify findings and authorize work. What should discovery establish before selecting an architecture?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The fastest model configuration for producing reports of the current average length, using the existing report template.",
+        "note": "Generation speed addresses one stage, not the sponsor's elapsed time to an authorized maintenance decision."
+      },
+      {
+        "id": "b",
+        "text": "The current path to an authorized decision, its delays and rework, affected roles, and consequences of incorrect findings.",
+        "note": "This establishes the outcome baseline, workflow boundaries, and error costs against which a proposed solution can be assessed."
+      },
+      {
+        "id": "c",
+        "text": "The annual inspection volume multiplied by the demonstrated reduction in drafting time, treated as the expected decision-time improvement.",
+        "note": "Drafting-time savings do not establish the effect of verification queues, rework, or authorization on decision time."
+      },
+      {
+        "id": "d",
+        "text": "The reporting features preferred by engineering managers, ranked before examining the verification and authorization stages of the workflow.",
+        "note": "Manager preferences are useful inputs but cannot replace discovery of the stages that determine the stated business outcome."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.1.json",
+    "orig_id": "ccarp-6.1-maintenance-decision-baseline",
+    "license": "MIT"
+  }
+}

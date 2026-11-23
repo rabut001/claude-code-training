@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.5-controlled-decommissioning",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.5 Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "decommissioning",
+    "dependency-cutover",
+    "retention-and-deletion"
+  ],
+  "answer": [
+    "c",
+    "d"
+  ],
+  "en": {
+    "question": "A distributor is retiring a Claude contract-search service when its supplier agreement ends. Scheduled jobs and two downstream applications still use it. The approved retention schedule requires preserving selected decision and evaluation evidence while deleting expired confidential payloads; indefinite retention is not authorized. Which activities belong in the decommissioning plan? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Disable the web interface at contract end but leave background jobs and service credentials active until downstream users independently stop sending requests.",
+        "note": "Retiring only the interface leaves active dependencies and access paths outside the intended service shutdown and contract boundary."
+      },
+      {
+        "id": "b",
+        "text": "Delete all indexes, evaluation records, and decision history immediately, treating a clean storage account as sufficient evidence of safe retirement.",
+        "note": "Indiscriminate deletion violates the stated evidence-retention requirement and can obstruct investigations or understanding of downstream decisions."
+      },
+      {
+        "id": "c",
+        "text": "Inventory callers and jobs, notify owners, verify replacement or fallback cutover, then stop processing and revoke service access under an assigned owner.",
+        "note": "Managing dependencies and authority prevents abandoned callers, background processing, and credentials from outliving the retired service."
+      },
+      {
+        "id": "d",
+        "text": "Apply the approved retention and deletion schedule across owned and third-party stores, preserving required evidence and verifying disposal of expired payloads.",
+        "note": "Deliberate handling of retained evidence and expired data meets both continuity and confidentiality constraints without blanket deletion or indefinite retention."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.5.json",
+    "orig_id": "ccarp-6.5-controlled-decommissioning",
+    "license": "MIT"
+  }
+}

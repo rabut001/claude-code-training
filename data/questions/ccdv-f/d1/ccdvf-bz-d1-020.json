@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-020",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Patterns and Frameworks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A multi-agent system produces inconsistent results because two subagents make contradictory assumptions about the same entity. What is the most effective structural fix?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Merge the subagents back into one larger agent with a single shared context.",
+        "note": "Collapsing the architecture loses isolation and guarantees nothing."
+      },
+      {
+        "id": "b",
+        "text": "Increase each subagent's context window so more of the history is visible.",
+        "note": "More room does not make independent inferences agree."
+      },
+      {
+        "id": "c",
+        "text": "Resolve the entity once in the orchestrator and pass the value to each worker.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Run the subagents strictly in sequence instead of concurrently.",
+        "note": "Sequencing changes timing, not the independent inference."
+      }
+    ],
+    "explanation": "The contradiction arises because each subagent inferred the fact independently. Resolving it once and passing it down explicitly removes the ambiguity at its source."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-020",
+    "license": "MIT"
+  }
+}

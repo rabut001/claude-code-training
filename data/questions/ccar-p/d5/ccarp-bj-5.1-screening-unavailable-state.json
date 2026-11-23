@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.1-screening-unavailable-state",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.1 Implement guardrails and safety controls",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "fail-closed",
+    "screening",
+    "failure-handling"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An outbound-message service requires a positive screening verdict for each exact message before dispatch. A screen sometimes times out, refuses to classify, or returns malformed data. Policy allows delayed delivery and continued local drafting, but no unscreened dispatch. Which failure behavior meets the policy?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reuse the last positive verdict from the conversation and dispatch while recording the screening error.",
+        "note": "The previous verdict covers different content and cannot satisfy the per-message requirement. Logging the error does not make the new dispatch screened."
+      },
+      {
+        "id": "b",
+        "text": "Remove attachments and dispatch the remaining text, then screen that text when the service recovers.",
+        "note": "The remaining text is still an exact message without a positive verdict. Removing one content channel does not authorize another unscreened dispatch."
+      },
+      {
+        "id": "c",
+        "text": "Retry screening twice and dispatch if both retries fail, so a transient outage cannot block delivery indefinitely.",
+        "note": "Retry exhaustion describes availability, not safety approval. The policy permits delay, so a retry limit cannot turn an unknown verdict into permission."
+      },
+      {
+        "id": "d",
+        "text": "Keep drafting available but delivery pending until this exact message receives a usable positive screening verdict.",
+        "note": "Pending delivery fails closed without pretending the request disappeared. Local drafting can continue because it does not perform the prohibited unscreened dispatch."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "Anthropic: Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.1.json",
+    "orig_id": "ccarp-5.1-screening-unavailable-state",
+    "license": "MIT"
+  }
+}

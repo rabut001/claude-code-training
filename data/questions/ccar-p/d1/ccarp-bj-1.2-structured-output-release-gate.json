@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.2-structured-output-release-gate",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.2 Design end-to-end architectures (input → processing → output → feedback loops)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "output-contracts",
+    "failure-paths",
+    "business-validation"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An extraction service uses schema-constrained JSON responses to feed a purchase-order importer. Orders must also pass catalog and quantity checks. Refusals and output-limit termination are possible. Which processing-to-output boundary is appropriate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Handle completion exceptions, validate the returned record, and apply business checks before importing an order.",
+        "note": "Structured generation does not eliminate documented refusal or truncation cases, and schema validity does not establish catalog membership or acceptable quantities."
+      },
+      {
+        "id": "b",
+        "text": "Import every response that parses as JSON, then use the importer's error report to identify invalid business content.",
+        "note": "Parsing alone does not enforce the expected structure or business rules. Deferring validation can allow a malformed or unauthorized business record into the downstream system."
+      },
+      {
+        "id": "c",
+        "text": "Use strict tool inputs instead of JSON responses and treat matching tool arguments as approval to create the order.",
+        "note": "Constrained tool inputs regulate structure, not catalog correctness or authorization to import. Moving the schema boundary does not remove the business validation requirement."
+      },
+      {
+        "id": "d",
+        "text": "Retry interrupted generations and import the first complete response without repeating catalog or quantity validation.",
+        "note": "A retry can restore a complete response but does not establish semantic validity. Each candidate order still needs the required business checks."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Structured outputs",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+    },
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.2.json",
+    "orig_id": "ccarp-1.2-structured-output-release-gate",
+    "license": "MIT"
+  }
+}

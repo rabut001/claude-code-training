@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.2-inaccurate-private-inference",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.2 Identify risks, limitations, and failure modes of LLM systems",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "privacy-risk",
+    "sensitive-inference",
+    "purpose-limitation"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A workforce assistant infers employees' personal financial distress from attendance notes and saves those labels in manager-facing profiles. Several labels are demonstrably false. Company policy permits attendance summarization but forbids private-attribute profiling from these notes. The team argues there is no privacy risk because financial details were never supplied. What is the best risk response?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Treat the issue only as extraction accuracy, since a private attribute cannot be exposed unless it existed in the input records.",
+        "note": "Generated inferences can create sensitive claims about people even when the claims are absent from the source or inaccurate. Their storage and disclosure introduce risks beyond extraction quality."
+      },
+      {
+        "id": "b",
+        "text": "Retain the labels but require a higher model-reported confidence before displaying them to managers.",
+        "note": "A generated confidence value neither validates the private inference nor permits a use prohibited by policy. High-confidence false labels could still reach consequential profiles."
+      },
+      {
+        "id": "c",
+        "text": "Remove employee names from the labels while keeping them linked to employee IDs for use in manager-facing profiles.",
+        "note": "The linkage still associates the inferred attribute with an identifiable employee. Renaming the identifier does not remove the profiling or downstream exposure."
+      },
+      {
+        "id": "d",
+        "text": "Stop private profiling and remediate affected labels, including already distributed copies and downstream decisions.",
+        "note": "Sensitive inference and inaccurate attribution are recognized risks even without true private facts in the input. The response addresses both the forbidden purpose and harm from already distributed labels."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.2.json",
+    "orig_id": "ccarp-5.2-inaccurate-private-inference",
+    "license": "MIT"
+  }
+}

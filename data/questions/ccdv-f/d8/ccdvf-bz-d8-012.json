@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-012",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Agentic Customisation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Your team has a repeatable multi-step procedure (\"how we cut a release\") written in prose, with no external system calls. Which customisation mechanism fits best?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A Skill: reusable instructions applied automatically when the task matches.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "An MCP server, which is the most capable of the customisation mechanisms.",
+        "note": "MCP solves integration with external systems, and there is no system here."
+      },
+      {
+        "id": "c",
+        "text": "A custom tool with an empty input schema that returns the procedure text.",
+        "note": "A tool with no inputs and nothing to execute misuses the mechanism."
+      },
+      {
+        "id": "d",
+        "text": "A hook that fires on every prompt and prepends the release procedure.",
+        "note": "Hooks enforce deterministic actions at lifecycle points, not convey procedures."
+      }
+    ],
+    "explanation": "Skills package procedural knowledge as instructions applied when relevant. With no external system to call, the requirement is purely to teach the assistant the procedure."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Skills",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/skills"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-012",
+    "license": "MIT"
+  }
+}

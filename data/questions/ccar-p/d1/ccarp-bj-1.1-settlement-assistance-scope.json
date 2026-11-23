@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.1-settlement-assistance-scope",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.1 Translate business problems into Claude-based AI solutions",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "business-authority",
+    "evidence-contracts",
+    "solution-scoping"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "An insurer wants to reduce the time adjusters spend locating policy language and drafting settlement recommendations. Adjusters must retain settlement authority, and every recommended clause must be traceable to the applicable signed policy. Which requirements should shape the solution boundary? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Return recommendations with references to the applicable signed policy passages.",
+        "note": "The output contract must preserve the evidence needed to check applicability. A generic policy summary cannot establish which signed wording supports a particular recommendation."
+      },
+      {
+        "id": "b",
+        "text": "Allow payout execution when two drafting agents independently agree on the settlement amount.",
+        "note": "Agent agreement does not transfer settlement authority from the adjuster. This changes the authorized business process rather than merely assisting search and drafting."
+      },
+      {
+        "id": "c",
+        "text": "Keep settlement approval with the adjuster and expose drafting capabilities without payout authority.",
+        "note": "The architecture should assist the specified work while preserving the stated decision owner. Excluding payout authority prevents a drafting feature from becoming an autonomous settlement system."
+      },
+      {
+        "id": "d",
+        "text": "Replace signed policy retrieval with a comprehensive summary approved during the initial project pilot.",
+        "note": "A pilot summary can omit exceptions or cease to match a specific signed policy. It does not satisfy claim-level traceability to the applicable document."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "Anthropic: Reduce hallucinations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.1.json",
+    "orig_id": "ccarp-1.1-settlement-assistance-scope",
+    "license": "MIT"
+  }
+}

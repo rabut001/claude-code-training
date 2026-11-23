@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.3-bounded-agent-within-workflow",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.3 Select appropriate architectural patterns (workflow, agentic, augmented LLM)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "hybrid-architecture",
+    "workflow-boundaries",
+    "bounded-autonomy"
+  ],
+  "answer": [
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "An expense-audit process must always execute fixed eligibility checks and obtain employee approval before releasing a finding. Between those points, an investigator may need an unpredictable sequence of read-only searches to resolve discrepancies. Which design choices preserve both requirements? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Let the investigator decide whether fixed checks remain relevant after it has inspected the available evidence.",
+        "note": "The eligibility checks are mandatory, not optional investigative steps. Giving the agent authority to omit them violates the prescribed outer process."
+      },
+      {
+        "id": "b",
+        "text": "Keep mandatory checks and release approval as enforced transitions in the outer workflow.",
+        "note": "Application-controlled transitions preserve the required order and authority regardless of how the investigation proceeds."
+      },
+      {
+        "id": "c",
+        "text": "Use a bounded agent for discrepancy investigation inside that workflow, with a defined return contract.",
+        "note": "A model-directed stage supplies adaptive search without transferring control of the entire business process. Its return contract allows the fixed workflow to resume predictably."
+      },
+      {
+        "id": "d",
+        "text": "Replace employee approval with evaluator agreement whenever the investigation stays within its tool budget.",
+        "note": "Budget compliance and model agreement do not satisfy a requirement for employee approval. They constrain different aspects of execution."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.3.json",
+    "orig_id": "ccarp-1.3-bounded-agent-within-workflow",
+    "license": "MIT"
+  }
+}

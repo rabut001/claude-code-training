@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-026",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Architecture",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "When is a workflow the better choice than an agent?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Whenever the task is going to involve more than a single model call.",
+        "note": "Multiple calls can be orchestrated either way, so count is not the criterion."
+      },
+      {
+        "id": "b",
+        "text": "Only when cost is the sole consideration and quality can be traded away.",
+        "note": "Predictability and debuggability usually matter at least as much as cost."
+      },
+      {
+        "id": "c",
+        "text": "When the task requires no external tools and can run entirely in-process.",
+        "note": "Workflows frequently call tools at fixed points in the sequence."
+      },
+      {
+        "id": "d",
+        "text": "When the required steps are known and expressible as predefined code paths.",
+        "note": ""
+      }
+    ],
+    "explanation": "The dividing line is whether you know the steps. If you do, encoding them gives deterministic control flow, testable stages, and a system you can reason about; reserve agents for genuinely unknown paths."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D1-026",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.2-protected-resource-discovery",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.2 Analyze authentication and authorization requirements to identify security gaps",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "mcp",
+    "oauth",
+    "authorization-discovery"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A protected HTTP MCP deployment implements the authorization specification for MCP 2026-07-28. An integrator assumes the authorization server must be hosted at the MCP endpoint's origin and rejects a separately hosted identity service. What discovery design should replace this assumption?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use the MCP server's OAuth Protected Resource Metadata to discover its advertised authorization server.",
+        "note": "This version requires the protected MCP resource to implement RFC 9728 metadata and the client to use it for authorization-server discovery. The authorization server can be hosted separately from the resource."
+      },
+      {
+        "id": "b",
+        "text": "Try the user's existing identity-provider token against the MCP endpoint and infer the issuer from success.",
+        "note": "A token for another resource is not a discovery mechanism and must not be accepted merely because its signature is valid. Discovery should precede requesting a token for the intended MCP resource."
+      },
+      {
+        "id": "c",
+        "text": "Read the authorization-server URL from the description of the first tool returned by the server.",
+        "note": "Tool descriptions are not the specified authorization discovery channel. A protected endpoint may require authorization before it returns tools at all."
+      },
+      {
+        "id": "d",
+        "text": "Require Dynamic Client Registration at the MCP endpoint's origin before considering any other issuer.",
+        "note": "Dynamic Client Registration is optional compatibility support in this version, not a mandatory same-origin bootstrap. Protected Resource Metadata supplies the required discovery boundary."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "MCP specification: Authorization",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.2.json",
+    "orig_id": "ccarp-3.2-protected-resource-discovery",
+    "license": "MIT"
+  }
+}

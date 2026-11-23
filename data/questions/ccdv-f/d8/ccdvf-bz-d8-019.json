@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-019",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Tool Implementation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A delete_record tool receives record_id \"12345 OR 1=1\". Where must this be stopped?",
+    "options": [
+      {
+        "id": "a",
+        "text": "In the tool description, by warning the model against malicious arguments.",
+        "note": "A description is guidance to the model, not a control on execution."
+      },
+      {
+        "id": "b",
+        "text": "In the implementation: validate the argument, parameterise, check authorisation.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "In the sampler, by setting temperature to 0 so arguments come out clean.",
+        "note": "Determinism does not make an argument safe."
+      },
+      {
+        "id": "d",
+        "text": "In the system prompt, by instructing the model to sanitise its own inputs.",
+        "note": "Asking the model to sanitise its own output is not a security boundary."
+      }
+    ],
+    "explanation": "Tool arguments are untrusted input whether they came from a confused model or an injected instruction, so validation, parameterised queries, and authorisation belong at the execution site."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D8-019",
+    "license": "MIT"
+  }
+}

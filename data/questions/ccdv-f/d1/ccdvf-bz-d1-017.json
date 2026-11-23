@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-017",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Patterns and Frameworks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "What is the main reason to delegate a subtask to a subagent rather than continuing in the main conversation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tokens consumed inside a subagent are billed at a lower published rate.",
+        "note": "Tokens are priced the same wherever they are consumed."
+      },
+      {
+        "id": "b",
+        "text": "The subtask runs in an isolated context and returns only its conclusion.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Subagents can be granted tools that the main agent is not permitted to use.",
+        "note": "Tool availability is a configuration choice, not an inherent property."
+      },
+      {
+        "id": "d",
+        "text": "Subagent turns are excluded from the token accounting for the parent run.",
+        "note": "Subagents consume billed tokens exactly like any other model call."
+      }
+    ],
+    "explanation": "Context isolation is the point. A subagent can read twenty files and hand back a paragraph, so the main conversation pays for the conclusion rather than the whole exploration."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Subagents",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/sub-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-017",
+    "license": "MIT"
+  }
+}

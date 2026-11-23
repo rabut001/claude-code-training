@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-009",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Prompt Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "When do few-shot examples deliver the most value?",
+    "options": [
+      {
+        "id": "a",
+        "text": "When the task is simple and the instruction is already unambiguous.",
+        "note": "Simple tasks rarely need examples; they just add tokens."
+      },
+      {
+        "id": "b",
+        "text": "When an output format or edge-case convention is easier shown than described.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "When input token count must be reduced without changing the task at all.",
+        "note": "Examples increase input tokens rather than reducing them."
+      },
+      {
+        "id": "d",
+        "text": "When the model needs access to private data it was not trained on.",
+        "note": "Examples cannot supply missing data; that is retrieval's job."
+      }
+    ],
+    "explanation": "Examples are most powerful for conveying format and conventions, especially edge cases where a prose rule would be long and ambiguous but a single demonstration is instantly clear."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Multishot prompting",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-009",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.5-skill-surface-promotion",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.5 Implement prompt reuse strategies (caching, modular prompts, Skills)",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "skills",
+    "surface-compatibility",
+    "skill-security"
+  ],
+  "answer": [
+    "a",
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A custom inspection-report Skill works in Claude Code. Its helper downloads calibration tables and installs a Python package at runtime. The team wants to reuse it in the Claude API and claude.ai. Under the runtime and cross-surface constraints documented in the cited Skills overview, which decisions belong in the promotion plan? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Distribute and track the intended Skill version separately on each surface rather than assuming automatic synchronization.",
+        "note": "Custom Skills do not automatically sync among Claude Code, the API, and claude.ai. Deliberate per-surface distribution is needed to keep the intended content available."
+      },
+      {
+        "id": "b",
+        "text": "Enable the API's required code execution environment and redesign the helper around its available dependencies and lack of runtime network access.",
+        "note": "The cited API Skills environment requires code execution and cannot download tables or install packages at runtime. Inputs or preprocessing must be supplied through a supported path rather than inherited from Claude Code's environment."
+      },
+      {
+        "id": "c",
+        "text": "Use the successful Claude Code execution as certification that network access, package installation, and sharing behave identically on all surfaces.",
+        "note": "The surfaces have different runtime and sharing constraints. Success in the local environment does not establish API or claude.ai compatibility."
+      },
+      {
+        "id": "d",
+        "text": "Audit the instructions, scripts, and referenced resources, and restrict the tools and data available to the Skill.",
+        "note": "A Skill carries instructions and potentially executable code, so it requires software-like trust review. Packaging procedural knowledge does not create an independent permission boundary."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Agent Skills",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+    },
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.5.json",
+    "orig_id": "ccarp-2.5-skill-surface-promotion",
+    "license": "MIT"
+  }
+}

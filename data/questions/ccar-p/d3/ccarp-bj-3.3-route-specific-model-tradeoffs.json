@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.3-route-specific-model-tradeoffs",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.3 Evaluate accuracy-latency trade-offs and justify configuration decisions",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "latency",
+    "model-routing",
+    "quality-slices"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An authenticated work_type field reliably distinguishes routine equipment checks from exception investigations. Routine checks require 98% accuracy and p95 at most 3 seconds; investigations require 95% and p95 at most 10 seconds. On held-out slices, a fast configuration scores 99%/2 seconds for routine work but 81%/2 seconds for investigations. A stronger configuration scores 99%/9 seconds and 97%/9 seconds respectively. Which routing decision meets the measured requirements?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use the fast configuration for every request because routine work dominates the aggregate accuracy score.",
+        "note": "The fast configuration fails the investigation accuracy gate by a wide margin. Traffic-weighted aggregate accuracy would hide that explicit slice failure."
+      },
+      {
+        "id": "b",
+        "text": "Route routine checks to the fast configuration and investigations to the stronger configuration using work_type.",
+        "note": "Each selected path satisfies its own measured quality and p95 gate. The trusted routing field supplies a dependable distinction rather than relying on an unevaluated confidence guess."
+      },
+      {
+        "id": "c",
+        "text": "Use the stronger configuration for every request because it meets both accuracy thresholds.",
+        "note": "The stronger configuration's 9-second routine p95 violates the 3-second routine limit. Meeting accuracy alone does not satisfy the complete routine contract."
+      },
+      {
+        "id": "d",
+        "text": "Randomly divide each work type equally between the configurations to balance their latency and accuracy.",
+        "note": "Random assignment sends investigations to a configuration that fails their quality gate and routine work to a path that fails its latency gate. It ignores the reliable routing information already available."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Choosing the right model",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.3.json",
+    "orig_id": "ccarp-3.3-route-specific-model-tradeoffs",
+    "license": "MIT"
+  }
+}

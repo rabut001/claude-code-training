@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-005",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Architecture",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A drafting system generates a marketing email, critiques it against brand guidelines, and revises — repeating until the critique passes. Which pattern is this, and what must be added for production safety?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Routing, with a fallback category for tickets that match no known class.",
+        "note": "There is no classification or dispatch step anywhere in the description."
+      },
+      {
+        "id": "b",
+        "text": "Parallelisation, with a merge function that reconciles the parallel outputs.",
+        "note": "Nothing runs concurrently and there is nothing to merge."
+      },
+      {
+        "id": "c",
+        "text": "Prompt chaining, with a cache breakpoint after the stable instruction block.",
+        "note": "The sequence is a feedback loop rather than a fixed forward chain."
+      },
+      {
+        "id": "d",
+        "text": "Evaluator-optimiser, with a maximum iteration count to bound the loop.",
+        "note": ""
+      }
+    ],
+    "explanation": "Generate-critique-revise is the evaluator-optimiser loop, and its characteristic failure is non-convergence. A deterministic ceiling in the harness, plus a defined behaviour when it is reached, is required."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-005",
+    "license": "MIT"
+  }
+}

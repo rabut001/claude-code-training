@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-015",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Construction with Claude",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A tool call fails with a transient network error inside an agent loop. What should the tool handler return?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A tool_result flagged as an error, carrying a clear and actionable message.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Nothing; raise the exception so the entire agent run is aborted immediately.",
+        "note": "Aborting on a transient error discards all prior work unnecessarily."
+      },
+      {
+        "id": "c",
+        "text": "An empty string, allowing the agent to move on to its next chosen step.",
+        "note": "An empty result is indistinguishable from \"no data found\" and invites wrong answers."
+      },
+      {
+        "id": "d",
+        "text": "Plausible placeholder data so that the loop is able to continue running.",
+        "note": "Fabricated data corrupts every downstream step, which is the worst outcome."
+      }
+    ],
+    "explanation": "Tool failures are normal events in an agent loop rather than fatal ones. The protocol supports signalling an error result, which keeps the model informed so it can retry or route around the failure."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use — handling errors",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-015",
+    "license": "MIT"
+  }
+}

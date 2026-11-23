@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-015",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "Identity, Secrets, and Key Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A developer commits an API key, notices within minutes, and pushes a commit removing it. What must happen next?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Treat it as compromised: revoke, rotate, and review usage logs for the window.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Nothing further, because the key no longer appears in the current file.",
+        "note": "The key remains in git history and in every existing clone."
+      },
+      {
+        "id": "c",
+        "text": "Rewrite the git history to remove the commit and consider the matter closed.",
+        "note": "History rewriting does not retract copies already fetched."
+      },
+      {
+        "id": "d",
+        "text": "Add the affected file to .gitignore so the key cannot be committed again.",
+        "note": "Prevents recurrence but does nothing about the key already exposed."
+      }
+    ],
+    "explanation": "Once pushed, a secret must be assumed captured. It persists in history, clones, forks, CI caches, and automated scrapers that monitor public pushes continuously, so removal is not remediation."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Getting started",
+      "url": "https://docs.anthropic.com/en/api/getting-started"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D7-015",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-008",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "MCP Server Development",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Which three primitives does the Model Context Protocol define?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tools, resources, and prompts.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Models, prompts, and embeddings.",
+        "note": "Models and embeddings are not MCP primitives."
+      },
+      {
+        "id": "c",
+        "text": "Agents, subagents, and hooks.",
+        "note": "These are Claude Code concepts rather than protocol primitives."
+      },
+      {
+        "id": "d",
+        "text": "Functions, schemas, and transports.",
+        "note": "Schemas and transports are mechanisms, not primitives."
+      }
+    ],
+    "explanation": "Tools are actions the model invokes, resources are data the application exposes for context, and prompts are reusable templates the user invokes. Their control differs: model, application, and user respectively."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Model Context Protocol — Specification",
+      "url": "https://modelcontextprotocol.io/docs/concepts/architecture"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-008",
+    "license": "MIT"
+  }
+}

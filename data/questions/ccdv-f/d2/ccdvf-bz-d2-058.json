@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-058",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Which statement about the system parameter is correct?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is supplied as a message with role \"system\" inside the messages array.",
+        "note": "There is no system role within the messages array in this API."
+      },
+      {
+        "id": "b",
+        "text": "It is a top-level request parameter, separate from the messages array.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "It must be repeated inside each user message in order to remain in effect.",
+        "note": "It applies to the whole request, so repeating it only wastes tokens."
+      },
+      {
+        "id": "d",
+        "text": "It becomes available only on requests that also define one or more tools.",
+        "note": "It is always available and is independent of tool use."
+      }
+    ],
+    "explanation": "The messages array contains only user and assistant turns. Placing a \"system\" role inside it is a common error that produces a 400."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D2-058",
+    "license": "MIT"
+  }
+}

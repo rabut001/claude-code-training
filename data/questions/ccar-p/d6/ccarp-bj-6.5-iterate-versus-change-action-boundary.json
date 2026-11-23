@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.5-iterate-versus-change-action-boundary",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.5 Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "lifecycle-transition",
+    "uncertain-side-effects",
+    "safe-recovery"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A campus assistant is moving from purchase recommendations to supervisor-approved supplier orders. Every candidate plan enforces approval before sending. The supplier API lacks idempotency and offers no reliable lookup after an ambiguous timeout. A draft-only fallback is available. The release must prevent duplicate binding orders, including after rollback, while preserving unresolved operation records for reconciliation. Which transition plan meets these recovery constraints?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rehearse stop-and-reconcile recovery: disable dispatch, retain unresolved records without resending, and restore draft-only service while owners resolve supplier status.",
+        "note": "A timeout cannot establish whether the non-idempotent supplier action committed. Stopping new dispatch and preserving uncertain records avoids blind replay while the approved fallback maintains a useful bounded service."
+      },
+      {
+        "id": "b",
+        "text": "Rehearse rollback of the prompt and model, retaining approved queued requests so the restored release automatically retries every timed-out order.",
+        "note": "Prompt/model rollback does not reverse supplier effects. A previously committed but unacknowledged order can be duplicated by automatic replay even though its original approval remains valid."
+      },
+      {
+        "id": "c",
+        "text": "Rehearse per-order supervisor reapproval after each timeout, then resend the unchanged order using the new approval as its recovery identity.",
+        "note": "A fresh approval does not determine whether the original order committed. With no supplier idempotency or reliable lookup, reauthorization alone cannot make resending duplicate-safe."
+      },
+      {
+        "id": "d",
+        "text": "Rehearse restoring the last accepted queue snapshot and resuming dispatch, keeping later unresolved records only in a separate read-only audit export.",
+        "note": "An older queue snapshot can omit a post-snapshot send and resend the same business order. Preserving an audit copy without consulting unresolved operations in dispatch does not prevent duplication."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Amazon Builders' Library: Making retries safe with idempotent APIs",
+      "url": "https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.5.json",
+    "orig_id": "ccarp-6.5-iterate-versus-change-action-boundary",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-006",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Context Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A team compacts aggressively and now the agent makes decisions that contradict constraints agreed early in the session. What went wrong?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The summary narrated events instead of deliberately preserving constraints.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Compaction is inherently unsafe and should be avoided in production agents.",
+        "note": "Compaction is necessary for long sessions; the implementation was at fault."
+      },
+      {
+        "id": "c",
+        "text": "The context window is larger than the task needs, diluting recent material.",
+        "note": "Window size did not cause the loss of information."
+      },
+      {
+        "id": "d",
+        "text": "Temperature was set too high during the summarisation step of compaction.",
+        "note": "Temperature affects wording, not which categories of fact survive."
+      }
+    ],
+    "explanation": "Compaction is lossy by design, so what it keeps must be chosen deliberately. Constraints, decisions, and open items should be retained explicitly, or better still kept in structured state that is never summarised."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-006",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.3-privacy-aware-telemetry",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.3 Support debugging and operational issue resolution",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "opentelemetry",
+    "privacy",
+    "managed-configuration",
+    "data-minimization"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An enterprise wants centralized Claude Code telemetry for request latency, error categories, and tool permission trends. Source text, prompts, and conversation bodies must not be collected. Privacy review also requires deliberate handling of developer identities. Using the rolling monitoring documentation retrieved on 2026-10-26, which collection plan is appropriate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Commit exporter endpoint and activation variables to project settings so every repository branch establishes the central export path.",
+        "note": "Repository settings cannot enable or redirect the documented telemetry exporter variables. The export path must be configured through an allowed user, shell, or managed source rather than trusted to repository changes."
+      },
+      {
+        "id": "b",
+        "text": "Configure the required exporters centrally through managed settings, keep content and raw-body collection off, and minimize identity metadata with controlled access and retention.",
+        "note": "Managed configuration can establish the intended collector without enabling conversation capture. Default content exclusions do not anonymize attributes such as user.email or account/session identifiers, so identity handling still requires explicit controls."
+      },
+      {
+        "id": "c",
+        "text": "Use the default content exclusions as evidence that all exported metadata is anonymous and needs no developer-identity review.",
+        "note": "Content collection being off does not remove all identifying attributes. Standard telemetry can still contain email and account or session identifiers, which fall within the stated privacy review."
+      },
+      {
+        "id": "d",
+        "text": "Enable raw API body logging for richer diagnostics while leaving prompt and tool-content flags off to redact conversation text automatically.",
+        "note": "Raw API bodies can expose the entire conversation, not just timing metadata. Disabling the narrower content flags does not make raw-body collection satisfy the no-conversation requirement."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Monitoring",
+      "url": "https://code.claude.com/docs/en/monitoring-usage"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.3.json",
+    "orig_id": "ccarp-7.3-privacy-aware-telemetry",
+    "license": "MIT"
+  }
+}

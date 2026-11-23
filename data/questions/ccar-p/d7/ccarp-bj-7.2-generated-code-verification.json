@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.2-generated-code-verification",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.2 Improve developer workflows using AI-assisted tooling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "generated-code",
+    "verification",
+    "regression-testing"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A developer gives Claude Code a reproducible import defect, a failing fixture, and explicit acceptance criteria. Claude generates a patch and says the defect is fixed, but supplies no evidence that it ran any check. The team requires verified behavior before accepting generated changes. What is the appropriate next gate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Obtain approval from a fresh model reviewer and accept that independent judgment in place of executing the reproducer.",
+        "note": "Fresh review can find mistakes but does not demonstrate the failing input now works. It supplements rather than replaces executable acceptance evidence."
+      },
+      {
+        "id": "b",
+        "text": "Run the reproducer and relevant regression checks, inspect their actual results, and retain the normal diff-review and merge controls.",
+        "note": "The supplied fixture and relevant checks provide observable evidence of the repair and affected behavior. Reviewing the diff and keeping normal merge controls adds scrutiny without treating the model's assertion as proof."
+      },
+      {
+        "id": "c",
+        "text": "Require only a successful syntax or type check because a well-formed patch establishes that the import behavior is repaired.",
+        "note": "Structural checks can catch invalid code but may pass while the original import defect remains. The behavioral acceptance criteria still require the reproducer and relevant verification."
+      },
+      {
+        "id": "d",
+        "text": "Run only tests generated from the patch's current behavior, treating the pre-existing failing fixture as obsolete documentation.",
+        "note": "Tests derived solely from the proposed implementation can preserve its mistake. Discarding the supplied failure case removes the independent acceptance signal the team explicitly requires."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Best practices for Claude Code",
+      "url": "https://code.claude.com/docs/en/best-practices"
+    },
+    {
+      "title": "Claude Code GitHub Actions",
+      "url": "https://code.claude.com/docs/en/github-actions"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.2.json",
+    "orig_id": "ccarp-7.2-generated-code-verification",
+    "license": "MIT"
+  }
+}

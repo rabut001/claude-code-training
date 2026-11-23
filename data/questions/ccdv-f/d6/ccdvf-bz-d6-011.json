@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-011",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Prompt Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which approach to improving an underperforming prompt is most reliable?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rewrite it wholesale based on experience, then ship and watch for complaints.",
+        "note": "A full rewrite moves many variables at once, so you learn nothing about cause."
+      },
+      {
+        "id": "b",
+        "text": "Add as many explicit instructions as possible to cover every observed case.",
+        "note": "Overloaded prompts dilute the important instructions and often reduce accuracy."
+      },
+      {
+        "id": "c",
+        "text": "Ask Claude to critique and rate its own prompt, then apply its suggestions.",
+        "note": "Self-assessment is not a measurement of downstream task performance."
+      },
+      {
+        "id": "d",
+        "text": "Build a labelled eval set, change one thing at a time, and measure each change.",
+        "note": ""
+      }
+    ],
+    "explanation": "Prompt iteration without measurement is guessing. A fixed labelled set plus single-variable changes shows which edits helped and catches a change that fixes one category while breaking another."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-011",
+    "license": "MIT"
+  }
+}

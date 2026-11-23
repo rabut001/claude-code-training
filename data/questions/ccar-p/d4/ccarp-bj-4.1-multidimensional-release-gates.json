@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.1-multidimensional-release-gates",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.1 Define evaluation metrics (accuracy, latency, cost, safety, security)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "success-criteria",
+    "security-gates"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A change-request assistant must produce usable drafts within a completion-time target and budget. The security owner also requires zero successful cross-account reads in the defined attack suite. Which release scorecard preserves all of these requirements?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rank variants by a weighted average of draft quality, speed, cost, and security.",
+        "note": "A weighted average can let inexpensive, high-quality drafts compensate for a successful cross-account read. That violates the stated security acceptance gate."
+      },
+      {
+        "id": "b",
+        "text": "Gate on security and rank the remaining variants by API response success rate.",
+        "note": "Passing security is necessary, but API response success does not establish draft usability, application completion time, or budget compliance."
+      },
+      {
+        "id": "c",
+        "text": "Gate on security, then check draft quality, completion latency, and outcome cost separately.",
+        "note": "Separate measurements preserve the quality, latency, and cost requirements while preventing a security failure from being averaged away. The thresholds come from this application's requirements, not a universal benchmark."
+      },
+      {
+        "id": "d",
+        "text": "Gate on draft quality and require the combined latency-and-cost score to improve.",
+        "note": "This omits the independent security gate and can hide a latency-target violation behind cost savings. Improvement in a combined score is not compliance with each stated requirement."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.1.json",
+    "orig_id": "ccarp-4.1-multidimensional-release-gates",
+    "license": "MIT"
+  }
+}

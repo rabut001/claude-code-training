@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.3-reranking-complete-tradeoff",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.3 Evaluate accuracy-latency trade-offs and justify configuration decisions",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "latency",
+    "reranking",
+    "rag",
+    "grounding"
+  ],
+  "answer": [
+    "a",
+    "d"
+  ],
+  "en": {
+    "question": "A RAG service considers reranking a broad candidate set and sending fewer chunks to generation. Initial experiments improve retrieval recall, but the product owner requires grounded final answers and a p95 completion-time limit. Which evaluations are necessary to justify this configuration rather than assume reranking is a free accuracy improvement? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Compare end-to-end completion-time distributions with the reranking stage and reduced generation context included.",
+        "note": "Reranking adds runtime work while a smaller final context can reduce later work. Only the complete path shows the net effect on the required tail latency."
+      },
+      {
+        "id": "b",
+        "text": "Accept the configuration if initial retrieval recall improves, without grading the generated answers.",
+        "note": "Retrieval recall measures whether evidence enters a candidate set, not whether the final answer is grounded and correct. Reranking and generation can introduce different failures after initial retrieval."
+      },
+      {
+        "id": "c",
+        "text": "Assume a lower final chunk count proves both faster completion and unchanged answer quality.",
+        "note": "Fewer chunks can reduce generation input but may omit necessary evidence. The extra reranking cost and final-answer quality still require measurement."
+      },
+      {
+        "id": "d",
+        "text": "Grade final-answer correctness and grounding on representative queries, including cases needing evidence from several chunks.",
+        "note": "A smaller selected context can lose dependencies even when initial candidate recall is high. Final-answer checks test the accuracy requirement at the boundary that users actually consume."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.3.json",
+    "orig_id": "ccarp-3.3-reranking-complete-tradeoff",
+    "license": "MIT"
+  }
+}

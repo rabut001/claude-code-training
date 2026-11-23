@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.5-explicit-stable-prefix-write",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.5 Implement prompt reuse strategies (caching, modular prompts, Skills)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "prompt-caching",
+    "automatic-caching",
+    "prefix-breakpoints"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A moderation evaluation sends an identical rubric and demonstrations followed by a different test fragment on every request. Top-level automatic caching places its breakpoint after the fragment. Logs show repeated cache creation but no reads; requests are within cache lifetime. The unchanged rubric-and-demonstrations prefix alone meets the selected model/platform's minimum cacheable length, but no entry was written at that boundary. Which change targets the cause?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep the breakpoint on the changing fragment until automatic caching learns which earlier text is stable.",
+        "note": "Automatic prefix checking looks for matching entries previously written at actual breakpoints. It does not learn and create an unwritten stable boundary behind a changing suffix."
+      },
+      {
+        "id": "b",
+        "text": "Choose a longer cache lifetime without changing where the cache entry is written.",
+        "note": "The existing entries include different fragments, so their cumulative prefix hashes differ. Longer retention does not make those prefixes match."
+      },
+      {
+        "id": "c",
+        "text": "Mark only the changing fragment as cacheable and treat its block as independent of the preceding rubric.",
+        "note": "A cache breakpoint covers the entire prefix through its block, not an isolated text fragment. It still includes the varying content."
+      },
+      {
+        "id": "d",
+        "text": "Write an explicit breakpoint at the end of the unchanged rubric and demonstrations, with each test fragment after it.",
+        "note": "This creates an entry at the reusable prefix boundary. Later requests can match that exact written prefix while processing their different fragments separately."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.5.json",
+    "orig_id": "ccarp-2.5-explicit-stable-prefix-write",
+    "license": "MIT"
+  }
+}

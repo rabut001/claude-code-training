@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-008",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "LLM Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A classifier prompt works perfectly on ten hand-picked examples but scores 71% on a held-out set of 400. What is the most likely explanation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The model version changed between the two measurement runs.",
+        "note": "Possible, but a version change would usually move both numbers together."
+      },
+      {
+        "id": "b",
+        "text": "The held-out set of 400 examples is substantially mislabelled.",
+        "note": "Worth spot-checking, though a 29-point gap points at methodology first."
+      },
+      {
+        "id": "c",
+        "text": "The prompt was iterated against those ten cases, so it overfits them.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Sampling temperature was set too low for a classification workload.",
+        "note": "Temperature does not explain a systematic generalisation gap."
+      }
+    ],
+    "explanation": "Tuning a prompt against the same cases you measure on is overfitting. Those ten stopped being an evaluation the moment they became the optimisation target; a held-out set must never be used for tuning."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-008",
+    "license": "MIT"
+  }
+}

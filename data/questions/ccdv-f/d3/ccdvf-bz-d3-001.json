@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d3-001",
+  "exam": "ccdv-f",
+  "domain": "d3",
+  "subdomain": "Claude Code Operation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A developer wants Claude Code to analyse a large refactor and present an approach for approval before touching any files. Which mechanism is designed for this?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Headless mode, which runs the whole refactor and reports what it changed.",
+        "note": "Headless mode is for non-interactive scripted use, the opposite of an approval step."
+      },
+      {
+        "id": "b",
+        "text": "The /clear command, which resets context before a large piece of work.",
+        "note": "/clear wipes the conversation context and gates nothing."
+      },
+      {
+        "id": "c",
+        "text": "Plan mode, which restricts Claude to investigation and proposes a plan.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "A subagent, which performs the refactor in an isolated working context.",
+        "note": "A subagent isolates context for a subtask; it does not gate file modification."
+      }
+    ],
+    "explanation": "Plan mode exists for risky or wide-reaching changes: Claude may read and analyse but not modify, and you approve the plan before execution. That is a structural gate rather than a request to be careful."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Common workflows",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/common-workflows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d3-claude-code.js",
+    "orig_id": "D3-001",
+    "license": "MIT"
+  }
+}

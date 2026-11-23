@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-026",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Cost and Token Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A support bot sends a 9,000-token knowledge base plus a 40-token user question on every request. Prompt caching is enabled but the hit rate is near zero. What is the most likely cause?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A 9,000-token knowledge base exceeds the maximum cacheable prefix size.",
+        "note": "9,000 tokens is well within range and is exactly what caching targets."
+      },
+      {
+        "id": "b",
+        "text": "Prompt caching is only available to requests submitted through the Batch API.",
+        "note": "Caching is a Messages API feature, independent of Batch."
+      },
+      {
+        "id": "c",
+        "text": "Sampling temperature is above zero, which excludes the request from caching.",
+        "note": "Sampling temperature does not participate in cache key matching."
+      },
+      {
+        "id": "d",
+        "text": "The variable content precedes the knowledge base, so no prefix repeats exactly.",
+        "note": ""
+      }
+    ],
+    "explanation": "Caching matches an exact prefix, so anything variable ahead of the stable block changes it on every call. Stable content first, variable content last."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Prompt caching",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D5-026",
+    "license": "MIT"
+  }
+}

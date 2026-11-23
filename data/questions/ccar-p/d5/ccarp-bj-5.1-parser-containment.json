@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.1-parser-containment",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.1 Implement guardrails and safety controls",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "sandboxing",
+    "least-privilege",
+    "untrusted-input"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A document assistant must parse arbitrary supplier attachments with a native parser. Security policy assumes a malicious attachment might exploit that parser: even then, the parse job must not read host credentials or contact the network. Only extracted text is needed. Which containment design best meets this threat model?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Run parsing in a rootless worker that mounts the application home directory read-only and shares the application's network access.",
+        "note": "Read-only mounting still permits credential disclosure, and rootless execution does not remove network access. Both resources remain reachable after a parser exploit."
+      },
+      {
+        "id": "b",
+        "text": "Run parsing on a separate worker with read-only production credentials and restrict network requests to authenticated HTTPS connections.",
+        "note": "Read-only credentials are still secrets, and authenticated HTTPS can still carry exfiltrated data. A separate host does not satisfy the explicit resource restrictions."
+      },
+      {
+        "id": "c",
+        "text": "Run parsing in the trusted application process, then screen and sanitize the extracted text before it enters the model context.",
+        "note": "Text screening occurs after the native parser has processed the attachment. It cannot contain code execution that already occurred in the credential-bearing application process."
+      },
+      {
+        "id": "d",
+        "text": "Run parsing in a disposable isolated sandbox with only the attachment mounted, no host secrets, blocked network access, and resource limits.",
+        "note": "The execution environment denies the resources the attacker seeks even if the parser is compromised. Resource limits also contain excessive work without depending on a model's judgment of the attachment."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.1.json",
+    "orig_id": "ccarp-5.1-parser-containment",
+    "license": "MIT"
+  }
+}

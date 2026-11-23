@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-007",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "You must know the token cost of a large assembled prompt before committing to the call, so the request can be rejected if it exceeds an internal budget. What is the cleanest way?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Divide the character count by four and add a safety margin for the estimate.",
+        "note": "A rough heuristic that drifts badly on code, JSON, and non-English text."
+      },
+      {
+        "id": "b",
+        "text": "Send the request and read usage.input_tokens from the returned response.",
+        "note": "That measures after you have already paid for the call you wanted to avoid."
+      },
+      {
+        "id": "c",
+        "text": "Inspect the Content-Length header on the outgoing HTTP request.",
+        "note": "Byte length is not token count; the ratio varies with content."
+      },
+      {
+        "id": "d",
+        "text": "Call the token counting endpoint with the assembled request before sending.",
+        "note": ""
+      }
+    ],
+    "explanation": "Token counting returns an exact figure for the real request without consuming generation, which is precisely what a pre-flight budget gate needs."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Token counting",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/token-counting"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-007",
+    "license": "MIT"
+  }
+}

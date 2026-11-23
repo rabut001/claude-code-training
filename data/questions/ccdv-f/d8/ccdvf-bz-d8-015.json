@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-015",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Agentic Customisation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A Skill is being written to help Claude generate compliance reports. Which content makes it most effective?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A concise one-line instruction telling Claude to generate reports correctly.",
+        "note": "Too vague to trigger reliably or to alter the output."
+      },
+      {
+        "id": "b",
+        "text": "The full source code of the internal service that stores report submissions.",
+        "note": "Implementation source is irrelevant to producing the report and wastes context."
+      },
+      {
+        "id": "c",
+        "text": "The list of employees who are authorised to request a compliance report.",
+        "note": "Authorisation is an access control concern enforced in the application."
+      },
+      {
+        "id": "d",
+        "text": "Triggering context plus the procedure, required sections, rules, and examples.",
+        "note": ""
+      }
+    ],
+    "explanation": "A Skill needs a description precise enough to be selected at the right moment and body content concrete enough to change the output: steps, structure, rules, and an example to pattern-match."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Skills",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/skills"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-015",
+    "license": "MIT"
+  }
+}

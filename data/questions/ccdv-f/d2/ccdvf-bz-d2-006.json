@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-006",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A summariser returns text that stops in the middle of a sentence. The response has stop_reason \"max_tokens\". What is the appropriate fix?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Lower the temperature so the model produces a more concise response.",
+        "note": "Temperature governs token selection, not how many tokens the answer requires."
+      },
+      {
+        "id": "b",
+        "text": "Retry the identical request until a complete response comes back.",
+        "note": "The same ceiling applies on every retry, so it truncates again."
+      },
+      {
+        "id": "c",
+        "text": "Add a stop sequence so generation ends cleanly at a sentence boundary.",
+        "note": "Stop sequences end generation earlier, which makes truncation more likely, not less."
+      },
+      {
+        "id": "d",
+        "text": "Raise max_tokens, or constrain the summary to fit the existing budget.",
+        "note": ""
+      }
+    ],
+    "explanation": "stop_reason is diagnostic. \"max_tokens\" means the output ceiling was reached, so either the ceiling must rise or the requested output must shrink. Nothing else is implicated."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-006",
+    "license": "MIT"
+  }
+}

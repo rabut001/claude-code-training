@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-016",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Patterns and Frameworks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "When does the parallelisation pattern with a voting step add the most value?",
+    "options": [
+      {
+        "id": "a",
+        "text": "When raw throughput is the only property the system needs to optimise.",
+        "note": "Voting increases work per item; sectioning is the throughput variant."
+      },
+      {
+        "id": "b",
+        "text": "When the task must be completed at the lowest achievable cost per item.",
+        "note": "It multiplies cost by the number of votes cast."
+      },
+      {
+        "id": "c",
+        "text": "When one judgement is error-prone and independent attempts can be compared.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "When the same input must yield a strictly reproducible output every time.",
+        "note": "Aggregating several stochastic runs does not produce reproducibility."
+      }
+    ],
+    "explanation": "Voting trades cost for confidence. Running a judgement independently several times and aggregating catches cases a single pass would miss, which is worth the multiplied spend when a miss is expensive."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-016",
+    "license": "MIT"
+  }
+}

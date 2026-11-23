@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-003",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Context Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "An agent must analyse 60 log files to find a root cause. Loading all of them exceeds the context window. What is the most effective structure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Truncate each file to its first hundred lines so that all 60 fit at once.",
+        "note": "Arbitrary truncation is likely to discard the very lines that matter."
+      },
+      {
+        "id": "b",
+        "text": "Move to a model with a larger window and load the complete set of files.",
+        "note": "Works briefly, costs more, and fails again as volume grows."
+      },
+      {
+        "id": "c",
+        "text": "Dispatch subagents over batches in isolated contexts, returning findings only.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Ask the user to nominate the single file most likely to contain the cause.",
+        "note": "Pushes the analysis back onto the user, which was the task itself."
+      }
+    ],
+    "explanation": "Task isolation is the canonical answer when analysis exceeds one window. Each subagent reads its batch in its own context and returns a short conclusion, so the parent reasons over 60 findings rather than 60 raw files."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Subagents",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/sub-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-003",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-050",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A request returns stop_reason \"max_tokens\" and the JSON body fails to parse. What is the correct response in code?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Re-issue the identical request, since valid JSON is likely on a later attempt.",
+        "note": "A blind retry hits the same ceiling and truncates again."
+      },
+      {
+        "id": "b",
+        "text": "Trim trailing characters from the payload until the JSON parses successfully.",
+        "note": "Salvaging truncated JSON yields a valid object with missing data, which is silently wrong."
+      },
+      {
+        "id": "c",
+        "text": "Treat it as truncation: raise max_tokens or request a more compact output.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Reduce the temperature and re-issue so the model formats more carefully.",
+        "note": "Temperature does not change how many tokens the response requires."
+      }
+    ],
+    "explanation": "stop_reason states exactly what happened. Generation was cut off mid-stream, so the JSON is incomplete by definition and the fix is capacity or output size rather than formatting or sampling."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D2-050",
+    "license": "MIT"
+  }
+}

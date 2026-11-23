@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.2-capacity-versus-cash-savings",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.2 Communicate architectural decisions and trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "measured-value",
+    "projected-value",
+    "business-communication"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A catalog-maintenance pilot measures total staff time, including review and corrections, falling from 24 to 18 minutes per completed record at unchanged accepted quality. Only one product line was sampled. No staffing, contractor spend, or operating budget has been reduced, and ongoing infrastructure costs are not yet measured. Which statement should the architect put in the sponsor's outcome summary?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The sampled workflow saved six staff minutes per record; annual capacity and net financial value remain projections with unverified scaling and cost assumptions.",
+        "note": "This reports the observed pilot result while separating potential capacity from unproven annual results and realized cash savings."
+      },
+      {
+        "id": "b",
+        "text": "The company has realized a 25% reduction in its annual catalog operating budget, subject only to successful deployment across the remaining product lines.",
+        "note": "A sampled time reduction does not establish an annual budget reduction, especially before infrastructure costs or actual spending changes are known."
+      },
+      {
+        "id": "c",
+        "text": "The company has demonstrated a six-minute generation improvement per record, while review and correction costs should be excluded from the value statement.",
+        "note": "The measured result covers the whole staff workflow, not generation alone; excluding review and corrections would misdescribe the evidence."
+      },
+      {
+        "id": "d",
+        "text": "The pilot establishes positive return on investment because completed-record quality is unchanged and staff time has fallen by one quarter.",
+        "note": "Positive return on investment also depends on unmeasured operating and implementation costs and whether the saved time produces valued outcomes."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.2.json",
+    "orig_id": "ccarp-6.2-capacity-versus-cash-savings",
+    "license": "MIT"
+  }
+}

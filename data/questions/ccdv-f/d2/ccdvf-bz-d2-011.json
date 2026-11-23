@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-011",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A teammate hardcodes the Anthropic API key in a config file committed to the repository so that CI can run integration tests. What should you do in code review?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Approve it, provided repository access is limited to the engineering team.",
+        "note": "Access lists change, repositories get forked, and history is permanent."
+      },
+      {
+        "id": "b",
+        "text": "Approve it but open a follow-up ticket to move the key later.",
+        "note": "The exposure begins the moment it merges; a ticket does not contain it."
+      },
+      {
+        "id": "c",
+        "text": "Reject it, and have CI read the key from an encrypted secret store at run time.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Approve it if the file is added to .gitignore in the same pull request.",
+        "note": "gitignore does not remove a file already tracked and committed."
+      }
+    ],
+    "explanation": "Committed secrets persist in history, clones, forks, and CI caches. Injecting from a secret store at run time keeps the credential out of the repository entirely."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Getting started",
+      "url": "https://docs.anthropic.com/en/api/getting-started"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-011",
+    "license": "MIT"
+  }
+}

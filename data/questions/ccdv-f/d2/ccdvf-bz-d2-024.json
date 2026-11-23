@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-024",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A customer-facing assistant must never disclose another customer's data. The retrieval layer runs as a service account with read access to all customer records. What is the correct control?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Instruct the model to answer only about the customer currently in session.",
+        "note": "A prompt cannot enforce entitlements against an over-privileged query."
+      },
+      {
+        "id": "b",
+        "text": "Filter retrieval by the authenticated customer so other records never load.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Add an output check that removes other customers' names before replying.",
+        "note": "Redaction after the fact is fragile, and the data was already exposed internally."
+      },
+      {
+        "id": "d",
+        "text": "Include the current customer id in the prompt for the model to match against.",
+        "note": "Model-side matching is probabilistic and the records remain reachable."
+      }
+    ],
+    "explanation": "Authorisation belongs at the data boundary. If an unauthorised record never enters the context, no prompt, jailbreak, or model error can disclose it."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Mitigate jailbreaks",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-024",
+    "license": "MIT"
+  }
+}

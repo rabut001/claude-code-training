@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.5-stabilize-cache-prefix",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.5 Optimize token usage, latency, and cost-performance trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "prompt-caching",
+    "cache-prefixes",
+    "cache-diagnostics"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An assistant repeatedly sends the same long policy and unchanged tools within a supported cache lifetime. The policy meets the model's cache-length requirement, but every request prepends a unique correlation ID to the system text and cache reads remain zero. What should be changed first?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Choose a longer cache lifetime while keeping the unique ID before the policy.",
+        "note": "A longer lifetime does not make different prefixes identical. The unique early value prevents reuse even though calls already occur within the supported lifetime."
+      },
+      {
+        "id": "b",
+        "text": "Put the cache breakpoint after the entire message, including its unique user question.",
+        "note": "A breakpoint after varying content does not create a stable reusable prefix. It leaves the correlation ID and changing question inside the material expected to match."
+      },
+      {
+        "id": "c",
+        "text": "Lower the output budget and retain the existing system-text and cache layout.",
+        "note": "Output generation settings do not repair an input-prefix mismatch. They can reduce generation length but will not turn the reported misses into policy-prefix hits."
+      },
+      {
+        "id": "d",
+        "text": "Move the ID to the varying suffix, mark the stable prefix, and verify cache counters.",
+        "note": "Caching requires an identical eligible prefix, ordered through tools, system, and messages. Keeping variable data after the stable policy boundary enables reuse, and usage counters verify whether it actually occurs."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.5.json",
+    "orig_id": "ccarp-4.5-stabilize-cache-prefix",
+    "license": "MIT"
+  }
+}

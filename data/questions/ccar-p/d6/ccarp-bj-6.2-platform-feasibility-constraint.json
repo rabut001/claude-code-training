@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.2-platform-feasibility-constraint",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.2 Communicate architectural decisions and trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "platform-tradeoffs",
+    "hard-constraints",
+    "procurement"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Two tested hosting routes for a Claude document assistant meet the four-second response limit and required quality. Route A costs less but cannot supply the audit evidence mandated by the customer's approved policy. Route B supplies that evidence and stays within the authorized budget. The architect has no authority to waive the policy. What is the clearest recommendation to procurement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Recommend A because its lower cost and faster responses outweigh the audit-evidence disadvantage in a weighted average of all requirements.",
+        "note": "An unmet mandatory control is a feasibility failure, not a preference that cost or latency can compensate for."
+      },
+      {
+        "id": "b",
+        "text": "Recommend A for initial production and list the missing audit evidence as a backlog item to resolve after the first renewal.",
+        "note": "A planned future fix does not satisfy the current policy, and the architect cannot authorize production outside that constraint."
+      },
+      {
+        "id": "c",
+        "text": "Recommend B within the current constraints; explain its extra cost and record what evidence or authorized policy change could reopen A.",
+        "note": "This distinguishes a feasible option from a cheaper infeasible one and preserves a specific basis for reconsideration."
+      },
+      {
+        "id": "d",
+        "text": "Present A and B as equally deployable and ask procurement to choose, documenting the evidence gap only after a contract is signed.",
+        "note": "Procurement needs the mandatory constraint before committing; calling both deployable conceals the unresolved approval condition."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.2.json",
+    "orig_id": "ccarp-6.2-platform-feasibility-constraint",
+    "license": "MIT"
+  }
+}

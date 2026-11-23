@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.4-gdpr-significant-decision-gates",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.4 Ensure compliance with regulations (e.g., GDPR, HIPAA, FedRAMP)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "gdpr",
+    "dpia",
+    "automated-decisions",
+    "compliance-evidence"
+  ],
+  "answer": [
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "An EU controller proposes decisions based solely on automated processing with similarly significant effects on applicants. Privacy counsel has determined that a prior data protection impact assessment (DPIA) is required under Article 35, and no Article 22 exception has been established. A processor agreement is already signed. Which two unresolved governance gates must the launch plan address? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use the processor agreement as evidence that both the automated-decision restriction and the controller's impact-assessment obligation are satisfied.",
+        "note": "Processor terms address a different obligation. They do not establish an Article 22 exception or replace the controller's required prior DPIA."
+      },
+      {
+        "id": "b",
+        "text": "Complete the required DPIA before processing, documenting the effects on rights, proposed safeguards, unresolved risks, and accountable privacy decisions.",
+        "note": "The scenario explicitly establishes the prior-assessment requirement. A launch gate needs evidence of that assessment and risk treatment rather than a promise to perform it after deployment."
+      },
+      {
+        "id": "c",
+        "text": "Obtain privacy approval of an applicable Article 22 path and safeguards, or redesign the decision workflow before it is authorized to operate.",
+        "note": "Article 22 is scoped and has exceptions, but none is established here. The team must resolve that applicability and safeguard question rather than infer permission from the processor contract."
+      },
+      {
+        "id": "d",
+        "text": "Add an AI-use notice and an optional post-decision survey, then classify the decisions as no longer solely automated.",
+        "note": "Notice and feedback do not themselves introduce meaningful human decision-making or establish an exception. They also do not fulfill the separately required prior impact assessment."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "EUR-Lex: Regulation (EU) 2016/679, General Data Protection Regulation",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.4.json",
+    "orig_id": "ccarp-5.4-gdpr-significant-decision-gates",
+    "license": "MIT"
+  }
+}

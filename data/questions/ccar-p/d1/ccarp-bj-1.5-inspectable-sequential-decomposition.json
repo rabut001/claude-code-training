@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.5-inspectable-sequential-decomposition",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.5 Apply decomposition techniques for complex problem solving",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "prompt-chaining",
+    "intermediate-gates",
+    "sequential-dependencies"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Preparing a maintenance work order requires extracting equipment identifiers, checking them against the asset register, and then drafting instructions for verified equipment. The steps and order are known, and staff must inspect extraction failures before drafting starts. Which decomposition fits?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use inspectable extraction, asset-register validation, and drafting stages, stopping before drafting whenever identifier checks require staff resolution.",
+        "note": "A fixed prompt chain exposes intermediate artifacts and allows a programmatic or human gate. Invalid identifiers can be stopped before the dependent drafting step."
+      },
+      {
+        "id": "b",
+        "text": "Run extraction and drafting concurrently, then ask a reviewer to reconcile equipment mismatches in the final work order.",
+        "note": "Drafting depends on verified identifiers. Running it before validation defeats the required intermediate inspection and can create instructions for the wrong equipment."
+      },
+      {
+        "id": "c",
+        "text": "Ask one response to perform all stages and release its final work order without exposing intermediate results.",
+        "note": "A single opaque response does not provide the required inspection boundary between extraction and drafting."
+      },
+      {
+        "id": "d",
+        "text": "Let an autonomous planner decide whether identifier validation is needed based on the apparent simplicity of each request.",
+        "note": "The validation step is mandatory and the sequence is already known. Model discretion to omit it violates the stated process rather than improving decomposition."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.5.json",
+    "orig_id": "ccarp-1.5-inspectable-sequential-decomposition",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-025",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "An assistant embedded in a web page must stream answers to the browser. Your backend holds the API key. Which architecture is correct?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ship the key to the browser with a restrictive referrer allowlist applied.",
+        "note": "Any key delivered to a browser is public; referrer checks are trivially spoofed."
+      },
+      {
+        "id": "b",
+        "text": "Have the browser call the API directly using a short-lived proxy token.",
+        "note": "This is a proxy in disguise, and the browser still holds a usable credential."
+      },
+      {
+        "id": "c",
+        "text": "Stream from the backend to the browser, with the backend calling the API.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Poll the backend from the browser for partial results written to a database.",
+        "note": "Polling adds latency and complexity to solve what streaming already solves."
+      }
+    ],
+    "explanation": "The key stays server-side while the backend relays the stream onward, so the browser gets incremental output and the credential is never exposed to the client."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Streaming",
+      "url": "https://docs.anthropic.com/en/api/streaming"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-025",
+    "license": "MIT"
+  }
+}

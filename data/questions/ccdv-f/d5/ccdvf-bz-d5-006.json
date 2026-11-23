@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-006",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "LLM Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which task characteristic most strongly suggests enabling extended thinking?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Reformatting a list of supplied names into a JSON array of objects.",
+        "note": "A mechanical transformation gains nothing from deliberation."
+      },
+      {
+        "id": "b",
+        "text": "Returning a value looked up directly from a retrieved passage of text.",
+        "note": "Extraction from supplied text is a lookup rather than reasoning."
+      },
+      {
+        "id": "c",
+        "text": "Classifying a short customer sentence as positive, neutral, or negative.",
+        "note": "Simple classification is handled well without thinking tokens."
+      },
+      {
+        "id": "d",
+        "text": "Debugging a subtle logic error that requires several dependent deductions.",
+        "note": ""
+      }
+    ],
+    "explanation": "Extended thinking buys internal reasoning tokens before the answer. It pays off on genuinely multi-step problems and is wasted latency and cost on mechanical transformation or simple classification."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Extended thinking",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-006",
+    "license": "MIT"
+  }
+}

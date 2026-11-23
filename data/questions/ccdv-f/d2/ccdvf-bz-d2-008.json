@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-008",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "An invoice-processing service must extract line items from scanned PDFs and photographs of receipts. Which integration approach fits the Claude API?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Run OCR first and send only the resulting plain text to the model.",
+        "note": "Workable, but OCR discards spatial layout that matters for line-item extraction."
+      },
+      {
+        "id": "b",
+        "text": "Convert each page to CSV beforehand, since the API accepts tabular input only.",
+        "note": "False premise. The API is not restricted to tabular input."
+      },
+      {
+        "id": "c",
+        "text": "Pass the images as base64 content blocks in the user message with the prompt.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Upload the files to object storage and reference the URLs in the prompt text.",
+        "note": "The model cannot fetch arbitrary URLs; the bytes must be in the request."
+      }
+    ],
+    "explanation": "Claude accepts images directly as content blocks, so layout, tables, and stamps stay visible to the model rather than being flattened by a separate OCR pass."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Vision",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/vision"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-008",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.6-mandatory-constraint-selection",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.6 Align solutions to business value pillars (efficiency, transformation, productivity, cost, performance SLAs)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "constrained-optimization",
+    "quality-cost-latency",
+    "architecture-selection"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A workload has three mandatory acceptance limits: task success of at least 98%, end-to-end 95th-percentile latency of at most five seconds, and total cost of at most $0.10 per accepted task. Representative measurements are sufficient for this decision. Design A achieves 97.6%, three seconds, and $0.06; B achieves 98.5%, 4.5 seconds, and $0.08; C achieves 99.2%, 4.8 seconds, and $0.11; D achieves 98.9%, seven seconds, and $0.09. Which recommendation is supported without changing a design?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Choose A because its lower cost and faster response compensate for the measured task-success shortfall.",
+        "note": "A fails the mandatory quality floor. Better cost and latency cannot compensate for a non-negotiable acceptance constraint."
+      },
+      {
+        "id": "b",
+        "text": "Choose C because its higher task success justifies exceeding the agreed cost limit by a small amount.",
+        "note": "C exceeds the stipulated cost ceiling. A quality improvement does not authorize relaxing that mandatory limit."
+      },
+      {
+        "id": "c",
+        "text": "Choose B because it meets all three limits; compare improvements only within the feasible set.",
+        "note": "B is the only measured candidate satisfying quality, end-to-end latency, and total cost simultaneously. Preference trade-offs apply after mandatory constraints are met."
+      },
+      {
+        "id": "d",
+        "text": "Choose D because its task success and cost meet their limits, making slower responses an acceptable trade-off.",
+        "note": "D violates the mandatory latency ceiling. Meeting the other two limits does not make the user-facing performance requirement optional."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Choosing the right model",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.6.json",
+    "orig_id": "ccarp-1.6-mandatory-constraint-selection",
+    "license": "MIT"
+  }
+}

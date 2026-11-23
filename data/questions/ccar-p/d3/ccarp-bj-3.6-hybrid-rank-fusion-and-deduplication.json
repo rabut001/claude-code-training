@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.6-hybrid-rank-fusion-and-deduplication",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.6 Apply retrieval strategies matched to data shape and query pattern",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "retrieval",
+    "hybrid-search",
+    "rank-fusion",
+    "deduplication"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A technical search service receives both exact diagnostic-code queries and paraphrased symptom descriptions. The team is implementing the hybrid pipeline described in Anthropic's Contextual Retrieval article. Which construction steps preserve the complementary evidence from lexical and semantic search? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retrieve candidates separately with BM25 and embeddings so either matching mechanism can contribute relevant chunks.",
+        "note": "BM25 supplies exact-term matches while embeddings supply semantic matches. Separate candidate generation retains the strengths needed by both query patterns."
+      },
+      {
+        "id": "b",
+        "text": "Use the lexical search only to reorder chunks already present in the semantic result set.",
+        "note": "This excludes lexical-only candidates before fusion. An exact diagnostic-code match missed by semantic retrieval would still have no route into the final candidate set."
+      },
+      {
+        "id": "c",
+        "text": "Combine the result rankings with rank fusion and deduplicate chunks before selecting final context.",
+        "note": "The documented pipeline combines and deduplicates the complementary result sets. Deduplication prevents a chunk found by both methods from occupying multiple context slots."
+      },
+      {
+        "id": "d",
+        "text": "Concatenate both lists into the generation prompt while preserving every repeated chunk as independent evidence.",
+        "note": "Repeated appearances do not constitute independent source support. Keeping duplicates consumes context capacity and bypasses the pipeline's fusion and deduplication steps."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.6.json",
+    "orig_id": "ccarp-3.6-hybrid-rank-fusion-and-deduplication",
+    "license": "MIT"
+  }
+}

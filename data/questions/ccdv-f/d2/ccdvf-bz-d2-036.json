@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-036",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Understanding Requirements",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Which of the following is a well-formed success criterion for a Claude-powered triage feature?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Triage quality should feel noticeably better than the current manual process.",
+        "note": "\"Feel noticeably better\" cannot be computed or gated in CI."
+      },
+      {
+        "id": "b",
+        "text": "The model should correctly understand the intent behind each incoming ticket.",
+        "note": "\"Understand intent\" is not observable; only the resulting label is."
+      },
+      {
+        "id": "c",
+        "text": "At least 92% agreement with human labels on a held-out set of 500 tickets.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Responses should be accurate, helpful, and appropriately professional in tone.",
+        "note": "Three subjective adjectives with no threshold or measurement procedure."
+      }
+    ],
+    "explanation": "It names a metric, a threshold, and an evaluation set, so two engineers would compute the same answer and the team knows when the work is finished."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Define success criteria",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/define-success"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-036",
+    "license": "MIT"
+  }
+}

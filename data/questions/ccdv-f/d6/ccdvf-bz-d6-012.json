@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-012",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Prompt Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "What is the purpose of prefilling the assistant turn in a Messages API request?",
+    "options": [
+      {
+        "id": "a",
+        "text": "To reduce the number of input tokens the request has to carry.",
+        "note": "A prefill adds tokens rather than removing them."
+      },
+      {
+        "id": "b",
+        "text": "To register the response for reuse by the prompt caching layer.",
+        "note": "It is unrelated to prompt caching."
+      },
+      {
+        "id": "c",
+        "text": "To constrain how the response begins, steering it into a chosen format.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "To supersede the system prompt for one specific turn of the conversation.",
+        "note": "System instructions continue to apply normally."
+      }
+    ],
+    "explanation": "Prefilling puts the opening tokens of the assistant turn under your control and generation continues from there, which is how an opening brace suppresses conversational preamble before JSON."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Prefill Claude's response",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prefill-claudes-response"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-012",
+    "license": "MIT"
+  }
+}

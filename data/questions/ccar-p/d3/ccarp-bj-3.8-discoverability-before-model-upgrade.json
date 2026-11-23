@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.8-discoverability-before-model-upgrade",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.8 Evaluate progressive discovery vs. monolithic context strategy",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "progressive-discovery",
+    "tool-descriptions",
+    "discovery-recall"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "With tool_search_tool_bm25_20251119 on Claude Messages API 2023-06-01, users ask for freight-delay forecasts, but discovery returns no matching tool. The authorized tool exists as ops_17 with description 'fetch data' and similarly generic argument descriptions. When its definition is loaded explicitly, tool execution and task quality pass. Which change most directly fixes progressive discovery without loading the full catalog?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Upgrade the answer model while retaining the same generic names and descriptions in the searchable catalog.",
+        "note": "Explicitly loaded execution already passes the task-quality test. A model upgrade does not directly repair the missing domain terms in the catalog fields used for discovery."
+      },
+      {
+        "id": "b",
+        "text": "Increase the search result limit while leaving names and descriptions without freight-related terms.",
+        "note": "A larger result limit can expose more matching candidates but does not add the missing vocabulary to this definition. Correcting the searchable fields targets the observed discovery gap directly."
+      },
+      {
+        "id": "c",
+        "text": "Add precise operation names and domain terms to searchable descriptions, then test discovery on representative freight queries.",
+        "note": "Tool search covers names, descriptions, and argument names and descriptions. Adding accurate freight-delay terminology addresses the observed vocabulary gap, while discovery tests verify that the tool becomes findable."
+      },
+      {
+        "id": "d",
+        "text": "Add an example forecast only to the tool's runtime result while leaving all searchable definition fields generic.",
+        "note": "A runtime result appears only after the tool has been selected and executed. It cannot help the search stage discover a definition that is currently missing from its results."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Tool search tool",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool"
+    },
+    {
+      "title": "Anthropic Engineering: Introducing advanced tool use",
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.8.json",
+    "orig_id": "ccarp-3.8-discoverability-before-model-upgrade",
+    "license": "MIT"
+  }
+}

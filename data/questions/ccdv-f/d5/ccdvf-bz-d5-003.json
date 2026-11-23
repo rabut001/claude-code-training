@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-003",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "LLM Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "What does the context window limit actually constrain?",
+    "options": [
+      {
+        "id": "a",
+        "text": "System prompt, tool definitions, message history, and output combined.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "The number of messages in the conversation, whatever their individual length.",
+        "note": "Ten short messages and ten enormous ones consume wildly different amounts."
+      },
+      {
+        "id": "c",
+        "text": "The length of the generated response for a single request.",
+        "note": "That describes max_tokens, a separate ceiling that applies to output only."
+      },
+      {
+        "id": "d",
+        "text": "The number of tool definitions a single request is permitted to carry.",
+        "note": "Tool definitions consume window space, but no separate count limit governs them."
+      }
+    ],
+    "explanation": "The window covers everything processed in one request, which is why verbose tool schemas and large tool results silently consume capacity during long agent runs."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-003",
+    "license": "MIT"
+  }
+}

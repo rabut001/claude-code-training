@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.2-initial-scope-and-resource-binding",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.2 Analyze authentication and authorization requirements to identify security gaps",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "mcp",
+    "oauth-scopes",
+    "resource-binding"
+  ],
+  "answer": [
+    "a",
+    "c",
+    "d"
+  ],
+  "en": {
+    "question": "During initial authorization with no previously granted scopes, an HTTP MCP 2026-07-28 server challenges for a tenant-specific scope not listed in its scopes_supported metadata. The client is using this version's protected-resource OAuth flow. Which implementation decisions conform to its scope and token-binding requirements? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Treat the challenge's scope set as authoritative for the current operation rather than assuming it is a subset of scopes_supported.",
+        "note": "The specification permits challenged scopes to have no fixed subset relationship with scopes_supported. An unlisted tenant-specific scope is not automatically invalid for the operation."
+      },
+      {
+        "id": "b",
+        "text": "Intersect the challenged scopes with scopes_supported and authorize only the intersection.",
+        "note": "Intersection can remove a scope the server requires for this operation. The client must not assume that scopes_supported exhaustively lists every dynamically challenged scope."
+      },
+      {
+        "id": "c",
+        "text": "Include the canonical MCP resource identifier in both the authorization request and token request.",
+        "note": "The resource parameter is mandatory at both stages in this version's flow. It identifies the resource for which the client is requesting the access token."
+      },
+      {
+        "id": "d",
+        "text": "Send the resulting bearer token in Authorization on each HTTP request, not in a URL query parameter.",
+        "note": "Authorization accompanies every client-to-server HTTP request under this flow. The specification prohibits access tokens in URI query strings, where they can leak through URL handling."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "MCP specification: Authorization",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.2.json",
+    "orig_id": "ccarp-3.2-initial-scope-and-resource-binding",
+    "license": "MIT"
+  }
+}

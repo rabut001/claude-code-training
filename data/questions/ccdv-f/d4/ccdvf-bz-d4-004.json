@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d4-004",
+  "exam": "ccdv-f",
+  "domain": "d4",
+  "subdomain": "Debugging and Error Handling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Which error class should generally NOT be retried automatically?",
+    "options": [
+      {
+        "id": "a",
+        "text": "429 rate_limit_error, which signals the account is sending too quickly.",
+        "note": "Rate limits are transient; retry with backoff and honour retry-after."
+      },
+      {
+        "id": "b",
+        "text": "400 invalid_request_error, which will fail identically on every attempt.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "529 overloaded_error, which signals transient capacity pressure upstream.",
+        "note": "Overload is transient capacity pressure and is the textbook retry case."
+      },
+      {
+        "id": "d",
+        "text": "A connection timeout occurring before any response has been received.",
+        "note": "Timeouts are transient and normally warrant a bounded retry."
+      }
+    ],
+    "explanation": "A 400 is a client-side defect such as a bad parameter or a mismatched tool_use_id. Retrying an identical malformed request wastes quota and delays surfacing the bug."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Errors",
+      "url": "https://docs.anthropic.com/en/api/errors"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d4-eval-debug.js",
+    "orig_id": "D4-004",
+    "license": "MIT"
+  }
+}

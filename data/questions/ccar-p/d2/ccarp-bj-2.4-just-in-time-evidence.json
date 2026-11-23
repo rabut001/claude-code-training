@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.4-just-in-time-evidence",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.4 Optimize context windows and manage token usage",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "just-in-time-context",
+    "lightweight-references",
+    "context-relevance"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An investigation assistant loads every diagnostic file before each analysis, although most tasks inspect only a few files. Irrelevant material reduces retrieval focus within the prompt. A read tool can fetch exact file sections from durable storage, and a small amount of extra tool latency is acceptable. Which context strategy best matches these constraints?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep loading all files and move the instructions to the end so irrelevant content no longer consumes context.",
+        "note": "Prompt order can affect attention but does not remove irrelevant tokens. It leaves the full-corpus loading cost and context occupancy unchanged."
+      },
+      {
+        "id": "b",
+        "text": "Keep file references and metadata in context; fetch exact sections when the investigation needs them.",
+        "note": "Just-in-time retrieval defers detailed content until it is relevant. Durable references preserve access to exact evidence while accepting some runtime retrieval latency."
+      },
+      {
+        "id": "c",
+        "text": "Replace the files with one short permanent summary and remove the read tool to eliminate retrieval overhead.",
+        "note": "A fixed summary can omit details required by a later investigation. Removing the read tool also removes the stated route back to exact source evidence."
+      },
+      {
+        "id": "d",
+        "text": "Cache the unchanged full file collection and keep sending the same complete context on every request.",
+        "note": "Caching can reduce repeated processing but does not remove irrelevant material from the model's context. It does not address the observed loss of focus."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Effective context engineering for AI agents",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.4.json",
+    "orig_id": "ccarp-2.4-just-in-time-evidence",
+    "license": "MIT"
+  }
+}

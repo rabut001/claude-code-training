@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.1-field-user-discovery",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.1 Conduct structured discovery and requirement gathering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "affected-users",
+    "deployment-context",
+    "structured-discovery"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A housing-maintenance sponsor approves a desktop demo that converts tenant messages into repair briefs. Dispatchers will use the briefs, but technicians receive them on intermittently connected phones and tenants submit messages in several languages. The design workshop has included only the sponsor and developers. What discovery action most directly addresses the remaining requirements gap?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Have procurement compare model context limits and licensing terms, then use the largest available context to accommodate all tenant messages.",
+        "note": "Context capacity and commercial terms do not establish the language, connectivity, and workflow requirements of the missing user groups."
+      },
+      {
+        "id": "b",
+        "text": "Ask the sponsor to rank desktop layout alternatives and use those preferences as the acceptance criteria for every user group.",
+        "note": "A sponsor's desktop preferences cannot substitute for the needs of technicians, dispatchers, and affected tenants in their actual settings."
+      },
+      {
+        "id": "c",
+        "text": "Walk representative tenant, dispatcher, and technician journeys to document language, connectivity, data-access, and failure-handling constraints before fixing scope.",
+        "note": "Including the actual users and affected people exposes deployment constraints that the desktop demo and existing workshop did not test."
+      },
+      {
+        "id": "d",
+        "text": "Run more desktop demonstrations with historical English messages and treat consistent brief formatting as evidence that field requirements are covered.",
+        "note": "Repeated desktop demonstrations preserve the same coverage gap for languages, intermittent connectivity, and field use."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.1.json",
+    "orig_id": "ccarp-6.1-field-user-discovery",
+    "license": "MIT"
+  }
+}

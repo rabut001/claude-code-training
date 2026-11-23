@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.3-automation-bias-interception",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.3 Apply human-in-the-loop validation strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "automation-bias",
+    "independent-review",
+    "review-effectiveness"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "In a controlled reviewer evaluation with adjudicated cases, experienced reviewers repeatedly approve incorrect AI recommendations despite contradictory source evidence. The interface prominently displays the AI recommendation first. Management wants evidence that reviewers intercept errors, not merely that they click approval quickly. Which redesign and evaluation best address the observed failure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Test evidence-first assessment before showing the recommendation; measure accepted errors, justified overrides, and time.",
+        "note": "Testing an independent initial assessment targets anchoring on the recommendation; outcome-based measurements establish whether it improves error interception for these reviewers. Review speed alone is not the control's objective."
+      },
+      {
+        "id": "b",
+        "text": "Display a larger model-confidence badge and measure whether reviewers' decisions align more closely with the recommendation.",
+        "note": "Prominent confidence can increase deference to the system, including when it is wrong. Agreement with the recommendation is not evidence of detecting its errors."
+      },
+      {
+        "id": "c",
+        "text": "Require a written rationale supporting the AI recommendation before approval, and measure completion of the rationale field.",
+        "note": "Requiring support for a predetermined conclusion encourages rationalization instead of independent checking. Field completion does not show that reviewers rejected incorrect recommendations."
+      },
+      {
+        "id": "d",
+        "text": "Rank reviewers by approval throughput and give the fastest reviewers the largest share of high-consequence cases.",
+        "note": "Throughput incentives can reward superficial acceptance and worsen automation bias. Speed does not establish competence at detecting consequential mistakes."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.3.json",
+    "orig_id": "ccarp-5.3-automation-bias-interception",
+    "license": "MIT"
+  }
+}

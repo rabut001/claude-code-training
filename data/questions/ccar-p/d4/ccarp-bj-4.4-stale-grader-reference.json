@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.4-stale-grader-reference",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.4 Diagnose system issues (prompt failure, hallucinations, model mismatch)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "diagnostics",
+    "grader-defects",
+    "fixture-versioning"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "After a test-fixture upgrade, an agent's stock answer changes from 5 to 12 and the exact-value grader fails it. The captured fixture, tool result, and task requirement all establish 12 as the available count; the grader still compares with a hardcoded 5 from the earlier fixture. Which correction should be tested before changing the agent?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Add a demonstration returning 5 so the agent's output again agrees with the existing exact-value grader.",
+        "note": "That would optimize the agent for an obsolete answer rather than the current task state. The demonstrated discrepancy is in the grader's expected value, not the evidence available to the agent."
+      },
+      {
+        "id": "b",
+        "text": "Replace the exact-value check with a fluency score so fixture changes no longer cause numerical failures.",
+        "note": "The task still requires a correct exact stock count. A fluency score removes a valid requirement instead of repairing its stale reference."
+      },
+      {
+        "id": "c",
+        "text": "Version the expected count with the fixture, verify the grader on known outcomes, and rerun the cases.",
+        "note": "The observed failure comes from mismatched evaluation inputs and expectations. Validating the repaired grader on known passing and failing outcomes checks the harness without assuming the agent must change."
+      },
+      {
+        "id": "d",
+        "text": "Repeat the unchanged run until the agent returns 5, then use that successful trial as the regression baseline.",
+        "note": "Repeated trials cannot make the outdated value correct for this fixture. Selecting a passing trial would conceal the grading defect and reward an incorrect stock answer."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.4.json",
+    "orig_id": "ccarp-4.4-stale-grader-reference",
+    "license": "MIT"
+  }
+}

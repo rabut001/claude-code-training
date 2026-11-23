@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.2-fail-closed-hook-contract",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.2 Improve developer workflows using AI-assisted tooling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "hooks",
+    "fail-closed",
+    "failure-handling",
+    "version-scope"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "On Linux with Claude Code 2.1.304, a synchronous PreToolUse command hook matches every tool call relevant to a target policy. It emits no stdout and exits 1 for a forbidden target. It also occasionally fails to start or times out. Calls have proceeded after these failures. The requirement is to block both a policy denial and a failed policy evaluator. Which correction fits the documented contract?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep exit 1 for denials and increase the timeout, since every nonzero status is a blocking verdict at PreToolUse.",
+        "note": "With no decision JSON, nonzero statuses other than 2 normally report non-blocking errors. A longer timeout does not change that exit contract or cover a missing executable."
+      },
+      {
+        "id": "b",
+        "text": "Return exit 2 for denials and leave failure handling unset, since start failures and timeouts automatically inherit the denial status.",
+        "note": "Exit 2 blocks an explicit PreToolUse denial, but a script that never starts or times out may never return that verdict. Those evaluator failures need the supported fail-closed configuration."
+      },
+      {
+        "id": "c",
+        "text": "Return exit 2 for policy denials, set onFailure to block on the synchronous gate, and test denial, missing-executable, and timeout cases.",
+        "note": "PreToolUse exit 2 rejects the call, and onFailure: block covers evaluator failures on this supported event. The option requires v2.1.295 or later, so the stated 2.1.304 version qualifies."
+      },
+      {
+        "id": "d",
+        "text": "Set onFailure to block and run the hook asynchronously, preserving the policy decision without delaying tool execution.",
+        "note": "The documented fail-closed option has no effect on background command hooks. An asynchronous check cannot both let the call proceed immediately and serve as its required blocking evaluator."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Hooks reference",
+      "url": "https://code.claude.com/docs/en/hooks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.2.json",
+    "orig_id": "ccarp-7.2-fail-closed-hook-contract",
+    "license": "MIT"
+  }
+}

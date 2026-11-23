@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-021",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Patterns and Frameworks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Which statement best describes when to choose a self-hosted agent deployment over a managed one?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Self-hosting is reliably cheaper once inference volume passes a threshold.",
+        "note": "Total cost frequently rises once engineering time is counted."
+      },
+      {
+        "id": "b",
+        "text": "It suits residency, isolation, or deep internal integration requirements.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Managed deployments cannot register custom, organisation-specific tools.",
+        "note": "Custom tools work in either deployment model."
+      },
+      {
+        "id": "d",
+        "text": "Self-hosting removes the need to manage and rotate an API credential.",
+        "note": "Model inference still requires authenticated API access."
+      }
+    ],
+    "explanation": "The trade is control against operational burden. Self-hosting the harness satisfies residency, isolation, and integration constraints, but you then own scaling, upgrades, monitoring, and incidents."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Agent SDK",
+      "url": "https://docs.anthropic.com/en/api/agent-sdk/overview"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-021",
+    "license": "MIT"
+  }
+}

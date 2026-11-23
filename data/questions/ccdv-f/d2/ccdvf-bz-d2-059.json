@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-059",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Which part of a Claude-backed application should be covered by conventional deterministic unit tests?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The model's answer quality across a representative sample of real inputs.",
+        "note": "Answer quality is measured with a labelled eval set and scored metrics."
+      },
+      {
+        "id": "b",
+        "text": "Only the user interface, since everything behind it depends on the model.",
+        "note": "That leaves the highest-risk logic untested."
+      },
+      {
+        "id": "c",
+        "text": "Tool implementations, parsers, schema validators, and retry logic.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "None of it, because a probabilistic system cannot be unit tested.",
+        "note": "Only the model call is probabilistic; the surrounding system is deterministic."
+      }
+    ],
+    "explanation": "Most of the codebase is ordinary software and should be tested as such, reserving eval sets for the one genuinely probabilistic component rather than abandoning testing wholesale."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D2-059",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.3-mcp-saved-versus-connected",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.3 Support debugging and operational issue resolution",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "mcp",
+    "connection-health",
+    "authentication",
+    "runbooks"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An onboarding script prints Added for a remote MCP server. A session displays its tool names, but the first actual operation fails. The team wants to distinguish configuration, approval, authentication, and transport problems without exposing credentials. What should the support runbook do next?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Inspect /mcp or claude mcp get for status and failure detail, resolve the identified layer, and retry a safe operation using redacted diagnostics.",
+        "note": "Added confirms configuration was saved, not that a connection or authentication succeeded. Tool names can come from a discovery cache, so live status and a safe operation provide stronger evidence without publishing credential-bearing URLs."
+      },
+      {
+        "id": "b",
+        "text": "Repeat the registration until Added appears again, then consider the endpoint healthy and return the first-operation failure to the application team.",
+        "note": "Repeating a successful configuration write does not test server transport or credentials. The first-operation failure still needs connection and authentication diagnosis."
+      },
+      {
+        "id": "c",
+        "text": "Use the displayed tool list as the connection-health check and investigate only whether the model selected the correct tool arguments.",
+        "note": "A cached tool list can be available before the server connects on first use. Visible tool definitions do not exclude an approval, authentication, or transport failure."
+      },
+      {
+        "id": "d",
+        "text": "Reset project-server approval only, because approving a saved remote server also establishes its authentication session.",
+        "note": "Approval to use a project server and authentication to that server are separate states. Resetting approval alone does not establish valid credentials or repair a transport error."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Connect Claude Code to tools via MCP",
+      "url": "https://code.claude.com/docs/en/mcp"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.3.json",
+    "orig_id": "ccarp-7.3-mcp-saved-versus-connected",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.3-output-cap-truncation",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.3 Evaluate accuracy-latency trade-offs and justify configuration decisions",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "latency",
+    "max-tokens",
+    "api-version"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A Claude Messages API integration using version 2026-10-21 lowers max_tokens to shorten latency. Responses now stop with max_tokens before returning all required checklist fields, although the earlier configuration completed them correctly. What is the most appropriate next configuration change?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Lower temperature to zero so the current output cap is used more efficiently.",
+        "note": "API version 2026-10-21 rejects temperature rather than applying this tuning. It also would not establish enough output space for the required fields."
+      },
+      {
+        "id": "b",
+        "text": "Keep the cap and mark any syntactically complete prefix as a successful checklist.",
+        "note": "A well-formed prefix can still omit mandatory fields. Changing the success definition would conceal the quality regression rather than solve it."
+      },
+      {
+        "id": "c",
+        "text": "Enable streaming and retain the cap, since streamed responses are not subject to output truncation.",
+        "note": "Streaming does not remove max_tokens or guarantee complete content. It can deliver the same truncated checklist in smaller pieces."
+      },
+      {
+        "id": "d",
+        "text": "Request a concise checklist explicitly, allow enough output tokens, and retest complete-field accuracy and latency.",
+        "note": "max_tokens is a hard ceiling, not an instruction to produce a shorter complete answer. Concise output instructions and an adequate ceiling can reduce unnecessary text without accepting missing fields."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Reducing latency",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency"
+    },
+    {
+      "title": "Anthropic: Migrating to API version 2026-10-21",
+      "url": "https://platform.claude.com/docs/en/api/migration-2026-10-21"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.3.json",
+    "orig_id": "ccarp-3.3-output-cap-truncation",
+    "license": "MIT"
+  }
+}

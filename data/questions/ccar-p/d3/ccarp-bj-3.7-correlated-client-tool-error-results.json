@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.7-correlated-client-tool-error-results",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.7 Evaluate connection protocols and select the appropriate integration mechanism (MCP, API/CLI, agent-to-agent)",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 2,
+  "tags": [
+    "client-tool-loop",
+    "tool-use-id",
+    "tool-errors",
+    "api-version"
+  ],
+  "answer": [
+    "a",
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "Under Claude Messages API version 2026-10-21, an assistant response contains only client tools: lookup_parts with id call_parts and estimate_delivery with id call_delivery. The application completes lookup_parts, but estimate_delivery fails with an upstream timeout. It is continuing the conversation rather than retrying the failed tool immediately. Which continuation actions are required to represent both calls faithfully? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Append the assistant response content, including both original tool_use blocks, to conversation history unchanged.",
+        "note": "The continuation must preserve the tool requests that the following results answer. Replacing that content with a paraphrase loses the tool-call context and identifiers."
+      },
+      {
+        "id": "b",
+        "text": "Immediately follow it with a user message whose tool_result blocks use call_parts and call_delivery as their respective tool_use_id values.",
+        "note": "Results are correlated by tool_use_id, not arrival order or tool name. The user result message must directly follow the assistant tool-use message, with result blocks before any other text."
+      },
+      {
+        "id": "c",
+        "text": "Represent the delivery timeout as a successful empty delivery estimate so the model can continue without an error branch.",
+        "note": "An upstream failure is not evidence that no delivery estimate exists. Presenting it as successful empty data hides the execution failure and can mislead downstream reasoning."
+      },
+      {
+        "id": "d",
+        "text": "Set is_error to true on the delivery result and include a useful, non-secret timeout description.",
+        "note": "The client-tool result format explicitly supports signaling execution failure with is_error. An informative error lets the model distinguish unavailable evidence from a valid empty result."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Handle tool calls",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+    },
+    {
+      "title": "Anthropic: How tool use works",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.7.json",
+    "orig_id": "ccarp-3.7-correlated-client-tool-error-results",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.2-validation-after-schema-transform",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.2 Design system prompts, templates, and guardrails",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "schema-validation",
+    "sdk-transformation",
+    "business-rules"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A reimbursement assistant uses an SDK helper that removes unsupported numeric constraints from the schema sent to the API. This helper does not validate the response against the original constraints; the application only parses JSON. An amount is structurally valid but exceeds the employee's policy allowance. Which change addresses the actual enforcement gap?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Repeat the allowance in the prompt and continue treating successful JSON parsing as the approval gate.",
+        "note": "Prompting may improve compliance, but parsing still does not enforce the removed constraints or the employee-specific business rule. The approval gap remains."
+      },
+      {
+        "id": "b",
+        "text": "Resend the unsupported schema keywords directly and rely on constrained decoding to implement the full policy.",
+        "note": "The API supports a subset of JSON Schema, not arbitrary removed keywords or external business logic. Unsupported constraints cannot be made enforceable merely by bypassing the helper."
+      },
+      {
+        "id": "c",
+        "text": "Enable strict tool use on an unrelated lookup tool and retain the current final-response checks.",
+        "note": "Strictness governs that tool's inputs. It does not validate a reimbursement amount returned through a separate response surface."
+      },
+      {
+        "id": "d",
+        "text": "Enforce the original schema and employee allowance in application code before approval.",
+        "note": "Client validation can enforce constraints absent from the wire schema, while business validation checks the employee-specific policy. Structural conformance alone establishes neither entitlement nor authorization."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Structured outputs",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+    },
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.2.json",
+    "orig_id": "ccarp-2.2-validation-after-schema-transform",
+    "license": "MIT"
+  }
+}

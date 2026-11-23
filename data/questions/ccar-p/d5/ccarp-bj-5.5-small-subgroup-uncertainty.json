@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.5-small-subgroup-uncertainty",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.5 Address ethical AI considerations (bias, fairness, transparency)",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "subgroup-uncertainty",
+    "language-coverage",
+    "fairness",
+    "bounded-rollout"
+  ],
+  "answer": [
+    "a",
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A community information service proposes adding a minority language. Eight reviewed cases in that language contain no harmful missed escalations, while thousands of majority-language cases meet the release criterion. Policy requires demonstrated escalation performance for each supported language; a human-assisted route may remain available. Which three responses are justified? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Obtain appropriately collected, representative labeled cases with qualified language reviewers, including difficult dialect and mixed-context requests.",
+        "note": "Representative evidence and qualified labels address the limited coverage of eight cases. Additional majority-language examples would not establish performance for the proposed language."
+      },
+      {
+        "id": "b",
+        "text": "Report language-specific error estimates with their uncertainty and the high-severity cases that remain untested.",
+        "note": "No observed harm in a small sample does not establish equivalent performance or satisfy every release criterion. Explicit uncertainty prevents absence of observations from becoming a fairness assurance."
+      },
+      {
+        "id": "c",
+        "text": "Pool all languages and apply the precise overall error estimate to the minority language, since no minority-language failure was observed.",
+        "note": "The pooled estimate is dominated by majority-language data and does not resolve the small subgroup's uncertainty. It can hide precisely the disparity the policy requires the team to assess."
+      },
+      {
+        "id": "d",
+        "text": "Keep the proposed language on the disclosed human-assisted route until its release evidence is sufficient, while preserving feedback and escalation access.",
+        "note": "A bounded supported route respects the stated per-language evidence requirement without silently granting unvalidated autonomous operation. Users retain a path to service and reporting while evidence is gathered."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.5.json",
+    "orig_id": "ccarp-5.5-small-subgroup-uncertainty",
+    "license": "MIT"
+  }
+}

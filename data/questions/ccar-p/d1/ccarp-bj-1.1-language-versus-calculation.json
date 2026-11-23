@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.1-language-versus-calculation",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.1 Translate business problems into Claude-based AI solutions",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "task-partitioning",
+    "deterministic-boundaries"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Employees submit travel claims as varied free-text descriptions. Finance requires exact reimbursements under a versioned mileage schedule, and an existing calculation service already implements that schedule. Where should Claude's responsibility end?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Extract and validate claim facts, then have the existing calculation service apply the versioned reimbursement schedule.",
+        "note": "Language interpretation benefits from Claude, while the authoritative calculation service preserves the exact, versioned arithmetic requirement. Ambiguous extracted facts can be resolved before calculation."
+      },
+      {
+        "id": "b",
+        "text": "Calculate the final amount directly after seeing worked examples from the current mileage schedule.",
+        "note": "Examples can improve responses but do not turn generated arithmetic into the existing authoritative calculation or enforce its versioned rules."
+      },
+      {
+        "id": "c",
+        "text": "Have two model calls calculate independently and accept the amount when their results agree.",
+        "note": "Agreement can still reflect a shared interpretation or arithmetic error. It is not equivalent to executing the required calculation service."
+      },
+      {
+        "id": "d",
+        "text": "Retrieve the schedule for each claim and let Claude apply its formulas in the final response.",
+        "note": "Retrieval supplies rule text but leaves exact rule execution with the model. The task already has a deterministic implementation that need not be replaced."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "Prompt engineering overview",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.1.json",
+    "orig_id": "ccarp-1.1-language-versus-calculation",
+    "license": "MIT"
+  }
+}

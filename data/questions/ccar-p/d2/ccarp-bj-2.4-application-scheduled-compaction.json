@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.4-application-scheduled-compaction",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.4 Optimize context windows and manage token usage",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "compaction",
+    "application-scheduling",
+    "interactive-latency"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A review application has predictable idle intervals between operator batches. It needs server-written summaries to control growing history, but ordinary interactive requests must not pause for summary generation. Its selected model and platform support both cited beta compaction approaches, and the idle interval can accommodate a summary request. Which integration gives the application the required timing control?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Request on-demand compaction during an idle interval and install the returned block before the next operator batch.",
+        "note": "On-demand compaction lets the application choose when it requests the server-written summary and replaces the summarized messages. Scheduling that work in the supplied idle interval avoids initiating summary generation inside an interactive request."
+      },
+      {
+        "id": "b",
+        "text": "Lower the automatic compaction threshold so ordinary requests initiate smaller summaries more frequently throughout the working batch.",
+        "note": "Threshold compaction runs inside the ordinary request that reaches its trigger. Smaller, more frequent summaries still leave interactive requests responsible for that work."
+      },
+      {
+        "id": "c",
+        "text": "Raise the automatic threshold near the context limit and assume summary generation then moves outside interactive requests.",
+        "note": "Changing the trigger changes when the threshold is reached, not where compaction executes. A triggering interactive request can still pause for its summary."
+      },
+      {
+        "id": "d",
+        "text": "Keep the full growing history but cache it during idle intervals to prevent later requests from needing compaction.",
+        "note": "Caching reuses prefix processing without reducing active history size. It does not prevent the growing conversation from reaching the context limit."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Compaction overview",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/compaction"
+    },
+    {
+      "title": "Context windows",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.4.json",
+    "orig_id": "ccarp-2.4-application-scheduled-compaction",
+    "license": "MIT"
+  }
+}

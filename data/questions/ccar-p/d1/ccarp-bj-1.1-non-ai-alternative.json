@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.1-non-ai-alternative",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.1 Translate business problems into Claude-based AI solutions",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "non-ai-alternatives",
+    "business-fit",
+    "architecture-economics"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A business unit proposes a Claude agent to assign fixed shipping surcharges. Every input is a structured field, all rules are exhaustive and versioned, and a rules service already passes the required cases within the latency and cost budgets. There is no natural-language interpretation or exception-handling requirement. Which recommendation best fits the business problem?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use Claude to call the rules service for every shipment so the existing computation becomes an agentic capability.",
+        "note": "An extra model-mediated step adds a dependency without addressing any stated unmet need. Tool access alone does not establish business value for an agent."
+      },
+      {
+        "id": "b",
+        "text": "Keep the existing rules service unless evidence identifies an unmet requirement that benefits from Claude.",
+        "note": "The existing solution satisfies the stated outcome and constraints. Considering a viable non-AI alternative avoids adding cost and uncertainty merely to adopt AI."
+      },
+      {
+        "id": "c",
+        "text": "Replace the service with a single prompted model because a smaller architecture should have fewer deployed components.",
+        "note": "Reducing the component count does not preserve the exact rules contract. A generated calculation would replace a passing authoritative implementation without a demonstrated benefit."
+      },
+      {
+        "id": "d",
+        "text": "Run the model and service in parallel and send disagreements to staff to create a continuous improvement workflow.",
+        "note": "This introduces review work for a process that already meets requirements. A feedback workflow needs a justified objective, not disagreements created by an unnecessary second implementation."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.1.json",
+    "orig_id": "ccarp-1.1-non-ai-alternative",
+    "license": "MIT"
+  }
+}

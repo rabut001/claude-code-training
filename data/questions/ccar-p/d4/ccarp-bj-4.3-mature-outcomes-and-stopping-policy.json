@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.3-mature-outcomes-and-stopping-policy",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.3 Conduct A/B testing and iterative improvements",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "ab-testing",
+    "delayed-outcomes",
+    "stopping-rules"
+  ],
+  "answer": [
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "An A/B test's primary outcome is successful completion within seven days. The arms started at different times, traffic is low, and the dashboard labels unfinished cases as failures. An operator proposes promoting the candidate at the first favorable hourly result. Which controls are needed for a credible comparison? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use the latest partial completion rate as the final seven-day outcome estimate.",
+        "note": "Cases without a full outcome window are not comparable with mature cases. Treating pending work as final failure can bias the arms differently because their observation periods differ."
+      },
+      {
+        "id": "b",
+        "text": "Compare cohorts after both have had their full seven-day outcome windows.",
+        "note": "Equivalent mature observation windows make the defined outcome comparable. The test should distinguish pending outcomes from observed seven-day failures."
+      },
+      {
+        "id": "c",
+        "text": "Set a stopping policy that accounts for required information and repeated dashboard looks.",
+        "note": "Stopping at the first favorable noisy result can overstate an effect, especially with little traffic. A planned analysis and stopping policy should address observation needs and repeated looks rather than inventing a universal test duration."
+      },
+      {
+        "id": "d",
+        "text": "Increase candidate exposure until its raw completion count matches the baseline's.",
+        "note": "Changing exposure to match raw success counts does not correct immature outcomes or opportunistic stopping. Counts alone also ignore the number and mix of eligible tasks assigned to each arm."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Spotify Engineering: Bringing Sequential Testing to Experiments with Longitudinal Data, Part 1",
+      "url": "https://engineering.atspotify.com/2023/7/bringing-sequential-testing-to-experiments-with-longitudinal-data-part-1-the-peeking-problem-2-0"
+    },
+    {
+      "title": "Microsoft ExP: Patterns of Trustworthy Experimentation, During-Experiment Stage",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/articles/patterns-of-trustworthy-experimentation-during-experiment-stage/"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.3.json",
+    "orig_id": "ccarp-4.3-mature-outcomes-and-stopping-policy",
+    "license": "MIT"
+  }
+}

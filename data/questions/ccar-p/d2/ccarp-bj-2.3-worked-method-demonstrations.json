@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.3-worked-method-demonstrations",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.3 Apply prompt engineering techniques (zero-shot, few-shot, chain-of-thought)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "worked-examples",
+    "reasoning-guidance",
+    "method-selection"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A thinking-capable model solves maintenance scheduling exercises whose solution method depends on the constraint structure. Trusted training cases currently show only final schedules. The team wants examples that guide choosing between resource-conflict analysis and prerequisite timing, without prescribing one plan for every task or requesting private reasoning. Which prompt experiment most directly supplies that guidance?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Show more final schedules without their methods, and require the output to match the most frequent demonstration template.",
+        "note": "Additional conclusions still omit how the method follows from the constraints. Matching a frequent template can transfer incidental output patterns rather than the intended reasoning strategy."
+      },
+      {
+        "id": "b",
+        "text": "Prescribe a fixed resource-first sequence for every exercise, following the same ordered steps regardless of its dependency structure.",
+        "note": "The scenario requires method selection to depend on the problem. One mandatory sequence suppresses that distinction rather than demonstrating how to make it."
+      },
+      {
+        "id": "c",
+        "text": "Show worked problems with the applicable method and expected answer; evaluate transfer to held-out constraint patterns.",
+        "note": "Problem-method-answer examples can guide a thinking model's approach without asking it to expose private reasoning. Held-out evaluation checks whether the method transfers beyond copied schedules."
+      },
+      {
+        "id": "d",
+        "text": "Repeat each training case's final conclusion in several phrasings, leaving method selection absent from every demonstration.",
+        "note": "Rephrasing conclusions adds no evidence about choosing a method. The desired connection between constraint structure and approach remains unspecified."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    },
+    {
+      "title": "Thinking",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/thinking"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.3.json",
+    "orig_id": "ccarp-2.3-worked-method-demonstrations",
+    "license": "MIT"
+  }
+}

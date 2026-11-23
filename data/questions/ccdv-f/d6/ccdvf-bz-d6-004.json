@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-004",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Context Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "What is \"context bloat\" and why does it matter beyond cost?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is purely a billing concern and has no measurable effect on quality.",
+        "note": "Quality degradation is arguably the more serious half of the problem."
+      },
+      {
+        "id": "b",
+        "text": "Accumulated low-value content raises cost and dilutes the relevant signal.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "It is the condition of a context window being too small for the chosen task.",
+        "note": "That describes a capacity limit rather than bloat."
+      },
+      {
+        "id": "d",
+        "text": "It is the effect of setting max_tokens far higher than any answer requires.",
+        "note": "max_tokens bounds output; it does not accumulate context."
+      }
+    ],
+    "explanation": "Bloat hurts twice. You pay for every token on every turn, and a window packed with verbose tool output and superseded files makes it harder for the model to attend to what matters."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-004",
+    "license": "MIT"
+  }
+}

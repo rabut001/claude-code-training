@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.7-direct-api-client-tool-loop",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.7 Evaluate connection protocols and select the appropriate integration mechanism (MCP, API/CLI, agent-to-agent)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "integration-mechanisms",
+    "direct-api",
+    "client-tool-loop"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "One application uses Claude Messages API version 2026-10-21 and an existing typed equipment-status API. It needs no shared tool protocol, local command runtime, or independent remote agent. The architect wants the least additional infrastructure while allowing Claude to request status lookups. Which integration design fits?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Introduce an MCP server around the existing API so this single application can invoke the same status operation.",
+        "note": "MCP can expose the operation, but its reusable protocol boundary is not required here. Adding a server and protocol handling does not meet the preference for least additional infrastructure."
+      },
+      {
+        "id": "b",
+        "text": "Define a client tool, execute the validated status API call in application code, and return a matching tool_result.",
+        "note": "A client tool directly connects the model's structured request to the existing operation. The application owns execution and returns the result using the emitted tool-use ID before continuing the conversation."
+      },
+      {
+        "id": "c",
+        "text": "Register the API's URL as a client-tool description and treat a returned tool_use block as proof that the lookup ran.",
+        "note": "A client tool_use block requests execution; it does not perform the HTTP operation. The application must call the API and supply the corresponding result."
+      },
+      {
+        "id": "d",
+        "text": "Deploy a separate A2A agent whose only task is forwarding each status request to the existing API.",
+        "note": "An independently deployed agent adds a coordination and lifecycle boundary without adding needed agency. A direct application-owned API call satisfies the stated bounded operation more simply."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: How tool use works",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works"
+    },
+    {
+      "title": "Anthropic: Handle tool calls",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+    },
+    {
+      "title": "MCP specification: Transport overview",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports"
+    },
+    {
+      "title": "A2A Protocol: v1.0 release announcement",
+      "url": "https://a2a-protocol.org/latest/blog/2026/03/12/a2a-protocol-ships-v10-production-ready-standard-for-agent-to-agent-communication/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.7.json",
+    "orig_id": "ccarp-3.7-direct-api-client-tool-loop",
+    "license": "MIT"
+  }
+}

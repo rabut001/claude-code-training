@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.6-user-journey-latency",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.6 Align solutions to business value pillars (efficiency, transformation, productivity, cost, performance SLAs)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "performance-sla",
+    "end-to-end-latency",
+    "service-indicators"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A service agreement requires 95% of eligible requests to return a usable answer within four seconds, including failures in the eligible denominator. The model's average response time is one second, yet users experience queueing and retrieval delays. Which indicator should guide the architecture's latency decisions?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The fraction of successful model calls completed within four seconds, timed from model dispatch to final model token.",
+        "note": "This excludes queueing, retrieval, and failed eligible requests. It can meet its target while the contracted user journey still misses the deadline."
+      },
+      {
+        "id": "b",
+        "text": "Eligible journeys delivering a usable answer within four seconds divided by all eligible journeys, timed end to end.",
+        "note": "This measures the actual contractual event and denominator. End-to-end timing captures delays outside inference that the architecture must also control."
+      },
+      {
+        "id": "c",
+        "text": "The mean model response time plus the mean retrieval time, excluding requests rejected by a dependency.",
+        "note": "Averages do not establish the required fraction of timely journeys, and excluding failures changes the stated denominator. Queueing and other path segments may also be omitted."
+      },
+      {
+        "id": "d",
+        "text": "The percentage of requests receiving an HTTP success response from the application gateway within four seconds of arrival.",
+        "note": "Gateway success can acknowledge a request before a usable answer reaches the user. It measures transport behavior rather than the completion event promised in the agreement."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Google SRE Workbook: Implementing SLOs",
+      "url": "https://sre.google/workbook/implementing-slos/"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.6.json",
+    "orig_id": "ccarp-1.6-user-journey-latency",
+    "license": "MIT"
+  }
+}

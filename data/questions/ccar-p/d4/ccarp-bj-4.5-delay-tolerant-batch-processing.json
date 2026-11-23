@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.5-delay-tolerant-batch-processing",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.5 Optimize token usage, latency, and cost-performance trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "batch-processing",
+    "cost-optimization"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A supported API deployment generates independent nightly document classifications. Results are needed the next morning, and no user waits for interactive output. The current model meets the quality requirement. Which cost optimization should the team evaluate first without changing that model?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use asynchronous batch processing and verify completion before the morning deadline.",
+        "note": "Batch processing offers discounted processing for delay-tolerant work on supported deployments. These independent jobs fit that use case, provided measured completion meets the actual deadline."
+      },
+      {
+        "id": "b",
+        "text": "Stream every classification so the first result becomes visible more quickly.",
+        "note": "Streaming addresses perceived responsiveness rather than the unit processing cost. Nobody is waiting for early tokens in this nightly workload."
+      },
+      {
+        "id": "c",
+        "text": "Reduce the hard output limit below the longest valid classification record.",
+        "note": "A limit below valid output size risks truncated records and violates the quality requirement. It is not a safe substitute for a processing mode suited to deferred jobs."
+      },
+      {
+        "id": "d",
+        "text": "Send the classifications through additional synchronous worker processes.",
+        "note": "More synchronous workers may improve throughput, but do not by themselves obtain batch-processing rates. They also add concurrency management without addressing the requested unit-cost optimization."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Pricing",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "title": "Anthropic: Reducing latency",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.5.json",
+    "orig_id": "ccarp-4.5-delay-tolerant-batch-processing",
+    "license": "MIT"
+  }
+}

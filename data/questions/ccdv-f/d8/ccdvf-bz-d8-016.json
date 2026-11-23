@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-016",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Agentic Customisation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An organisation has 30 MCP servers configured, and agents have become slower and less accurate at choosing tools. What is the most appropriate remedy?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Enable only the servers relevant to each agent so its tool set stays focused.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Increase the context window on every request so all definitions fit easily.",
+        "note": "Accommodates the bloat instead of removing it, and selection stays poor."
+      },
+      {
+        "id": "c",
+        "text": "Consolidate all 30 servers behind a single aggregating MCP server.",
+        "note": "One server exposing thirty servers' worth of tools has the same problem."
+      },
+      {
+        "id": "d",
+        "text": "Move every agent onto the most capable model tier available.",
+        "note": "Mitigates the symptom at higher cost while the root cause remains."
+      }
+    ],
+    "explanation": "Every enabled server injects tool definitions into context and widens the selection space. Scoping the enabled set per agent cuts token overhead and sharply improves selection accuracy."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — MCP",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/mcp"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-016",
+    "license": "MIT"
+  }
+}

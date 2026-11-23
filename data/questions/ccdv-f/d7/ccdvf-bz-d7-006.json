@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-006",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "Guardrails and Safe Deployment",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "You are rolling out an agent that can modify production configuration. Which deployment approach is safest?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Enable it for everyone at once so real failure modes surface quickly.",
+        "note": "Maximum exposure before anyone knows the failure modes."
+      },
+      {
+        "id": "b",
+        "text": "Restrict it to overnight windows when production traffic is at its lowest.",
+        "note": "A quiet window reduces witnesses rather than risk, and breakage is caught later."
+      },
+      {
+        "id": "c",
+        "text": "Grant full autonomy from day one but log every action for later tracing.",
+        "note": "Logs support diagnosis after harm; they prevent nothing."
+      },
+      {
+        "id": "d",
+        "text": "Start in proposal-only mode with human approval, then widen autonomy.",
+        "note": ""
+      }
+    ],
+    "explanation": "Progressive autonomy: the agent proposes and a human disposes, real behaviour is measured, and the permission boundary widens only where evidence supports it. Blast radius grows deliberately."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-006",
+    "license": "MIT"
+  }
+}

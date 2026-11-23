@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.2-right-sized-instructions",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.2 Design system prompts, templates, and guardrails",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "system-prompts",
+    "instruction-specificity",
+    "prompt-maintenance"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A routing assistant's system prompt has grown into hundreds of case-specific rules added after individual failures. Several rules conflict, and new requests with equivalent meanings receive inconsistent routes. The team needs precise routing behavior without enumerating every possible wording. Which revision is most defensible?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Add a separate rule for each newly observed wording and preserve all older rules in their existing order.",
+        "note": "This continues the brittle enumeration that created contradictions. More lexical exceptions do not establish a coherent rule for semantically equivalent new requests."
+      },
+      {
+        "id": "b",
+        "text": "Consolidate precedence and uncertainty rules into a routing rubric; test representative boundary examples.",
+        "note": "High-signal instructions at the appropriate abstraction level can resolve conflicts without assuming unstated policy. Boundary examples and evaluation check whether the general rules cover observed failures."
+      },
+      {
+        "id": "c",
+        "text": "Replace the rules with an expert-router persona and let the model infer the organization's routing policy.",
+        "note": "A persona removes the contradictions by also removing necessary domain constraints. The model cannot reliably infer organization-specific routing ownership and exception precedence."
+      },
+      {
+        "id": "d",
+        "text": "Move the complete rule list into the user message and keep only the persona in the system prompt.",
+        "note": "Changing message placement does not reconcile contradictory rules or excessive case enumeration. The application still supplies an incoherent policy."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Effective context engineering for AI agents",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
+    },
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.2.json",
+    "orig_id": "ccarp-2.2-right-sized-instructions",
+    "license": "MIT"
+  }
+}

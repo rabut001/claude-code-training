@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.4-encrypted-ephi-custodian",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.4 Ensure compliance with regulations (e.g., GDPR, HIPAA, FedRAMP)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "hipaa",
+    "encrypted-data",
+    "business-associate",
+    "shared-responsibility"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A HIPAA-covered entity proposes using a cloud backup provider to maintain encrypted electronic protected health information (ePHI) on its behalf. The provider will not possess the decryption key. Under US Department of Health and Human Services (HHS) cloud guidance, which architectural requirement follows from this arrangement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Limit review to encryption strength because a provider without the key is outside the business-associate relationship.",
+        "note": "HHS includes providers maintaining ePHI on behalf of a covered entity even when they cannot decrypt it. Key separation does not remove that relationship or its safeguards."
+      },
+      {
+        "id": "b",
+        "text": "Use an applicable business associate agreement and assess the provider's security duties, including availability and recovery.",
+        "note": "Maintaining encrypted ePHI can create the business-associate relationship. An agreement and risk management remain necessary, and encryption alone does not address integrity, availability, or administrative safeguards."
+      },
+      {
+        "id": "c",
+        "text": "Require an HHS Office for Civil Rights product-certification badge and use that badge in place of the covered entity's own risk analysis.",
+        "note": "The HHS Office for Civil Rights does not endorse or certify particular products. A supposed product badge cannot replace the entity's assessment of its actual data path and responsibilities."
+      },
+      {
+        "id": "d",
+        "text": "Treat the encrypted backup as de-identified information and document the key holder as the only party with HIPAA responsibilities.",
+        "note": "Encryption is not the same as de-identification under HIPAA. The provider's role maintaining ePHI and the shared safeguard responsibilities still require assessment."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "HHS OCR: Guidance on HIPAA & Cloud Computing",
+      "url": "https://www.hhs.gov/hipaa/for-professionals/special-topics/health-information-technology/cloud-computing/index.html"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.4.json",
+    "orig_id": "ccarp-5.4-encrypted-ephi-custodian",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-011",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Which workload benefits least from prompt caching?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A one-off run over 50,000 unrelated short strings with differing instructions.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "A support bot that carries the same 20,000-token policy manual every request.",
+        "note": "A large manual repeated on every call is the ideal caching case."
+      },
+      {
+        "id": "c",
+        "text": "A code assistant that includes the same large file set on each turn of a session.",
+        "note": "A stable file set reused across turns caches extremely well."
+      },
+      {
+        "id": "d",
+        "text": "A contract Q&A tool where users ask many questions about one uploaded document.",
+        "note": "One document with many questions is the canonical caching pattern."
+      }
+    ],
+    "explanation": "Caching rewards reuse of a large stable prefix. Unrelated short inputs share nothing substantial, so there is no prefix worth caching and the write premium makes it worse; that workload wants Batch."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Prompt caching",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-011",
+    "license": "MIT"
+  }
+}

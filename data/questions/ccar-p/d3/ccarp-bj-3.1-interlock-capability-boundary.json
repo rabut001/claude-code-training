@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.1-interlock-capability-boundary",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.1 Evaluate tool/agent configuration for capability bloat",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "capability-bloat",
+    "least-privilege"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A factory agent diagnoses equipment faults and schedules inspections. A shared integration template also exposes a tool that changes robot safety interlocks, although this role is never authorized to change them. Which configuration change best addresses this capability bloat?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep the interlock tool but require the agent to explain its reason before calling it.",
+        "note": "An explanation is model-generated behavior, not a permission boundary. The agent would retain a capability outside its authorized role."
+      },
+      {
+        "id": "b",
+        "text": "Remove the interlock tool from this role and deny interlock changes in its backend permissions.",
+        "note": "Removing the callable capability and its underlying permission aligns both interfaces with the role. A discovered or accidentally constructed call cannot regain the prohibited operation."
+      },
+      {
+        "id": "c",
+        "text": "Defer the interlock tool until tool search finds it, leaving its credentials unchanged.",
+        "note": "Deferred loading reduces initial definition context but leaves the tool discoverable and executable. It does not remove the unauthorized capability."
+      },
+      {
+        "id": "d",
+        "text": "Keep the shared template and alert an operator after any interlock change.",
+        "note": "Post-action monitoring can detect misuse but cannot prevent a safety setting from changing. The role does not need this capability in the first place."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    },
+    {
+      "title": "Anthropic: Tool search tool",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.1.json",
+    "orig_id": "ccarp-3.1-interlock-capability-boundary",
+    "license": "MIT"
+  }
+}

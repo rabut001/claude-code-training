@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-049",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Configuration Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which practice best prevents a staging prompt change from accidentally affecting production?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Require a second reviewer to approve every prompt change before merge.",
+        "note": "Review catches mistakes probabilistically; it does not isolate environments."
+      },
+      {
+        "id": "b",
+        "text": "Name staging prompts with a distinguishing prefix so they are recognisable.",
+        "note": "A naming convention is a hint, not a boundary."
+      },
+      {
+        "id": "c",
+        "text": "Deploy prompt changes only outside of normal business hours.",
+        "note": "Changes the timing of an incident rather than preventing it."
+      },
+      {
+        "id": "d",
+        "text": "Treat prompts as environment-scoped configuration resolved per deployment.",
+        "note": ""
+      }
+    ],
+    "explanation": "If the environment selects its own prompt version, a staging edit has no path into production. That is a structural separation rather than a procedural one."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-049",
+    "license": "MIT"
+  }
+}

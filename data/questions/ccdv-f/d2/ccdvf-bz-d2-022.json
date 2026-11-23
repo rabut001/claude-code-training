@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-022",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A support application must answer questions about a product catalogue of 80,000 SKUs that changes daily. Which design is most appropriate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Place the full catalogue in the system prompt and refresh it each morning.",
+        "note": "80,000 SKUs will not fit, and you would pay for all of it on every call."
+      },
+      {
+        "id": "b",
+        "text": "Fine-tune a model nightly on the current catalogue snapshot.",
+        "note": "Fine-tuning teaches behaviour, not volatile facts, and a daily cycle is impractical."
+      },
+      {
+        "id": "c",
+        "text": "Retrieve the few relevant SKUs per query and supply them as grounding context.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Cache yesterday's answers and serve them until the catalogue is next updated.",
+        "note": "Serves stale answers by construction and never covers unseen questions."
+      }
+    ],
+    "explanation": "Retrieval keeps the prompt small and always current. Volatile, high-volume reference data belongs in a store queried per request, not baked into the model or the prompt."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Reduce hallucinations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-022",
+    "license": "MIT"
+  }
+}

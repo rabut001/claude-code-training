@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.4-quality-monitoring-without-transcript-export",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.4 Analyze observability challenges and select monitoring strategies at scale",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "observability",
+    "quality-monitoring",
+    "privacy",
+    "quality-slices"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An engineering assistant's API success rate and aggregate latency remain stable, but users report incorrect repair recommendations in one workflow after a configuration rollout. Full transcripts cannot leave the service's controlled environment. Which monitoring strategy best detects the affected quality slice while preserving that restriction?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase uptime probes and alert only if the provider's HTTP error rate rises.",
+        "note": "Uptime and transport errors do not measure recommendation correctness. A workflow-specific quality regression can occur while every API request succeeds technically."
+      },
+      {
+        "id": "b",
+        "text": "Grade a representative sample inside the controlled environment and export permitted outcome metrics by workflow and configuration.",
+        "note": "Outcome grading measures the reported failure without exporting prohibited transcripts. Workflow and configuration dimensions help expose a regression hidden by aggregate operational metrics."
+      },
+      {
+        "id": "c",
+        "text": "Use the model's completion claim as the quality score and export only its confidence label.",
+        "note": "An agent's claim or confidence does not independently verify the correctness of a repair recommendation. Grounded grading or verified outcomes are needed for the quality signal."
+      },
+      {
+        "id": "d",
+        "text": "Export full transcripts only for the failing workflow so that centralized tracing can determine correctness.",
+        "note": "Restricting the workflow does not satisfy the prohibition on transcripts leaving the controlled environment. Quality evaluation must respect the stated processing boundary."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: OpenTelemetry tracing for the Claude API",
+      "url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.4.json",
+    "orig_id": "ccarp-3.4-quality-monitoring-without-transcript-export",
+    "license": "MIT"
+  }
+}

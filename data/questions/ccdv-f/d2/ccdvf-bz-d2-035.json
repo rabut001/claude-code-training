@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-035",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Understanding Requirements",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A stakeholder asks for \"an AI that handles our support inbox\". Which is the most useful first step in translating this into a technical requirement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Benchmark several models to establish which performs best on support email.",
+        "note": "Benchmarking against an undefined task cannot identify a winner."
+      },
+      {
+        "id": "b",
+        "text": "Build a prototype on last month's inbox to show stakeholders what is possible.",
+        "note": "A prototype with no acceptance criteria cannot be validated or shipped."
+      },
+      {
+        "id": "c",
+        "text": "Enumerate the request categories and decide which may be actioned without review.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Estimate the monthly token cost so the budget can be approved up front.",
+        "note": "Cost cannot be estimated until volume and scope are known."
+      }
+    ],
+    "explanation": "\"Handles\" hides the decisions that determine the whole design: which categories are in scope, and which actions the system may take unsupervised. Everything else depends on those answers."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Define success criteria",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/define-success"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-035",
+    "license": "MIT"
+  }
+}

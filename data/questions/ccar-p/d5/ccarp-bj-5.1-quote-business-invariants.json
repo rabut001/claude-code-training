@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.1-quote-business-invariants",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.1 Implement guardrails and safety controls",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "deterministic-controls",
+    "business-validation",
+    "output-validation"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A quote-drafting assistant produces parseable JSON with numeric prices and discounts. Some drafts nevertheless combine discounts in ways forbidden by the company's authoritative pricing rules. A separate content screen already checks abusive language. What should be added before a quote is published?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A second JSON parser that rejects nonnumeric prices and confirms all required quote fields are present.",
+        "note": "Parsing and field presence do not evaluate relationships between valid numeric values. The reported failures already pass those structural checks."
+      },
+      {
+        "id": "b",
+        "text": "An additional model-based content screen trained to classify whether a quote appears commercially reasonable.",
+        "note": "A reasonableness classifier is not the authoritative discount calculation. The policy defines exact business rules that can be checked directly rather than inferred from appearance."
+      },
+      {
+        "id": "c",
+        "text": "Recalculate allowed discounts and block quotes that fail the authoritative pricing rules before publication.",
+        "note": "The pricing rules provide a precise application-level invariant independent of fluent output or valid JSON. Checking before publication prevents an invalid quote from becoming a customer commitment."
+      },
+      {
+        "id": "d",
+        "text": "A post-publication reconciliation job that flags inconsistent discounts for the sales team to amend.",
+        "note": "Reconciliation can detect an incident but permits a forbidden quote to be published first. It does not meet the requested pre-publication control requirement."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.1.json",
+    "orig_id": "ccarp-5.1-quote-business-invariants",
+    "license": "MIT"
+  }
+}

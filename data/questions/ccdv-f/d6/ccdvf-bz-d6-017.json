@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-017",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Output Handling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "What is \"defensive parsing\" of model output?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Parsing the response a second time to confirm the first result was correct.",
+        "note": "Parsing twice yields the same result and proves nothing."
+      },
+      {
+        "id": "b",
+        "text": "Checking stop_reason, validating structure and values, and defining a failure path.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Selecting a faster parser so malformed payloads are rejected more quickly.",
+        "note": "Parser performance is unrelated to correctness handling."
+      },
+      {
+        "id": "d",
+        "text": "Reading only the leading portion of the response to avoid trailing noise.",
+        "note": "Arbitrary truncation creates the malformed input you are guarding against."
+      }
+    ],
+    "explanation": "It treats every response as potentially truncated or malformed rather than assuming the model produced what was asked, which is why stop_reason is checked before the content is trusted."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Increase output consistency",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/increase-consistency"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-017",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-003",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Tool Implementation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A delete_records tool is defined with a filter parameter. During testing the agent once called it with an empty filter, which would have deleted everything. What is the correct set of changes?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Require the filter, reject broad filters, cap affected rows, gate on approval.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Add a prominent warning to the tool description and monitor future calls.",
+        "note": "A description influences behaviour but cannot prevent the call."
+      },
+      {
+        "id": "c",
+        "text": "Rename the tool to something less inviting for the model to reach for.",
+        "note": "Naming does not constrain what the handler will execute."
+      },
+      {
+        "id": "d",
+        "text": "Set temperature to 0 on any request where this tool is made available.",
+        "note": "Sampling temperature is not a safety control."
+      }
+    ],
+    "explanation": "Layered deterministic defences for a destructive capability: the schema makes the filter mandatory, the handler bounds the blast radius, and a human gate stands in front of the irreversible action."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use best practices",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-003",
+    "license": "MIT"
+  }
+}

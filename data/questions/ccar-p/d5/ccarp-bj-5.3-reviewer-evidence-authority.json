@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.3-reviewer-evidence-authority",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.3 Apply human-in-the-loop validation strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "reviewer-evidence",
+    "review-authority",
+    "pre-execution-review"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A qualified operations reviewer must validate an assistant's proposed inventory correction before it changes the ledger. The approval screen shows only the assistant's explanation, and reviewers cannot inspect source records or reject the proposed correction. Which redesign most directly makes this human control effective?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Show a longer model-generated justification and require the reviewer to confirm that the explanation is internally consistent.",
+        "note": "An internally consistent explanation can still misstate the source records. More generated text does not provide independent evidence or authority to prevent the correction."
+      },
+      {
+        "id": "b",
+        "text": "Add the assistant's confidence score and require the reviewer to acknowledge it before the existing approval button activates.",
+        "note": "Acknowledging confidence does not validate the ledger change. The reviewer would still lack source access and the ability to reject a wrong action."
+      },
+      {
+        "id": "c",
+        "text": "Provide source-record links after execution and let the reviewer file a correction request if the posted change appears wrong.",
+        "note": "This changes a required pre-execution validation into post-action remediation. The ledger would already have changed before evidence-based review could stop it."
+      },
+      {
+        "id": "d",
+        "text": "Provide source records and the proposed change, with authority to reject, correct, or escalate before execution.",
+        "note": "The reviewer receives evidence for the exact action and authority to change its outcome. Both are necessary for validation rather than acknowledgement of the model's recommendation."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.3.json",
+    "orig_id": "ccarp-5.3-reviewer-evidence-authority",
+    "license": "MIT"
+  }
+}

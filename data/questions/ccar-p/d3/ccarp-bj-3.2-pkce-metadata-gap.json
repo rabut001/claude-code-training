@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.2-pkce-metadata-gap",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.2 Analyze authentication and authorization requirements to identify security gaps",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "mcp",
+    "oauth",
+    "pkce"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A public HTTP MCP client follows MCP 2026-07-28 authorization. Its selected OpenID Connect discovery document omits code_challenge_methods_supported. The identity team says TLS and exact redirect registration make the authorization-code exchange safe enough. What should the MCP client do under this specification?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue without PKCE because exact redirect registration authenticates the party redeeming the code.",
+        "note": "Redirect validation does not replace proof that the redeemer holds the original PKCE verifier. This specification requires the client to verify PKCE support before authorization."
+      },
+      {
+        "id": "b",
+        "text": "Send a plain code challenge and assume the provider supports it because the field is optional in OpenID Connect.",
+        "note": "MCP adds an explicit requirement to verify this metadata field, even when using OpenID Connect discovery. Guessing support does not satisfy that requirement, and capable clients must use S256."
+      },
+      {
+        "id": "c",
+        "text": "Complete authorization first and test whether the issued access token has an acceptable audience.",
+        "note": "Audience validation protects resource access but does not repair an unprotected authorization-code flow. The missing PKCE capability must be addressed before proceeding."
+      },
+      {
+        "id": "d",
+        "text": "Refuse to proceed until metadata verifies PKCE support, using S256 when technically capable.",
+        "note": "MCP 2026-07-28 requires refusal when code_challenge_methods_supported is absent from either supported discovery mechanism. Its code-protection requirements are not waived by TLS or redirect checks."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "MCP specification: Authorization Security Considerations",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.2.json",
+    "orig_id": "ccarp-3.2-pkce-metadata-gap",
+    "license": "MIT"
+  }
+}

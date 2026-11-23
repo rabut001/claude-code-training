@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.2-shared-stale-corpus",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.2 Identify risks, limitations, and failure modes of LLM systems",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "common-mode-failure",
+    "source-provenance",
+    "stale-data"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Three differently prompted review agents agree that a component may be shipped. All three cite the same indexed specification. An engineer reports that the specification changed last week, but the index's ingestion date is unknown. What is the strongest next step before treating agent agreement as assurance?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retrieve the current specification, check index provenance, and reevaluate shipment against the verified version.",
+        "note": "The agents share a potentially stale evidence dependency, so agreement can reflect a common-mode failure. Checking the authoritative version directly addresses that dependency."
+      },
+      {
+        "id": "b",
+        "text": "Add two more reviewers with the same index and require a larger majority before accepting the shipment claim.",
+        "note": "More reviewers do not remove the shared stale-source dependency. A larger vote can make the same unsupported conclusion appear more reliable."
+      },
+      {
+        "id": "c",
+        "text": "Change the reviewers to different models while keeping the indexed specification fixed, then accept unanimous agreement.",
+        "note": "Model diversity does not repair a common evidence error. All reviewers can correctly summarize an obsolete specification and still reach the wrong shipment decision."
+      },
+      {
+        "id": "d",
+        "text": "Ask each reviewer to explain independently why last week's change would not affect its previous conclusion.",
+        "note": "Without obtaining the changed source, the reviewers lack the evidence needed to assess its effect. Independently written explanations can still rely on the same obsolete information."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic: Reduce hallucinations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.2.json",
+    "orig_id": "ccarp-5.2-shared-stale-corpus",
+    "license": "MIT"
+  }
+}

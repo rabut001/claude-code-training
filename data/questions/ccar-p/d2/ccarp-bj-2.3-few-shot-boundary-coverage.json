@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.3-few-shot-boundary-coverage",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.3 Apply prompt engineering techniques (zero-shot, few-shot, chain-of-thought)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "few-shot",
+    "example-diversity",
+    "spurious-patterns"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A few-shot classifier must distinguish a request to cancel a booking from a dispute about a completed booking. Every cancellation demonstration is short, and every dispute demonstration is long and mentions a refund. Evaluation shows errors on long cancellations and short disputes without refund language. Which example revision best targets the observed failure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Add more long refund disputes while retaining the existing cancellation examples unchanged.",
+        "note": "This reinforces the same length and vocabulary correlations. It does not demonstrate that intent, rather than those incidental features, determines the label."
+      },
+      {
+        "id": "b",
+        "text": "Repeat the label definitions after every demonstration, retaining the same lengths and refund vocabulary in the training examples.",
+        "note": "Repetition can emphasize definitions, but it leaves the observed spurious example patterns intact. The failing boundary cases still have no demonstrations."
+      },
+      {
+        "id": "c",
+        "text": "Add labeled long cancellations and short disputes, varying refund wording across clearly delimited examples of both labels.",
+        "note": "Diverse counterexamples show which features are irrelevant and which intent distinction controls the label. Clear example structure also separates demonstrations from the live input."
+      },
+      {
+        "id": "d",
+        "text": "Include the failing inputs as unlabeled examples and let the model infer their intended labels.",
+        "note": "Unlabeled cases do not demonstrate the desired input-output mapping. They can preserve the ambiguity instead of teaching the decision boundary."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.3.json",
+    "orig_id": "ccarp-2.3-few-shot-boundary-coverage",
+    "license": "MIT"
+  }
+}

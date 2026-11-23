@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.4-diagnose-versioned-sampling-rejection",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.4 Diagnose system issues (prompt failure, hallucinations, model mismatch)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "api-migration",
+    "invalid-requests",
+    "version-scoping"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "After an SDK upgrade, requests to the required Claude API version 2026-10-21 fail with HTTP 400 before generation. A saved request still contains temperature=0 from a legacy request template. The application must remain on the new API version. What should the maintainer test first?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Apply exponential backoff and resend the same request after the delay.",
+        "note": "The saved request contains a field rejected by this API version. Retrying the unchanged invalid request does not address the validation error."
+      },
+      {
+        "id": "b",
+        "text": "Replace temperature with top_p while keeping the new API version.",
+        "note": "API 2026-10-21 also removes top_p and top_k. Substituting another removed sampling field would preserve the request-validation problem."
+      },
+      {
+        "id": "c",
+        "text": "Select a different model while retaining the legacy temperature field.",
+        "note": "The failure is a versioned request-contract rejection before generation, not demonstrated model incapacity. Keeping the removed field does not repair that contract."
+      },
+      {
+        "id": "d",
+        "text": "Remove the unsupported sampling fields and rerun integration checks on that version.",
+        "note": "API 2026-10-21 rejects temperature, top_p, and top_k, including default-valued fields. Removing them addresses the concrete migration incompatibility while preserving the required API version."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Migrating to API version 2026-10-21",
+      "url": "https://platform.claude.com/docs/en/api/migration-2026-10-21"
+    },
+    {
+      "title": "Anthropic: Claude API errors",
+      "url": "https://platform.claude.com/docs/en/api/errors"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.4.json",
+    "orig_id": "ccarp-4.4-diagnose-versioned-sampling-rejection",
+    "license": "MIT"
+  }
+}

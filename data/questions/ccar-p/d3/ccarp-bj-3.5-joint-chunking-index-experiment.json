@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.5-joint-chunking-index-experiment",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.5 Design a RAG pipeline with appropriate chunking and indexing strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "rag",
+    "chunking",
+    "index-design",
+    "retrieval-evaluation"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "For compound repair procedures, small fixed chunks retrieve exact steps but omit prerequisites in adjacent sections. Whole-document chunks retain prerequisites but fill the generation budget with unrelated procedures. The team must choose a chunking and indexing strategy without increasing that budget. Which experiment provides the most relevant evidence?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep whole-document chunks and compare only which embedding model gives the highest similarity score.",
+        "note": "Raw similarity scores do not establish that the final context contains complete procedures within budget. This comparison leaves the demonstrated granularity problem unchanged."
+      },
+      {
+        "id": "b",
+        "text": "Adopt the chunk size used in a published vendor benchmark and skip corpus-specific validation.",
+        "note": "Published settings describe a particular corpus and evaluation. They do not establish the right boundaries or overlap for these cross-section repair dependencies."
+      },
+      {
+        "id": "c",
+        "text": "Keep the smallest chunks and maximize top-K until every neighboring section enters generation.",
+        "note": "Increasing top-K can consume the fixed generation budget and add distracting material. It does not test whether better boundaries can preserve dependencies more selectively."
+      },
+      {
+        "id": "d",
+        "text": "Rebuild candidate indexes with procedure-aware boundaries and tested overlap, then compare dependency coverage and final-answer quality at the fixed budget.",
+        "note": "Boundary and overlap changes must be reflected in the indexed chunks before retrieval can be evaluated. Testing complete evidence and final outcomes identifies a workable balance between fragmented and overlarge chunks."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.5.json",
+    "orig_id": "ccarp-3.5-joint-chunking-index-experiment",
+    "license": "MIT"
+  }
+}

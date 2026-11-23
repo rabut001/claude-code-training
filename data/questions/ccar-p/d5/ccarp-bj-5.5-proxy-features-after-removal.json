@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.5-proxy-features-after-removal",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.5 Address ethical AI considerations (bias, fairness, transparency)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "proxy-bias",
+    "historical-labels",
+    "fairness-evaluation"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An optional skills-course recommender no longer receives an explicit age field. It still uses graduation year, historical course participation, and manager ratings. Older workers receive fewer suitable recommendations in a reviewed sample. The team claims age-related bias is now impossible. What is the best next step?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Assess proxy inputs and label quality against job-relevant criteria; test subgroup errors and mitigations in this deployment.",
+        "note": "Removing an explicit attribute does not remove correlated inputs or biased upstream labels. Contextual analysis can distinguish legitimate task information from mechanisms producing unfair recommendations."
+      },
+      {
+        "id": "b",
+        "text": "Remove age labels from evaluation records as well, making the training and evaluation pipelines equally blind to the attribute.",
+        "note": "Eliminating evaluation visibility does not establish that proxies have no effect. It can prevent the team from detecting and measuring the reported disparity."
+      },
+      {
+        "id": "c",
+        "text": "Drop every feature statistically correlated with age and declare the remaining system fair without further outcome evaluation.",
+        "note": "Correlation alone does not determine task relevance or capture every source of disparity. A blanket feature-removal rule is not evidence that the resulting recommendations are fair."
+      },
+      {
+        "id": "d",
+        "text": "Attribute the disparity to manager ratings and retain them unchanged, treating human-produced ratings as inherently neutral evidence.",
+        "note": "Human-produced labels can reflect historical selection or assessment bias. Their origin does not establish neutrality or remove the need to examine recommendation errors."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.5.json",
+    "orig_id": "ccarp-5.5-proxy-features-after-removal",
+    "license": "MIT"
+  }
+}

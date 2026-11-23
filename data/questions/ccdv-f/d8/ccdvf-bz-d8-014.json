@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-014",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Agentic Customisation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "What is the main advantage of a built-in tool over an equivalent custom tool you implement yourself?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Built-in tools are verified by the provider and do not return wrong results.",
+        "note": "No tool is infallible, built-in or otherwise."
+      },
+      {
+        "id": "b",
+        "text": "Built-in tool definitions and results are excluded from token accounting.",
+        "note": "Their definitions and results consume context like anything else."
+      },
+      {
+        "id": "c",
+        "text": "The provider maintains and executes it, so you host and patch nothing.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Built-in tools are exempt from the organisation's request rate limits.",
+        "note": "Rate limits still apply to the request that invokes them."
+      }
+    ],
+    "explanation": "It removes an implementation and operations burden entirely. The trade-off is that you accept its behaviour and scope rather than tailoring it to your needs."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-014",
+    "license": "MIT"
+  }
+}

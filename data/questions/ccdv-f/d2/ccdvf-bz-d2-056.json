@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-056",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Understanding Requirements",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A stakeholder asks for \"an AI that handles customer emails automatically.\" What should happen before any prompt is written?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Begin prototyping at once so stakeholders can see tangible progress early.",
+        "note": "A prototype with no acceptance criteria cannot be validated or shipped."
+      },
+      {
+        "id": "b",
+        "text": "Select the most capable model so answer quality is never the limiting factor.",
+        "note": "A model choice made before requirements is a guess, and usually an expensive one."
+      },
+      {
+        "id": "c",
+        "text": "Gather a large corpus of historical emails to use as fine-tuning data.",
+        "note": "Presumes fine-tuning before establishing that prompting is insufficient."
+      },
+      {
+        "id": "d",
+        "text": "Fix the categories, accuracy floor, autonomous actions, and cost budget.",
+        "note": ""
+      }
+    ],
+    "explanation": "\"Handles automatically\" is not a specification. Until you know the categories, the acceptable accuracy, and which actions need a human, you cannot design, evaluate, or finish the system."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Define success criteria",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/define-success"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D2-056",
+    "license": "MIT"
+  }
+}

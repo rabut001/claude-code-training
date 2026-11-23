@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.1-stage-metrics-not-system-proof",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.1 Define evaluation metrics (accuracy, latency, cost, safety, security)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "metric-boundaries",
+    "grounding",
+    "token-audience"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A document assistant reports improved retrieval recall at a fixed candidate count. Its owner claims this proves both correctly supported answers and access-token isolation for its protected MCP 2026-07-28 resource. Which additional measurements directly test those two unproven claims? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Claim correctness and citation support on complete generated answers.",
+        "note": "Retrieving relevant material does not ensure the generator uses it faithfully. Checking complete claims against their cited evidence tests answer fidelity at the output boundary."
+      },
+      {
+        "id": "b",
+        "text": "Retrieval recall after increasing the number of candidate chunks.",
+        "note": "A larger-candidate recall measurement remains a retrieval-stage metric. It establishes neither grounded generation nor rejection of tokens issued for a different resource."
+      },
+      {
+        "id": "c",
+        "text": "Acceptance rate for attack requests carrying tokens issued for another resource.",
+        "note": "MCP 2026-07-28 requires the server to reject tokens not intended for its resource. Testing such requests directly measures the claimed token-audience boundary."
+      },
+      {
+        "id": "d",
+        "text": "The generator's confidence score for each answer and cited document.",
+        "note": "Model confidence does not independently verify a claim or an access-token audience check. A confident answer can be unsupported, and authorization is enforced by the resource server."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    },
+    {
+      "title": "MCP specification: Authorization Security Considerations",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations"
+    },
+    {
+      "title": "Anthropic: Reduce hallucinations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.1.json",
+    "orig_id": "ccarp-4.1-stage-metrics-not-system-proof",
+    "license": "MIT"
+  }
+}

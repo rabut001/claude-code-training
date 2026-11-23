@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-016",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A tool returns a 40,000-token JSON blob, of which the agent needs three fields. What is the best handling?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pass the whole payload through so the model has complete information.",
+        "note": "Uncontrolled tool output is a leading cause of context bloat in agents."
+      },
+      {
+        "id": "b",
+        "text": "Filter inside the tool handler and return only the three required fields.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Move to a model with a larger window and continue passing everything.",
+        "note": "Raises the ceiling and the price without addressing the waste."
+      },
+      {
+        "id": "d",
+        "text": "Insert the payload, then ask the model to summarise it before proceeding.",
+        "note": "Summarising after insertion means you already paid for all 40,000 tokens."
+      }
+    ],
+    "explanation": "Tool output is under your control, so reduce it before it reaches the model. This cuts cost, preserves window space for the real task, and removes noise the model would otherwise reason through."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-016",
+    "license": "MIT"
+  }
+}

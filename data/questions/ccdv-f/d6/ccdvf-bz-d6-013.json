@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-013",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Prompt Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A classification prompt performs well overall but consistently mislabels one rare category. What is the most targeted fix?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Move the workload to a larger model tier with stronger reasoning ability.",
+        "note": "An expensive blunt instrument that may not resolve a definitional ambiguity."
+      },
+      {
+        "id": "b",
+        "text": "Define that category precisely and show examples, including near-miss cases.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Increase max_tokens so the model has room to deliberate before labelling.",
+        "note": "Output length is irrelevant to which label is chosen."
+      },
+      {
+        "id": "d",
+        "text": "Drop the neighbouring categories so the rare one is no longer confusable.",
+        "note": "Removing categories changes the task rather than solving it."
+      }
+    ],
+    "explanation": "A single confused category is a boundary problem, so sharpen the boundary. Demonstrating true positives alongside the near-misses it is being confused with is targeted, cheap, and measurable."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Multishot prompting",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/multishot-prompting"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-013",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.8-core-plus-deferred-catalog",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.8 Evaluate progressive discovery vs. monolithic context strategy",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "progressive-discovery",
+    "hybrid-tool-loading",
+    "defer-loading"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A Claude Messages API 2023-06-01 application uses tool_search_tool_bm25_20251119 on a supported model. Every task uses one compact case-status tool, but only a few of the other authorized specialist tools. Loading the full catalog consumes substantial initial model context. Which configuration best balances discovery overhead and context use?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Defer the case-status tool as well as every specialist tool so all tasks begin with the same discovery step.",
+        "note": "This can reduce upfront definitions but imposes search latency for an operation every task needs. Keeping the compact common operation available directly avoids that unnecessary step."
+      },
+      {
+        "id": "b",
+        "text": "Leave every definition loaded and rely on prompt caching to remove unused definitions from the context window.",
+        "note": "Caching reuses prefix processing but does not remove tokens from model context. It does not provide the relevance selection needed for the large, mostly unused catalog."
+      },
+      {
+        "id": "c",
+        "text": "Set defer_loading on the search tool itself so no tool definitions enter initial context.",
+        "note": "The documented search tool must remain non-deferred so the model has a way to discover other tools. Deferring the discovery entry point breaks that configuration."
+      },
+      {
+        "id": "d",
+        "text": "Keep search and the common case-status tool non-deferred, and defer the authorized specialist definitions.",
+        "note": "The common operation remains immediately callable while rare definitions enter model context only when discovered. Deferral changes loading strategy, not the application's authorization obligations."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Tool search tool",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool"
+    },
+    {
+      "title": "Anthropic: Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.8.json",
+    "orig_id": "ccarp-3.8-core-plus-deferred-catalog",
+    "license": "MIT"
+  }
+}

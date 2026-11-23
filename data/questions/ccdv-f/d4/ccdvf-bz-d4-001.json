@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d4-001",
+  "exam": "ccdv-f",
+  "domain": "d4",
+  "subdomain": "Debugging and Error Handling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An agent returns a wrong final answer. The trace shows a correct tool call, but the tool returned an empty array and the agent proceeded to answer from assumption. Where is the defect?",
+    "options": [
+      {
+        "id": "a",
+        "text": "In the model, which ought to have known the answer without calling a tool.",
+        "note": "Relying on parametric knowledge for data the tool fetches is the failure described."
+      },
+      {
+        "id": "b",
+        "text": "In the prompt, which needed more few-shot examples of empty result handling.",
+        "note": "Examples cannot resolve a genuinely ambiguous tool response."
+      },
+      {
+        "id": "c",
+        "text": "In the model version, which should be upgraded to one that reasons better.",
+        "note": "A newer model would face exactly the same ambiguous signal."
+      },
+      {
+        "id": "d",
+        "text": "In the tool, which returned an ambiguous empty array instead of a clear signal.",
+        "note": ""
+      }
+    ],
+    "explanation": "An empty array could mean no matches, a bad query, or a failure. An unambiguous result lets the agent distinguish \"nothing exists\" from \"something went wrong\" rather than filling the gap with assumption."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d4-eval-debug.js",
+    "orig_id": "D4-001",
+    "license": "MIT"
+  }
+}

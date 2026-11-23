@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.2-representative-and-adversarial-suites",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.2 Design evaluation datasets and test frameworks using mixed methodologies",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "dataset-design",
+    "negative-cases",
+    "evaluation-slices"
+  ],
+  "answer": [
+    "a",
+    "d"
+  ],
+  "en": {
+    "question": "An assistant supports four common workflows and encounters rare but consequential requests that must be rejected. The team needs both an estimate of ordinary production utility and assurance on the rejection boundary. Which dataset choices support those different purposes? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sample ordinary cases across workflows and report utility with production-representative weights.",
+        "note": "A representative workload mix supports an estimate of ordinary production utility. Reporting the weighting makes the denominator explicit rather than letting an artificial case mix imply production accuracy."
+      },
+      {
+        "id": "b",
+        "text": "Make prohibited requests half the bank and report the pooled score as production accuracy.",
+        "note": "Oversampling rare hazards can be useful for stress testing, but the unweighted pooled result would misrepresent the stated production mix. It also obscures which boundary failed."
+      },
+      {
+        "id": "c",
+        "text": "Use completed successful sessions as the source for every evaluation case.",
+        "note": "Selecting only successes omits realistic failures and cases where the assistant should decline to act. The resulting bank cannot assess the required rejection boundary."
+      },
+      {
+        "id": "d",
+        "text": "Maintain a separately reported hazard suite with explicit should-not-act outcomes.",
+        "note": "A targeted negative suite gives rare, consequential behaviors enough coverage without presenting their artificial frequency as ordinary traffic. Explicit expected outcomes make the rejection behavior gradable."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.2.json",
+    "orig_id": "ccarp-4.2-representative-and-adversarial-suites",
+    "license": "MIT"
+  }
+}

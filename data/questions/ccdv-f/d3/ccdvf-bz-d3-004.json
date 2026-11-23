@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d3-004",
+  "exam": "ccdv-f",
+  "domain": "d3",
+  "subdomain": "Claude Code Operation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A long Claude Code session is approaching the context limit, but the developer wants to keep working on the same task. Which command is appropriate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "/clear, which removes the accumulated conversation and starts clean.",
+        "note": "Clearing discards the task state the developer explicitly wants to keep."
+      },
+      {
+        "id": "b",
+        "text": "/compact, which summarises the session and continues with less context.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "/init, which regenerates the project memory file from the current repo.",
+        "note": "/init creates or refreshes CLAUDE.md and does nothing to context size."
+      },
+      {
+        "id": "d",
+        "text": "/model, which switches to a model offering a larger context window.",
+        "note": "Switching models does not reduce accumulated conversation."
+      }
+    ],
+    "explanation": "Compacting preserves task continuity while reducing the context. Clearing is right only when you are genuinely starting an unrelated task."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Slash commands",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/slash-commands"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d3-claude-code.js",
+    "orig_id": "D3-004",
+    "license": "MIT"
+  }
+}

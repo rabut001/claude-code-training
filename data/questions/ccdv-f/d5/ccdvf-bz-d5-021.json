@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-021",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Model Selection and Trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An agent performs a long chain of tool calls where most steps are simple lookups and one step is a difficult synthesis. What is the most cost-effective architecture?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Run the entire chain on the most capable model for behavioural consistency.",
+        "note": "Paying premium rates for trivial lookups is the commonest avoidable agent cost."
+      },
+      {
+        "id": "b",
+        "text": "Run routine steps on a cheap fast model and the synthesis on the capable one.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Run the whole chain on the cheapest tier and accept weaker synthesis quality.",
+        "note": "Degrading the one step that matters defeats the purpose of the chain."
+      },
+      {
+        "id": "d",
+        "text": "Run the chain on two different models and compare the results at the end.",
+        "note": "Doubles spend with no reliable way to arbitrate between the two results."
+      }
+    ],
+    "explanation": "Model choice is a per-step decision rather than a per-application one. Cheap models handle lookups and routing; the expensive model is reserved for the step whose quality decides the outcome."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-021",
+    "license": "MIT"
+  }
+}

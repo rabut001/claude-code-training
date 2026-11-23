@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.6-api-versus-otel-input-semantics",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.6 Monitor system performance using logging and observability tools",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "opentelemetry",
+    "cache-accounting",
+    "metric-semantics"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "For the same completed request, Messages API usage reports input_tokens=1200, cache_creation_input_tokens=2000, and cache_read_input_tokens=6800. Its OpenTelemetry span reports gen_ai.usage.input_tokens=10000, with cache-read and cache-write details also available. What total input should each interface independently report after normalization?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Messages API: 1200; OpenTelemetry: 10000.",
+        "note": "Messages API input_tokens is the uncached portion, so using 1200 alone omits 2000 cache-write and 6800 cache-read tokens. The OpenTelemetry total of 10000 is already inclusive."
+      },
+      {
+        "id": "b",
+        "text": "Messages API: 10000; OpenTelemetry: 18800.",
+        "note": "Summing the Messages API categories correctly gives 10000. Adding cache-read and cache-write details to gen_ai.usage.input_tokens incorrectly counts those 8800 tokens twice."
+      },
+      {
+        "id": "c",
+        "text": "Messages API: 10000; OpenTelemetry: 10000.",
+        "note": "Messages API total input is 1200 + 2000 + 6800 = 10000, whereas the OpenTelemetry input total already includes cache activity. These are alternative observations of one request and should not be added together."
+      },
+      {
+        "id": "d",
+        "text": "Messages API: 20000; OpenTelemetry: 20000.",
+        "note": "Adding the normalized API total to the telemetry total duplicates the same request's usage. Independent interfaces are not separate input-processing events."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    },
+    {
+      "title": "Anthropic: OpenTelemetry tracing for the Claude API",
+      "url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.6.json",
+    "orig_id": "ccarp-4.6-api-versus-otel-input-semantics",
+    "license": "MIT"
+  }
+}

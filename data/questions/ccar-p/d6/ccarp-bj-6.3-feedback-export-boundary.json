@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.3-feedback-export-boundary",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.3 Manage stakeholder feedback loops and expectation alignment (including SLAs)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "feedback-data-flow",
+    "confidentiality",
+    "feedback-ownership"
+  ],
+  "answer": [
+    "a",
+    "d"
+  ],
+  "en": {
+    "question": "An internal bid-analysis assistant processes confidential supplier offers under an approved inference arrangement. A proposed thumbs-down button would send the full conversation to a vendor feedback endpoint. The organization requires separate approval for any new external data flow, and that feedback path has not been assessed. The product team still needs reproducible reports of wrong comparisons. Which actions preserve a useful feedback loop within these constraints? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Map the feedback destination, data, retention, and access terms; require the appropriate data owner's approval before enabling external submission.",
+        "note": "Feedback can follow a different retention and processing path from inference, so the new external flow needs its own assessment and authorization."
+      },
+      {
+        "id": "b",
+        "text": "Enable full-conversation export because an approved inference arrangement necessarily covers feedback submitted about responses from the same model.",
+        "note": "Approval of the inference path does not automatically extend to a separate feedback endpoint or its retention terms."
+      },
+      {
+        "id": "c",
+        "text": "Automatically replace supplier names with stable aliases and treat the complete exported offers as approved because direct identifiers are absent.",
+        "note": "Aliasing does not remove confidential pricing and terms or satisfy the explicit requirement for separate external-flow approval."
+      },
+      {
+        "id": "d",
+        "text": "Use an access-controlled internal issue queue with permitted reproduction evidence and an adjudication owner while external export remains disabled.",
+        "note": "Internal, authorized evidence collection supports triage and correction without making the unapproved external disclosure a prerequisite for feedback."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Privacy Center: How long do you store my organization's data?",
+      "url": "https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.3.json",
+    "orig_id": "ccarp-6.3-feedback-export-boundary",
+    "license": "MIT"
+  }
+}

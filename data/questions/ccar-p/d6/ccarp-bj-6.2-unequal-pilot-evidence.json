@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.2-unequal-pilot-evidence",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.2 Communicate architectural decisions and trade-offs",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "evidence-quality",
+    "value-projections",
+    "decision-uncertainty"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "For a multilingual returns assistant, route A has promising cost and accuracy results on 50 curated daytime examples. Route B has results from 2,000 representative cases across languages and shifts. The board requests a statement that A will have lower production cost at the same quality. No matched workload comparison exists, and review effort is material. What should the architect include in the recommendation? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Explain that the results are not a like-for-like comparison, identifying language coverage, workload, review cost, and sampling gaps before claiming superiority.",
+        "note": "Different evaluation conditions cannot establish the requested production claim, especially when relevant populations and material costs differ."
+      },
+      {
+        "id": "b",
+        "text": "Report A's lower pilot cost as measured production savings, and use B's larger quality evaluation to supply the missing confidence for both routes.",
+        "note": "Evidence from B does not validate A's quality, and a narrow pilot does not establish realized production savings."
+      },
+      {
+        "id": "c",
+        "text": "Propose a representative matched pilot with an accountable owner and acceptance gate, labeling any annual value estimate as conditional on its results.",
+        "note": "This gives the board an actionable way to resolve uncertainty without presenting an untested extrapolation as a measured outcome."
+      },
+      {
+        "id": "d",
+        "text": "Normalize both accuracy percentages to the same scale and recommend A, treating differences in language and review workload as implementation concerns.",
+        "note": "Expressing scores on the same scale does not remove population or operating-cost differences that determine business feasibility."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.2.json",
+    "orig_id": "ccarp-6.2-unequal-pilot-evidence",
+    "license": "MIT"
+  }
+}

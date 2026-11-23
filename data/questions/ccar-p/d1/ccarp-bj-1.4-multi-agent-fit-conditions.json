@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.4-multi-agent-fit-conditions",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.4 Design multi-agent systems and orchestration strategies",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "multi-agent-fit",
+    "independence",
+    "coordination-cost"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A team is considering parallel research agents for a high-value market-entry study. It has not yet shown that multiple agents are preferable to one investigator. Which findings would strengthen the architectural case for separate workers? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The study contains substantial evidence-gathering branches that can proceed independently under clear assignments.",
+        "note": "Independent branches allow useful parallel exploration without requiring every worker to share each intermediate decision. Clear assignments limit duplication and coverage gaps."
+      },
+      {
+        "id": "b",
+        "text": "Every research decision depends on the complete, continually changing context held by all other workers.",
+        "note": "Heavy shared context and dependencies increase coordination and consistency costs. They weaken rather than strengthen the case for separate workers."
+      },
+      {
+        "id": "c",
+        "text": "Measured improvement in study quality or completion time justifies added token and coordination costs.",
+        "note": "Economic viability depends on the value of the improvement, not on agent count. Evidence of sufficient benefit addresses the added operating cost of multi-agent work."
+      },
+      {
+        "id": "d",
+        "text": "The team can create one worker per discovered webpage, regardless of whether those pages answer distinct questions.",
+        "note": "A webpage count is not a task-decomposition strategy. Redundant or closely related pages can create overlapping workers without useful independent work."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.4.json",
+    "orig_id": "ccarp-1.4-multi-agent-fit-conditions",
+    "license": "MIT"
+  }
+}

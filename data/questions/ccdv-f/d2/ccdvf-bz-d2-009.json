@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-009",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Your application uses extended thinking together with tool use. After running a tool you send the tool_result back. What must you preserve in the assistant turn for the request to remain valid?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only the tool_use block, since thinking blocks may be dropped to save tokens.",
+        "note": "Dropping them breaks continuation; that saving is not available here."
+      },
+      {
+        "id": "b",
+        "text": "The thinking blocks exactly as returned, alongside the tool_use block.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "A plain-text summary of the reasoning, substituted for the original blocks.",
+        "note": "Any modification invalidates the block, and a summary is a modification."
+      },
+      {
+        "id": "d",
+        "text": "Nothing from the assistant turn; resend only the tool_result content.",
+        "note": "The assistant turn is required for the conversation to remain well-formed."
+      }
+    ],
+    "explanation": "Thinking blocks must be passed back unmodified when continuing a tool-use turn. They are signed, so altering or dropping them invalidates the turn."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Extended thinking",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-009",
+    "license": "MIT"
+  }
+}

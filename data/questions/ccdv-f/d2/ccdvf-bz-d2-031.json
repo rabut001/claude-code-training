@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-031",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A multi-tenant SaaS application shares one long system prompt across all tenants but appends tenant-specific configuration. To maximise prompt-cache hits, how should the prompt be ordered?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tenant configuration first, then the shared prompt, then the user message.",
+        "note": "Puts variable content first, so no two tenants share a cacheable prefix."
+      },
+      {
+        "id": "b",
+        "text": "Shared prompt first, then tenant configuration, then the user message.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Interleave shared and tenant content so each tenant has a distinct prefix.",
+        "note": "Deliberately eliminates the shared prefix that makes caching possible."
+      },
+      {
+        "id": "d",
+        "text": "Order does not matter, as caching matches on total token count.",
+        "note": "False. Matching is on prefix content, not on length."
+      }
+    ],
+    "explanation": "Caching matches on an exact prefix, so the longest byte-identical block must come first. Any tenant-specific content placed ahead of it changes the prefix and defeats the cache."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Prompt caching",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-031",
+    "license": "MIT"
+  }
+}

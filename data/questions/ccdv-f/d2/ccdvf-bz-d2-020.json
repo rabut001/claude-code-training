@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-020",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which header is required on every direct HTTP call to the Claude Messages API in addition to the API key?",
+    "options": [
+      {
+        "id": "a",
+        "text": "accept-encoding, specifying the compression the client is able to handle.",
+        "note": "Optional HTTP negotiation, handled by most clients automatically."
+      },
+      {
+        "id": "b",
+        "text": "user-agent, identifying the client library and version making the request.",
+        "note": "Useful for diagnostics but not required."
+      },
+      {
+        "id": "c",
+        "text": "x-request-id, supplying a unique identifier for tracing the call.",
+        "note": "Helpful for correlation; the API does not require the caller to supply it."
+      },
+      {
+        "id": "d",
+        "text": "anthropic-version, pinning the API version the request is written against.",
+        "note": ""
+      }
+    ],
+    "explanation": "anthropic-version pins the request to a known API contract, so later API changes cannot silently alter the behaviour your integration depends on."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Versions",
+      "url": "https://docs.anthropic.com/en/api/versioning"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-020",
+    "license": "MIT"
+  }
+}

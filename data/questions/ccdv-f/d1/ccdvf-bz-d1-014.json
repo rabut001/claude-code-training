@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-014",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Construction with Claude",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which is the most useful signal to log for diagnosing agent failures after the fact?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The final answer returned to the user, stored alongside the original request.",
+        "note": "Tells you something is wrong but never where it happened."
+      },
+      {
+        "id": "b",
+        "text": "Total end-to-end latency for the run, bucketed by request type.",
+        "note": "A performance metric with no diagnostic content."
+      },
+      {
+        "id": "c",
+        "text": "The number of loop iterations the run consumed before terminating.",
+        "note": "Flags non-convergence without revealing its cause."
+      },
+      {
+        "id": "d",
+        "text": "Per-iteration tool calls, arguments, results, stop_reason, and token usage.",
+        "note": ""
+      }
+    ],
+    "explanation": "Agent failures are path failures: a wrong tool, bad arguments, a misread result. Only a per-iteration trace locates the step that went wrong and shows whether the model, the tool, or the harness was at fault."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Agent SDK",
+      "url": "https://docs.anthropic.com/en/api/agent-sdk/overview"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-014",
+    "license": "MIT"
+  }
+}

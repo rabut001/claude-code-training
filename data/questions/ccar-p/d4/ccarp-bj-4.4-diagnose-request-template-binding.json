@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.4-diagnose-request-template-binding",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.4 Diagnose system issues (prompt failure, hallucinations, model mismatch)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "prompt-assembly",
+    "request-scoped-bindings",
+    "component-isolation"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A draft-invoice assistant applies the wrong customer's discount ceiling. Retrieved policy and the validated request both identify customer B's 8% ceiling. The saved compiled system prompt instead inserts customer A's 15% ceiling from the template assembler's mutable cached binding, and the output follows 15%. What should the first targeted correction address?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase retrieval depth and retain the compiled system prompt, testing whether additional policy passages outweigh its ceiling.",
+        "note": "The correct policy is already retrieved. Adding lower-trust evidence does not repair the assembler that puts the wrong customer's value into trusted instructions."
+      },
+      {
+        "id": "b",
+        "text": "Add more invoice demonstrations to the template while retaining the cached customer binding across requests.",
+        "note": "Examples leave the wrong request-specific instruction in place. They do not fix the established association between customer identity and the compiled ceiling."
+      },
+      {
+        "id": "c",
+        "text": "Bind policy values from each validated request; inspect compiled prompts and test alternating-customer cases.",
+        "note": "The trace locates the defect in application prompt assembly. Request-scoped binding and alternating-customer regressions target stale substitutions rather than attributing compliance with the supplied wrong ceiling to model capability."
+      },
+      {
+        "id": "d",
+        "text": "Compare stronger generation models using identical compiled prompts and choose the one that most often ignores the 15% instruction.",
+        "note": "The application still sends the wrong trusted policy value. Choosing a model that sometimes disregards it would mask the integration defect rather than establish correct per-customer instructions."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.4.json",
+    "orig_id": "ccarp-4.4-diagnose-request-template-binding",
+    "license": "MIT"
+  }
+}

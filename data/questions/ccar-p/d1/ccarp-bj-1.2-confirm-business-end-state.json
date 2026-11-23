@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.2-confirm-business-end-state",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.2 Design end-to-end architectures (input → processing → output → feedback loops)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "environmental-feedback",
+    "end-to-end-completion"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A Claude assistant submits a request to move a delivery. The tool first returns 'queued'; a separate status lookup later reports whether the move succeeded. The assistant must tell the user that the delivery moved only after success. What should drive that final response?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The submission tool's queued acknowledgement, which proves the requested operation reached the scheduling service.",
+        "note": "Acceptance into a queue proves submission, not completion. The scheduling service can still reject or fail the move after acknowledging it."
+      },
+      {
+        "id": "b",
+        "text": "Claude's final plan, provided it contains the correct delivery identifier and requested replacement time.",
+        "note": "A plan describes intended behavior but is not environmental evidence that the scheduling state changed."
+      },
+      {
+        "id": "c",
+        "text": "A scheduling-service status lookup confirming the delivery identifier and committed replacement time match the user's request.",
+        "note": "The observed business end state supplies ground truth for the completion claim. A pending or failed status requires a different user-facing response."
+      },
+      {
+        "id": "d",
+        "text": "A second model's review of whether the first model supplied valid scheduling arguments to the tool.",
+        "note": "Argument review can detect a malformed request but cannot determine whether an asynchronous external operation completed."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.2.json",
+    "orig_id": "ccarp-1.2-confirm-business-end-state",
+    "license": "MIT"
+  }
+}

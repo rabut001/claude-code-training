@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.3-thinking-is-not-a-proof",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.3 Apply prompt engineering techniques (zero-shot, few-shot, chain-of-thought)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "thinking",
+    "reasoning-summaries",
+    "verification"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A team wants to certify engineering calculations by prompting Claude to reveal its complete private chain of thought. A reviewer would approve an answer whenever the returned reasoning looks thorough. The chosen model supports thinking and summarized thinking output. Which revision best distinguishes a useful prompting technique from an unsupported assurance claim?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Require reasoning inside XML thinking tags and treat that text as the complete internal computation.",
+        "note": "Tags only organize generated text; they do not expose private internal reasoning. Some models can decline requests to put private reasoning into the response."
+      },
+      {
+        "id": "b",
+        "text": "Approve answers whenever a thinking summary is present, because summary generation validates the calculation.",
+        "note": "A summary describes reasoning but is not an independent correctness check. Its presence does not establish that the calculation or its assumptions are valid."
+      },
+      {
+        "id": "c",
+        "text": "Disable thinking so that a step-by-step answer becomes an exact record of the model's internal process.",
+        "note": "A generated explanation is not a guaranteed transcript of internal computation. Disabling thinking does not create that guarantee."
+      },
+      {
+        "id": "d",
+        "text": "Use supported thinking and concise justifications, with independent checks of calculation assumptions and results.",
+        "note": "Visible thinking is summarized rather than raw chain of thought. Verifiable evidence and checks support an assurance decision without relying on a supposedly complete internal trace."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Thinking",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/thinking"
+    },
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.3.json",
+    "orig_id": "ccarp-2.3-thinking-is-not-a-proof",
+    "license": "MIT"
+  }
+}

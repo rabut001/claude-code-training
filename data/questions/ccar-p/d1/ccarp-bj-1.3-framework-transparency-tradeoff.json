@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.3-framework-transparency-tradeoff",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.3 Select appropriate architectural patterns (workflow, agentic, augmented LLM)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "framework-selection",
+    "execution-transparency",
+    "architecture-complexity"
+  ],
+  "answer": [
+    "a",
+    "d"
+  ],
+  "en": {
+    "question": "A framework-based prototype performs a fixed three-call workflow correctly, but its abstractions hide rendered prompts, retries, and intermediate responses. The production requirement includes reconstructing failed executions. No framework-only capability is needed. Which actions are justified when selecting the production architecture? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Require access to the underlying prompts, responses, and execution transitions before accepting the framework.",
+        "note": "Abstractions that obscure execution can defeat the stated reconstruction requirement. Understanding and exposing the underlying behavior is necessary even when final outputs look correct."
+      },
+      {
+        "id": "b",
+        "text": "Treat the framework's final-answer log as sufficient evidence because the acceptance sample produced correct outputs.",
+        "note": "A final answer does not reveal retries, intermediate failures, or the actual prompts. Passing a sample does not satisfy the separate execution-reconstruction requirement."
+      },
+      {
+        "id": "c",
+        "text": "Add a supervisor agent that narrates what the hidden workflow probably did whenever an execution fails.",
+        "note": "A generated account is not a trace of the actual hidden execution. Another agent cannot recover evidence that the runtime never exposed."
+      },
+      {
+        "id": "d",
+        "text": "Compare a direct-API implementation of the fixed workflow against the same acceptance and operational requirements.",
+        "note": "Direct calls may meet the task with fewer obscuring layers. Comparing equivalent requirements tests that alternative without assuming that all frameworks are unsuitable."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.3.json",
+    "orig_id": "ccarp-1.3-framework-transparency-tradeoff",
+    "license": "MIT"
+  }
+}

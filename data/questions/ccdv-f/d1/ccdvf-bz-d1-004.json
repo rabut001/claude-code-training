@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-004",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Architecture",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Support tickets arrive as refund requests, technical faults, or billing questions, and each type needs very different handling and a different prompt. Which pattern fits?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Parallelisation: run all three specialised handlers and merge their answers.",
+        "note": "Running all three wastes spend and produces two irrelevant answers to reconcile."
+      },
+      {
+        "id": "b",
+        "text": "Routing: classify the ticket first, then dispatch to the matching handler.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Evaluator-optimiser: generate an answer, then critique and revise in a loop.",
+        "note": "That pattern refines a single output; it does not select a handler."
+      },
+      {
+        "id": "d",
+        "text": "A single prompt that contains all three sets of handling instructions.",
+        "note": "A combined prompt is longer, more confusing, and degrades every category."
+      }
+    ],
+    "explanation": "Routing exists for distinct input categories needing separate treatment. Classifying first lets each path use a focused prompt and an appropriately sized model instead of one bloated prompt covering every case."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-004",
+    "license": "MIT"
+  }
+}

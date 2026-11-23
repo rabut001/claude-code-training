@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.1-outcome-before-interface",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.1 Translate business problems into Claude-based AI solutions",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "business-outcomes",
+    "solution-scoping"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An onboarding team asks for a Claude chatbot because reviewers spend too much time returning incomplete applications. The sponsor has not identified which work should change. What should the architect establish before choosing the interaction pattern?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The conversation screens and message categories needed to replace the existing application portal.",
+        "note": "An interface specification commits to a chatbot before establishing whether conversation reduces incomplete applications or reviewer effort."
+      },
+      {
+        "id": "b",
+        "text": "The measurable reduction in incomplete applications and total reviewer effort, subject to agreed quality constraints.",
+        "note": "A measurable business outcome and explicit constraints provide a basis for selecting and testing an appropriate solution rather than assuming a particular interface."
+      },
+      {
+        "id": "c",
+        "text": "The context capacity needed to include every onboarding policy in each applicant conversation.",
+        "note": "Context sizing is an implementation decision. It does not identify the work causing returns or demonstrate that loading every policy addresses that problem."
+      },
+      {
+        "id": "d",
+        "text": "The specialist agent roles needed to represent each department involved in application review.",
+        "note": "Departmental organization does not establish useful computational boundaries. Defining agents first can add coordination without reducing the targeted work."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Prompt engineering overview",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.1.json",
+    "orig_id": "ccarp-1.1-outcome-before-interface",
+    "license": "MIT"
+  }
+}

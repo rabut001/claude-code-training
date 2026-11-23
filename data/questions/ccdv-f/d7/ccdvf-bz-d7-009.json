@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-009",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "Claude Hooks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "What is the defining property of a Claude Code hook?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is a prompt fragment injected at the start of every new session.",
+        "note": "That describes memory or a system prompt, which is guidance not enforcement."
+      },
+      {
+        "id": "b",
+        "text": "It runs as code at a lifecycle point and can block the pending action.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "It is an optional tool the model may choose to invoke when relevant.",
+        "note": "A hook is not optional and is not selected by the model."
+      },
+      {
+        "id": "d",
+        "text": "It is a configuration flag that alters how the model behaves at runtime.",
+        "note": "Hooks run your own code; they are not a behavioural toggle."
+      }
+    ],
+    "explanation": "Hooks execute at defined points such as before or after a tool runs, and can approve or deny the pending action. Because they always run, they give guarantees that prompts cannot."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Hooks",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/hooks"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-009",
+    "license": "MIT"
+  }
+}

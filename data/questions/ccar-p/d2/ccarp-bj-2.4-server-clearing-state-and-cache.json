@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.4-server-clearing-state-and-cache",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.4 Optimize context windows and manage token usage",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "context-editing",
+    "tool-result-clearing",
+    "cache-invalidation"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A tool-heavy assistant has a durable client-side audit transcript but sends many obsolete tool results back on each request. The chosen model and platform support the cited beta server-side tool-result clearing strategy. Which expectations should guide its use to recover active context? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Each removed result will be replaced by a semantic summary that retains all its important facts.",
+        "note": "Tool-result clearing replaces removed content with placeholders, not guaranteed semantic summaries. Facts still needed later require deliberate retention or retrieval."
+      },
+      {
+        "id": "b",
+        "text": "The client can retain the full unmodified transcript while the server clears eligible content before the model receives it.",
+        "note": "Server-side editing changes model-visible context without requiring the client to overwrite its audit history. Client retention and active-context selection are separate concerns."
+      },
+      {
+        "id": "c",
+        "text": "The client must overwrite its stored transcript with the placeholders to keep future requests synchronized.",
+        "note": "The documented strategy does not require synchronization to an edited client copy. Rewriting the audit record would unnecessarily discard the original tool evidence."
+      },
+      {
+        "id": "d",
+        "text": "Clearing can invalidate affected cached prefixes, so the team should balance recovered context against fresh cache writes.",
+        "note": "Removing content changes the reusable prefix from the affected position. Recovered capacity can be worthwhile, but cache-processing savings are not preserved automatically."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Context editing",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/context-editing"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.4.json",
+    "orig_id": "ccarp-2.4-server-clearing-state-and-cache",
+    "license": "MIT"
+  }
+}

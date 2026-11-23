@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-037",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Understanding Requirements",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A regulated client states that customer data must not leave their cloud region. Which requirement does this primarily constrain?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deployment topology and which model endpoint or platform may be used.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "The maximum context window available to the application.",
+        "note": "Window size is a model property and is unrelated to residency."
+      },
+      {
+        "id": "c",
+        "text": "The choice between streaming and blocking response delivery.",
+        "note": "Delivery mechanics do not determine where data is processed."
+      },
+      {
+        "id": "d",
+        "text": "Whether prompt caching can be enabled for the workload.",
+        "note": "Caching is a cost feature; residency is governed by the endpoint chosen."
+      }
+    ],
+    "explanation": "Data residency is an infrastructure constraint. It dictates where inference runs and therefore which platform or regional endpoint is admissible, which must be settled before design proceeds."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Security and compliance",
+      "url": "https://docs.anthropic.com/en/docs/about-claude/security-compliance"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-037",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-005",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Tool Implementation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A tool queries a database and can return anywhere from 1 to 200,000 rows. What should the tool contract include?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Nothing beyond the query parameters; return whatever the query produces.",
+        "note": "A 200,000-row result exhausts the window and the budget in one call."
+      },
+      {
+        "id": "b",
+        "text": "A parameter letting the model lift the row limit when it judges it necessary.",
+        "note": "A model-controlled override is a suggestion rather than a limit."
+      },
+      {
+        "id": "c",
+        "text": "A limit with a default and a hard ceiling, plus pagination for larger sets.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "A second model call that summarises the result set before it is returned.",
+        "note": "Sometimes useful, but it adds cost and does not bound the query itself."
+      }
+    ],
+    "explanation": "Unbounded tool output is one of the fastest ways to exhaust a context window and a budget. Bound results by default with a ceiling the caller cannot exceed, and offer pagination when more is genuinely needed."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use best practices",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-005",
+    "license": "MIT"
+  }
+}

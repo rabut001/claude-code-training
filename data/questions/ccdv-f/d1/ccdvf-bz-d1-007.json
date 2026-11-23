@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-007",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Architecture",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Which requirement most strongly indicates a human-in-the-loop checkpoint is needed rather than full autonomy?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The task requires the agent to read and reconcile several long documents.",
+        "note": "Reading is read-only and carries no blast radius."
+      },
+      {
+        "id": "b",
+        "text": "The task routinely takes more than ten seconds of wall-clock time to finish.",
+        "note": "Duration is a performance concern rather than a risk signal."
+      },
+      {
+        "id": "c",
+        "text": "The agent can take an irreversible action with external consequences.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "The agent needs access to more than a handful of distinct tools.",
+        "note": "Tool count says nothing about the severity of any single action."
+      }
+    ],
+    "explanation": "Checkpoints go where a wrong action is costly and cannot be undone. Payments, deletions, and outbound messages are the canonical cases: the agent proposes, a human approves, then the side effect runs."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-007",
+    "license": "MIT"
+  }
+}

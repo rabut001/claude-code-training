@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-024",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Construction with Claude",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An agent has been looping for 40 iterations, repeatedly calling the same failing tool. What should have been in the design?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A more detailed system prompt telling the agent never to repeat a failed call.",
+        "note": "An instruction is a suggestion, and a runaway loop needs a guarantee."
+      },
+      {
+        "id": "b",
+        "text": "Hard bounds in the orchestrator: iteration cap, timeout, and cost ceiling.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "A larger context window so the agent can see all of its earlier attempts.",
+        "note": "Seeing the failures has not stopped it, and the cost keeps climbing."
+      },
+      {
+        "id": "d",
+        "text": "A higher temperature so the agent varies its approach between attempts.",
+        "note": "Random variation is not a termination condition and may create new failures."
+      }
+    ],
+    "explanation": "Loop termination is an invariant and belongs in the code that runs the loop. The orchestrator counts iterations, watches the clock and the spend, and exits regardless of what the model wants next."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D1-024",
+    "license": "MIT"
+  }
+}

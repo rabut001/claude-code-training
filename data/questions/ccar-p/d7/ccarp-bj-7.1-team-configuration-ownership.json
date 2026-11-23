@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.1-team-configuration-ownership",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.1 Configure Claude tools and environments for teams (e.g., Claude Code)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "team-configuration",
+    "settings-scopes",
+    "mcp"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A team starts Claude Code at the repository root and wants every clone to receive the same project settings and MCP server definitions. Developers also need private preferences for this project. Credentials are provisioned separately. Which file layout matches these ownership boundaries?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Commit .claude/settings.local.json and .mcp.json; put private project preferences in ~/.claude/settings.json.",
+        "note": "The local settings file is for one developer's project overrides, not the shared baseline. User settings also apply across projects rather than only this repository."
+      },
+      {
+        "id": "b",
+        "text": "Commit project settings and MCP definitions together in .claude/settings.json; keep private overrides in .claude/settings.local.json.",
+        "note": "The settings files have the intended shared and private scopes, but shared MCP server definitions belong in the separate project-root .mcp.json file."
+      },
+      {
+        "id": "c",
+        "text": "Commit .claude/settings.json and .mcp.json; keep private project overrides in an untracked .claude/settings.local.json.",
+        "note": "Committed project settings and .mcp.json distribute the team baseline. An untracked local settings file holds one developer's project-specific preferences without changing teammates' configuration."
+      },
+      {
+        "id": "d",
+        "text": "Commit .claude/settings.json; distribute MCP definitions through each developer's ~/.claude.json and keep private overrides in .claude/settings.local.json.",
+        "note": "Local and user MCP definitions can reside in ~/.claude.json, but that machine-local file does not distribute a repository baseline to every clone. Project MCP scope uses .mcp.json."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Settings files and precedence",
+      "url": "https://code.claude.com/docs/en/settings"
+    },
+    {
+      "title": "Connect Claude Code to tools via MCP",
+      "url": "https://code.claude.com/docs/en/mcp"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.1.json",
+    "orig_id": "ccarp-7.1-team-configuration-ownership",
+    "license": "MIT"
+  }
+}

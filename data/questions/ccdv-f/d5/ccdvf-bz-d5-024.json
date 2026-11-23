@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-024",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Cost and Token Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A per-tenant monthly token budget must be enforced so a tenant can never exceed it. Where must the check live?",
+    "options": [
+      {
+        "id": "a",
+        "text": "In your service, metering per tenant and refusing requests once exhausted.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "In the system prompt, asking Claude to be concise as the limit approaches.",
+        "note": "Prompt guidance cannot enforce a financial limit."
+      },
+      {
+        "id": "c",
+        "text": "In max_tokens, scaled down in proportion to the tenant's remaining budget.",
+        "note": "A useful secondary control, but it caps output only and ignores input."
+      },
+      {
+        "id": "d",
+        "text": "In organisation-level rate limits, configured per tenant in the console.",
+        "note": "Rate limits apply to your whole organisation and have no notion of your tenants."
+      }
+    ],
+    "explanation": "A hard budget is an application invariant, so the code that owns the meter must refuse or throttle at the boundary before a request is issued. Anything the model can influence is not enforcement."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Rate limits",
+      "url": "https://docs.anthropic.com/en/api/rate-limits"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-024",
+    "license": "MIT"
+  }
+}

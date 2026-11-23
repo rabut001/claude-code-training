@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.3-conflicting-user-feedback",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.3 Manage stakeholder feedback loops and expectation alignment (including SLAs)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "feedback-adjudication",
+    "acceptance-gates",
+    "stakeholder-alignment"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A Claude research-digest pilot receives requests from junior analysts for shorter summaries and reports from senior reviewers that important contradictory evidence is missing. Both groups use the same digest to prepare recommendations. No safety incident is alleged, and the product owner can approve changes only after the agreed evidence-completeness rubric passes. How should the architect organize this feedback?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Apply the most frequently requested shortening change and use the next satisfaction survey, rather than the evidence rubric, to decide acceptance.",
+        "note": "Feedback frequency does not establish task completeness and cannot replace the product owner's existing acceptance gate."
+      },
+      {
+        "id": "b",
+        "text": "Adjudicate examples with both groups and the product owner, turn confirmed omissions into evaluation cases, and report the decision back to users.",
+        "note": "This resolves competing preferences against the actual task requirement and makes feedback actionable, testable, and accountable."
+      },
+      {
+        "id": "c",
+        "text": "Create permanently separate prompts immediately, allowing each group to accept its own outputs without checking the shared recommendation workflow.",
+        "note": "Separate prompts may eventually help, but immediate independent acceptance can preserve omissions in the common workflow without satisfying the rubric."
+      },
+      {
+        "id": "d",
+        "text": "Ask developers to choose a middle summary length and close both requests once the average output matches that compromise.",
+        "note": "An intermediate length does not demonstrate that contradictory evidence is retained or that the authorized acceptance process has been followed."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.3.json",
+    "orig_id": "ccarp-6.3-conflicting-user-feedback",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.3-model-routing-fixed-control",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.3 Select appropriate architectural patterns (workflow, agentic, augmented LLM)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "routing",
+    "workflow-control"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Claude classifies each facilities request as access, maintenance, or supplies. Application code then invokes the corresponding fixed handler and applies a predefined escalation rule. Claude does not choose additional steps. Which architectural description is most accurate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "An autonomous agent, because model categorization implies dynamic process control.",
+        "note": "A model-produced classification does not give the model control over the subsequent process. The application still owns the allowed paths and transitions."
+      },
+      {
+        "id": "b",
+        "text": "An orchestrator-worker system, because the three handler names identify distinct responsibilities within the application.",
+        "note": "Named handlers do not establish dynamic task decomposition or autonomous workers. The scenario describes a fixed classification-to-handler mapping."
+      },
+      {
+        "id": "c",
+        "text": "An evaluator-optimizer loop, because escalation can send unsuccessful requests to a different downstream handler.",
+        "note": "Escalation is not iterative generation and revision based on an evaluator's feedback. The stated rule selects a predefined path."
+      },
+      {
+        "id": "d",
+        "text": "A routing workflow, because application code controls predefined paths after model-based classification.",
+        "note": "Routing can use an LLM to classify inputs while remaining a workflow. The decisive distinction is who controls the process, not whether every decision is deterministic."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.3.json",
+    "orig_id": "ccarp-1.3-model-routing-fixed-control",
+    "license": "MIT"
+  }
+}

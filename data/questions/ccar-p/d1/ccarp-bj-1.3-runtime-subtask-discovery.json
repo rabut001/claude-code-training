@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.3-runtime-subtask-discovery",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.3 Select appropriate architectural patterns (workflow, agentic, augmented LLM)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "orchestrator-workers",
+    "dynamic-decomposition",
+    "pattern-selection"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A due-diligence assistant discovers a target company's ownership structure before deciding which jurisdiction-specific investigations are necessary. New relationships can introduce additional investigations not known at intake. Narrow investigators can work independently after assignment, but their findings require a unified synthesis. Which pattern addresses this control requirement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "An orchestrator that identifies jurisdictions as ownership evidence arrives, delegates bounded investigations, and synthesizes the resulting findings.",
+        "note": "Orchestrator-workers supports input-dependent decomposition rather than assuming a complete task list at intake. The central synthesis step integrates the independently gathered evidence."
+      },
+      {
+        "id": "b",
+        "text": "A fixed parallel sectioning workflow whose complete jurisdiction task list is determined before inspecting ownership relationships.",
+        "note": "Fixed sectioning assumes the subtasks are already known. The scenario requires discovery to create additional tasks from relationships found during execution."
+      },
+      {
+        "id": "c",
+        "text": "A prompt chain that processes a predefined set of jurisdictions in order and stops after the last configured jurisdiction.",
+        "note": "A predefined chain cannot cover newly discovered investigations outside its configured sequence. Sequential execution also discards the stated independence of assigned work."
+      },
+      {
+        "id": "d",
+        "text": "A voting workflow in which every worker investigates the original target without receiving a distinct jurisdiction assignment.",
+        "note": "Repeated attempts at the same broad task do not provide the requested division of discovered investigations and can duplicate work while leaving coverage gaps."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.3.json",
+    "orig_id": "ccarp-1.3-runtime-subtask-discovery",
+    "license": "MIT"
+  }
+}

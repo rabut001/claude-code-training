@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-009",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Construction with Claude",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a",
+    "b"
+  ],
+  "en": {
+    "question": "Which two guards should every production agent loop have? (Select 2)",
+    "options": [
+      {
+        "id": "a",
+        "text": "A maximum iteration count enforced by the harness rather than the prompt.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "A wall-clock or token budget that terminates a run once it is exceeded.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Sampling temperature fixed at 0 so the agent's choices stay repeatable.",
+        "note": "Deterministic sampling does not bound the number of iterations."
+      },
+      {
+        "id": "d",
+        "text": "A system prompt instructing the agent never to loop more than N times.",
+        "note": "A prompt cannot enforce termination; the loop is controlled by your code."
+      },
+      {
+        "id": "e",
+        "text": "A convention that every tool must return a well-formed JSON object.",
+        "note": "A sensible convention, but it is not a safety guard."
+      }
+    ],
+    "explanation": "Both guards are deterministic and live outside the model. An iteration ceiling stops a non-converging loop and a budget bounds cost and latency; neither can be talked around by the model."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-009",
+    "license": "MIT"
+  }
+}

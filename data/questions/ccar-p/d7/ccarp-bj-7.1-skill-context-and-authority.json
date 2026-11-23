@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.1-skill-context-and-authority",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.1 Configure Claude tools and environments for teams (e.g., Claude Code)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "skills",
+    "progressive-loading",
+    "permission-boundaries"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A team is packaging a long repository-review playbook as an ordinary Claude Code skill, not a skill preloaded into a subagent. It wants low idle-context usage and a technically read-only review workflow even though other session tools exist. Which design statements are valid? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Place the full playbook in the skill description so discovery can load all procedures and references before invocation.",
+        "note": "Descriptions are discovery context, so putting the whole playbook there defeats the idle-context requirement. Normal skill loading reserves the body for invocation and supporting references for when they are needed."
+      },
+      {
+        "id": "b",
+        "text": "Keep discovery metadata concise, put the procedure in SKILL.md, and link detailed references for loading when needed.",
+        "note": "Normal progressive loading exposes the skill's name and description before invocation, then loads its body and any needed supporting material. This avoids making a long playbook permanent discovery context."
+      },
+      {
+        "id": "c",
+        "text": "Set allowed-tools to Read and rely on that field to remove all write-capable tools for the remainder of the session.",
+        "note": "The field pre-approves listed tools during the invoking turn; it neither removes unlisted tools nor lasts as a session-wide grant. It cannot by itself enforce read-only operation."
+      },
+      {
+        "id": "d",
+        "text": "Enforce read-only operation separately through tool permissions; treat allowed-tools as invoking-turn pre-approval, not a capability boundary.",
+        "note": "Permission policy must restrict write-capable operations independently of the skill's guidance. The allowed-tools grant clears on the next user message even though the skill text remains in context."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Extend Claude with skills",
+      "url": "https://code.claude.com/docs/en/skills"
+    },
+    {
+      "title": "Settings files and precedence",
+      "url": "https://code.claude.com/docs/en/settings"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.1.json",
+    "orig_id": "ccarp-7.1-skill-context-and-authority",
+    "license": "MIT"
+  }
+}

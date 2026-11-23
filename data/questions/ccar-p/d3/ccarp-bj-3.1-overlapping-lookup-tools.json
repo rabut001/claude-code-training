@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.1-overlapping-lookup-tools",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.1 Evaluate tool/agent configuration for capability bloat",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "capability-bloat",
+    "tool-selection",
+    "tool-schemas"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An inventory agent alternates between lookup_stock, stock_lookup_v2, and get_stock_new. Inspection shows that all three expose the same supported backend operation and return the same fields, with no caller requiring their aliases. Wrong-tool selection increased after all three definitions were added. What is the most targeted correction?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Add a fourth routing tool that asks the model which of the three aliases to invoke.",
+        "note": "A model-selected router preserves the redundant choices and adds another selection step. There is no distinct operation for the aliases to represent."
+      },
+      {
+        "id": "b",
+        "text": "Keep all aliases and increase the response token limit for selection reasoning.",
+        "note": "A larger output allowance does not resolve indistinguishable capability definitions. It can add generation time while retaining the source of confusion."
+      },
+      {
+        "id": "c",
+        "text": "Load the three definitions earlier and repeat each description in the system prompt.",
+        "note": "Repeating equivalent definitions increases context without adding a useful decision boundary. The observed error is ambiguity between aliases, not missing operation documentation."
+      },
+      {
+        "id": "d",
+        "text": "Expose one supported lookup with a clear schema and description, then replay stock-lookup tasks.",
+        "note": "One authoritative interface removes redundant selection choices without losing a required capability. Replaying real tasks verifies that the simplified configuration preserves correct arguments and outcomes."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing advanced tool use",
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.1.json",
+    "orig_id": "ccarp-3.1-overlapping-lookup-tools",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.8-discovery-and-prefix-cache-boundaries",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.8 Evaluate progressive discovery vs. monolithic context strategy",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "progressive-discovery",
+    "prompt-caching",
+    "context-management"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A team using tool_search_tool_bm25_20251119 with Claude Messages API 2023-06-01 has a stable catalog and cacheable instruction prefix. An engineer recommends loading all definitions initially, claiming that discovery must rewrite the prefix and destroy its cache reuse. Most definitions are irrelevant to each task. Which assessment matches the documented mechanism?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The engineer is right because every discovered definition replaces the initial tools prefix before the next model turn.",
+        "note": "The documented design excludes deferred tools from the initial prefix and adds discovered references inline. Discovery therefore does not inherently replace that stable prefix."
+      },
+      {
+        "id": "b",
+        "text": "Discovery adds references inline without mutating the initial prefix, so it can complement prefix caching while reducing initial definition context.",
+        "note": "The API expands discovered references inline rather than rewriting the prefix. Caching and discovery address different costs, and their net latency and quality should still be measured on the workload."
+      },
+      {
+        "id": "c",
+        "text": "Loading every definition is equivalent to discovery after a cache hit because cached definitions no longer occupy context.",
+        "note": "Cache reuse changes prompt processing and accounting, not whether cached text occupies model context. It does not remove irrelevant definitions from a monolithic loaded catalog."
+      },
+      {
+        "id": "d",
+        "text": "Reorder the loaded tool definitions by recent invocation frequency on every request to maximize identical-prefix cache reuse.",
+        "note": "Changing prefix order changes its content and can undermine exact-prefix cache matching. Recency-based reordering is not the mechanism that preserves a stable cacheable prefix."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Tool search tool",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool"
+    },
+    {
+      "title": "Anthropic: Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.8.json",
+    "orig_id": "ccarp-3.8-discovery-and-prefix-cache-boundaries",
+    "license": "MIT"
+  }
+}

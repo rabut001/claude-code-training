@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.3-parallel-independent-tool-latency",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.3 Evaluate accuracy-latency trade-offs and justify configuration decisions",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "latency",
+    "parallel-tools",
+    "tool-dependencies"
+  ],
+  "answer": [
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "A scheduling assistant must obtain both staffing availability and room availability, then validate the combined plan. Both lookups are read-only, independently authorized, and depend only on the original request. Sequential lookup spans dominate completion latency. The final validation requires both results. Which changes preserve this quality constraint while addressing latency? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use whichever lookup returns first as the final evidence and cancel the slower lookup.",
+        "note": "Both staffing and room availability are required to validate the plan. A first-response strategy trades away necessary evidence rather than preserving the stated quality constraint."
+      },
+      {
+        "id": "b",
+        "text": "Run the independent lookups concurrently, then perform final validation after both results are available.",
+        "note": "These reads have no dependency on each other, so their waiting time can overlap. The dependent validation still waits for the complete evidence set."
+      },
+      {
+        "id": "c",
+        "text": "Compare completed-plan correctness and p95 request-to-validated-plan time under representative load.",
+        "note": "Concurrency can change contention and tail behavior, so isolated span savings are insufficient. Measuring the completed validated plan verifies both the latency benefit and the preserved outcome contract."
+      },
+      {
+        "id": "d",
+        "text": "Start validation with a default value for the slower lookup and keep its late result only for logging.",
+        "note": "A default is not the missing availability evidence. Treating the late result as observability data prevents it from correcting an invalid plan."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing advanced tool use",
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.3.json",
+    "orig_id": "ccarp-3.3-parallel-independent-tool-latency",
+    "license": "MIT"
+  }
+}

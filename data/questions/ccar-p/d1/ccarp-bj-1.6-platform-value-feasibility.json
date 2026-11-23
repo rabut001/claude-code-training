@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.6-platform-value-feasibility",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.6 Align solutions to business value pillars (efficiency, transformation, productivity, cost, performance SLAs)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "platform-selection",
+    "feature-parity",
+    "total-business-value"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Procurement prefers a cloud-platform route with consolidated identity management, billing, and a lower quoted token price. A prototype on the direct Claude API uses a capability required for the production workflow; its availability on the proposed cloud route has not been verified. Both routes offer the selected model. What recommendation best aligns platform selection with business value?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Choose the lower-priced route and treat availability of the same model as the compatibility contract for required capabilities.",
+        "note": "Model availability does not establish feature parity across delivery platforms. A cheaper route that cannot implement the required workflow is not a feasible value comparison."
+      },
+      {
+        "id": "b",
+        "text": "Send each request to both routes and accept the first complete response, postponing verification of the platform-specific capability.",
+        "note": "Racing providers adds cost without proving that both can execute the required workflow. A complete-looking response does not validate a missing integration capability."
+      },
+      {
+        "id": "c",
+        "text": "Choose the route with the lowest measured inference latency and review integration requirements after signing the platform contract.",
+        "note": "Inference speed alone omits feature feasibility, controls, and full-path performance. Deferring a mandatory integration check can commit the business to an unusable route."
+      },
+      {
+        "id": "d",
+        "text": "Verify required capabilities and controls, then compare feasible routes on end-to-end performance and total operating cost.",
+        "note": "Delivery routes can differ in features, infrastructure fit, and pricing. Establishing feasibility before comparing full-system economics preserves mandatory requirements while recognizing the cloud route's potential benefits."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "API overview",
+      "url": "https://platform.claude.com/docs/en/api/overview"
+    },
+    {
+      "title": "Choosing the right model",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.6.json",
+    "orig_id": "ccarp-1.6-platform-value-feasibility",
+    "license": "MIT"
+  }
+}

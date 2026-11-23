@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.6-cost-per-accepted-outcome",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.6 Align solutions to business value pillars (efficiency, transformation, productivity, cost, performance SLAs)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "total-operating-cost",
+    "business-outcomes",
+    "cost-units"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A document-processing pilot reduces model charges per response, but staff spend more time correcting rejected records. The sponsor wants lower operating cost for successfully processed documents. Which metric best matches that value objective?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Average inference charge per generated response, measured before any downstream record validation or human correction occurs.",
+        "note": "This measures only model expenditure on an attempt. It can improve while rejection and correction costs make the business outcome more expensive."
+      },
+      {
+        "id": "b",
+        "text": "Total generated records per hour, counting accepted records and records that require repeated processing as equal outputs.",
+        "note": "Attempt throughput does not measure cost per successful outcome. Counting rework as additional output can make a deteriorating process appear more productive."
+      },
+      {
+        "id": "c",
+        "text": "The percentage of the model's token allowance used, averaged across documents regardless of whether processing ultimately succeeds.",
+        "note": "Token utilization is an implementation measure, not the sponsor's cost unit. It omits both acceptance and the human work required to achieve it."
+      },
+      {
+        "id": "d",
+        "text": "Total cost per accepted document, including inference, infrastructure, review, rework, and failed processing attempts.",
+        "note": "This uses the successful business outcome as the denominator and includes work shifted out of model generation. It can reveal whether lower inference charges produce actual operating savings."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Choosing the right model",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.6.json",
+    "orig_id": "ccarp-1.6-cost-per-accepted-outcome",
+    "license": "MIT"
+  }
+}

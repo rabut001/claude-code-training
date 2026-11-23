@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-042",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Systems Life Cycle",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Which signal in production most directly indicates that a prompt change has degraded quality, as opposed to an infrastructure problem?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A rise in p99 latency on the endpoint that serves the feature.",
+        "note": "Latency is an infrastructure symptom and says nothing about correctness."
+      },
+      {
+        "id": "b",
+        "text": "An increase in HTTP 429 responses returned by the Claude API.",
+        "note": "429s indicate rate limiting, which is unrelated to prompt content."
+      },
+      {
+        "id": "c",
+        "text": "A drop in the eval score and a rise in user corrections after the change.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "A rise in the average number of input tokens per request.",
+        "note": "Token growth affects cost and may follow a longer prompt without harming quality."
+      }
+    ],
+    "explanation": "Quality regressions show up in quality measurements. The eval score is the controlled signal and user corrections are the field signal; together they point at content rather than infrastructure."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-042",
+    "license": "MIT"
+  }
+}

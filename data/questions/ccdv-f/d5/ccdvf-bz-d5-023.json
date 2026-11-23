@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-023",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Cost and Token Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Finance asks for a per-feature breakdown of Claude spend. What instrumentation gives you this?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The monthly invoice total, apportioned across features by headcount.",
+        "note": "An aggregate total cannot be split by feature after the fact."
+      },
+      {
+        "id": "b",
+        "text": "A count of API requests issued per feature, compared month over month.",
+        "note": "Request counts ignore the huge variation in tokens per request."
+      },
+      {
+        "id": "c",
+        "text": "An estimate derived from the average prompt length of each feature.",
+        "note": "Estimates drift and miss cache effects entirely."
+      },
+      {
+        "id": "d",
+        "text": "The usage block from every response, tagged with feature and model.",
+        "note": ""
+      }
+    ],
+    "explanation": "Each response reports the token counts that actually drove the charge, including cache reads and writes. Persisting that with a feature tag turns attribution into arithmetic rather than estimation."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-023",
+    "license": "MIT"
+  }
+}

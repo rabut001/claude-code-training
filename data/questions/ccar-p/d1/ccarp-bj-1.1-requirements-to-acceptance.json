@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.1-requirements-to-acceptance",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.1 Translate business problems into Claude-based AI solutions",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "acceptance-criteria",
+    "business-constraints"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A sponsor requests an assistant that is 'accurate enough for entitlement decisions and fast enough for the intake desk.' No acceptance definition exists. A design must be selected before funding full implementation. Which actions turn the request into defensible architectural constraints? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use a general reasoning benchmark as the accuracy gate because entitlement-specific cases are not yet assembled.",
+        "note": "A general benchmark does not measure the intended decisions, error consequences, or intake population. It cannot replace use-case-specific acceptance evidence."
+      },
+      {
+        "id": "b",
+        "text": "Define decision-quality criteria, serious errors, and representative entitlement cases with the accountable business owner.",
+        "note": "Explicit task criteria and relevant cases make 'accurate enough' testable. Serious-error definitions prevent a favorable aggregate score from hiding unacceptable decisions."
+      },
+      {
+        "id": "c",
+        "text": "Adopt a fixed autonomous-agent design and use its observed response time as the definition of acceptable desk performance.",
+        "note": "Defining the requirement from one implementation reverses the decision process. The intake journey should determine the latency constraint, not inherit whatever the chosen design delivers."
+      },
+      {
+        "id": "d",
+        "text": "Specify user-visible timing boundaries and an agreed latency target, then compare candidate designs against those constraints.",
+        "note": "A measurable latency requirement needs defined start and end points tied to the intake experience. Candidate architectures can then be assessed against an actual business constraint."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Prompt engineering overview",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    },
+    {
+      "title": "Google SRE Workbook: Implementing SLOs",
+      "url": "https://sre.google/workbook/implementing-slos/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.1.json",
+    "orig_id": "ccarp-1.1-requirements-to-acceptance",
+    "license": "MIT"
+  }
+}

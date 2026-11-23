@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-004",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "LLM Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Why does a model sometimes produce a fluent, confident answer that is factually wrong?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The training corpus contained that exact false statement verbatim.",
+        "note": "Fabrications are frequently novel combinations never present in training data."
+      },
+      {
+        "id": "b",
+        "text": "Sampling temperature was set above zero for the request in question.",
+        "note": "Greedy decoding at temperature 0 still produces confident errors."
+      },
+      {
+        "id": "c",
+        "text": "Generation predicts plausible continuations, and fluency is not verified truth.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "The output ceiling was too low, so the answer was cut short and distorted.",
+        "note": "Truncation yields incomplete output, which is a different failure mode."
+      }
+    ],
+    "explanation": "Next-token prediction optimises for plausible continuation, so an answer with the right shape can score highly whether or not it is true. Confidence in the text carries no information about accuracy."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Reduce hallucinations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-004",
+    "license": "MIT"
+  }
+}

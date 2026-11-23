@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.4-control-evidence-crosswalk",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.4 Document architectures and provide implementation guidance",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "control-documentation",
+    "requirement-evidence",
+    "implementation-contracts"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A claims-correspondence assistant has three approved controls: case-level authorization before retrieval, supervisor approval before sending letters, and an owned stop path if authorization cannot be verified. The implementation guide labels one box 'AI security' and links to a provider overview. Integrators cannot determine which application component enforces each control or how to test a denial. Which replacement guidance is sufficient for this gap?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Expand the provider overview with model safety features and state that the application inherits those features for retrieval, sending, and authorization outages.",
+        "note": "Provider safety descriptions do not identify the application's case authorization, supervisor approval, or failure-path enforcement."
+      },
+      {
+        "id": "b",
+        "text": "Place the three controls in the system prompt and attach successful conversation transcripts as the implementation evidence for each requirement.",
+        "note": "Prompt instructions and happy-path transcripts do not document enforceable application gates or show that denials stop the controlled action."
+      },
+      {
+        "id": "c",
+        "text": "Map each requirement to its request-path enforcement point, responsible team, denial behavior, integration contract, and verifying acceptance test.",
+        "note": "This connects the approved controls to implementable boundaries and evidence, including the required failure behavior and ownership."
+      },
+      {
+        "id": "d",
+        "text": "Assign the application team ownership of the security box and keep its control interfaces undocumented so integrators cannot depend on internal details.",
+        "note": "Ownership alone leaves integrators unable to implement and verify the required boundaries; relevant control contracts are part of the guidance."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Claude Certified Architect Professional Prep Course",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.4.json",
+    "orig_id": "ccarp-6.4-control-evidence-crosswalk",
+    "license": "MIT"
+  }
+}

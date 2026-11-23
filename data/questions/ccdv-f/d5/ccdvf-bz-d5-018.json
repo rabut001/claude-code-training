@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-018",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Model Selection and Trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "You must classify 2 million short messages per day into eight categories. Accuracy on a held-out set is already 97% with the smallest model tier. Which choice is best?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Move to the most capable tier so accuracy is maximised regardless of cost.",
+        "note": "Paying premium rates at that volume for accuracy you already have is waste."
+      },
+      {
+        "id": "b",
+        "text": "Adopt the mid tier as a balanced compromise between quality and spend.",
+        "note": "A compromise only makes sense when the cheap option falls short, and it does not."
+      },
+      {
+        "id": "c",
+        "text": "Stay on the fastest, cheapest tier, which already clears the accuracy bar.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Alternate between tiers per request to balance cost against quality.",
+        "note": "Alternating gives inconsistent behaviour and complicates evaluation."
+      }
+    ],
+    "explanation": "Selection is driven by whether the quality bar is met, not by picking the most capable option. At 97% the requirement is satisfied, so at this volume the cheapest sufficient tier wins outright."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Choosing a model",
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models/choosing-a-model"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-018",
+    "license": "MIT"
+  }
+}

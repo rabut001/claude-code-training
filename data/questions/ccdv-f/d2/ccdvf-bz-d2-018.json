@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-018",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Which statement best describes the statefulness of the Messages API?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It retains conversation state for a limited window keyed by an internal id.",
+        "note": "No server-side conversation store exists."
+      },
+      {
+        "id": "b",
+        "text": "It is stateless; the client resends the full conversation on every request.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "It stores state only when tool use is enabled during the conversation.",
+        "note": "Tool use does not introduce server-side persistence."
+      },
+      {
+        "id": "d",
+        "text": "It persists the system prompt across calls but discards prior message turns.",
+        "note": "The system parameter is resent with each request like everything else."
+      }
+    ],
+    "explanation": "Nothing is retained between calls. Apparent memory is entirely a product of the client resending history, which is why context growth and cost are the caller's responsibility."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-018",
+    "license": "MIT"
+  }
+}

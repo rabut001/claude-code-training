@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-053",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A chat feature must survive the Claude API being briefly unavailable without showing users a stack trace. Which behaviour is correct?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retry indefinitely with backoff until the API becomes available again.",
+        "note": "Unbounded retry ties up resources and turns a partial outage into a total one."
+      },
+      {
+        "id": "b",
+        "text": "Retry a bounded number of times, then degrade gracefully and log the failure.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Generate a plausible generic answer locally so the conversation continues.",
+        "note": "A confident wrong answer the user cannot identify is the worst outcome."
+      },
+      {
+        "id": "d",
+        "text": "Fail silently and return an empty response for the affected turn.",
+        "note": "Silent failure hides the incident from both users and operators."
+      }
+    ],
+    "explanation": "Bounded retry with backoff handles the transient case and a defined degradation path handles the sustained one, so the user gets honesty instead of a hang and operators get a record."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Errors",
+      "url": "https://docs.anthropic.com/en/api/errors"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D2-053",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.1-missing-evidence-feasibility",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.1 Translate business problems into Claude-based AI solutions",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "feasibility",
+    "evidence-availability",
+    "task-boundaries"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A manufacturer wants Claude to identify the cause of a machine failure from service tickets. Root-cause measurements are held in offline lab records that the proposed system cannot access, and the tickets contain only symptoms. The business requires evidence-backed diagnoses, not plausible hypotheses. What is the most defensible design response?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Add independent diagnostic agents and accept a cause when their conclusions converge across the same service tickets.",
+        "note": "Additional agents do not create missing measurements. Convergence on the same incomplete evidence cannot establish an evidence-backed root cause."
+      },
+      {
+        "id": "b",
+        "text": "Ask Claude to generate a detailed causal explanation and use its confidence score to decide whether to release the diagnosis.",
+        "note": "A detailed rationale or self-reported confidence is not a substitute for unavailable evidence. Confident confabulation remains possible."
+      },
+      {
+        "id": "c",
+        "text": "Expose the required lab evidence or narrow the feature to symptom triage with an explicit diagnostic handoff.",
+        "note": "The required outcome depends on an unavailable input. Restoring that evidence path or narrowing the authorized claim resolves the feasibility gap rather than masking it with model complexity."
+      },
+      {
+        "id": "d",
+        "text": "Retrieve more maintenance manuals and treat the most similar documented failure as the confirmed cause for each ticket.",
+        "note": "Manuals describe possible mechanisms, not the measurements for this incident. Similarity can support a hypothesis but cannot meet the stipulated confirmation requirement."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    },
+    {
+      "title": "Anthropic: Reduce hallucinations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.1.json",
+    "orig_id": "ccarp-1.1-missing-evidence-feasibility",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-017",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Tool Implementation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An agent has get_user, fetch_user, lookup_user, and user_info, all with one-line descriptions. It frequently picks the wrong one. What is the fix?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Raise the temperature so the agent explores the alternatives more widely.",
+        "note": "More randomness in an already ambiguous choice makes it worse."
+      },
+      {
+        "id": "b",
+        "text": "Instruct the model in the system prompt to prefer get_user by default.",
+        "note": "A prompt patch on top of a confusing tool surface leaves the ambiguity in place."
+      },
+      {
+        "id": "c",
+        "text": "Move all four behind an MCP server so they share a common interface.",
+        "note": "Changing the transport does not make four overlapping tools distinguishable."
+      },
+      {
+        "id": "d",
+        "text": "Consolidate them, or describe each precisely enough to remove the overlap.",
+        "note": ""
+      }
+    ],
+    "explanation": "Selection is driven almost entirely by the description, and four near-identical names with thin descriptions give the model nothing to discriminate on. Fewer, sharply differentiated tools beat many overlapping ones."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D8-017",
+    "license": "MIT"
+  }
+}

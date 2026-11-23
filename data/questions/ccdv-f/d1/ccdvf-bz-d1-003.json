@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-003",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Architecture",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "In the prompt-chaining workflow pattern, what is the defining structure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A model decides at runtime which of several sub-agents to invoke.",
+        "note": "That describes routing, where classification selects the handler."
+      },
+      {
+        "id": "b",
+        "text": "Several models answer the same question and a judge selects the best.",
+        "note": "That describes parallelisation with voting or a judge."
+      },
+      {
+        "id": "c",
+        "text": "A fixed sequence of calls, each consuming the previous step's output.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "A single call that handles the whole task from end to end.",
+        "note": "A single call is not a chain and has no intermediate gates."
+      }
+    ],
+    "explanation": "Chaining decomposes a task into fixed sequential calls. Because the sequence is known in advance you can insert deterministic gate checks between steps and fail fast, trading a little latency for higher per-step accuracy."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-003",
+    "license": "MIT"
+  }
+}

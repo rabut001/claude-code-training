@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.1-catalog-acceptance-contract",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.1 Conduct structured discovery and requirement gathering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "acceptance-criteria",
+    "requirements-traceability",
+    "discovery"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An archive wants Claude to propose catalog entries from accession records. Discovery establishes that entries need correct dates and identifiers, restricted donor details must not appear, and the complete proposal must arrive within a curator-approved time budget. Curators will approve a pilot using representative records and difficult exceptions. Which acceptance artifact best translates these requirements?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A versioned case set with field-quality and disclosure rubrics, end-to-end timing limits, pass thresholds, and a named curator approver.",
+        "note": "The artifact maps all three requirements to measurable evidence on relevant cases and makes acceptance authority explicit."
+      },
+      {
+        "id": "b",
+        "text": "A versioned case set with a single average similarity score, response-length limits, pass thresholds, and a named curator approver.",
+        "note": "Similarity and length can conceal incorrect identifiers or donor disclosure and do not measure the agreed end-to-end time budget."
+      },
+      {
+        "id": "c",
+        "text": "A production dashboard with API completion rates and token charges, plus a curator survey after the first unrestricted release.",
+        "note": "API completion does not establish field correctness or restricted-data handling, and post-release feedback cannot serve as the specified pilot gate."
+      },
+      {
+        "id": "d",
+        "text": "A curator-signed demonstration transcript with selected good entries, documented prompt wording, and the model's stated confidence for each result.",
+        "note": "Selected examples and self-reported confidence do not consistently test the representative workload, difficult exceptions, and three acceptance dimensions."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.1.json",
+    "orig_id": "ccarp-6.1-catalog-acceptance-contract",
+    "license": "MIT"
+  }
+}

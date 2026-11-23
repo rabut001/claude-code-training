@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.5-trace-versus-generated-rationale",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.5 Address ethical AI considerations (bias, fairness, transparency)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "transparency",
+    "provenance",
+    "audit-evidence",
+    "explanation-limitations"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An auditor investigates an incorrect AI-generated eligibility summary. The assistant can produce a persuasive explanation now, but the policy corpus has changed since the original response. The organization needs a verifiable decision trace under an approved data-minimization and retention policy. Which transparency artifact is most useful?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A newly generated explanation of the original answer, accepted as a faithful account because it is detailed and internally consistent.",
+        "note": "Post hoc generated explanations can fabricate logic and citations. They do not establish what sources or controls actually informed the historical response."
+      },
+      {
+        "id": "b",
+        "text": "A link to the current policy search page and a statement that the model was instructed to follow the organization's rules.",
+        "note": "Current search results may differ from the historical evidence, and an instruction does not show compliance with it. The artifact cannot reconstruct the actual versioned decision context."
+      },
+      {
+        "id": "c",
+        "text": "A request for the model's hidden chain of thought, used in place of recording source versions and actual application decisions.",
+        "note": "Hidden reasoning is not an auditable substitute for evidence and control records. A generated account cannot prove which data, approvals, or actions the application actually used."
+      },
+      {
+        "id": "d",
+        "text": "A minimally sufficient record of source and policy versions, supporting evidence, applicable control and reviewer decisions, and the actual response and outcome.",
+        "note": "Versioned evidence and recorded application events allow the auditor to check the historical decision against its real context. Retention should preserve justified traceability rather than indiscriminately retain every payload."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "EUR-Lex: Regulation (EU) 2016/679, General Data Protection Regulation",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.5.json",
+    "orig_id": "ccarp-5.5-trace-versus-generated-rationale",
+    "license": "MIT"
+  }
+}

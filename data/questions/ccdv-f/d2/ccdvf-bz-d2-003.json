@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-003",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Your API client starts receiving HTTP 529 responses during a traffic spike. What is the correct handling?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Treat it as a client error and correct the request payload before resending.",
+        "note": "Payload problems surface as 400. A 529 says nothing about your request being malformed."
+      },
+      {
+        "id": "b",
+        "text": "Retry with exponential backoff and jitter, since 529 indicates transient overload.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Fail the request immediately, because 529 signals a permanent capacity rejection.",
+        "note": "It is explicitly transient, so giving up immediately discards recoverable work."
+      },
+      {
+        "id": "d",
+        "text": "Switch models, as 529 is raised only for a specific model deployment.",
+        "note": "Overload is a capacity condition and is not scoped to one model."
+      }
+    ],
+    "explanation": "529 is overloaded_error, a transient server-side condition. Backoff spreads retries out; jitter stops every client in your fleet retrying on the same beat and re-creating the spike."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Errors",
+      "url": "https://docs.anthropic.com/en/api/errors"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-003",
+    "license": "MIT"
+  }
+}

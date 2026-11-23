@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.3-adaptive-investigation-loop",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.3 Select appropriate architectural patterns (workflow, agentic, augmented LLM)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "agentic-control",
+    "adaptive-tool-use",
+    "termination"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "An engineer investigates intermittent equipment failures using read-only telemetry tools. Each result determines which subsystem to inspect next, and the required sequence and number of lookups cannot be specified in advance. A sandbox trial demonstrates useful progress from tool feedback. Which control pattern best matches this task?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A single response from a fixed telemetry snapshot, with no further inspection after the first answer.",
+        "note": "A fixed snapshot prevents the investigation from pursuing leads revealed by intermediate tool results. That removes a capability the task explicitly requires."
+      },
+      {
+        "id": "b",
+        "text": "A fixed prompt chain that always queries the same subsystems in the same order before producing a report.",
+        "note": "The required path is data-dependent and not known in advance. A fixed sequence cannot represent the stipulated adaptive investigation without changing its control model."
+      },
+      {
+        "id": "c",
+        "text": "A bounded, model-directed tool loop that chooses inspections from environmental results and escalates when progress is blocked.",
+        "note": "An agent can choose subsequent inspections from observed results when the path cannot be hardcoded. Budgets and escalation constrain the open-ended process."
+      },
+      {
+        "id": "d",
+        "text": "A parallel voting workflow in which several responses independently diagnose the same initial telemetry snapshot.",
+        "note": "Voting adds perspectives on the initial evidence but does not collect the new subsystem evidence needed as the investigation unfolds."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.3.json",
+    "orig_id": "ccarp-1.3-adaptive-investigation-loop",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-010",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A team enables prompt caching but sees almost no cache hits. Their prompt begins with a timestamp and the user's name, followed by a long stable policy document. What is wrong?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The policy document falls below the minimum cacheable token length.",
+        "note": "A minimum exists, but this document comfortably exceeds it."
+      },
+      {
+        "id": "b",
+        "text": "Caching requires extended thinking, which the team has not enabled.",
+        "note": "Caching and extended thinking are independent features."
+      },
+      {
+        "id": "c",
+        "text": "A separate cache-warming call must populate the entry before the first hit.",
+        "note": "No warming endpoint exists; the first request populates the cache."
+      },
+      {
+        "id": "d",
+        "text": "Variable content sits at position zero, so every prefix is unique.",
+        "note": ""
+      }
+    ],
+    "explanation": "The cache matches an exact prefix from the start of the prompt, so a leading timestamp defeats it entirely. Stable content must come first, then the breakpoint, then the variable part."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Prompt caching",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-010",
+    "license": "MIT"
+  }
+}

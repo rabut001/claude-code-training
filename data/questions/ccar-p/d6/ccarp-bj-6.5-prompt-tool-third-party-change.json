@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.5-prompt-tool-third-party-change",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.5 Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "prompt-change",
+    "tool-change",
+    "third-party-risk",
+    "change-revalidation"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A claims-summary release keeps the Claude model fixed but changes the prompt to call a new external delivery tool and adds uploaded scanned attachments to retrieval. The prior design read only approved internal records and produced drafts without external sending. The change policy requires revalidation of affected data and action boundaries, authorized release ownership, and a safe recovery path. Which activities are required before promotion? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Review the delivery party, transmitted data, contract and permission scope, approval enforcement, and failure behavior with the responsible owners.",
+        "note": "A new external action and processor path change the system boundary; the unchanged model does not carry forward the old design's authorization evidence."
+      },
+      {
+        "id": "b",
+        "text": "Retest summary wording on the old internal-record set and reuse prior boundary approvals because prompt and tool changes are not model replacements.",
+        "note": "The old set omits both new attachment risks and external sending, so wording tests cannot validate the changed boundaries."
+      },
+      {
+        "id": "c",
+        "text": "Test attachment-related access, retrieval, and injection failures, then approve a staged release with stop controls that also disable new external sends.",
+        "note": "Uploaded content changes the untrusted-data path, and recovery must contain the new action rather than only restoring the previous draft prompt."
+      },
+      {
+        "id": "d",
+        "text": "Promote the release with prompt-only rollback, leaving the delivery tool enabled so pending sends can drain even if unauthorized behavior is detected.",
+        "note": "A recovery path that leaves the changed external action running cannot reliably stop the very boundary failure the policy requires it to contain."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic: Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    },
+    {
+      "title": "Anthropic Partner Academy: Claude Certified Architect Professional Prep Course",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.5.json",
+    "orig_id": "ccarp-6.5-prompt-tool-third-party-change",
+    "license": "MIT"
+  }
+}

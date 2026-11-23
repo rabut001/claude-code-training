@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-015",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a",
+    "b"
+  ],
+  "en": {
+    "question": "You are wrapping the Claude API behind an internal service used by several product teams. Which two practices most improve operability? (Select 2)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Emit structured logs with model, token counts, stop_reason, and latency per call.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Expose model and parameters as configuration rather than per-caller literals.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Cache every response permanently so repeated questions never reach the API.",
+        "note": "Unbounded permanent caching serves stale answers and grows without limit."
+      },
+      {
+        "id": "d",
+        "text": "Let each team supply its own API key so usage is attributed to that team.",
+        "note": "Key sprawl multiplies rotation and revocation work; attribute usage with metadata."
+      },
+      {
+        "id": "e",
+        "text": "Strip stop_reason from responses so callers need not handle it.",
+        "note": "Hiding stop_reason removes the field callers most need to detect truncation."
+      }
+    ],
+    "explanation": "Those logs are what make cost, truncation, and latency debuggable across all consumers, and centralised configuration lets you change model or parameters without touching callers."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-015",
+    "license": "MIT"
+  }
+}

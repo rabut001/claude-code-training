@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.5-local-versus-global-validity",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.5 Apply decomposition techniques for complex problem solving",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "global-invariants",
+    "integration-contracts",
+    "end-state-validation"
+  ],
+  "answer": [
+    "a",
+    "c",
+    "d"
+  ],
+  "en": {
+    "question": "A museum planning assistant decomposes a new exhibition into departmental proposals. Each proposal passes its local content rubric, but combined proposals can exceed the total installation budget or assign the same gallery twice. Which decomposition controls address the difference between local success and a valid integrated plan? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retain the total budget and exclusive gallery assignments as explicit integration acceptance constraints.",
+        "note": "Cross-department invariants need an owner at the integration boundary. Passing a departmental rubric does not establish compliance with constraints spanning all proposals."
+      },
+      {
+        "id": "b",
+        "text": "Use majority approval from departmental workers as the final test of whether combined proposals fit shared resources.",
+        "note": "A vote does not reconcile competing resource commitments. Workers can agree on individually attractive proposals while collectively exceeding the budget or double-booking a gallery."
+      },
+      {
+        "id": "c",
+        "text": "Require proposals to expose resource commitments in a common, checkable output contract.",
+        "note": "The integrator needs comparable budget and gallery claims to identify conflicts. Narrative approval alone hides the data necessary to check combined feasibility."
+      },
+      {
+        "id": "d",
+        "text": "Validate the assembled plan and revise conflicting proposals before declaring the overall task complete.",
+        "note": "End-state validation checks the actual integrated outcome rather than inferring it from local passes. Revision is needed when otherwise valid parts violate a shared constraint."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.5.json",
+    "orig_id": "ccarp-1.5-local-versus-global-validity",
+    "license": "MIT"
+  }
+}

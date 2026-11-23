@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.5-searchable-context-and-provenance",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.5 Design a RAG pipeline with appropriate chunking and indexing strategies",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "rag",
+    "indexed-metadata",
+    "contextual-retrieval",
+    "provenance"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A RAG service stores product, operating mode, source revision, and section locator beside each chunk. Its vector and BM25 indexes currently use only the bare chunk text; the product and mode fields do not participate in search. Queries need those terms to distinguish otherwise identical instructions, and answers must cite the source revision. Which ingestion changes address both requirements? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep all contextual fields only in non-searchable storage and rely on generation to rescue missed chunks.",
+        "note": "Stored fields that do not participate in either search representation cannot improve candidate selection. Generation cannot cite or interpret evidence that retrieval never supplies."
+      },
+      {
+        "id": "b",
+        "text": "Include a concise product-and-mode context prefix in the text used for both embeddings and BM25.",
+        "note": "This makes the distinguishing context part of semantic and lexical retrieval rather than merely attached storage. It follows the documented Contextual Retrieval indexing sequence."
+      },
+      {
+        "id": "c",
+        "text": "Replace source revisions with generated product summaries so citations remain short.",
+        "note": "A summary is not an authoritative revision identifier or source locator. Removing provenance prevents the application from meeting the explicit citation requirement."
+      },
+      {
+        "id": "d",
+        "text": "Retain authoritative source revision and section metadata and return it with the retrieved original content.",
+        "note": "Provenance lets the application identify and verify the cited source. Keeping the original content distinct from added context also helps reviewers inspect what the manual actually states."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.5.json",
+    "orig_id": "ccarp-3.5-searchable-context-and-provenance",
+    "license": "MIT"
+  }
+}

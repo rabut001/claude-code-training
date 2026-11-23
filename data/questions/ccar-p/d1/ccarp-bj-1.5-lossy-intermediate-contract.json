@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.5-lossy-intermediate-contract",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.5 Apply decomposition techniques for complex problem solving",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "intermediate-contracts",
+    "information-loss",
+    "evidence-preservation"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A three-stage analysis extracts vendor commitments, summarizes them, and recommends a migration sequence. The summary drops conditional exceptions and units that the recommendation stage needs. Repeated downstream revisions cannot recover those details, although the original documents remain available. What should change in the decomposition?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase recommendation-stage iterations while keeping the summary interface unchanged so the downstream model can refine its assumptions.",
+        "note": "Iteration over the same insufficient evidence cannot reliably restore discarded exceptions or units. It risks refining an unsupported interpretation."
+      },
+      {
+        "id": "b",
+        "text": "Run several recommendation calls against the same summary and select the migration sequence on which they most often agree.",
+        "note": "All attempts inherit the same missing information. Agreement does not recover evidence removed by the intermediate contract."
+      },
+      {
+        "id": "c",
+        "text": "Preserve decision-critical qualifications and source references in the handoff, enabling targeted retrieval of original evidence.",
+        "note": "A decomposition boundary must carry the information its dependent stage needs. Structured qualifications and retrievable evidence avoid forcing later stages to infer details lost in compression."
+      },
+      {
+        "id": "d",
+        "text": "Merge extraction and summarization into one larger model call but retain the same shortened handoff to the recommendation stage.",
+        "note": "Combining upstream calls does not repair an insufficient output contract. The recommendation still receives a summary that omits the qualifications it needs."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    },
+    {
+      "title": "Effective context engineering for AI agents",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
+    },
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.5.json",
+    "orig_id": "ccarp-1.5-lossy-intermediate-contract",
+    "license": "MIT"
+  }
+}

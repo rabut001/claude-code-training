@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.2-partial-grounding-limit",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.2 Identify risks, limitations, and failure modes of LLM systems",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "grounding-limitations",
+    "claim-verification",
+    "abstention"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A retrieval-augmented assistant recommends a repair procedure. Its citation supports the component's identity but says nothing about the recommended operating temperature. Company policy permits procedural recommendations only when every safety-critical parameter is supported by approved documentation. Which behavior best handles this evidence gap?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Publish the recommendation because the cited document is genuine and identifies the correct component family.",
+        "note": "A genuine source can support one claim while leaving another unsupported. Document existence does not establish the safety-critical temperature parameter."
+      },
+      {
+        "id": "b",
+        "text": "Withhold the procedure pending approved evidence for its temperature, or escalate the unresolved parameter.",
+        "note": "Claim-level support is required by the policy, so partial grounding cannot authorize the procedure. Abstention preserves the distinction between verified identity and an unverified operating condition."
+      },
+      {
+        "id": "c",
+        "text": "Generate several temperatures and use the median, retaining the original component citation beside the result.",
+        "note": "Aggregation of generated values creates no approved documentary support. Reusing the identity citation would misleadingly imply evidence for the temperature."
+      },
+      {
+        "id": "d",
+        "text": "Publish the recommendation with a disclaimer that retrieved documents may not contain every implementation detail.",
+        "note": "A disclaimer acknowledges the gap but does not satisfy the explicit support requirement. The unsupported safety-critical parameter would still be recommended."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Reduce hallucinations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.2.json",
+    "orig_id": "ccarp-5.2-partial-grounding-limit",
+    "license": "MIT"
+  }
+}

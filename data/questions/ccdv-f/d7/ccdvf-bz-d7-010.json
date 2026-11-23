@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-010",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "Claude Hooks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A team wants every file Claude Code edits to be auto-formatted and linted, with commits blocked when linting fails. What is the appropriate mechanism?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A CLAUDE.md instruction asking Claude to run the formatter after each edit.",
+        "note": "Memory instructions are usually followed but not guaranteed, and blocking is hard."
+      },
+      {
+        "id": "b",
+        "text": "A Skill that documents the formatting standard and the lint configuration.",
+        "note": "A Skill conveys knowledge; it does not enforce execution."
+      },
+      {
+        "id": "c",
+        "text": "A subagent that reviews formatting and reports problems before committing.",
+        "note": "A subagent adds a probabilistic review rather than a deterministic gate."
+      },
+      {
+        "id": "d",
+        "text": "Hooks that format after an edit and deny the commit when linting fails.",
+        "note": ""
+      }
+    ],
+    "explanation": "\"Every time, without exception\" is the signature of a hook. Post-edit formatting and a pre-commit denial run as code and do not depend on the model remembering to comply."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Hooks",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/hooks"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-010",
+    "license": "MIT"
+  }
+}

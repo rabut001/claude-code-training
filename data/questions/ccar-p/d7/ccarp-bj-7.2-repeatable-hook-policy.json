@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.2-repeatable-hook-policy",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.2 Improve developer workflows using AI-assisted tooling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "hooks",
+    "deterministic-policy",
+    "workflow-controls"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A team needs a pre-execution policy that compares a requested target identifier with a fixed approved list. Identical inputs must receive an auditable, repeatable verdict; semantic judgment is unnecessary. An engineer argues that any hook is deterministic because its lifecycle event is fixed. Which implementation best meets the actual requirement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use a prompt hook whose model returns structured ok and reason fields, treating schema validation as proof of deterministic judgment.",
+        "note": "Structured output constrains response shape, not how an LLM reaches its decision. A fixed trigger and valid JSON do not make model-based policy evaluation repeatable."
+      },
+      {
+        "id": "b",
+        "text": "Use an agent hook to inspect the repository and decide whether each target looks approved, relying on tool access for repeatability.",
+        "note": "An agent hook still delegates judgment to a model, and the documented hook type is experimental. Tool-assisted investigation is not needed to perform the specified fixed-list comparison."
+      },
+      {
+        "id": "c",
+        "text": "Use a command hook that asks an LLM to interpret the approved list, then converts its answer into a blocking exit status.",
+        "note": "Wrapping model judgment in a script changes the output mechanism but not the source of the verdict. The comparison remains model-dependent despite a deterministic exit-code mapping."
+      },
+      {
+        "id": "d",
+        "text": "Use a synchronous command hook that validates the target against the approved list in code, with tests for its allowed and denied cases.",
+        "note": "A script can implement the stated exact comparison without model interpretation. The lifecycle hook supplies the execution point, while the tested comparison supplies the repeatable policy decision."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Hooks reference",
+      "url": "https://code.claude.com/docs/en/hooks"
+    },
+    {
+      "title": "Best practices for Claude Code",
+      "url": "https://code.claude.com/docs/en/best-practices"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.2.json",
+    "orig_id": "ccarp-7.2-repeatable-hook-policy",
+    "license": "MIT"
+  }
+}

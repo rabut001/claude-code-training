@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.3-stateful-workspace-assignment",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.3 Conduct A/B testing and iterative improvements",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "ab-testing",
+    "assignment-unit",
+    "stateful-agents"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Two assistant variants update a shared workspace memory used by all members of that workspace in later sessions. Workspaces do not share memory. An A/B test should prevent one variant's memory updates from affecting the other's outcomes. What is the appropriate assignment unit?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Randomize each model request independently within a workspace.",
+        "note": "Request-level assignment lets both variants read memory changed by the other. Their outcomes would no longer reflect separate treatments."
+      },
+      {
+        "id": "b",
+        "text": "Randomize each user and keep that user's assignment across sessions.",
+        "note": "User-level persistence does not isolate memory shared with other workspace members. Users in different arms could still change one another's treatment environment."
+      },
+      {
+        "id": "c",
+        "text": "Alternate variants by day while keeping the same workspace memory.",
+        "note": "Daily switching retains memory effects from earlier days and introduces time-related differences. It does not separate the stateful treatments."
+      },
+      {
+        "id": "d",
+        "text": "Randomize workspaces and keep each workspace on one variant.",
+        "note": "The workspace is the stated shared-state boundary, so persistent cluster assignment prevents cross-arm memory updates within it. This is an application of cluster randomization, not a complete statistical design; analysis and power must still respect the assignment unit."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Microsoft ExP: Why Tenant-Randomized A/B Test is Challenging and Tenant-Pairing May Not Work",
+      "url": "https://www.microsoft.com/en-us/research/group/experimentation-platform-exp/articles/why-tenant-randomized-a-b-test-is-challenging-and-tenant-pairing-may-not-work/"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.3.json",
+    "orig_id": "ccarp-4.3-stateful-workspace-assignment",
+    "license": "MIT"
+  }
+}

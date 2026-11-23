@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.3-thinking-tool-round-trip",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.3 Apply prompt engineering techniques (zero-shot, few-shot, chain-of-thought)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "thinking",
+    "tool-continuations",
+    "reasoning-display"
+  ],
+  "answer": [
+    "a",
+    "d"
+  ],
+  "en": {
+    "question": "A thinking-enabled assistant returns thinking blocks followed by a tool_use block. The application must submit the tool result to continue the same assistant turn, show users only the final answer, and account for reasoning costs correctly. Which implementation statements are valid under the cited thinking contract? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Round-trip the generated thinking and tool-use sequence completely and unmodified when returning the corresponding tool result.",
+        "note": "The tool result continues the same assistant turn. Preserving the generated blocks and their ordering maintains the required reasoning and tool context."
+      },
+      {
+        "id": "b",
+        "text": "Replace the thinking blocks with a shorter application-written summary before returning the tool result.",
+        "note": "The application must not edit, reorder, or partially drop the generated thinking sequence within the tool-use turn. Its own summary is not a valid replacement for those blocks."
+      },
+      {
+        "id": "c",
+        "text": "Exclude thinking charges when the frontend suppresses summaries, while retaining ordinary final-text token charges in the cost ledger.",
+        "note": "Frontend visibility does not determine API billing. The reasoning was still generated and is billed as output even when the summary is not shown."
+      },
+      {
+        "id": "d",
+        "text": "Suppress thinking display while preserving continuation blocks and accounting for generated reasoning as output.",
+        "note": "Presentation can be separated from backend continuation state. Omitted display does not remove reasoning charges or the requirement to return blocks unchanged."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Thinking",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/thinking"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.3.json",
+    "orig_id": "ccarp-2.3-thinking-tool-round-trip",
+    "license": "MIT"
+  }
+}

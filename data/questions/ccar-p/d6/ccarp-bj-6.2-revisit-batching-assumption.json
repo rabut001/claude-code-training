@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.2-revisit-batching-assumption",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.2 Communicate architectural decisions and trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "decision-revisit",
+    "assumption-evidence",
+    "stakeholder-communication"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An approved decision uses an overnight Claude digest for supplier exceptions because discovery estimated fewer than 1% required same-hour action. The record names the operations director as owner and a rise above 5% as a review trigger. A representative pilot measures 12%; same-hour cases lose value overnight. Costs still favor batching, and no production incident has occurred. What should the architect communicate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The assumption and review trigger have failed; ask the owner to compare timely alternatives, including a separate urgent path, using the pilot evidence.",
+        "note": "The documented trigger requires reopening the timeliness trade-off before an incident, while leaving the choice of alternative to the authorized decision process."
+      },
+      {
+        "id": "b",
+        "text": "The decision remains valid because batching is still cheapest; document the urgent cases as users whose requests fall outside the original service.",
+        "note": "The new evidence concerns the intended workload and violates the recorded assumption; excluding those users would conceal the failed requirement."
+      },
+      {
+        "id": "c",
+        "text": "The pilot validates a lower-cost architecture; keep the decision and defer the timeliness discussion until a customer submits a confirmed incident.",
+        "note": "The explicit evidence-based trigger does not depend on an incident, and known loss of timeliness is already relevant to the business outcome."
+      },
+      {
+        "id": "d",
+        "text": "The architect should replace batching with a real-time agent immediately and update the owner after deployment because the trigger has been crossed.",
+        "note": "A review trigger authorizes reconsideration, not an unreviewed replacement whose cost, risk, and operational needs have not been compared."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.2.json",
+    "orig_id": "ccarp-6.2-revisit-batching-assumption",
+    "license": "MIT"
+  }
+}

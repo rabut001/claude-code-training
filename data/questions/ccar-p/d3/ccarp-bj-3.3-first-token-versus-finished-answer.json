@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.3-first-token-versus-finished-answer",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.3 Evaluate accuracy-latency trade-offs and justify configuration decisions",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "latency",
+    "streaming",
+    "ttft"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A service's answers already meet its accuracy requirement. Users see nothing until a complete answer arrives, and complain that the interface appears frozen. The team enables streaming while keeping the model, retrieval, and generated content unchanged. Which conclusion is justified?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Streaming establishes that retrieval and tool execution now finish sooner.",
+        "note": "Streaming changes when generated output is delivered, not the execution time of retrieval or external tools. Those stages require their own measurements."
+      },
+      {
+        "id": "b",
+        "text": "The first visible token can serve as the completion timestamp for the answer-quality service level.",
+        "note": "A first token is not a completed answer and cannot demonstrate that the final response meets quality requirements. Completion must be measured at the application's actual outcome boundary."
+      },
+      {
+        "id": "c",
+        "text": "Streaming can improve perceived responsiveness, but total completion latency still needs measurement.",
+        "note": "Delivering output before generation finishes can reduce the visible wait. It does not establish a reduction in time from the user request to a complete acceptable answer."
+      },
+      {
+        "id": "d",
+        "text": "Streaming permits lowering the accuracy gate because users can inspect partial answers sooner.",
+        "note": "Earlier visibility does not change the application's accuracy requirement. Partial content may still be revised, interrupted, or insufficient for the user's task."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Reducing latency",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.3.json",
+    "orig_id": "ccarp-3.3-first-token-versus-finished-answer",
+    "license": "MIT"
+  }
+}

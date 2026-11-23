@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.2-draft-to-commitment-scope",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.2 Identify risks, limitations, and failure modes of LLM systems",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "intended-use",
+    "scope-change",
+    "consequence-analysis"
+  ],
+  "answer": [
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "A procurement assistant was assessed for drafting nonbinding comparison notes that buyers check before use. A proposal would let the same model issue supplier commitments automatically. Its prompt-quality score is unchanged. Which two updates are necessary before the original risk assessment can be considered applicable to the proposal? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Carry forward the draft-workflow risk acceptance because the underlying model and its prompt-quality score have not changed.",
+        "note": "The intended use and consequences of errors have changed even if generation quality has not. Risk acceptance for checked drafts does not automatically cover autonomous commitments."
+      },
+      {
+        "id": "b",
+        "text": "Reassess intended use, affected parties, reversibility, and the monetary and nonmonetary costs of erroneous commitments.",
+        "note": "Moving from advice to binding action changes the context and impact of the same output. These changes are necessary inputs to a contextual risk assessment."
+      },
+      {
+        "id": "c",
+        "text": "Evaluate controls and failure responses for the new action path, and obtain accountable acceptance of its remaining risk.",
+        "note": "The former buyer check may no longer control errors before they take effect. The proposal needs evidence for its own controls and an authorized decision about unresolved exposure."
+      },
+      {
+        "id": "d",
+        "text": "Replace the former review step with a user notice describing automation, then treat acknowledgement as verification of commitment accuracy.",
+        "note": "Acknowledging a notice does not validate the supplier, terms, or action. Disclosure cannot substitute for controls or a risk decision about the changed operating scope."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.2.json",
+    "orig_id": "ccarp-5.2-draft-to-commitment-scope",
+    "license": "MIT"
+  }
+}

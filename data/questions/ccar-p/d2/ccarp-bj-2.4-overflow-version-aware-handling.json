@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.4-overflow-version-aware-handling",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.4 Optimize context windows and manage token usage",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "context-overflow",
+    "stop-reasons",
+    "model-versioning"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A request builder supports two model versions with different documented behavior when input plus requested maximum output exceeds context capacity. One rejects that configuration; the other can accept it and stop generation when the window fills. The application must not publish an incomplete report. Which handling is most robust across both contracts?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rely on request rejection as the only overflow signal, then publish every successfully returned response.",
+        "note": "An accepted request can still terminate at the context limit on the second version. Successful transport does not establish that the report is complete."
+      },
+      {
+        "id": "b",
+        "text": "Check only that input fits and assume the service silently drops old history to make room for the requested output.",
+        "note": "Input fitting does not reserve sufficient generation space, and automatic history truncation is not a universal Messages API contract. Dropping history can also change the evidence available for the report."
+      },
+      {
+        "id": "c",
+        "text": "Budget input and output for the selected version, curate or compact when needed, and check termination before accepting a complete report.",
+        "note": "Capacity planning reduces both rejected requests and truncated generation. Version-aware termination handling prevents an accepted but context-limited response from being treated as complete."
+      },
+      {
+        "id": "d",
+        "text": "Retry the same input with a larger max_tokens whenever a report stops early.",
+        "note": "A larger requested output cannot enlarge the context window. Without reducing or managing active input, it can repeat rejection or context-limit termination."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Context windows",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows"
+    },
+    {
+      "title": "Token counting",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/token-counting"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.4.json",
+    "orig_id": "ccarp-2.4-overflow-version-aware-handling",
+    "license": "MIT"
+  }
+}

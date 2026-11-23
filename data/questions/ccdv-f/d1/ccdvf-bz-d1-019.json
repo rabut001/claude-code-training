@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-019",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Patterns and Frameworks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "In the orchestrator-worker pattern, which responsibility belongs to the orchestrator?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Decomposing the goal, scoping each worker's context, and integrating results.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Executing every tool call centrally on behalf of all of the workers.",
+        "note": "Workers execute their own tools; centralising that defeats the pattern."
+      },
+      {
+        "id": "c",
+        "text": "Holding the API credential so that workers never need their own access.",
+        "note": "Credential handling is infrastructure, not the pattern's defining role."
+      },
+      {
+        "id": "d",
+        "text": "Producing the final answer independently of what the workers returned.",
+        "note": "Ignoring worker output makes the delegation pointless."
+      }
+    ],
+    "explanation": "The orchestrator owns decomposition, delegation, and integration: it decides the subtasks, supplies each worker a scoped context, and synthesises the returned results."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-019",
+    "license": "MIT"
+  }
+}

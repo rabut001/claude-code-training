@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-014",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Output Handling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Claude generates JSON that another service consumes to update a database. What should the consuming code do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Parse it, validate against the schema, and handle failures before processing.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Flatten the response to plain text and pass it downstream for storage.",
+        "note": "Flattening to text discards the structure the consumer depends on."
+      },
+      {
+        "id": "c",
+        "text": "Retry on parse failure and process the first response that parses cleanly.",
+        "note": "A parseable response can still be semantically wrong; parsing is not validation."
+      },
+      {
+        "id": "d",
+        "text": "Compare the response against an example template and proceed if it matches.",
+        "note": "\"Looks similar\" is not a check and lets malformed records through."
+      }
+    ],
+    "explanation": "Model output is untrusted input at a system boundary. Parse, validate, and define the failure path, whether reject, escalate, or fall back, before anything touches the database."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Increase output consistency",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/increase-consistency"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-014",
+    "license": "MIT"
+  }
+}

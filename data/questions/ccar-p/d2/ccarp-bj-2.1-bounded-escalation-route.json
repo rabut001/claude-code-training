@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.1-bounded-escalation-route",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.1 Select appropriate Claude models based on trade-offs",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "model-routing",
+    "escalation",
+    "measured-tradeoffs"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A lower-cost model handles routine equipment requests accurately but fails on requests with conflicting specifications. A more capable model handles those conflicts but exceeds the budget if used for every request. The team proposes routing only detected conflicts to it. Which two conditions support deploying this policy? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "The tested route detects enough conflicting requests to meet the end-to-end error threshold, including conflicts the smaller model would answer confidently.",
+        "note": "Escalation helps only when difficult cases actually reach the stronger model. Measuring missed conflicts avoids treating the smaller model's self-reported confidence as a reliable detector."
+      },
+      {
+        "id": "b",
+        "text": "The smaller model expresses high confidence on most requests, so conflict detection need not be separately evaluated.",
+        "note": "Confidence wording is not evidence that the route catches the known failure class. Confident but incorrect routine-path answers would bypass escalation."
+      },
+      {
+        "id": "c",
+        "text": "The measured combined route, including routing and escalated requests, meets the budget and response-time requirements.",
+        "note": "A hybrid path adds decision overhead and sometimes additional calls. Its full workload cost and latency, not the routine model's figures alone, determine feasibility."
+      },
+      {
+        "id": "d",
+        "text": "The stronger model passes a conflict-only benchmark, so the routing policy inherits that benchmark's accuracy.",
+        "note": "The stronger model's result describes requests it receives. Routing misses and routine-path errors still affect the deployed system's accuracy."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Choosing the right model",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+    },
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.1.json",
+    "orig_id": "ccarp-2.1-bounded-escalation-route",
+    "license": "MIT"
+  }
+}

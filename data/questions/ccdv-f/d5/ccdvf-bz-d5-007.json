@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-007",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "LLM Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "When extended thinking is enabled, how do thinking tokens relate to billing and the output limit?",
+    "options": [
+      {
+        "id": "a",
+        "text": "They are billed as output and consume budget inside max_tokens.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "They are billed as input tokens, since they precede the visible answer.",
+        "note": "They are generated rather than supplied, so they are not input."
+      },
+      {
+        "id": "c",
+        "text": "They are billed at the discounted cache-read rate for reused reasoning.",
+        "note": "Cache-read pricing applies only to reused input prefixes."
+      },
+      {
+        "id": "d",
+        "text": "They are not billed at all and do not count toward max_tokens.",
+        "note": "Assuming they are free is a common cause of unexplained cost overruns."
+      }
+    ],
+    "explanation": "Reasoning tokens are generated tokens, so they are priced as output and sit inside the response budget. That is why budget_tokens must be set below max_tokens and why thinking raises both cost and latency."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Extended thinking",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-007",
+    "license": "MIT"
+  }
+}

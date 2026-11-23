@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.4-required-answer-causes-unsupported-date",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.4 Diagnose system issues (prompt failure, hallucinations, model mismatch)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "prompt-failure",
+    "hallucinations",
+    "uncertainty"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An assistant invents a product retirement date. Its retrieved authoritative notice explicitly says that no date has been announced, while the prompt requires a calendar date for every answer and provides no unknown-value rule. Which first change most directly addresses the observed failure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase retrieval depth while keeping the mandatory-date instruction unchanged.",
+        "note": "The authoritative evidence is already present and explicitly states that the date is unknown. More retrieved text does not resolve an instruction that demands an unsupported date."
+      },
+      {
+        "id": "b",
+        "text": "Allow an unknown result and require claims to match the supplied notice.",
+        "note": "The prompt currently pressures the assistant to fill a value absent from the evidence. Allowing uncertainty and requiring source support directly addresses that conflict, although the revised behavior still needs evaluation."
+      },
+      {
+        "id": "c",
+        "text": "Add a calendar parser that rejects dates with an invalid format.",
+        "note": "A fabricated retirement date can be perfectly valid calendar syntax. Format validation does not establish that an announcement supports the value."
+      },
+      {
+        "id": "d",
+        "text": "Use a larger model while retaining the requirement to always supply a date.",
+        "note": "Changing the model leaves the contradictory output requirement intact. The observed evidence supports correcting the prompt before attributing the failure to model capacity."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Reduce hallucinations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.4.json",
+    "orig_id": "ccarp-4.4-required-answer-causes-unsupported-date",
+    "license": "MIT"
+  }
+}

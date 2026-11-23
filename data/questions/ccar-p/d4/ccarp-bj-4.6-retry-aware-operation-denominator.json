@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.6-retry-aware-operation-denominator",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.6 Monitor system performance using logging and observability tools",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "retry-aware-metrics",
+    "operation-denominators",
+    "outcome-monitoring"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A completion dashboard covers 100 user operations. Eighty succeed on the first model request. The other 20 each use one retry: ten then succeed and ten end in verified failure. Every successful delivery meets the application's quality contract, and there are no pending operations. What is the final operation-success rate when retries remain part of their originating operation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "75%, using 90 successful requests out of 120 model requests.",
+        "note": "That is a request-attempt success rate, not the requested user-operation rate. The 20 retries do not create 20 new user operations in this denominator."
+      },
+      {
+        "id": "b",
+        "text": "100%, using 90 successful operations out of 90 delivered results.",
+        "note": "Excluding the ten terminally failed operations produces success-only selection. All 100 submitted operations belong in the stated completion denominator."
+      },
+      {
+        "id": "c",
+        "text": "80%, using only operations completed on their first model request.",
+        "note": "That measures first-attempt success, discarding the ten valid recovered outcomes. The requested final operation metric permits the supplied retries."
+      },
+      {
+        "id": "d",
+        "text": "90%, using 80 first-attempt successes plus ten recovered successes out of 100 operations.",
+        "note": "Group attempts by operation and count its final verified outcome once. Ninety of the 100 operations succeed; attempt-level reliability can be reported separately without changing this denominator."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Claude API errors",
+      "url": "https://platform.claude.com/docs/en/api/errors"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.6.json",
+    "orig_id": "ccarp-4.6-retry-aware-operation-denominator",
+    "license": "MIT"
+  }
+}

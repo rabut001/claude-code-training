@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-017",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An agent occasionally emits a tool call with an argument that violates a business rule (a discount above the permitted ceiling). The tool schema already types the field as a number. What is the correct place to enforce the ceiling?",
+    "options": [
+      {
+        "id": "a",
+        "text": "In the tool's execution code, which rejects out-of-range values before acting.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "In the tool description, stating the maximum discount the model may request.",
+        "note": "Descriptions guide selection and usage but never execute."
+      },
+      {
+        "id": "c",
+        "text": "In the system prompt, as an explicit and strongly worded business constraint.",
+        "note": "A prompt shapes behaviour probabilistically and can be overridden by context."
+      },
+      {
+        "id": "d",
+        "text": "In a few-shot example that demonstrates a correctly bounded discount value.",
+        "note": "Examples influence typical output; they do not constrain the extremes."
+      }
+    ],
+    "explanation": "A business rule is an invariant, so it belongs at the execution boundary where it always runs. The other layers make a violation less likely; only code makes it impossible."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-017",
+    "license": "MIT"
+  }
+}

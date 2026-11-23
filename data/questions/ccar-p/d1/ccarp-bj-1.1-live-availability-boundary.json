@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.1-live-availability-boundary",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.1 Translate business problems into Claude-based AI solutions",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "data-freshness",
+    "augmented-llm",
+    "action-boundaries"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A distributor wants Claude to suggest compatible replacement parts that can ship today. Compatibility manuals change monthly, but stock changes every minute. An authenticated inventory lookup already exists. Recommendations must not reserve stock or place orders. Which design best translates these requirements?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Index the manuals and nightly inventory exports together, then generate recommendations from retrieved records without an ordering tool.",
+        "note": "The read-only boundary is suitable, but a nightly export cannot support the stated freshness requirement for today's stock."
+      },
+      {
+        "id": "b",
+        "text": "Include the manuals in the prompt and ask Claude to estimate availability from recent order patterns without accessing inventory.",
+        "note": "Order patterns are not authoritative current stock. Supplying compatibility knowledge does not supply the changing operational fact needed for the recommendation."
+      },
+      {
+        "id": "c",
+        "text": "Retrieve compatibility rules and expose the ordering endpoint in preview mode so Claude can test whether a part is available.",
+        "note": "Using an ordering capability unnecessarily expands the action boundary when a read-only inventory lookup already answers availability."
+      },
+      {
+        "id": "d",
+        "text": "Retrieve relevant compatibility evidence and query live inventory through read-only tools, keeping order placement outside the recommendation task.",
+        "note": "Stable documentation and rapidly changing stock need different evidence paths. Read-only tools preserve the requirement that a recommendation cannot create an order or reservation."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.1.json",
+    "orig_id": "ccarp-1.1-live-availability-boundary",
+    "license": "MIT"
+  }
+}

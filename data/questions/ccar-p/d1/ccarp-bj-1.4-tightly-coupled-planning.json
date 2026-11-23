@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.4-tightly-coupled-planning",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.4 Design multi-agent systems and orchestration strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "shared-state",
+    "task-coupling",
+    "worker-boundaries"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A scheduling prototype assigns one agent per depot. Each allocation changes a shared vehicle pool, so nearly every decision invalidates another worker's assumptions. Broadcasting all intermediate state consumes the savings from parallel work, and independent full-plan attempts exceed the cost budget. Which redesign addresses the task's dependency structure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use one authoritative planner for interdependent allocations and delegate only checks that have stable, separable inputs.",
+        "note": "A single owner of coupled allocation state avoids continual reconciliation between conflicting plans. Separate workers remain useful only where their inputs and responsibilities are genuinely independent."
+      },
+      {
+        "id": "b",
+        "text": "Add a worker for each vehicle and broadcast its proposed location after every allocation to all depot agents.",
+        "note": "Finer partitioning increases the participants that must coordinate around the same shared resource. It does not remove the dependency causing invalidated assumptions."
+      },
+      {
+        "id": "c",
+        "text": "Let depot agents finish independently and ask a synthesis agent to combine their plans without revisiting the allocation decisions.",
+        "note": "Independently valid depot plans can assign the same vehicle simultaneously. Prose synthesis cannot guarantee a valid shared allocation without solving the coupled decisions again."
+      },
+      {
+        "id": "d",
+        "text": "Have every worker construct a complete global schedule and choose the most popular final plan by voting.",
+        "note": "Full-plan duplication is explicitly outside the cost budget. Voting also changes the task from coordinating allocations to repeating the entire search."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    },
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.4.json",
+    "orig_id": "ccarp-1.4-tightly-coupled-planning",
+    "license": "MIT"
+  }
+}

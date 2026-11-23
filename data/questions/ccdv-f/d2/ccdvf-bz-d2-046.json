@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-046",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Configuration Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Two services in your platform send the same system prompt but produce noticeably different outputs. Which configuration difference is the most likely cause?",
+    "options": [
+      {
+        "id": "a",
+        "text": "One service sends requests over HTTP/2 and the other over HTTP/1.1.",
+        "note": "Transport protocol has no effect on generation."
+      },
+      {
+        "id": "b",
+        "text": "The services resolve different model versions or use different temperatures.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "One service enables prompt caching while the other does not.",
+        "note": "Caching alters cost and latency; a cache hit returns equivalent behaviour."
+      },
+      {
+        "id": "d",
+        "text": "The services run in regions with materially different network latency.",
+        "note": "Latency affects timing, not the content of the response."
+      }
+    ],
+    "explanation": "Model version and sampling parameters are the inputs that actually change generated content. An identical prompt on a different model or temperature is a different configuration."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Models overview",
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-046",
+    "license": "MIT"
+  }
+}

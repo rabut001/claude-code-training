@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-018",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Prompt Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Which task benefits most from chain-of-thought prompting?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A multi-step calculation where an early error would propagate silently.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Classifying a short customer sentence as positive, neutral, or negative.",
+        "note": "A single-label judgement needs no visible reasoning."
+      },
+      {
+        "id": "c",
+        "text": "Extracting an email address from an unstructured block of page text.",
+        "note": "Pattern extraction is direct, so reasoning steps add cost without benefit."
+      },
+      {
+        "id": "d",
+        "text": "Translating a single sentence of marketing copy into French.",
+        "note": "Translation is a direct transformation, not a chain of dependent inferences."
+      }
+    ],
+    "explanation": "Chain of thought earns its token cost on multi-step reasoning, where explicit intermediate steps both improve accuracy and show you where a wrong answer went wrong."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Chain of thought",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/chain-of-thought"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D6-018",
+    "license": "MIT"
+  }
+}

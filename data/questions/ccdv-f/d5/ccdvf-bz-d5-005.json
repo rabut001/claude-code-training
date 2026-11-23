@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-005",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "LLM Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Your agent's per-request cost climbs steadily across a long session even though each user message is short. What explains this?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The model becomes progressively less efficient the longer it reasons.",
+        "note": "No efficiency decay exists; the growth is in what the client sends."
+      },
+      {
+        "id": "b",
+        "text": "Each turn resends accumulated history, so input tokens grow and are re-billed.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Output tokens are settled retroactively when the session finally ends.",
+        "note": "Tokens are billed per request, not deferred to the end of a session."
+      },
+      {
+        "id": "d",
+        "text": "Approaching the rate limit applies a surcharge to each subsequent request.",
+        "note": "Rate limits throttle requests; they do not add a surcharge."
+      }
+    ],
+    "explanation": "The API is stateless, so every request carries the whole history you choose to send. Input grows roughly linearly with turn count and is paid again on each call; compaction and caching are the mitigations."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-005",
+    "license": "MIT"
+  }
+}

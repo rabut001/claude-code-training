@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-009",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "MCP Server Development",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An MCP server runs as a local subprocess of the host application on the same machine. Which transport is the natural choice?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A WebSocket bound to a port on the host's public network interface.",
+        "note": "Unnecessary for a local subprocess and needlessly exposes a network surface."
+      },
+      {
+        "id": "b",
+        "text": "stdio, exchanging JSON-RPC over the subprocess's standard streams.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "SMTP, queuing each request so no message can be lost in transit.",
+        "note": "Email is not a transport for a synchronous RPC protocol."
+      },
+      {
+        "id": "d",
+        "text": "A shared file on disk that both processes poll once every second.",
+        "note": "File polling is slow, racy, and not part of the specification."
+      }
+    ],
+    "explanation": "The host launches the server as a subprocess and talks over stdin and stdout, with no ports and no network exposure. Remote servers use an HTTP-based transport instead."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Model Context Protocol — Transports",
+      "url": "https://modelcontextprotocol.io/docs/concepts/transports"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-009",
+    "license": "MIT"
+  }
+}

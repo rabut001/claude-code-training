@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-007",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Tool Implementation",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a",
+    "b"
+  ],
+  "en": {
+    "question": "You are designing the tool set for a finance agent. Which two design choices most reduce risk? (Select 2)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Split read and write capability into separate tools with separate code paths.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Scope each tool's credential narrowly instead of sharing one privileged account.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Expose one generic execute_query tool that accepts arbitrary SQL for flexibility.",
+        "note": "Arbitrary SQL is the largest possible attack surface and the classic injection target."
+      },
+      {
+        "id": "d",
+        "text": "Keep tool descriptions broad so the model considers a wider range of options.",
+        "note": "Vague descriptions cause wrong tool selection."
+      },
+      {
+        "id": "e",
+        "text": "Return complete raw API responses so the model always has full information.",
+        "note": "Raw responses bloat context and may leak fields the agent should never see."
+      }
+    ],
+    "explanation": "Separating reads from writes means the common path holds no destructive capability, and per-tool least privilege bounds what a compromised or misused tool can reach. Both shrink the blast radius structurally."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use best practices",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-007",
+    "license": "MIT"
+  }
+}

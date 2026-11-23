@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-044",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Configuration Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A repository has a CLAUDE.md at the project root and another inside packages/api/. A developer works on a file in packages/api/. How are these treated?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Only the nearest file applies; the root file is ignored for that directory.",
+        "note": "Would discard project-wide conventions whenever any nested file existed."
+      },
+      {
+        "id": "b",
+        "text": "Only the root file applies; nested files are read when explicitly imported.",
+        "note": "Nested files are picked up automatically based on the working path."
+      },
+      {
+        "id": "c",
+        "text": "Both apply, with the more specific file layering on top of the root file.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "They conflict, and Claude Code reports an error until one is removed.",
+        "note": "Layering is the designed behaviour, not an error condition."
+      }
+    ],
+    "explanation": "Memory files are hierarchical and cumulative. Broad project conventions live at the root while a subdirectory adds the specifics that apply to its own code."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Memory",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/memory"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-044",
+    "license": "MIT"
+  }
+}

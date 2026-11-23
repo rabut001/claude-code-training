@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.2-layered-prompt-guardrails",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.2 Design system prompts, templates, and guardrails",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "guardrails",
+    "defense-in-depth",
+    "indirect-injection"
+  ],
+  "answer": [
+    "a",
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A research assistant already receives source-labeled tool results and a system policy that rejects instructions inside retrieved documents. It can read internal reports, and malicious search content asks it to upload them to an external URL. Which additional measures appropriately complement the prompt policy? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Restrict tool credentials, reachable destinations, and file access to what the authorized task requires.",
+        "note": "Least privilege limits the consequences of a successful injection. These application and sandbox controls enforce boundaries outside the model's interpretation of prompt text."
+      },
+      {
+        "id": "b",
+        "text": "Screen returned content for redirection attempts and handle suspicious results without automatically passing them through for action.",
+        "note": "Tool-output screening can identify attacks before the acting model consumes them. It is a complementary detection layer, not proof that all accepted content is safe."
+      },
+      {
+        "id": "c",
+        "text": "Allow a safe verdict from the content classifier to grant new upload destinations requested by that content.",
+        "note": "A safety verdict does not authorize an external destination. Letting source content expand permissions creates an authorization bypass even when a classifier reports no attack."
+      },
+      {
+        "id": "d",
+        "text": "Test adversarial documents and tool outputs against the complete workflow, including attempted unauthorized uploads.",
+        "note": "Adversarial tests check whether the prompt, screening, and action controls work together. Testing only benign summaries would miss the specified exfiltration failure path."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.2.json",
+    "orig_id": "ccarp-2.2-layered-prompt-guardrails",
+    "license": "MIT"
+  }
+}

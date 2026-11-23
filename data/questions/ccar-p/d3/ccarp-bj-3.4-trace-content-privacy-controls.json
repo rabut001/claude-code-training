@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.4-trace-content-privacy-controls",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.4 Analyze observability challenges and select monitoring strategies at scale",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "observability",
+    "trace-privacy",
+    "data-retention"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A contract-analysis service uses the Claude OpenTelemetry export beta documented on 2026-10-26. Central telemetry must not contain confidential customer text. Some dynamically generated agent and tool descriptions include customer names; approved redacted diagnostic examples may be stored separately with restricted access. Which monitoring decisions satisfy these constraints? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Review and sanitize names and descriptions before metadata-only export, not just prompt and response attributes.",
+        "note": "Metadata-only mode still includes chosen descriptive text. Sensitive values in those fields can violate the policy even when complete prompts and responses are excluded."
+      },
+      {
+        "id": "b",
+        "text": "Treat metadata-only mode as a guarantee that no customer text can reach the telemetry destination.",
+        "note": "The documented metadata mode can include agent and tool names and descriptions. Its mode name is not a substitute for reviewing the actual exported attributes."
+      },
+      {
+        "id": "c",
+        "text": "Collect only policy-approved, redacted diagnostic samples in the separate store with explicit access and retention controls.",
+        "note": "Selective diagnostics can support investigation without enabling unrestricted transcript capture centrally. Redaction, destination access, and retention must satisfy the stated data-handling policy."
+      },
+      {
+        "id": "d",
+        "text": "Export unredacted full content for a small random sample because low sampling rates satisfy the confidentiality rule.",
+        "note": "Sampling reduces volume but still exports confidential text for sampled requests. A prohibition on such content is not converted into permission by lowering the sample rate."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: OpenTelemetry tracing for the Claude API",
+      "url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.4.json",
+    "orig_id": "ccarp-3.4-trace-content-privacy-controls",
+    "license": "MIT"
+  }
+}

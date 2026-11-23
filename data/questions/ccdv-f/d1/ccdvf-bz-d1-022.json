@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-022",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Patterns and Frameworks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An agent has 40 tools available and frequently picks the wrong one. Which change is most likely to help?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Enlarge the context window so all 40 tool definitions fit comfortably.",
+        "note": "Fitting them all in is not the problem; discriminating among them is."
+      },
+      {
+        "id": "b",
+        "text": "Shorten every tool name so the definition block consumes fewer tokens.",
+        "note": "Short names carry less meaning and usually make selection worse."
+      },
+      {
+        "id": "c",
+        "text": "Raise the temperature so the agent explores a wider range of tool choices.",
+        "note": "More exploration produces more wrong choices, not fewer."
+      },
+      {
+        "id": "d",
+        "text": "Present only task-relevant tools and sharpen each description's boundaries.",
+        "note": ""
+      }
+    ],
+    "explanation": "Selection accuracy degrades as the set grows and descriptions overlap. Showing only contextually relevant tools and writing descriptions that clearly separate purpose and inputs is the standard remedy."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use best practices",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-022",
+    "license": "MIT"
+  }
+}

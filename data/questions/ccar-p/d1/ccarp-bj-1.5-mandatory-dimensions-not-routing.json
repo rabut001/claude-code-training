@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.5-mandatory-dimensions-not-routing",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.5 Apply decomposition techniques for complex problem solving",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "cross-cutting-requirements",
+    "routing-limitations",
+    "release-composition"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Every public notice must pass both privacy and accessibility review. A prototype classifies notices by their apparent main concern and routes each to only one specialist. Each specialist performs well on assigned cases, but release failures occur in the dimension that was not reviewed. What decomposition change addresses the coverage defect?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Improve the main-concern classifier so each notice reaches the specialist most likely to find a serious issue.",
+        "note": "Better classification still selects only one mandatory dimension. The failure is omitted coverage, not merely choosing the less relevant specialist."
+      },
+      {
+        "id": "b",
+        "text": "Run both mandatory reviews independently and combine their outcomes at a release gate that requires both dimensions to pass.",
+        "note": "Privacy and accessibility are required dimensions of every notice, not mutually exclusive input categories. Separate reviews with a joint gate preserve both obligations."
+      },
+      {
+        "id": "c",
+        "text": "Run the second specialist only when the first specialist rejects the notice or reports uncertainty about its own review.",
+        "note": "A confident pass in one dimension says nothing about the unexamined dimension. Conditional fallback leaves the same coverage gap for accepted notices."
+      },
+      {
+        "id": "d",
+        "text": "Ask two instances of the selected specialist to vote and release notices when both approve that dimension.",
+        "note": "Repeated review can improve confidence within one dimension but cannot supply the missing privacy or accessibility assessment."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.5.json",
+    "orig_id": "ccarp-1.5-mandatory-dimensions-not-routing",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.5-skill-progressive-loading",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.5 Implement prompt reuse strategies (caching, modular prompts, Skills)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "skills",
+    "progressive-disclosure",
+    "procedural-reuse"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "An assistant is configured with a collection of reusable Skills containing metadata, SKILL.md instructions, reference files, and helper scripts. Which description matches the progressive-disclosure mechanism in the cited Skills overview?",
+    "options": [
+      {
+        "id": "a",
+        "text": "All SKILL.md bodies and reference files enter context at startup, while only scripts remain outside it.",
+        "note": "This eagerly loads content that the described mechanism defers. Instructions load when a Skill is triggered, and reference resources load when needed."
+      },
+      {
+        "id": "b",
+        "text": "Available Skills have no context cost until execution, including their discovery names and descriptions.",
+        "note": "Discovery metadata already occupies context. Progressive loading reduces the upfront cost but does not make available Skills literally zero-token."
+      },
+      {
+        "id": "c",
+        "text": "Load metadata first, instructions when triggered, and resources as needed; helper execution need not load source.",
+        "note": "The staged loading separates discovery from detailed procedural context. Script execution can supply deterministic results without placing all implementation code in the prompt."
+      },
+      {
+        "id": "d",
+        "text": "Instructions load on demand, but executing any helper requires placing every bundled script's source into the prompt first.",
+        "note": "The documented runtime can execute scripts from the filesystem and return their output. It does not require all bundled source files to become model context."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Agent Skills",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.5.json",
+    "orig_id": "ccarp-2.5-skill-progressive-loading",
+    "license": "MIT"
+  }
+}

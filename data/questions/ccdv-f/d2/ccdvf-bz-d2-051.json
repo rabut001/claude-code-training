@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-051",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An assistant turn returns two tool_use blocks in a single response. How must the application respond?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Send two consecutive user turns, each carrying one of the tool_result blocks.",
+        "note": "Splitting across turns breaks the required alternation and orphans the first results."
+      },
+      {
+        "id": "b",
+        "text": "Execute the first tool only and ignore the second as redundant.",
+        "note": "An unanswered tool_use is rejected by the API."
+      },
+      {
+        "id": "c",
+        "text": "Re-send the original request so the model settles on a single tool call.",
+        "note": "Discards work the model already decided on and wastes a round trip."
+      },
+      {
+        "id": "d",
+        "text": "Send one user turn containing a tool_result for each, matched by tool_use_id.",
+        "note": ""
+      }
+    ],
+    "explanation": "Every tool_use must be answered by a corresponding tool_result carrying the matching id, all inside the single following user turn. Omitting any of them is an API error."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D2-051",
+    "license": "MIT"
+  }
+}

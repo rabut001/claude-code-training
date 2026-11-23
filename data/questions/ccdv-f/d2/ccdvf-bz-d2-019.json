@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-019",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A downstream service consumes JSON that Claude produces. Occasionally the model wraps the JSON in a markdown code fence or adds a sentence before it, and the consumer crashes. Which fix is most robust?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Strip markdown fences with a regular expression before parsing the payload.",
+        "note": "Handles today's variation and breaks on tomorrow's; still an unguarded parse."
+      },
+      {
+        "id": "b",
+        "text": "State in the prompt, more forcefully, that only raw JSON may be returned.",
+        "note": "Improves compliance probabilistically without ever guaranteeing it."
+      },
+      {
+        "id": "c",
+        "text": "Define a tool whose input_schema is the target shape and read its arguments.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Prefill the assistant turn with an opening brace to suppress the preamble.",
+        "note": "A genuine improvement and worth doing, but weaker than a typed contract."
+      }
+    ],
+    "explanation": "A tool schema converts a formatting request into a typed contract, so you read structured arguments instead of scraping prose. The failure mode is designed out rather than patched."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-019",
+    "license": "MIT"
+  }
+}

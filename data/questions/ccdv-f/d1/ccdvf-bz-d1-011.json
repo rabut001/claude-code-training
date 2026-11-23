@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-011",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Construction with Claude",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An agent must never run a destructive shell command such as rm -rf. The team adds a firm instruction to the system prompt. Why is this insufficient, and what is the right mechanism?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Prompts are probabilistic guidance; a hook can inspect and block the command.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "The instruction is sufficient, because system prompts are obeyed strictly.",
+        "note": "System prompts influence behaviour strongly but are not enforcement."
+      },
+      {
+        "id": "c",
+        "text": "Lower the sampling temperature so destructive commands are never selected.",
+        "note": "Temperature does not create a safety boundary of any kind."
+      },
+      {
+        "id": "d",
+        "text": "Use a smaller model tier, which attempts fewer destructive operations.",
+        "note": "Model size does not constrain what the harness will execute."
+      }
+    ],
+    "explanation": "This is the deterministic-versus-probabilistic distinction the exam returns to repeatedly. A hook runs as code at a defined lifecycle point, inspects the pending action, and can deny it outright."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Hooks",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/hooks"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-011",
+    "license": "MIT"
+  }
+}

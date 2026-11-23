@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-001",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "AI Application Security",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "What distinguishes indirect prompt injection from a direct jailbreak attempt?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Indirect injection requires far more skill and access to carry out.",
+        "note": "Difficulty varies, and planting content in an indexed page is often easy."
+      },
+      {
+        "id": "b",
+        "text": "Indirect injection affects only applications that have no tools enabled.",
+        "note": "Tools raise the stakes, but injection can cause disclosure without them."
+      },
+      {
+        "id": "c",
+        "text": "They describe the same attack, differing only in the terminology used.",
+        "note": "The delivery channel differs fundamentally, which changes the defences needed."
+      },
+      {
+        "id": "d",
+        "text": "The malicious instruction arrives inside content the system ingests.",
+        "note": ""
+      }
+    ],
+    "explanation": "The payload hides in data the application retrieves on the user's behalf, so a legitimate user issues a harmless request while the attacker's instruction rides in on a page, document, or email."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Mitigate jailbreaks and prompt injections",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-001",
+    "license": "MIT"
+  }
+}

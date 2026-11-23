@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.8-standard-search-request-and-execution",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.8 Evaluate progressive discovery vs. monolithic context strategy",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "progressive-discovery",
+    "tool-search",
+    "api-payload",
+    "client-tool-loop"
+  ],
+  "answer": [
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "An application uses the documented standard server-side tool_search_tool_bm25_20251119 pattern with Claude Messages API 2023-06-01. Its catalog contains deferred application-executed tools, and no custom external catalog service is involved. Which requirements remain true after progressive discovery is enabled? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Return a client tool_result for the search's server_tool_use ID before running any discovered business tool.",
+        "note": "Built-in tool search runs server-side and returns its own search-result block. The application must not invent a client result for that server-side search ID."
+      },
+      {
+        "id": "b",
+        "text": "Supply every deferred tool's complete definition in the tools array on every request in this standard pattern.",
+        "note": "defer_loading controls what initially enters model context, not whether definitions are sent to the API. The API needs the catalog to search and expand tool_reference blocks."
+      },
+      {
+        "id": "c",
+        "text": "Execute a discovered client tool when its tool_use arrives, then continue with its matching tool_result and preserved assistant content.",
+        "note": "Discovery supplies the definition but does not execute the application's operation. Ordinary client-tool execution, result correlation, and conversation continuation still apply."
+      },
+      {
+        "id": "d",
+        "text": "Omit discovered definitions from later requests because their expanded references are a durable server-side catalog registration.",
+        "note": "Inline references do not replace the standard request's required definitions. The API expands references using the tools supplied in each request, not a durable implicit catalog registration."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Tool search tool",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool"
+    },
+    {
+      "title": "Anthropic: Handle tool calls",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.8.json",
+    "orig_id": "ccarp-3.8-standard-search-request-and-execution",
+    "license": "MIT"
+  }
+}

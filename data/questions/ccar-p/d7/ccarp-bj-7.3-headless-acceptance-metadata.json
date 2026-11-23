@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.3-headless-acceptance-metadata",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.3 Support debugging and operational issue resolution",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "ci",
+    "headless",
+    "initialization-errors",
+    "structured-output"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A CI job using Claude Code 2.1.304 and stream-json requires a named MCP server and a schema-constrained final report. Some runs exit 0 after an invalid MCP entry is skipped; downstream code also assumes structured_output is always present. Which acceptance checks address these two failure modes? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Accept a zero exit and a plausible final text response as proof that required integrations loaded and the report is consumable.",
+        "note": "The agent can finish without an invalid server entry, and a text response does not guarantee a structured result exists. This would accept both observed failure modes."
+      },
+      {
+        "id": "b",
+        "text": "Check system/init for the required server and fail on its absence or a relevant mcp_server_errors entry.",
+        "note": "Initialization metadata exposes entries skipped by MCP configuration validation even when the run continues. The mcp_server_errors field requires v2.1.219 or later and is within the stated version scope."
+      },
+      {
+        "id": "c",
+        "text": "Use captured stderr startup warnings as the sole integration gate, treating an empty stderr stream as proof of successful loading.",
+        "note": "The documented human startup warning can be omitted when stderr is captured. Structured initialization errors remain the appropriate machine-readable evidence of skipped MCP entries."
+      },
+      {
+        "id": "d",
+        "text": "Inspect the final result's success or error state and require a present, valid structured_output before consuming the report.",
+        "note": "A structured result is not guaranteed when no valid result was produced. Checking its presence and validity prevents downstream code from treating missing output as a usable report."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Run Claude Code programmatically",
+      "url": "https://code.claude.com/docs/en/headless"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.3.json",
+    "orig_id": "ccarp-7.3-headless-acceptance-metadata",
+    "license": "MIT"
+  }
+}

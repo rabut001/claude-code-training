@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-025",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Cost and Token Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Which pair of workload characteristics together make the Message Batches API the right choice?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Interactive latency requirements combined with relatively low daily volume.",
+        "note": "Interactive work is precisely what batch is unsuitable for."
+      },
+      {
+        "id": "b",
+        "text": "Tolerance for asynchronous completion combined with large request volume.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Strict data residency requirements combined with streamed partial output.",
+        "note": "Batch does not stream, and residency is an unrelated deployment concern."
+      },
+      {
+        "id": "d",
+        "text": "Heavy tool use combined with a human-in-the-loop approval step per item.",
+        "note": "A human approval step implies an interactive loop, not offline processing."
+      }
+    ],
+    "explanation": "Batch trades immediacy for price. When nothing waits on an individual result and volume is large, a 50% discount on input and output tokens is the clear economic choice."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Message Batches",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/batch-processing"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-025",
+    "license": "MIT"
+  }
+}

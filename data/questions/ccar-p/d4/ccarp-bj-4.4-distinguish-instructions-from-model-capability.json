@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.4-distinguish-instructions-from-model-capability",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.4 Diagnose system issues (prompt failure, hallucinations, model mismatch)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "model-mismatch",
+    "controlled-diagnosis",
+    "prompt-evaluation"
+  ],
+  "answer": [
+    "a",
+    "d"
+  ],
+  "en": {
+    "question": "On multi-step allocation tasks, generated plans violate constraints despite verified evidence, correct tool fixtures, and a validated constraint checker. Output limits are not reached. Unclear instructions and a model capability mismatch remain plausible. Which controlled comparisons help distinguish these explanations? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep the model and fixtures fixed while testing a clearer constraint-focused prompt.",
+        "note": "A prompt-only comparison tests whether clearer instructions resolve the failures without changing model capability or evidence. The same cases and checker make its outcome interpretable."
+      },
+      {
+        "id": "b",
+        "text": "Replace the model, planner prompt, retrieval pipeline, and checker in one experiment.",
+        "note": "Changing every component can yield a better system but cannot attribute the improvement to instructions or model capability. Replacing the validated checker also changes the meaning of success."
+      },
+      {
+        "id": "c",
+        "text": "Raise the output limit and compare only each model's best-looking completed plan.",
+        "note": "The limit is not implicated, and selecting best-looking outputs changes the comparison criterion. This does not isolate either instruction clarity or constraint-solving reliability."
+      },
+      {
+        "id": "d",
+        "text": "Compare candidate models on the same clear prompt, fixtures, cases, and constraint checker.",
+        "note": "Holding those factors fixed tests whether model choice changes constraint satisfaction under the same well-specified task. It provides evidence for or against a capability mismatch rather than assuming a stronger model is the remedy."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.4.json",
+    "orig_id": "ccarp-4.4-distinguish-instructions-from-model-capability",
+    "license": "MIT"
+  }
+}

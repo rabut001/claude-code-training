@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.3-quality-and-tail-latency-gates",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.3 Evaluate accuracy-latency trade-offs and justify configuration decisions",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "latency",
+    "quality-gates",
+    "tail-latency"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A document-comparison service requires at least 98% task accuracy and p95 end-to-end completion latency no greater than 6 seconds. On the same representative test set, configuration A achieves 99.2% and 8.1 seconds, B achieves 97.4% and 4.3 seconds, C achieves 98.6% and 5.8 seconds, and D achieves 98.9% and 6.7 seconds. Which configuration meets both stated gates?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Configuration C, because its measured accuracy and p95 completion time both satisfy the requirements.",
+        "note": "Its 98.6% task accuracy exceeds the 98% minimum and its 5.8-second p95 is below the 6-second ceiling. No trade-off against either acceptance gate is needed."
+      },
+      {
+        "id": "b",
+        "text": "Configuration A, because the highest task accuracy should take precedence over the latency ceiling.",
+        "note": "Its 8.1-second p95 violates the explicit latency requirement. Higher accuracy does not authorize ignoring a separate mandatory service-level gate."
+      },
+      {
+        "id": "c",
+        "text": "Configuration B, because the fastest p95 compensates for its slightly lower task accuracy.",
+        "note": "Its 97.4% task accuracy is below the required 98%. The requirements are independent gates rather than a score in which speed can offset incorrect answers."
+      },
+      {
+        "id": "d",
+        "text": "Configuration D, because a p95 over the limit can be accepted if the median is likely to be lower.",
+        "note": "The stated requirement concerns p95, not an inferred median. Its 6.7-second p95 fails that requirement even if most individual requests are faster."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    },
+    {
+      "title": "Anthropic: Reducing latency",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.3.json",
+    "orig_id": "ccarp-3.3-quality-and-tail-latency-gates",
+    "license": "MIT"
+  }
+}

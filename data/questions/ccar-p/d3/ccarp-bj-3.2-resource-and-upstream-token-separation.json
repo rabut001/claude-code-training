@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.2-resource-and-upstream-token-separation",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.2 Analyze authentication and authorization requirements to identify security gaps",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "mcp",
+    "token-audience",
+    "token-passthrough"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "An HTTP MCP server follows MCP 2026-07-28 authorization and calls an upstream engineering API. It accepts any signed token from the corporate issuer, including tokens intended only for the engineering API, and forwards the received token upstream. Which changes close the two token-boundary gaps? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Accept an upstream-audience token if its scope string also names the requested MCP tool.",
+        "note": "A matching scope string does not make the MCP server an intended token recipient. Tokens intended only for another resource must still be rejected."
+      },
+      {
+        "id": "b",
+        "text": "Validate that an inbound token is specifically intended for this MCP resource before processing it.",
+        "note": "The resource server must validate audience or otherwise establish that it is the intended recipient. A trusted issuer and valid signature alone do not establish this boundary."
+      },
+      {
+        "id": "c",
+        "text": "Keep forwarding the client's token but remove unused scopes from the outgoing HTTP header.",
+        "note": "Changing a header cannot safely change a signed token's grants or intended recipient. More importantly, this version explicitly prohibits passing the received MCP token through to an upstream API."
+      },
+      {
+        "id": "d",
+        "text": "Use a separately issued upstream access token through the upstream API's authorization flow.",
+        "note": "The MCP server can act as an OAuth client to the upstream API using a separate token issued by its authorization server. The token received from the MCP client must not be passed through."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "MCP specification: Authorization Security Considerations",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations"
+    },
+    {
+      "title": "MCP specification: Authorization",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.2.json",
+    "orig_id": "ccarp-3.2-resource-and-upstream-token-separation",
+    "license": "MIT"
+  }
+}

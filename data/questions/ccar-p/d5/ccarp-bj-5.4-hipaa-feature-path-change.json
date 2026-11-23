@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.4-hipaa-feature-path-change",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.4 Ensure compliance with regulations (e.g., GDPR, HIPAA, FedRAMP)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "hipaa",
+    "baa",
+    "feature-eligibility",
+    "third-party-processing"
+  ],
+  "answer": [
+    "a",
+    "d"
+  ],
+  "en": {
+    "question": "A covered entity has a signed business associate agreement (BAA) and an approved electronic protected health information (ePHI) inference workflow in a specific HIPAA-enabled API organization. The team proposes persistent file handling and an external optical character recognition (OCR) service; neither has been assessed against the BAA or current risk analysis. A synthetic-data staging request succeeds. Which two checks are required before sending ePHI through the proposed path? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Verify the signed agreement, exact organization, deployment route, and feature coverage; keep ePHI off any path whose required coverage has not been established.",
+        "note": "HIPAA readiness is scoped to an arrangement and eligible processing path, not simply a model name or successful request. Feature changes require checking the actual contractual and technical boundary."
+      },
+      {
+        "id": "b",
+        "text": "Treat the staging success as confirmation that file storage and the external OCR service inherit the original BAA automatically.",
+        "note": "The inference API cannot establish the contractual status and safeguards of every external service. Technical acceptance of synthetic data is not evidence of ePHI coverage."
+      },
+      {
+        "id": "c",
+        "text": "Add zero data retention to the inference organization and treat that retention setting as extending the BAA to the new storage and OCR services.",
+        "note": "A retention arrangement does not expand a BAA's feature or third-party scope. It also does not replace the safeguards and regulated relationships required for the changed workflow."
+      },
+      {
+        "id": "d",
+        "text": "Map the OCR service, storage, logs, and recovery paths into the risk analysis, assigning applicable agreements, safeguard responsibilities, and evidence to their owners.",
+        "note": "The full ePHI data path includes services and operational copies outside the model request. Each relevant relationship and safeguard must be assessed rather than inherited by assumption."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: API and data retention",
+      "url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention"
+    },
+    {
+      "title": "HHS OCR: Guidance on HIPAA & Cloud Computing",
+      "url": "https://www.hhs.gov/hipaa/for-professionals/special-topics/health-information-technology/cloud-computing/index.html"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.4.json",
+    "orig_id": "ccarp-5.4-hipaa-feature-path-change",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.4-application-operation-correlation",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.4 Analyze observability challenges and select monitoring strategies at scale",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "observability",
+    "distributed-tracing",
+    "client-tools"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A single user operation can involve retrieval, several Claude API requests, one provider retry, and client tools executed manually without an SDK tool runner. API tracing is enabled, but incidents cannot be connected to the slow client-tool call. Which instrumentation design fills the missing visibility?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use an application operation trace, retain provider request IDs per attempt, and add retrieval and manual client-tool spans.",
+        "note": "The application trace provides the operation-wide boundary, while provider IDs identify individual API attempts. Manually executed work needs application instrumentation because API-side spans cannot observe its internal execution."
+      },
+      {
+        "id": "b",
+        "text": "Use the last provider request ID as the only identifier for retrieval, prior attempts, and all tool executions.",
+        "note": "A provider request ID identifies one API request, not the full multi-step user operation. Replacing earlier identities with the final one loses retry and tool relationships."
+      },
+      {
+        "id": "c",
+        "text": "Enable only API-side tool tracing and infer manual tool duration from the model's narrated intent.",
+        "note": "API-side tool visibility covers tools executed by the API, not arbitrary application code. Narrated intent provides neither an execution span nor a trustworthy duration."
+      },
+      {
+        "id": "d",
+        "text": "Record aggregate tool-call counts and remove request identifiers to avoid storing redundant correlation data.",
+        "note": "Counts can reveal frequency but cannot associate a particular slow tool with a failed user operation. Correlation data is necessary to reconstruct this multi-request incident."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: OpenTelemetry tracing for the Claude API",
+      "url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry"
+    },
+    {
+      "title": "Anthropic: Claude API errors",
+      "url": "https://platform.claude.com/docs/en/api/errors"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.4.json",
+    "orig_id": "ccarp-3.4-application-operation-correlation",
+    "license": "MIT"
+  }
+}

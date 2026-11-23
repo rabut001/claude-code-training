@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-001",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "LLM Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A team sets temperature to 0 and expects byte-identical output for identical input. In production they still observe occasional variation. Which explanation is correct?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Temperature is ignored on requests that also supply tool definitions.",
+        "note": "Temperature applies whether or not tools are defined."
+      },
+      {
+        "id": "b",
+        "text": "Determinism additionally requires top_p to be set to 0 on the same request.",
+        "note": "Anthropic advises tuning one of the two, and neither converts sampling into a guarantee."
+      },
+      {
+        "id": "c",
+        "text": "Temperature 0 makes sampling greedy but does not guarantee identical output.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "The service perturbs sampling slightly to prevent responses being cached.",
+        "note": "No deliberate noise is injected; this is not how the service behaves."
+      }
+    ],
+    "explanation": "Greedy decoding removes most variation but is not a guarantee. Near-ties in logits combined with floating-point and serving-stack differences can still flip a token, so correctness must never depend on identical output."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API parameters",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-001",
+    "license": "MIT"
+  }
+}

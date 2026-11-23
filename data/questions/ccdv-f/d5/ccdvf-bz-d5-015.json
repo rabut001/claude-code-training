@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-015",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Which parameter guidance matches Anthropic's recommendation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Adjust either temperature or top_p, not both, because they interact.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Tune temperature and top_p together to obtain finer sampling control.",
+        "note": "This is the specific practice the guidance warns against."
+      },
+      {
+        "id": "c",
+        "text": "Leave top_p at 1.0 and temperature at 1.0 for every production workload.",
+        "note": "Those are defaults, not a rule; extraction and classification usually want lower."
+      },
+      {
+        "id": "d",
+        "text": "Raise temperature above 1.0 when the task calls for maximum creativity.",
+        "note": "Claude's temperature range is 0 to 1, so higher values are invalid."
+      }
+    ],
+    "explanation": "Both shape the same sampling distribution, and moving them together produces interactions that are hard to predict or debug. Pick one lever, tune it, leave the other at its default."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-015",
+    "license": "MIT"
+  }
+}

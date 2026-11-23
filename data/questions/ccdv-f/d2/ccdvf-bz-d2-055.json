@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-055",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Configuration Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A team hardcodes the model identifier as a string literal in fifteen source files. What is the principal risk?",
+    "options": [
+      {
+        "id": "a",
+        "text": "String literals are marginally slower to resolve than configured variables.",
+        "note": "No meaningful performance difference exists."
+      },
+      {
+        "id": "b",
+        "text": "The API rejects requests whose model identifier is not supplied as configuration.",
+        "note": "The API accepts a valid model id regardless of where it came from."
+      },
+      {
+        "id": "c",
+        "text": "Model choice is environment-specific, so scattering it makes rollout and rollback error-prone.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "It measurably increases the size of the compiled application artifact.",
+        "note": "Immaterial, and not the concern here."
+      }
+    ],
+    "explanation": "Model id belongs in configuration precisely because you need to vary it: a cheaper model in dev, a canary in staging, an instant rollback in prod. Fifteen literals means fifteen chances to miss one."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Models overview",
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D2-055",
+    "license": "MIT"
+  }
+}

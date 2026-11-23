@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-018",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "MCP Server Development",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A company has built the same Jira integration three times — once each for Claude Code, an internal chat app, and a CI bot. What does MCP offer here?",
+    "options": [
+      {
+        "id": "a",
+        "text": "One server implementing the integration once, reusable by every client.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Faster execution of the tool calls that reach the Jira instance itself.",
+        "note": "MCP standardises the interface; it is not a performance optimisation."
+      },
+      {
+        "id": "c",
+        "text": "Authentication handled by the protocol, removing per-client configuration.",
+        "note": "Authentication still has to be configured; MCP defines the protocol only."
+      },
+      {
+        "id": "d",
+        "text": "A reduced per-token rate applied to requests that invoke MCP tools.",
+        "note": "Token pricing is unaffected by how tools are exposed."
+      }
+    ],
+    "explanation": "This is precisely the duplication MCP exists to remove: implement once against an open standard, and any compatible client can consume it, leaving one codebase to maintain and secure."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Model Context Protocol",
+      "url": "https://modelcontextprotocol.io"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D8-018",
+    "license": "MIT"
+  }
+}

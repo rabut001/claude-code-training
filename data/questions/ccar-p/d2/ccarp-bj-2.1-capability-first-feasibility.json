@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.1-capability-first-feasibility",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.1 Select appropriate Claude models based on trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "model-selection",
+    "capability-first",
+    "feasibility"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A team is investigating whether Claude can interpret novel combinations of laboratory constraints. No candidate has been tested on the team's hardest cases. Incorrect conclusions are costly, prototype traffic is small, and latency optimization can wait until feasibility is established. Which initial selection strategy best addresses the principal uncertainty?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Start with the cheapest model and declare the task infeasible if it fails the hardest cases.",
+        "note": "Failure by an efficiency-oriented candidate does not establish that a more capable candidate cannot meet the task. It could prematurely reject a feasible solution."
+      },
+      {
+        "id": "b",
+        "text": "Start with the fastest model and use a larger response limit as the substitute for capability testing.",
+        "note": "Output capacity does not establish reasoning quality on unfamiliar constraint combinations. Speed is not the prototype's controlling uncertainty."
+      },
+      {
+        "id": "c",
+        "text": "Establish difficult-task quality with a strong candidate, then benchmark cheaper models and effort settings.",
+        "note": "A capability-first experiment fits high error cost and unresolved feasibility. Later efficiency changes still require evaluation rather than assuming the strongest candidate is permanently necessary."
+      },
+      {
+        "id": "d",
+        "text": "Choose the candidate with the largest context window and defer task-specific testing until production traffic arrives.",
+        "note": "Context capacity and reasoning performance are different properties. Deferring the difficult-case evaluation leaves the central feasibility question unanswered."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Choosing the right model",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+    },
+    {
+      "title": "Prompt engineering overview",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.1.json",
+    "orig_id": "ccarp-2.1-capability-first-feasibility",
+    "license": "MIT"
+  }
+}

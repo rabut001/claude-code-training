@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.5-table-headers-and-footnotes",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.5 Design a RAG pipeline with appropriate chunking and indexing strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "rag",
+    "chunk-boundaries",
+    "tables",
+    "provenance"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A maintenance corpus contains limit tables whose headers specify units and whose footnotes define exceptions. A fixed-character splitter separates rows from both. Retrieved rows match the requested device but are misinterpreted without the units and exceptions. Which chunking revision best addresses the observed failure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep each bounded table section with its headers and applicable footnotes, preserving its source location for verification.",
+        "note": "The necessary interpretive dependencies remain available with each relevant table section. Structure-aware boundaries directly address the observed loss of units and exceptions."
+      },
+      {
+        "id": "b",
+        "text": "Use smaller fixed-character chunks so individual numeric values receive more precise embeddings.",
+        "note": "Smaller arbitrary fragments further separate values from their meaning. Numeric similarity cannot reconstruct omitted headers or identify which exceptions apply."
+      },
+      {
+        "id": "c",
+        "text": "Keep rows isolated and ask the answer model to infer the missing units from common industry practice.",
+        "note": "The manual's stated units and exceptions are authoritative, not industry defaults. Inference cannot substitute for retrieving the dependencies needed to interpret the table."
+      },
+      {
+        "id": "d",
+        "text": "Increase overlap by a fixed small number of characters without checking the table structure or dependencies.",
+        "note": "An arbitrary overlap may still fail to include distant headers or footnotes. The revision needs to preserve the specific dependencies demonstrated by the failure cases."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.5.json",
+    "orig_id": "ccarp-3.5-table-headers-and-footnotes",
+    "license": "MIT"
+  }
+}

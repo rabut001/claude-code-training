@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.1-invoice-design-entry-gate",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.1 Conduct structured discovery and requirement gathering",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "discovery-gate",
+    "capacity-feasibility",
+    "peak-review-capacity"
+  ],
+  "answer": [
+    "a",
+    "b"
+  ],
+  "en": {
+    "question": "A field-service company has approved the production inputs and quality criteria for invoice drafts. Discovery measures a sustained peak of 48 review-ready drafts per hour during a two-hour evening shift. Each qualified reviewer can sustainably complete 20 per hour at the accepted quality. Every invoice requires approval before release; unaccepted work may be explicitly deferred. Operations must approve a plan that prevents a growing review backlog under this peak. Which proposed arrangements are feasible on the supplied evidence? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Assign three qualified reviewers throughout the evening peak, with owned admission limits and explicit deferral if that coverage drops.",
+        "note": "Three reviewers provide sustainable capacity of 60 per hour against the measured 48 arrivals. Coverage and admission ownership make this a feasible no-growth arrangement, not a guarantee of every individual latency target."
+      },
+      {
+        "id": "b",
+        "text": "Assign two qualified reviewers and cap accepted arrivals at 36 per hour, explicitly deferring excess work with operations-approved notices.",
+        "note": "Two reviewers provide 40 per hour, exceeding the capped accepted rate of 36. The stated permission to defer makes this feasible while preserving approval for every released invoice."
+      },
+      {
+        "id": "c",
+        "text": "Assign two qualified reviewers to all 48 hourly arrivals, retaining mandatory approval and prioritizing the oldest pending invoice first.",
+        "note": "Capacity remains 40 per hour against 48 admitted arrivals, so pending work grows by eight per hour. Oldest-first ordering changes waiting order, not the capacity shortfall."
+      },
+      {
+        "id": "d",
+        "text": "Assign one qualified reviewer during the peak and two additional reviewers afterward, admitting all evening arrivals into the same queue.",
+        "note": "Later staffing may clear the backlog after the peak but does not prevent its growth during the required interval. All options retain approval; this one fails the stated peak-capacity condition."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.1.json",
+    "orig_id": "ccarp-6.1-invoice-design-entry-gate",
+    "license": "MIT"
+  }
+}

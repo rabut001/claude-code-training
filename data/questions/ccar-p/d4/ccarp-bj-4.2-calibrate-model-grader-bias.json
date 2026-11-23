@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.2-calibrate-model-grader-bias",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.2 Design evaluation datasets and test frameworks using mixed methodologies",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "grader-calibration",
+    "human-evaluation",
+    "rubrics"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A model grader rewards long explanations even when their central claim is unsupported, and penalizes terse answers that experts consider complete. The candidate assistant is about to be selected using these scores. Which actions address the validity of that selection? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Average more runs of the existing grader on each answer.",
+        "note": "Repeated grading can reduce random variation but does not remove a systematic preference for length over correctness. The average can become a more stable estimate of the wrong criterion."
+      },
+      {
+        "id": "b",
+        "text": "Build an expert-adjudicated sample containing concise successes and verbose failures.",
+        "note": "Those contrasting examples expose whether grader scores agree with the intended quality judgments. Expert adjudication supplies a calibration reference rather than assuming the model grader is correct."
+      },
+      {
+        "id": "c",
+        "text": "Add a minimum answer length to the candidate's generation prompt.",
+        "note": "This optimizes the assistant for the known scoring bias instead of validating the evaluation. It can increase unsupported verbosity without improving factual completeness."
+      },
+      {
+        "id": "d",
+        "text": "Revise the rubric around claim support and completeness, then check expert agreement.",
+        "note": "A criterion-specific rubric targets the observed failure instead of rewarding a proxy such as length. Checking agreement on adjudicated examples tests whether the revised grader is suitable for candidate selection."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.2.json",
+    "orig_id": "ccarp-4.2-calibrate-model-grader-bias",
+    "license": "MIT"
+  }
+}

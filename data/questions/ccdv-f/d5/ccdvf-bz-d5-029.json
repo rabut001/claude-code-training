@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-029",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "LLM Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A legal assistant confidently cites a case that does not exist. Which combination most effectively reduces this class of failure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Set temperature to 0 and instruct the model to be factually accurate.",
+        "note": "Temperature 0 returns the most probable output, which can be confidently fabricated."
+      },
+      {
+        "id": "b",
+        "text": "Move the workload to the largest model tier that is currently available.",
+        "note": "Larger models hallucinate less often but capability is not a guarantee."
+      },
+      {
+        "id": "c",
+        "text": "Ground answers in retrieved sources, require citations, and allow \"not found\".",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Display a disclaimer warning users that output may contain inaccuracies.",
+        "note": "A disclaimer transfers liability without improving accuracy."
+      }
+    ],
+    "explanation": "Hallucination is the model filling a gap from parametric memory. Grounding removes the gap, citation makes claims checkable, and an escape hatch removes the pressure to invent when sources are silent."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Reduce hallucinations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D5-029",
+    "license": "MIT"
+  }
+}

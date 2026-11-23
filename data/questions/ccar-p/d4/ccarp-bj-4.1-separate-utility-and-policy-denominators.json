@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.1-separate-utility-and-policy-denominators",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.1 Define evaluation metrics (accuracy, latency, cost, safety, security)",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "safety-metrics",
+    "security-metrics",
+    "evaluation-slices"
+  ],
+  "answer": [
+    "b",
+    "c",
+    "d"
+  ],
+  "en": {
+    "question": "A maintenance agent may execute approved operations but must not execute unapproved destructive operations or read another tenant's records. Its evaluation set labels these three categories separately. The dashboard currently shows only an overall refusal rate. Which measurements distinguish useful service from the two prohibited behaviors? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Destructive-operation blocking rate calculated over all legitimate and adversarial evaluation cases.",
+        "note": "The denominator includes cases that never requested destructive execution. Changes in ordinary traffic can move this rate without changing the approval boundary's effectiveness; use the relevant prohibited-action slice instead."
+      },
+      {
+        "id": "b",
+        "text": "Successful completion rate within the approved-operation cases.",
+        "note": "This denominator isolates work the agent is supposed to perform. It detects a system that appears safe only because it refuses legitimate operations."
+      },
+      {
+        "id": "c",
+        "text": "Executed unsafe-action rate within the unapproved destructive-operation cases.",
+        "note": "Inspecting action outcomes on the prohibited-action slice measures whether the approval boundary held. Refusal wording alone would not establish that no destructive tool effect occurred."
+      },
+      {
+        "id": "d",
+        "text": "Successful unauthorized-read rate within the cross-tenant access attempts.",
+        "note": "This measures the separate data-access boundary using the attack cases that exercise it. An agent can avoid destructive actions yet still expose another tenant's records."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.1.json",
+    "orig_id": "ccarp-4.1-separate-utility-and-policy-denominators",
+    "license": "MIT"
+  }
+}

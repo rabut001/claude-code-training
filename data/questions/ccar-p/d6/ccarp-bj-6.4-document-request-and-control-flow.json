@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.4-document-request-and-control-flow",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.4 Document architectures and provide implementation guidance",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "architecture-documentation",
+    "data-flow",
+    "control-flow"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A water utility's Claude assistant reads maintenance manuals and can request a work order through an application-controlled tool. A new engineer must locate the approval check before work-order creation and understand where manuals, prompts, and results travel. Which documentation most directly meets that need?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Request, data, and control-flow views showing dependencies, storage, trust boundaries, and the approval point before the write.",
+        "note": "These views expose both the information path and the application control that must authorize the consequential tool action."
+      },
+      {
+        "id": "b",
+        "text": "A component inventory listing the model, document store, and work-order system, with product descriptions and purchasing contacts.",
+        "note": "An inventory names components but does not show their interactions or where approval is enforced on the write path."
+      },
+      {
+        "id": "c",
+        "text": "An example conversation that successfully creates a work order, accompanied by the assistant's explanation of why it considered the action appropriate.",
+        "note": "A successful example and generated explanation do not establish the actual data flow or the location of enforceable approval."
+      },
+      {
+        "id": "d",
+        "text": "A database schema and work-order field dictionary, with the application control flow left for engineers to infer from the source code.",
+        "note": "Field definitions do not document the request sequence or approval boundary the engineer specifically needs to locate."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Google SRE Workbook: Implementing SLOs",
+      "url": "https://sre.google/workbook/implementing-slos/"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.4.json",
+    "orig_id": "ccarp-6.4-document-request-and-control-flow",
+    "license": "MIT"
+  }
+}

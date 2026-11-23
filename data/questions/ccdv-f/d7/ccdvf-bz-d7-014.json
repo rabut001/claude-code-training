@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-014",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "Guardrails and Safe Deployment",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A healthcare chatbot must never provide a diagnosis. Which implementation gives the strongest assurance?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A firmly worded system prompt instructing the model never to diagnose.",
+        "note": "A necessary layer but not sufficient alone for an absolute constraint."
+      },
+      {
+        "id": "b",
+        "text": "Few-shot examples demonstrating how to refuse a request for a diagnosis.",
+        "note": "Examples improve the odds without guaranteeing the outcome."
+      },
+      {
+        "id": "c",
+        "text": "A more capable model tier, which follows safety instructions more reliably.",
+        "note": "Better compliance is still not a guarantee."
+      },
+      {
+        "id": "d",
+        "text": "The prompt, plus a deterministic output check, plus monitoring and escalation.",
+        "note": ""
+      }
+    ],
+    "explanation": "\"Must never\" is an absolute requirement and no single probabilistic layer delivers it. The prompt shapes typical behaviour, the output check catches what slips through, and monitoring closes the loop."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Strengthen guardrails",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D7-014",
+    "license": "MIT"
+  }
+}

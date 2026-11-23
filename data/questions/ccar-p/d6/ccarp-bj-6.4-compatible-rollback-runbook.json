@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.4-compatible-rollback-runbook",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.4 Document architectures and provide implementation guidance",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "rollback-runbook",
+    "dependency-compatibility",
+    "operational-guidance"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Release 12 of a Claude service changes its tool response schema and retrieval metadata format; release 11 cannot read either new format. A receiving team's rollback runbook says only to redeploy the previous application image. The last accepted release-11 data snapshot and tool version remain available, and a safe manual fallback is approved. What guidance should replace the incomplete rollback step?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Document and rehearse restoring a compatible accepted application, prompt, tool, and retrieval bundle, with verification, named authority, and fallback if restoration fails.",
+        "note": "The known incompatibilities require restoring and validating the relevant dependencies, not just the application image, under an owned recovery procedure."
+      },
+      {
+        "id": "b",
+        "text": "Restore the previous application and prompt while retaining the newest retrieval data and tool service, then monitor users for compatibility complaints.",
+        "note": "The scenario states that release 11 cannot read the newer formats, so this combination predictably fails before user monitoring can validate it."
+      },
+      {
+        "id": "c",
+        "text": "Switch to the previous model identifier and leave the application, tool schema, and retrieval metadata unchanged to minimize rollback work.",
+        "note": "Changing only the model does not restore the previous accepted application behavior or address the documented dependency incompatibilities."
+      },
+      {
+        "id": "d",
+        "text": "Redeploy the previous image and temporarily disable response validation, using the current data and tool responses until the incident is resolved.",
+        "note": "Disabling validation does not make incompatible formats readable and removes a check precisely when recovery needs verified compatibility."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Google SRE: The Evolving SRE Engagement Model",
+      "url": "https://sre.google/sre-book/evolving-sre-engagement-model/"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.4.json",
+    "orig_id": "ccarp-6.4-compatible-rollback-runbook",
+    "license": "MIT"
+  }
+}

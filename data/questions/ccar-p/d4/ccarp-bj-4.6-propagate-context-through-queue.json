@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.6-propagate-context-through-queue",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.6 Monitor system performance using logging and observability tools",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "context-propagation",
+    "queue-tracing",
+    "causal-correlation"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A web service queues Claude jobs for internal workers. Producer and worker spans are both present and accurately timed, but each worker starts an unrelated root trace. The trusted queue transports an operation ID but drops the producer's trace context. Investigators cannot reconstruct the causal path through queue wait and execution. What correction targets this gap?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase worker sampling and retain independent root traces, using timestamp proximity to infer each worker's producer.",
+        "note": "Both sides are already observed, so sampling does not restore the lost causal relationship. Concurrent jobs can have nearby timestamps without belonging to the same operation."
+      },
+      {
+        "id": "b",
+        "text": "Inject trace context into queue metadata and extract it when creating worker spans, retaining the operation ID.",
+        "note": "Propagation carries causal trace information across the process boundary so existing instrumentation can relate the consumer to its producer. The operation ID remains useful, but is not a substitute for the missing trace context."
+      },
+      {
+        "id": "c",
+        "text": "Enable full prompt capture on worker spans so the destination can group requests with similar job descriptions.",
+        "note": "Content similarity is not causal identity and introduces unnecessary content capture. It does not carry the producer's trace/span relationship through the queue."
+      },
+      {
+        "id": "d",
+        "text": "Replace worker trace IDs with hashes of customer IDs and leave parent context absent from the queued message.",
+        "note": "Customer identity groups many unrelated jobs and cannot identify their causal parents. Fabricating that grouping leaves the specific producer-to-consumer relationship missing."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "OpenTelemetry: Context propagation",
+      "url": "https://opentelemetry.io/docs/concepts/context-propagation/"
+    },
+    {
+      "title": "Anthropic: OpenTelemetry tracing for the Claude API",
+      "url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.6.json",
+    "orig_id": "ccarp-4.6-propagate-context-through-queue",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.3-approval-queue-overload",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.3 Apply human-in-the-loop validation strategies",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "review-capacity",
+    "queue-safety",
+    "human-in-the-loop",
+    "service-targets"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A workflow receives 90 requests per hour requiring qualified human approval, but its active reviewers can process only 30. A trained reserve can add 80 per hour. Policy forbids execution without approval, permits deferral, and requires notice when the 15-minute service target cannot be met. Which two responses preserve meaningful review under this overload? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Bound admitted work, keep unreviewed actions pending or safely deferred, and notify users when review will miss the service target.",
+        "note": "Admission and pending-state controls prevent the growing queue from becoming an implicit bypass. Communication handles the service miss without redefining unreviewed work as approved."
+      },
+      {
+        "id": "b",
+        "text": "Automatically execute requests waiting more than 15 minutes, marking their review records for next-day retrospective approval.",
+        "note": "A timeout is not a qualified decision, and retrospective review cannot satisfy approval before execution. This protects a latency metric by violating the mandatory control."
+      },
+      {
+        "id": "c",
+        "text": "Activate the qualified reserve with the same evidence, rejection authority, and escalation process, then monitor capacity and review quality.",
+        "note": "Additional qualified capacity can exceed the stated arrival rate without weakening the review contract. Maintaining evidence and authority avoids replacing review with untrained throughput."
+      },
+      {
+        "id": "d",
+        "text": "Treat historical reviewer agreement as advance approval for the highest-confidence requests until the active queue falls below capacity.",
+        "note": "Past agreement does not constitute a decision on each request that requires approval. This silently substitutes a model score for the mandated human control during peak demand."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.3.json",
+    "orig_id": "ccarp-5.3-approval-queue-overload",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-033",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Your agent must read from a data warehouse used by several other internal systems. What is the correct privilege posture for the agent's database credential?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Read-only access restricted to the specific tables the agent needs.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Read-write access, so the agent can cache its results back into the warehouse.",
+        "note": "Grants mutation rights for a caching convenience, widening the blast radius."
+      },
+      {
+        "id": "c",
+        "text": "The shared analytics credential already used by other internal systems.",
+        "note": "Shared credentials destroy attribution and over-grant by construction."
+      },
+      {
+        "id": "d",
+        "text": "Read access to all tables, with the prompt listing which ones are permitted.",
+        "note": "A prompt-stated allowlist is unenforceable; the access itself must be scoped."
+      }
+    ],
+    "explanation": "Least privilege. Scope the credential to exactly the reads required so a prompt injection or a model error cannot reach data outside that boundary."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Security and compliance",
+      "url": "https://docs.anthropic.com/en/docs/about-claude/security-compliance"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-033",
+    "license": "MIT"
+  }
+}

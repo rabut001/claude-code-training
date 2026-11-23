@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.5-dependency-aware-scheduling",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.5 Apply decomposition techniques for complex problem solving",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "dependency-graphs",
+    "parallel-scheduling",
+    "decomposition"
+  ],
+  "answer": [
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "A restoration-planning workflow first normalizes the site's survey facts. An access assessment and a materials estimate each require only those normalized facts. The proposed restoration method requires both assessments, and the final schedule requires that method. Immediately after normalization, which tasks can start without violating dependencies? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Choose the restoration method from the normalized facts before either assessment finishes.",
+        "note": "The method depends on both the access assessment and the materials estimate. Normalization alone does not provide its required inputs."
+      },
+      {
+        "id": "b",
+        "text": "Assess site access using the normalized survey facts as the shared input snapshot.",
+        "note": "Access assessment has no dependency on the materials estimate or later stages. It can begin once normalization is complete."
+      },
+      {
+        "id": "c",
+        "text": "Estimate required materials using the same normalized survey facts independently of the access assessment.",
+        "note": "The scenario explicitly gives the materials estimate only the normalized facts as prerequisites. It can therefore run alongside access assessment."
+      },
+      {
+        "id": "d",
+        "text": "Generate the final schedule directly from the normalized facts while the method is still undetermined.",
+        "note": "The final schedule requires the chosen method, which itself awaits both assessments. Starting it here bypasses two dependency boundaries."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.5.json",
+    "orig_id": "ccarp-1.5-dependency-aware-scheduling",
+    "license": "MIT"
+  }
+}

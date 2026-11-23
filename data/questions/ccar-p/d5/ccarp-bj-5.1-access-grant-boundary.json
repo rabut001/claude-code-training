@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.1-access-grant-boundary",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.1 Implement guardrails and safety controls",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "guardrails",
+    "execution-boundary",
+    "authorization"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An internal assistant proposes repository-access grants. Company policy permits grants only when the requesting manager currently owns that repository. Input and output content screens are already enabled. Where should the application enforce the ownership requirement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "During input screening, by classifying whether the request sounds like an authorized manager's request.",
+        "note": "A content classifier cannot establish current repository ownership from the wording of a request. Its verdict does not enforce the access policy at the action boundary."
+      },
+      {
+        "id": "b",
+        "text": "At the grant boundary, check the authenticated manager's current ownership against authoritative repository records.",
+        "note": "The execution boundary can compare the actual caller and target against current ownership records before creating access. Content screening remains a separate control."
+      },
+      {
+        "id": "c",
+        "text": "During output screening, by checking that the assistant's grant confirmation names a manager and repository.",
+        "note": "A plausible confirmation does not prove the manager owns the repository. Screening a confirmation also cannot prevent an already executed unauthorized grant."
+      },
+      {
+        "id": "d",
+        "text": "During model generation, by requiring the assistant to include an ownership-verified field with each proposed grant.",
+        "note": "A generated field is an assertion rather than an ownership lookup. Trusting it would let the model supply the evidence used to authorize its own action."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "Anthropic: Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.1.json",
+    "orig_id": "ccarp-5.1-access-grant-boundary",
+    "license": "MIT"
+  }
+}

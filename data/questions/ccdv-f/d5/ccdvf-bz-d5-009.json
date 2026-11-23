@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-009",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Prompt caching is enabled with a cache breakpoint after a 12,000-token reference document. On the second identical request within the cache lifetime, what is the billing effect for that prefix?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It is charged again at the standard base input rate for that model.",
+        "note": "That is the behaviour without caching, or when the prefix has changed."
+      },
+      {
+        "id": "b",
+        "text": "It is charged at the reduced cache-read rate, roughly a tenth of base input.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "It is charged as output tokens because it is replayed into the response.",
+        "note": "Cached content is input and is never reclassified as output."
+      },
+      {
+        "id": "d",
+        "text": "It is supplied entirely free of charge for the lifetime of the cache entry.",
+        "note": "Reads are heavily discounted but they are not free."
+      }
+    ],
+    "explanation": "A hit bills the reused prefix at roughly 0.1x base input. The first request pays a write premium above base input, so caching pays off once a stable prefix is reused several times."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Prompt caching",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-009",
+    "license": "MIT"
+  }
+}

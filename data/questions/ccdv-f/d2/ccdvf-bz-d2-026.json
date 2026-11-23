@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-026",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A research assistant must handle both \"what is our refund window?\" and \"compare our refund policy against twelve competitors and produce a report\". Which design handles both efficiently?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Route both through the agent path so behaviour stays uniform for users.",
+        "note": "Pays agent latency and cost for a question answerable in one call."
+      },
+      {
+        "id": "b",
+        "text": "Classify the request, then send simple lookups direct and complex work to an agent.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Always run the agent but cap its iterations when the question looks simple.",
+        "note": "Still incurs the orchestration overhead, and the cap is a guess."
+      },
+      {
+        "id": "d",
+        "text": "Answer everything with a single call using the largest available model.",
+        "note": "A single call cannot perform a twelve-source comparative study."
+      }
+    ],
+    "explanation": "These are different workloads. A cheap classifier lets a one-shot lookup stay fast and inexpensive while reserving agent machinery for work that genuinely requires it."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-026",
+    "license": "MIT"
+  }
+}

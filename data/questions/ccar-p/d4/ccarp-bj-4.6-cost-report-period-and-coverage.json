@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.6-cost-report-period-and-coverage",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.6 Monitor system performance using logging and observability tools",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "cost-reporting",
+    "period-alignment",
+    "coverage-exclusions"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "Finance compares a night shift's application spend with the Claude Cost API. The shift covers only parts of two daily report buckets. All report pages are fetched and mature, amounts are already normalized, and application spend includes Priority Tier while the documented cost endpoint excludes it. Which corrections are needed before interpreting the difference as a spend anomaly? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sum the two complete daily buckets and compare them directly with just the overlapping night shift's application spend.",
+        "note": "The summed report includes time outside the shift. Overlap does not make two full-day totals comparable with a subset of those days."
+      },
+      {
+        "id": "b",
+        "text": "Compare both systems over matching complete reporting periods instead of inferring unsupported hourly costs from daily buckets.",
+        "note": "The cost endpoint's daily granularity does not supply the shift's exact sub-day costs. Matching full periods removes this known time-boundary mismatch without assuming constant spend within each day."
+      },
+      {
+        "id": "c",
+        "text": "Prorate daily totals by shift hours, then treat the remaining difference as a confirmed duplicate-charge incident.",
+        "note": "Hourly proration assumes uniform spend that the daily report does not establish. It also leaves the documented Priority Tier coverage difference unresolved."
+      },
+      {
+        "id": "d",
+        "text": "Separate Priority Tier spend and reconcile it through its applicable billing records, explicitly documenting the endpoint's exclusion.",
+        "note": "An excluded cost category cannot be recovered by changing the query period or refetching already complete pages. Like-for-like coverage and separate evidence for excluded spend are needed before attributing a discrepancy to an anomaly."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Usage and Cost API",
+      "url": "https://platform.claude.com/docs/en/manage-claude/usage-cost-api"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.6.json",
+    "orig_id": "ccarp-4.6-cost-report-period-and-coverage",
+    "license": "MIT"
+  }
+}

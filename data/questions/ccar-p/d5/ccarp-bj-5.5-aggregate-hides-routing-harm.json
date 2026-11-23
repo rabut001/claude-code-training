@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.5-aggregate-hides-routing-harm",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.5 Address ethical AI considerations (bias, fairness, transparency)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "fairness",
+    "subgroup-performance",
+    "dialect",
+    "harm-metrics"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A multilingual request-routing assistant meets its aggregate accuracy target. Complaints indicate that urgent requests written in one dialect are often sent to the slow queue. Which evaluation is most relevant before claiming that the system performs fairly across its users?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase the overall accuracy target and retain the same pooled test set, without separately examining urgent dialect-specific requests.",
+        "note": "A higher aggregate target can still conceal concentrated errors in a smaller group. It does not directly measure the reported harm of delaying urgent requests."
+      },
+      {
+        "id": "b",
+        "text": "Compare overall accuracy by dialect and treat similar subgroup averages as sufficient, without separating missed urgent cases from harmless routing mistakes.",
+        "note": "Subgroup accuracy is informative but can combine errors with very different consequences and urgency distributions. Similar averages do not resolve the reported harmful missed escalations."
+      },
+      {
+        "id": "c",
+        "text": "Measure harmful routing errors by relevant dialect, urgency, and context, documenting sample limitations and uncertainty.",
+        "note": "Disaggregating the relevant error type tests the reported subgroup harm rather than assuming aggregate performance applies equally. Uncertainty matters when subgroup evidence is limited."
+      },
+      {
+        "id": "d",
+        "text": "Confirm all dialects use the same model and prompt, then attribute any remaining difference to user writing styles.",
+        "note": "A shared implementation does not establish equal performance across languages or dialects. Assigning blame without examining errors ignores a known source of subgroup disparities."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.5.json",
+    "orig_id": "ccarp-5.5-aggregate-hides-routing-harm",
+    "license": "MIT"
+  }
+}

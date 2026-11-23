@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.3-capability-gains-with-regression-protection",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.3 Conduct A/B testing and iterative improvements",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "regression-evaluation",
+    "capability-evaluation",
+    "iterative-improvement"
+  ],
+  "answer": [
+    "a",
+    "b"
+  ],
+  "en": {
+    "question": "A tool-planning change fixes several difficult tasks in a capability suite. The product already supports a large set of simpler workflows, and the team wants an iterative release process rather than optimizing only for the new cases. Which actions support that goal? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Run the established regression suite alongside the new capability cases.",
+        "note": "Capability improvements do not show that previously supported workflows still work. The regression suite checks that existing behavior survives the planning change."
+      },
+      {
+        "id": "b",
+        "text": "Promote reproducibly solved capability cases into ongoing regression coverage.",
+        "note": "Once a difficult behavior is reliably supported, keeping it in regression coverage protects the improvement during later iterations. This turns a demonstrated capability into a maintained contract."
+      },
+      {
+        "id": "c",
+        "text": "Remove older successful cases so the suite concentrates on remaining failures.",
+        "note": "Removing supported cases loses the ability to detect regressions in them. A capability-focused backlog and a regression suite answer different questions and should coexist."
+      },
+      {
+        "id": "d",
+        "text": "Use the new capability pass rate as the release score for all workflows.",
+        "note": "A suite selected for difficult new tasks is not evidence about every existing workflow. Its score cannot substitute for checking the behavior the product already promises."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.3.json",
+    "orig_id": "ccarp-4.3-capability-gains-with-regression-protection",
+    "license": "MIT"
+  }
+}

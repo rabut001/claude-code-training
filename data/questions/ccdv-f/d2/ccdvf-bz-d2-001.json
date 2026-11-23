@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-001",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Your service calls the Messages API with a set of tools. A response comes back with stop_reason set to \"tool_use\". What must your application do next to continue the conversation correctly?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Execute the requested tools and send a user turn containing matching tool_result blocks.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Append an assistant turn holding the tool output formatted as explanatory prose.",
+        "note": "Prose loses the tool_use_id linkage, so the API cannot match result to request."
+      },
+      {
+        "id": "c",
+        "text": "Resend the same request with tool_choice set to none so the model answers directly.",
+        "note": "Forcing a direct answer discards the tool call the model determined it needed."
+      },
+      {
+        "id": "d",
+        "text": "Run the tools and fold their output into the next user question as extra context.",
+        "note": "Free-text context is not a tool_result, leaving the tool_use unanswered, which errors."
+      }
+    ],
+    "explanation": "The protocol is specific: a tool_use block must be answered by a tool_result block carrying the matching tool_use_id, and it travels in a user turn. Anything else breaks the linkage the API expects."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-001",
+    "license": "MIT"
+  }
+}

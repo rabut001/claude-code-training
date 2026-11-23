@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-006",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Architecture",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "In an orchestrator-worker design, why is explicit context passing to each worker preferred over letting workers share the orchestrator's full conversation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A narrow per-worker context keeps windows small and workers independently testable.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Workers are prohibited from reading conversation history for security reasons.",
+        "note": "It is a context-hygiene design choice, not an access restriction."
+      },
+      {
+        "id": "c",
+        "text": "The Messages API does not permit message history to be shared across calls.",
+        "note": "You may send any history you like; nothing forbids it."
+      },
+      {
+        "id": "d",
+        "text": "Sharing one context would force the workers to execute strictly sequentially.",
+        "note": "Execution concurrency is independent of what context you pass."
+      }
+    ],
+    "explanation": "Context isolation is the structural benefit of the pattern. A purpose-built context per worker holds token cost down, removes irrelevant material that degrades focus, and makes each worker a unit you can evaluate alone."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-006",
+    "license": "MIT"
+  }
+}

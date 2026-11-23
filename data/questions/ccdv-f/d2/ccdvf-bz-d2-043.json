@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-043",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Systems Life Cycle",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Your team ships prompt changes directly to production because \"they are only text\". What is the strongest argument for putting them through the normal release process?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Prompts determine application behaviour, so a change is a behaviour change.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Prompt files should be version-controlled so the team can read the history.",
+        "note": "True and worth doing, but it is a consequence of the real argument."
+      },
+      {
+        "id": "c",
+        "text": "Longer prompts cost more, so changes should be reviewed for token impact.",
+        "note": "A secondary cost concern, not the reason a release process exists."
+      },
+      {
+        "id": "d",
+        "text": "Code review spreads knowledge of the prompts across the wider team.",
+        "note": "A useful side effect rather than the justification."
+      }
+    ],
+    "explanation": "The deployment artifact is not the point; the behavioural blast radius is. A prompt edit can change outputs as profoundly as a code change, so it needs the same review, evaluation, and rollback path."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-043",
+    "license": "MIT"
+  }
+}

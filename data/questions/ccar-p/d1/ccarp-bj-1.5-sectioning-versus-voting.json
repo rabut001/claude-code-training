@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.5-sectioning-versus-voting",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.5 Apply decomposition techniques for complex problem solving",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "parallel-sectioning",
+    "voting",
+    "coverage"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A submission contains four independent technical appendices. The review must cover every appendix, and each can be analyzed without the others. The immediate goal is faster complete coverage, not repeated judgments of the same material. How should the work be parallelized?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Have four calls review the same appendix and select findings by majority vote.",
+        "note": "Voting provides repeated judgments of one task. It leaves the other appendices unreviewed and does not meet the coverage requirement."
+      },
+      {
+        "id": "b",
+        "text": "Assign all appendices to every call and use majority agreement to select the final set of findings.",
+        "note": "Repeating the full review duplicates work instead of sectioning it. Majority aggregation can also omit a real finding observed by only one attempt."
+      },
+      {
+        "id": "c",
+        "text": "Classify the submission by its dominant appendix and route it to the corresponding single specialist.",
+        "note": "Routing selects a path for a category, but every appendix is mandatory here. A dominant-category choice cannot provide complete coverage."
+      },
+      {
+        "id": "d",
+        "text": "Analyze one appendix per call, then aggregate findings with an explicit four-appendix coverage check.",
+        "note": "Sectioning assigns independent parts to parallel calls. Aggregating all parts and checking coverage serves the stated completeness and speed objectives without unnecessary repeated judgments."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.5.json",
+    "orig_id": "ccarp-1.5-sectioning-versus-voting",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.6-current-structured-aggregation",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.6 Apply retrieval strategies matched to data shape and query pattern",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "retrieval",
+    "structured-data",
+    "aggregation",
+    "client-tools"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A logistics assistant must return the exact quantity of currently open order lines by warehouse for the authenticated account at the transaction snapshot taken when the user request starts. The authoritative transactional system already exposes an audited, parameterized aggregation API. Searchable narrative order summaries lag behind and omit some line items. Which retrieval mechanism best matches this requirement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Embed the narrative summaries and sum quantities mentioned in the nearest matching chunks.",
+        "note": "Similarity search over delayed, incomplete summaries does not provide an exhaustive set of rows at the required snapshot. Summing retrieved mentions cannot establish an exact transactional aggregate."
+      },
+      {
+        "id": "b",
+        "text": "Add BM25 to the summary index and sum every result that contains the warehouse name.",
+        "note": "Lexical matching improves term matching but does not repair missing lines or stale transaction state. The index still cannot supply the required complete snapshot."
+      },
+      {
+        "id": "c",
+        "text": "Call the existing aggregation API through a bounded client tool that enforces account access and the requested snapshot.",
+        "note": "The API can compute exact aggregates over authoritative structured state under the stated access and snapshot constraints. A client tool provides the application-owned execution boundary for that existing operation."
+      },
+      {
+        "id": "d",
+        "text": "Sum line items deterministically from a complete nightly export and use its latest available totals.",
+        "note": "A complete export can support exact arithmetic for its own snapshot. It cannot establish the required current transactional snapshot when orders have changed since the nightly extraction."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: How tool use works",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.6.json",
+    "orig_id": "ccarp-3.6-current-structured-aggregation",
+    "license": "MIT"
+  }
+}

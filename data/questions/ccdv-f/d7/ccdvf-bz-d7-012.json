@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-012",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "Identity, Secrets, and Key Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "An agent needs to act on behalf of individual end users against an internal API. Which identity model is correct?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A single privileged service account, with the prompt naming the current user.",
+        "note": "A prompt-stated identity is unverified and trivially confused by injection."
+      },
+      {
+        "id": "b",
+        "text": "Each user supplies their own password to the agent at the start of a session.",
+        "note": "Password sharing defeats authentication and auditing entirely."
+      },
+      {
+        "id": "c",
+        "text": "The call carries the user's identity or a delegated token the API enforces.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "The agent runs with administrator rights and filters results before display.",
+        "note": "Over-privileged execution means the data was exposed before any filter ran."
+      }
+    ],
+    "explanation": "Authorisation must be enforced by the system that owns the data, using the real principal. Propagating a scoped delegated token means the downstream API applies that user's permissions with no model behaviour involved."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Security and compliance",
+      "url": "https://docs.anthropic.com/en/docs/about-claude/security-compliance"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-012",
+    "license": "MIT"
+  }
+}

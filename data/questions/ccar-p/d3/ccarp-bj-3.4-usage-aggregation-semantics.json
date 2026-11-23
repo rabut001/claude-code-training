@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.4-usage-aggregation-semantics",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.4 Analyze observability challenges and select monitoring strategies at scale",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "observability",
+    "token-accounting",
+    "streaming-usage"
+  ],
+  "answer": [
+    "a",
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "A collector combines Claude Messages API 2026-10-21 streaming usage with the OpenTelemetry export beta documented on 2026-10-26. It sees duplicate span deliveries, usage on both client and server request spans, and multiple message_delta usage snapshots per stream. No compaction or fallback model is used. Which aggregation rules prevent overcounting? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deduplicate span deliveries using the trace ID and span ID before aggregation.",
+        "note": "A retried export can deliver the same span more than once. Counting each trace-ID/span-ID pair once removes delivery duplicates without discarding distinct requests."
+      },
+      {
+        "id": "b",
+        "text": "Choose one appropriate usage source and span level for each request instead of summing both client and server totals.",
+        "note": "The same request's token usage can appear on multiple span levels and sources. Aggregating one appropriate level avoids treating repeated measurements as additional consumption."
+      },
+      {
+        "id": "c",
+        "text": "Use the final observed cumulative streaming usage value rather than summing successive message_delta snapshots.",
+        "note": "Each message_delta usage update is cumulative rather than an incremental token charge. Summing snapshots counts earlier tokens repeatedly; an interrupted stream's last snapshot may still be incomplete."
+      },
+      {
+        "id": "d",
+        "text": "Add cache-read and cache-write attributes to gen_ai.usage.input_tokens to obtain OpenTelemetry total input.",
+        "note": "The OpenTelemetry input total already includes cache tokens, so this addition counts them twice. The separate Messages API input breakdown has different semantics and must not be applied to this total."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: OpenTelemetry tracing for the Claude API",
+      "url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry"
+    },
+    {
+      "title": "Anthropic: Streaming messages",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/streaming"
+    },
+    {
+      "title": "Anthropic: Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.4.json",
+    "orig_id": "ccarp-3.4-usage-aggregation-semantics",
+    "license": "MIT"
+  }
+}

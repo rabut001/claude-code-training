@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-029",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Your assistant must answer strictly from an approved knowledge base and say \"I don't know\" otherwise. Which combination best achieves this?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retrieve passages, require citations to them, and permit an explicit no-answer.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Lower the temperature to 0 and instruct the model to avoid speculation.",
+        "note": "Temperature 0 returns the most probable continuation, which can be confidently wrong."
+      },
+      {
+        "id": "c",
+        "text": "Use the largest model available, since bigger models hallucinate less often.",
+        "note": "Reduces frequency without providing the guarantee the requirement states."
+      },
+      {
+        "id": "d",
+        "text": "Add many few-shot examples of correct answers drawn from the knowledge base.",
+        "note": "Examples convey format and tone, not the boundary of what is known."
+      }
+    ],
+    "explanation": "Grounding supplies the facts, citation makes each claim checkable against the retrieved text, and an explicit escape hatch removes the pressure to invent when the sources are silent."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Reduce hallucinations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-029",
+    "license": "MIT"
+  }
+}

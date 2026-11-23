@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.5-after-action-closure",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.5 Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "after-action-review",
+    "incident-learning",
+    "lifecycle-closure"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A production Claude assistant used stale policy documents after a failed refresh. The team rolled back safely and notified affected users. Its lifecycle policy says incidents close only when recurrence controls and response improvements have owned verification evidence. What work remains before this incident can close?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep the rollback indefinitely and close the incident because the previous accepted version has restored service and affected users have been notified.",
+        "note": "Restoration and notification satisfy response needs but not the explicit requirement for verified recurrence controls and response improvements."
+      },
+      {
+        "id": "b",
+        "text": "Add the incident to a lessons-learned slide and schedule a general awareness session, using attendance as proof that recurrence has been addressed.",
+        "note": "Awareness alone does not verify a freshness control or a corrected operational response to a failed refresh."
+      },
+      {
+        "id": "c",
+        "text": "Open a prompt-tuning task and close the incident now, allowing its owner to decide later whether source-refresh monitoring needs modification.",
+        "note": "The observed source-refresh failure needs an owned, verified response; an unverified future tuning task does not meet the closure policy."
+      },
+      {
+        "id": "d",
+        "text": "Complete an after-action review, verify owned freshness and alerting fixes, add the failure to acceptance checks, and update the recovery guidance.",
+        "note": "This converts the incident into verified prevention and response changes, linking operational lessons to future release and recovery behavior."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.5.json",
+    "orig_id": "ccarp-6.5-after-action-closure",
+    "license": "MIT"
+  }
+}

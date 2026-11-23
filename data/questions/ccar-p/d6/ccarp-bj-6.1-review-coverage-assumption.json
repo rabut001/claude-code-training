@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.1-review-coverage-assumption",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.1 Conduct structured discovery and requirement gathering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "requirements",
+    "assumptions",
+    "review-capacity"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A laboratory's proposed assistant drafts equipment-calibration exceptions. Policy requires a qualified reviewer before release. The discovery notes say a reviewer will always be available, but the operations manager has not confirmed overnight coverage. How should the architect record this statement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "As an accepted service requirement, because mandatory review logically implies that staffing for every shift already exists.",
+        "note": "A requirement to review does not establish that the organization has the staffing needed to perform that review."
+      },
+      {
+        "id": "b",
+        "text": "As an implementation detail to resolve during handoff, after the release workflow and its response-time commitments are approved.",
+        "note": "Review availability affects feasibility and response times, so postponing it can invalidate the approved design."
+      },
+      {
+        "id": "c",
+        "text": "As a residual risk accepted by the sponsor's approval of discovery, without requesting separate operational evidence or ownership.",
+        "note": "An unverified statement is not an authorized acceptance of the operational risk or evidence that the policy can be met."
+      },
+      {
+        "id": "d",
+        "text": "As an unverified assumption owned by operations, with a staffing check and an agreed fallback required before design approval.",
+        "note": "Separating assumptions from validated requirements makes the dependency testable before commitments rely on it."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.1.json",
+    "orig_id": "ccarp-6.1-review-coverage-assumption",
+    "license": "MIT"
+  }
+}

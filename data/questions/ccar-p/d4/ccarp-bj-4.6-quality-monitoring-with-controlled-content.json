@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.6-quality-monitoring-with-controlled-content",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.6 Monitor system performance using logging and observability tools",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "quality-monitoring",
+    "privacy-aware-observability",
+    "human-review"
+  ],
+  "answer": [
+    "a",
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "Latency and API error rates remain healthy, but users report incorrect actions and unsupported answers. Prompts contain confidential information. Policy permits approved redacted samples for quality review, not unrestricted transcript capture. Which monitoring practices address the quality gap within that policy? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Join verified action outcomes and configuration versions to operation metadata.",
+        "note": "Outcome checks reveal incorrect business effects that HTTP status and timing cannot detect. Configuration-linked metadata helps identify which deployments produce those failures without universally storing raw prompts."
+      },
+      {
+        "id": "b",
+        "text": "Grade approved redacted samples with calibrated rubrics and expert review.",
+        "note": "Unsupported answers require quality assessment rather than inference from operational health. Approved sampling and calibrated review provide that signal within the stated content-capture boundary."
+      },
+      {
+        "id": "c",
+        "text": "Review descriptive metadata, redaction, and destination access and retention controls.",
+        "note": "Metadata-only tracing can still include descriptive text, so its content needs review under the confidentiality policy. Destination controls remain relevant even when full prompt and response capture is disabled."
+      },
+      {
+        "id": "d",
+        "text": "Treat metadata-only export as sufficient proof of confidentiality and retain its descriptive fields without redaction review.",
+        "note": "Metadata-only mode can still export descriptive text. The mode label does not establish that these fields meet the content policy; their content and destination controls need review."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: OpenTelemetry tracing for the Claude API",
+      "url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.6.json",
+    "orig_id": "ccarp-4.6-quality-monitoring-with-controlled-content",
+    "license": "MIT"
+  }
+}

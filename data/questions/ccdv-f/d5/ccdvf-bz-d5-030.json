@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-030",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A product manager asks why enabling streaming did not reduce the monthly API bill. What is the correct explanation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It should have reduced the bill, so the integration is misconfigured.",
+        "note": "There is nothing to misconfigure, since streaming was never a cost lever."
+      },
+      {
+        "id": "b",
+        "text": "Streaming adds roughly 20% for the overhead of holding the connection open.",
+        "note": "There is no streaming surcharge."
+      },
+      {
+        "id": "c",
+        "text": "Streaming reduces cost only when it is combined with extended thinking.",
+        "note": "Extended thinking adds reasoning tokens, which increases cost."
+      },
+      {
+        "id": "d",
+        "text": "Streaming changes delivery only; the same tokens are generated and billed.",
+        "note": ""
+      }
+    ],
+    "explanation": "Streaming is a delivery mechanism, so identical input and output tokens are processed and charged. The user simply sees the first token sooner, which makes it a UX optimisation."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Streaming",
+      "url": "https://docs.anthropic.com/en/api/streaming"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D5-030",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-057",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Systems Life Cycle",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Why should production deployments pin a specific model version rather than tracking an alias that auto-updates?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pinning makes a version change a deliberate, evaluated, reversible event.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Pinned model versions are billed at a lower rate than alias-resolved ones.",
+        "note": "Pricing is by model tier, not by how you addressed it."
+      },
+      {
+        "id": "c",
+        "text": "Aliases are subject to more aggressive per-organisation rate limiting.",
+        "note": "No such rate-limit distinction exists."
+      },
+      {
+        "id": "d",
+        "text": "Pinned versions are provisioned with larger context windows than aliases.",
+        "note": "Context window is a model property, unaffected by addressing."
+      }
+    ],
+    "explanation": "Prompts are tuned against a specific model's behaviour, so an alias that moves underneath you turns an upgrade into an unplanned production change you never evaluated."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Models overview",
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D2-057",
+    "license": "MIT"
+  }
+}

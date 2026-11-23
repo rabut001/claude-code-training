@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.2-protect-heldout-incident-families",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.2 Design evaluation datasets and test frameworks using mixed methodologies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "heldout-datasets",
+    "evaluation-leakage"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A team builds a final evaluation set from incident reports. Many reports describe the same underlying incident using paraphrases, and some appear in the assistant's few-shot examples. A random row split gives excellent results. What change best tests generalization to unseen incidents?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Enlarge the random holdout while retaining the current few-shot examples.",
+        "note": "More rows do not remove related incidents or prompt examples from the holdout. The evaluation can remain contaminated by material available during development."
+      },
+      {
+        "id": "b",
+        "text": "Remove exact text duplicates after the random split and keep all paraphrases.",
+        "note": "Exact deduplication misses reports with different wording but the same incident and solution. Those related cases can still cross the development and evaluation boundary."
+      },
+      {
+        "id": "c",
+        "text": "Tune the few-shot examples on holdout errors, then reuse the holdout for final scoring.",
+        "note": "Using holdout errors to improve the prompt turns that set into development data. Its later score no longer provides a protected final comparison."
+      },
+      {
+        "id": "d",
+        "text": "Isolate whole incident families from development data and prompt examples, then lock the holdout.",
+        "note": "Group-wise separation prevents paraphrases of an incident from crossing into the final evaluation from any development source. Protecting that holdout also prevents prompt tuning on its errors; no universal split ratio is implied."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "scikit-learn: Cross-validation, grouped data",
+      "url": "https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation-iterators-for-grouped-data"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.2.json",
+    "orig_id": "ccarp-4.2-protect-heldout-incident-families",
+    "license": "MIT"
+  }
+}

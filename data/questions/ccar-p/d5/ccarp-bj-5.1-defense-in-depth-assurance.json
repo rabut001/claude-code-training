@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.1-defense-in-depth-assurance",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.1 Implement guardrails and safety controls",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "defense-in-depth",
+    "adversarial-testing",
+    "fail-closed",
+    "data-exfiltration"
+  ],
+  "answer": [
+    "b",
+    "c",
+    "d"
+  ],
+  "en": {
+    "question": "An adversarial test bypasses an assistant's model-based injection screen. Release policy still requires that out-of-scope actions never execute, missing mandatory verdicts block execution, and protected test data cannot leave through tools. Which three verification activities directly test these remaining controls? Use synthetic secrets and isolated test destinations. Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase the number of benign refusal examples and use an improved average refusal rate as proof that the remaining controls hold.",
+        "note": "A refusal-rate average measures model behavior, not enforcement of action scope, unavailable-verdict handling, or tool egress restrictions. It cannot establish these independent control properties."
+      },
+      {
+        "id": "b",
+        "text": "Submit out-of-scope proposed actions directly to the execution gateway and verify rejection even when the model-based screen reports approval.",
+        "note": "This isolates the action boundary from the fallible screen and tests whether unauthorized proposals can reach the underlying operation."
+      },
+      {
+        "id": "c",
+        "text": "Inject timeouts, refusals, and malformed mandatory screening results and verify that affected operations remain pending or are denied.",
+        "note": "Fault injection tests the actual fail-closed behavior for absent usable verdicts. A normal-path success test would not exercise these states."
+      },
+      {
+        "id": "d",
+        "text": "Place exfiltration instructions in retrieved tool data and trace attempted file reads and network calls against the enforced job restrictions.",
+        "note": "End-to-end adversarial tool data exercises the indirect-injection path while tracing whether resource and egress controls prevent disclosure despite model behavior."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    },
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.1.json",
+    "orig_id": "ccarp-5.1-defense-in-depth-assurance",
+    "license": "MIT"
+  }
+}

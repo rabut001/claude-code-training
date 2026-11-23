@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d3-005",
+  "exam": "ccdv-f",
+  "domain": "d3",
+  "subdomain": "Claude Code Operation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A team notices Claude Code repeatedly using the wrong test command for their project. What is the most durable fix?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Correct the command by hand at the start of each working session.",
+        "note": "Unbounded repetition of the same correction, for every developer, forever."
+      },
+      {
+        "id": "b",
+        "text": "Build an MCP server that exposes a run_tests tool with the right command.",
+        "note": "Disproportionate, since the assistant can already run commands."
+      },
+      {
+        "id": "c",
+        "text": "Record the canonical build and test commands in the project's CLAUDE.md.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Move the team onto a more capable model tier with better repo inference.",
+        "note": "No model can guess a project-specific command it has never been told."
+      }
+    ],
+    "explanation": "Repeated corrections are exactly what project memory is for: the knowledge becomes persistent, shared through version control, and loaded in every session."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Memory",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/memory"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d3-claude-code.js",
+    "orig_id": "D3-005",
+    "license": "MIT"
+  }
+}

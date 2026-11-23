@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.4-training-versus-retention",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.4 Ensure compliance with regulations (e.g., GDPR, HIPAA, FedRAMP)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "data-retention",
+    "training-use",
+    "deployment-scope"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A supplier promises not to use a company's API content for model training without permission. The project team wants to describe the entire assistant as retaining no customer data, although it has not checked feature storage, third-party tools, or application logs. Which conclusion is justified?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Separate training use from retention; verify actual deployment terms, feature storage, third-party tools, and company logs before claiming zero storage.",
+        "note": "A no-training commitment does not establish that content is never stored. Retention obligations and evidence must cover the actual data paths, including those outside the model provider."
+      },
+      {
+        "id": "b",
+        "text": "The no-training promise establishes zero retention for prompts and responses, so only the company's application logs need further review.",
+        "note": "Provider features can require storage without using the data for training. Excluding those paths would leave the proposed zero-retention claim unsupported."
+      },
+      {
+        "id": "c",
+        "text": "A successful API response demonstrates that the request met every applicable retention arrangement, so additional feature-level verification is unnecessary.",
+        "note": "Request acceptance is not an end-to-end retention attestation. Some arrangements and external integrations require checks that an ordinary API success does not perform."
+      },
+      {
+        "id": "d",
+        "text": "Encrypted storage can be treated as nonretention, so the team may make the claim if every service promises encryption at rest.",
+        "note": "Encryption protects stored data but does not make the storage disappear. Retention duration, access, deletion, and arrangement scope remain separate questions."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: API and data retention",
+      "url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention"
+    },
+    {
+      "title": "Anthropic Privacy Center: How long do you store my organization's data?",
+      "url": "https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.4.json",
+    "orig_id": "ccarp-5.4-training-versus-retention",
+    "license": "MIT"
+  }
+}

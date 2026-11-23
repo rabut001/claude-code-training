@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-013",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Your team wants automated regression detection when prompts change. Which practice gives the strongest signal in CI?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Run a held-out labelled eval set on every prompt change and gate on the score.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Assert that the response contains a set of required keywords.",
+        "note": "Keyword presence passes for fluent nonsense and fails for correct paraphrases."
+      },
+      {
+        "id": "c",
+        "text": "Have a second Claude call rate the first response out of ten.",
+        "note": "Ungrounded self-rating drifts and is not anchored to any ground truth."
+      },
+      {
+        "id": "d",
+        "text": "Compare the new output against the previous output for textual similarity.",
+        "note": "Different text is expected; similarity measures change, not quality."
+      }
+    ],
+    "explanation": "A fixed labelled set produces a comparable number across runs, which is what turns \"this feels better\" into a gate CI can enforce."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-013",
+    "license": "MIT"
+  }
+}

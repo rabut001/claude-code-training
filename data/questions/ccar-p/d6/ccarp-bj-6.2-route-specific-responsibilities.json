@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.2-route-specific-responsibilities",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.2 Communicate architectural decisions and trade-offs",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "hosting-routes",
+    "shared-responsibility",
+    "tradeoff-presentation"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "An enterprise committee must choose between a direct API route and a cloud-provider-managed route to the same Claude model for confidential bid analysis. Both pass the task-quality pilot. Procurement asks for a decision-ready comparison, including who handles the data and what switching routes entails. Which presentation elements are necessary rather than assuming model equivalence settles the decision? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Compare model-only token prices and infer that equal model outputs mean retention, contractual coverage, and customer-operated controls are equivalent.",
+        "note": "The same model does not establish the same processor arrangement, feature coverage, data path, or customer control responsibilities across delivery routes."
+      },
+      {
+        "id": "b",
+        "text": "Map each route's processing parties, enabled features, applicable contract evidence, customer controls, and unresolved obligations to named owners.",
+        "note": "Route-specific responsibilities and evidence are needed to assess whether each confidential-data deployment satisfies the enterprise's constraints."
+      },
+      {
+        "id": "c",
+        "text": "Apply the direct route's retention arrangement to the cloud-managed route for comparison, then verify any differences only after the committee selects one.",
+        "note": "Anthropic-managed and cloud-managed arrangements must not be assumed interchangeable; that evidence is needed before an informed selection."
+      },
+      {
+        "id": "d",
+        "text": "Compare end-to-end latency, full operating cost, residual risks, and migration work, distinguishing measurements from estimates and naming reversal dependencies.",
+        "note": "This exposes business consequences and exit effort instead of reducing the architecture choice to model access or a unit price."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: API and data retention",
+      "url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.2.json",
+    "orig_id": "ccarp-6.2-route-specific-responsibilities",
+    "license": "MIT"
+  }
+}

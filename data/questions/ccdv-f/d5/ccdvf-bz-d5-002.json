@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-002",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "LLM Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which statement about tokens is accurate for budgeting purposes?",
+    "options": [
+      {
+        "id": "a",
+        "text": "One token corresponds to one word, so word count is a reliable proxy.",
+        "note": "Long or unusual words split into several tokens; common short words may be one."
+      },
+      {
+        "id": "b",
+        "text": "Only generated output is tokenised and billed; supplied input is not.",
+        "note": "Input is billed too, and in most applications it dominates the bill."
+      },
+      {
+        "id": "c",
+        "text": "Whitespace and punctuation are excluded from the token count.",
+        "note": "Whitespace and punctuation consume tokens like any other characters."
+      },
+      {
+        "id": "d",
+        "text": "Tokens are sub-word units, roughly three to four characters of English.",
+        "note": ""
+      }
+    ],
+    "explanation": "Tokens are sub-word fragments. The three-to-four-character heuristic is fine for rough English planning but understates code, nested JSON, and non-Latin scripts, so use token counting when the number matters."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Token counting",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/token-counting"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-002",
+    "license": "MIT"
+  }
+}

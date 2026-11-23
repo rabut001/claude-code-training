@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.5-provider-model-replacement",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.5 Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "model-change",
+    "lifecycle-revalidation",
+    "staged-release"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A provider announces that it will replace the model version behind a Claude service endpoint. The application contract and output schema are unchanged. The organization's release policy requires task-quality, safety, and response-time acceptance checks for behavior-changing dependencies. What lifecycle response is appropriate before the replacement serves the full workload?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Treat the replacement as routine maintenance because the schema is unchanged, and rely on the next quarterly satisfaction survey to identify regressions.",
+        "note": "Schema compatibility does not establish unchanged task behavior, safety, or timing, and the policy requires acceptance evidence before full exposure."
+      },
+      {
+        "id": "b",
+        "text": "Assess affected requirements, run the relevant acceptance checks, and approve a staged transition with owned monitoring and a tested rollback or safe fallback.",
+        "note": "The changed model dependency needs lifecycle revalidation and a controlled response if the replacement fails the agreed conditions."
+      },
+      {
+        "id": "c",
+        "text": "Repeat only the JSON parser tests and approve the replacement if they pass, keeping prior quality and safety results as the new version's evidence.",
+        "note": "Parser tests verify format handling, not the new model's task quality, safety, or response time under deployment conditions."
+      },
+      {
+        "id": "d",
+        "text": "Retain the old endpoint label in the inventory so acceptance evidence remains continuous, then update the model version after the transition completes.",
+        "note": "Concealing the changed dependency breaks evidence traceability and does not satisfy the required pre-transition checks."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Claude Certified Architect Professional Prep Course",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.5.json",
+    "orig_id": "ccarp-6.5-provider-model-replacement",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-018",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Patterns and Frameworks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A team is deciding between the Claude Agent SDK and a third-party graph framework such as LangGraph. Which consideration should drive the decision?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Community size and repository popularity, as a proxy for long-term support.",
+        "note": "Popularity is not an engineering criterion for this decision."
+      },
+      {
+        "id": "b",
+        "text": "Third-party frameworks add less runtime overhead than a first-party SDK.",
+        "note": "Performance is dominated by model calls, not framework overhead."
+      },
+      {
+        "id": "c",
+        "text": "The Agent SDK is usable only from inside Claude Code, which limits its reach.",
+        "note": "The Agent SDK is a general-purpose library for building agents."
+      },
+      {
+        "id": "d",
+        "text": "Whether the app needs explicit branching control flow or a model-driven loop.",
+        "note": ""
+      }
+    ],
+    "explanation": "Pick the abstraction matching the control flow you need. A graph framework gives explicit nodes, edges, and checkpointed state; the Agent SDK gives a model-driven loop with context, permissions, and hooks solved."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Agent SDK",
+      "url": "https://docs.anthropic.com/en/api/agent-sdk/overview"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-018",
+    "license": "MIT"
+  }
+}

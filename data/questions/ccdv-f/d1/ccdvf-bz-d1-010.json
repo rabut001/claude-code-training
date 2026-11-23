@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-010",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Construction with Claude",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "What does the Claude Agent SDK provide over hand-writing the loop against the Messages API?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It removes the need to define tools, inferring them from your codebase.",
+        "note": "You still define the tools the agent is permitted to use."
+      },
+      {
+        "id": "b",
+        "text": "It makes conversation state persistent on Anthropic's servers between calls.",
+        "note": "It does not change the statelessness of the underlying API."
+      },
+      {
+        "id": "c",
+        "text": "It guarantees the agent cannot take an incorrect or unsafe action.",
+        "note": "No framework can guarantee the correctness of model decisions."
+      },
+      {
+        "id": "d",
+        "text": "It supplies the harness: loop, dispatch, context, permissions, and hooks.",
+        "note": ""
+      }
+    ],
+    "explanation": "The SDK packages the harness Claude Code itself is built on, so you spend your effort on capabilities and policy rather than rebuilding the scaffolding."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Agent SDK",
+      "url": "https://docs.anthropic.com/en/api/agent-sdk/overview"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-010",
+    "license": "MIT"
+  }
+}

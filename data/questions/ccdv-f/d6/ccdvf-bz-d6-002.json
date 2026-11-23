@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-002",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Context Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which of these is context pruning, as distinct from compaction?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Condensing the first twenty turns of the session into a single paragraph.",
+        "note": "That is compaction: compressing rather than removing."
+      },
+      {
+        "id": "b",
+        "text": "Raising the context window limit so more history fits without intervention.",
+        "note": "A configuration change, not a context management technique."
+      },
+      {
+        "id": "c",
+        "text": "Splitting the task across two agents so each holds only half the material.",
+        "note": "That is task isolation through subagents."
+      },
+      {
+        "id": "d",
+        "text": "Deleting material that is no longer relevant, such as a since-rewritten file.",
+        "note": ""
+      }
+    ],
+    "explanation": "Pruning removes superseded material outright whereas compaction compresses it. Pruning is right when content has been invalidated, because summarising it would only preserve noise."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-002",
+    "license": "MIT"
+  }
+}

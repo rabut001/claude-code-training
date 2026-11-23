@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.4-federal-internal-search-boundary",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.4 Ensure compliance with regulations (e.g., GDPR, HIPAA, FedRAMP)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "fedramp",
+    "authorization-boundary",
+    "agency-risk-acceptance",
+    "transition-scope"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "On 2026-10-26, an agency explicitly chooses early adoption of the FedRAMP Consolidated Rules for 2026 for a proposed deployment. A public-document search prototype would become a shared cloud search service over nonpublic agency records. The supplier provides certification evidence for one cloud service offering. What should the agency do before production?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use the supplier's model brand as the authorization boundary and apply the supplied evidence to any hosting route using that model.",
+        "note": "FedRAMP evidence concerns a specific cloud service offering, not every deployment of a model. Different routes and integrations can fall outside the documented boundary."
+      },
+      {
+        "id": "b",
+        "text": "Carry forward the public-search scope decision and add record-level access controls, since the user-facing search function is unchanged.",
+        "note": "Processing nonpublic agency information changes the use-case analysis. Access controls are necessary but do not establish scope, boundary coverage, or agency risk acceptance."
+      },
+      {
+        "id": "c",
+        "text": "Copy the supplier's certification package into the agency system record and treat it as covering agency identity, logging, and integration controls.",
+        "note": "Reusable provider evidence does not document controls operated by the agency or its custom integrations. The agency still authorizes its own information system and accepts its use-specific risk."
+      },
+      {
+        "id": "d",
+        "text": "Reassess scope, confirm the exact offering and boundary, review inherited and agency-operated controls, and complete the agency's system authorization for this use.",
+        "note": "The changed information and integration context require an agency-specific decision using scoped provider evidence. The stated early-adoption choice avoids assuming the 2026 rules were already universally mandatory on this date."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "FedRAMP: Using a FedRAMP Certified Cloud Service",
+      "url": "https://www.fedramp.gov/2026/agencies/use"
+    },
+    {
+      "title": "FedRAMP: Scope of FedRAMP, Consolidated Rules for 2026",
+      "url": "https://www.fedramp.gov/2026/scope"
+    },
+    {
+      "title": "FedRAMP: Important Dates for the Consolidated Rules for 2026",
+      "url": "https://www.fedramp.gov/2026/timeline/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.4.json",
+    "orig_id": "ccarp-5.4-federal-internal-search-boundary",
+    "license": "MIT"
+  }
+}

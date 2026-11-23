@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-041",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Systems Life Cycle",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "You are planning a migration from a pinned older model to a newer one. Which sequence is most appropriate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Switch in production during a quiet period and monitor for user complaints.",
+        "note": "User complaints are a slow, lossy, and expensive detector of regression."
+      },
+      {
+        "id": "b",
+        "text": "Update the pin in all environments at once so behaviour stays consistent.",
+        "note": "Removes every opportunity to catch a regression before it reaches everyone."
+      },
+      {
+        "id": "c",
+        "text": "Run the eval suite on the new model, compare, then roll out progressively.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Rewrite the prompts for the new model first, then evaluate the combined change.",
+        "note": "Changes model and prompts together, so neither effect can be isolated."
+      }
+    ],
+    "explanation": "Change one variable and measure it. The eval suite tells you what moved, and a progressive rollout limits exposure while real traffic confirms the offline result."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-041",
+    "license": "MIT"
+  }
+}

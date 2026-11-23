@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-010",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Requests from your production service intermittently return HTTP 429. Which combination of changes is the most appropriate first response?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Drop all retries so the service fails fast and immediately sheds load.",
+        "note": "Converts a recoverable condition into user-visible failures."
+      },
+      {
+        "id": "b",
+        "text": "Apply exponential backoff with jitter and honour the retry-after header.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Raise client concurrency so the queued backlog clears more quickly.",
+        "note": "More concurrency against a rate limit produces more 429s."
+      },
+      {
+        "id": "d",
+        "text": "Move every call to the Batch API irrespective of latency requirements.",
+        "note": "Appropriate for offline work only; it would break anything latency-sensitive."
+      }
+    ],
+    "explanation": "429 is rate limiting. Backoff reduces pressure, jitter desynchronises a fleet of retrying clients, and retry-after is the server telling you exactly how long to wait."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Rate limits",
+      "url": "https://docs.anthropic.com/en/api/rate-limits"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-010",
+    "license": "MIT"
+  }
+}

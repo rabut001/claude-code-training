@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.2-decision-record-content",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.2 Communicate architectural decisions and trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "architecture-decisions",
+    "tradeoffs",
+    "decision-ownership"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A distributor chooses a scheduled Claude workflow instead of an autonomous purchasing agent. Both could produce useful recommendations, but only the scheduled workflow meets the current approval policy and staffing budget. What belongs in the architecture decision record so a future team can understand and reconsider the choice?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The selected workflow diagram and its deployment instructions, with alternative designs removed once the implementation has been accepted.",
+        "note": "Implementation instructions alone omit why the agent option was rejected and what assumptions could justify reconsideration."
+      },
+      {
+        "id": "b",
+        "text": "The sponsor's approval and estimated savings, with operational constraints kept in meeting notes rather than linked to the decision.",
+        "note": "Approval and savings do not preserve the approval-policy and staffing constraints that made the selected option preferable."
+      },
+      {
+        "id": "c",
+        "text": "A benchmark ranking of candidate models and the winning prompt, treating the architecture choice as implied by the highest score.",
+        "note": "A model benchmark does not explain the architectural trade-off between scheduled execution, autonomy, policy, and operating effort."
+      },
+      {
+        "id": "d",
+        "text": "The constraints, alternatives, rationale, costs, risks, reversal effort, decision owner, and conditions that would trigger review.",
+        "note": "This preserves the basis and authority of the choice and identifies when new evidence should reopen it."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.2.json",
+    "orig_id": "ccarp-6.2-decision-record-content",
+    "license": "MIT"
+  }
+}

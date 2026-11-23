@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-020",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Output Handling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Claude is asked for JSON and reliably returns it wrapped in a markdown code fence with a sentence of preamble. What is the cleanest fix?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Strip the fence and preamble with a regular expression after every call.",
+        "note": "Works until the format varies slightly; it treats the symptom and stays brittle."
+      },
+      {
+        "id": "b",
+        "text": "Instruct the model more forcefully to emit no markdown and no preamble.",
+        "note": "Compliance is probabilistic, so a defensive parse is still required."
+      },
+      {
+        "id": "c",
+        "text": "Define a tool matching the target shape and read its arguments directly.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Set temperature to 0 so the response format stops varying between calls.",
+        "note": "Determinism does not guarantee the absence of a code fence."
+      }
+    ],
+    "explanation": "A tool schema turns a formatting request into a typed contract, so you stop scraping prose for JSON and remove the entire class of problem rather than patching its symptom."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D6-020",
+    "license": "MIT"
+  }
+}

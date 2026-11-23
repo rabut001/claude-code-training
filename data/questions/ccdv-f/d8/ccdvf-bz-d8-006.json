@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-006",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Tool Implementation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Claude calls a tool with a string where the schema requires an integer. What is the best handler behaviour?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Raise the exception so the malformed call terminates the agent run.",
+        "note": "One malformed argument should not destroy an entire run."
+      },
+      {
+        "id": "b",
+        "text": "Coerce the value to the expected type silently and continue processing.",
+        "note": "Silent coercion hides bugs and produces subtly wrong results downstream."
+      },
+      {
+        "id": "c",
+        "text": "Return nothing at all, leaving the model to decide how to proceed.",
+        "note": "An empty response gives the model nothing to correct and invites a repeat."
+      },
+      {
+        "id": "d",
+        "text": "Return an error tool_result naming the field and the expected type.",
+        "note": ""
+      }
+    ],
+    "explanation": "Validate at the boundary and return an actionable error. Naming the offending field and the expected type usually lets the model correct itself on the next iteration, which is self-healing for free."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-006",
+    "license": "MIT"
+  }
+}

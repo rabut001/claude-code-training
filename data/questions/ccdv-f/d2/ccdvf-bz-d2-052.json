@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-052",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A support agent calls a refund tool. A network timeout occurs after the refund was actually issued, and the agent retries. What design property prevents a double refund?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Idempotency: a client-supplied key makes the repeat return the original result.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Determinism: setting temperature to 0 so the agent behaves the same each time.",
+        "note": "Deterministic sampling has nothing to do with duplicate side effects."
+      },
+      {
+        "id": "c",
+        "text": "Instruction: a system prompt forbidding the agent from ever retrying a refund.",
+        "note": "A prompt cannot prevent a network-layer retry that may not originate from the model."
+      },
+      {
+        "id": "d",
+        "text": "Observability: logging every refund so duplicates are reconciled afterwards.",
+        "note": "Reconciliation cleans up after the harm rather than preventing it."
+      }
+    ],
+    "explanation": "Retries are inevitable in distributed systems and the agent will retry on its own. Idempotency keys make a repeat call safe at the system level, which is the only place the guarantee can hold."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D2-052",
+    "license": "MIT"
+  }
+}

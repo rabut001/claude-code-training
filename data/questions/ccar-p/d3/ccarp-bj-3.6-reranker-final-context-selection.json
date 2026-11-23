@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.6-reranker-final-context-selection",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.6 Apply retrieval strategies matched to data shape and query pattern",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "retrieval",
+    "reranking",
+    "final-context-selection",
+    "precision"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A maintenance search pipeline fuses and deduplicates 40 lexical and semantic candidates, then passes the first five by fused rank to generation. The five-chunk context budget is fixed. Audited failing queries consistently include the required model-and-revision-specific procedure among the 40, but generic procedures outrank it in the final five. Which experiment most directly targets the demonstrated failure?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Rerank the 40 candidates for query relevance; compare final-five evidence coverage and answer quality at the unchanged budget.",
+        "note": "The needed evidence is already retrieved, so the failure is selection into final context rather than candidate recall. Query-aware reranking can promote the specific procedure; measuring coverage and final answers tests whether it actually does so."
+      },
+      {
+        "id": "b",
+        "text": "Double initial candidate counts while keeping the same fused ranking and first-five selection rule for generation.",
+        "note": "The audited target is already present before final selection. Expanding recall alone does not directly repair the ranking that excludes it from the fixed final context."
+      },
+      {
+        "id": "c",
+        "text": "Give the generator all 40 candidates and use a longer output allowance to explain competing procedure revisions.",
+        "note": "This exceeds the stipulated five-chunk context budget. More output allowance also does not distinguish the applicable procedure before context selection."
+      },
+      {
+        "id": "d",
+        "text": "Rerank only the selected five chunks, leaving the other 35 outside the reranker's input for each query.",
+        "note": "The relevant procedure was excluded before this proposed reranking step. Reordering only those five cannot promote a candidate that the reranker never receives."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.6.json",
+    "orig_id": "ccarp-3.6-reranker-final-context-selection",
+    "license": "MIT"
+  }
+}

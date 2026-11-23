@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d4-002",
+  "exam": "ccdv-f",
+  "domain": "d4",
+  "subdomain": "Debugging and Error Handling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Users report that a Claude-powered feature \"sometimes returns nonsense\". What is the most effective first diagnostic step?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Capture full traces of failing cases and look for a common pattern.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Move the feature to a larger model and see whether the reports subside.",
+        "note": "Changing a variable before understanding the failure is expensive guessing."
+      },
+      {
+        "id": "c",
+        "text": "Rewrite the prompt from scratch using the current best-practice guidance.",
+        "note": "A blind rewrite may fix it, break something else, or do nothing, unmeasurably."
+      },
+      {
+        "id": "d",
+        "text": "Add a disclaimer to the interface warning that output may be inaccurate.",
+        "note": "A disclaimer manages expectations without addressing the defect."
+      }
+    ],
+    "explanation": "You cannot fix an intermittent failure you cannot reproduce. Complete traces reveal whether the cause is truncation, a particular input shape, a parameter difference, or a tool returning bad data."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d4-eval-debug.js",
+    "orig_id": "D4-002",
+    "license": "MIT"
+  }
+}

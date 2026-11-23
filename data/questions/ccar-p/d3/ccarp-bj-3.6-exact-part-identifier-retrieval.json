@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.6-exact-part-identifier-retrieval",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.6 Apply retrieval strategies matched to data shape and query pattern",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "retrieval",
+    "lexical-search",
+    "exact-identifiers"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An equipment knowledge base contains many near-identical component descriptions with different part identifiers. Queries such as 'installation torque for part HX-741B' retrieve semantically similar components but miss the chunk containing that exact identifier. Which retrieval capability most directly complements the existing semantic search?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Remove punctuation and digits from all identifiers before matching to increase linguistic similarity.",
+        "note": "The identifier's characters distinguish the requested component from similar parts. Removing them can collapse precisely the distinctions the query requires."
+      },
+      {
+        "id": "b",
+        "text": "Return more semantic neighbors without adding any identifier-aware matching.",
+        "note": "A larger candidate set may occasionally include the target but does not directly address exact-identifier matching. It also adds unrelated components to the retrieval context."
+      },
+      {
+        "id": "c",
+        "text": "Rerank only the current semantic candidates even when the exact-part chunk is absent from them.",
+        "note": "A reranker orders its supplied candidates and cannot select an absent chunk. Candidate generation first needs a mechanism that can find the exact identifier."
+      },
+      {
+        "id": "d",
+        "text": "Add lexical retrieval such as BM25 that preserves and matches the exact part identifier.",
+        "note": "Lexical matching is useful for unique identifiers and technical terms that semantic similarity can miss. It supplies a complementary route to the precisely named component."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.6.json",
+    "orig_id": "ccarp-3.6-exact-part-identifier-retrieval",
+    "license": "MIT"
+  }
+}

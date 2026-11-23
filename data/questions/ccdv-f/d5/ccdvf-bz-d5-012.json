@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-012",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Your application needs the lowest possible time-to-first-token for a live chat experience. Which combination helps most?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Raise max_tokens and turn on extended thinking for higher answer quality.",
+        "note": "Both increase latency, and extended thinking deliberately spends time reasoning first."
+      },
+      {
+        "id": "b",
+        "text": "Stream the response, pick a faster model tier, and cache the stable prefix.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Route chat traffic through the Batch API to smooth out load spikes.",
+        "note": "Batch is asynchronous and can take minutes to hours, so it is the opposite of interactive."
+      },
+      {
+        "id": "d",
+        "text": "Add more few-shot examples so the model reaches its answer sooner.",
+        "note": "More examples mean more input to process before the first output token."
+      }
+    ],
+    "explanation": "Those three attack perceived latency from different directions: streaming emits the first token immediately, a faster tier generates quicker, and a cache hit skips re-processing the prefix."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Reducing latency",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-latency"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-012",
+    "license": "MIT"
+  }
+}

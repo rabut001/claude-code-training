@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-023",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Patterns and Frameworks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Incoming tickets are billing, technical, or sales. Each needs a different prompt, and billing additionally needs a more capable model. Which pattern fits?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Routing: classify first, then dispatch to the right handler and model tier.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Prompt chaining: pass the ticket through all three handlers in sequence.",
+        "note": "Chaining runs stages in sequence; these are mutually exclusive alternatives."
+      },
+      {
+        "id": "c",
+        "text": "An autonomous agent that decides for itself how each ticket is handled.",
+        "note": "The decision logic is known and fixed, so an agent adds cost and unpredictability."
+      },
+      {
+        "id": "d",
+        "text": "Parallelisation: run all three handlers and select the strongest output.",
+        "note": "Triples the cost to answer what a classifier settles in one cheap call."
+      }
+    ],
+    "explanation": "Distinct categories requiring distinct handling is the textbook trigger. Classify once cheaply, then dispatch, so each path gets a specialised prompt and the right tier without paying for the others."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D1-023",
+    "license": "MIT"
+  }
+}

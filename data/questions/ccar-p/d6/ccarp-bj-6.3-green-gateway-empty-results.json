@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.3-green-gateway-empty-results",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.3 Manage stakeholder feedback loops and expectation alignment (including SLAs)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "sli-coverage",
+    "user-journeys",
+    "feedback-discrepancy"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A parts-identification assistant's dashboard reports 99.9% success because its indicator counts HTTP 200 responses from the model gateway. Workshops report empty final results when a later inventory lookup fails. The agreed user journey ends only when a usable parts list is displayed. The product owner wants to preserve the existing reports for audit and resolve the discrepancy before expanding usage. What is the best next action?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Tighten the gateway's HTTP success target and retain its current measurement boundary so the existing audit series remains directly comparable.",
+        "note": "A stricter target on the same incomplete boundary still cannot detect the downstream lookup failures users experience."
+      },
+      {
+        "id": "b",
+        "text": "Increase the model's response budget and ask workshops to retry empty results, using reduced complaint volume as evidence the agreement is being met.",
+        "note": "Neither change establishes whether downstream failures are measured or whether users receive the agreed usable result."
+      },
+      {
+        "id": "c",
+        "text": "Correlate complaints with the complete request path, add a usable-result indicator, and obtain approval for a versioned measurement change while preserving history.",
+        "note": "This tests the known coverage gap and aligns measurement with the agreed journey without rewriting historical evidence."
+      },
+      {
+        "id": "d",
+        "text": "Reclassify inventory failures as external to the service and close the discrepancy because the component represented on the dashboard is healthy.",
+        "note": "The agreed service boundary includes the displayed parts list, so excluding the inventory dependency contradicts the user-facing commitment."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Google SRE Workbook: Implementing SLOs",
+      "url": "https://sre.google/workbook/implementing-slos/"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.3.json",
+    "orig_id": "ccarp-6.3-green-gateway-empty-results",
+    "license": "MIT"
+  }
+}

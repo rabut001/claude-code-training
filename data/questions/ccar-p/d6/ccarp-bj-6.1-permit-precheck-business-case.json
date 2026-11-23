@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.1-permit-precheck-business-case",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.1 Conduct structured discovery and requirement gathering",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "non-ai-alternatives",
+    "business-case",
+    "discovery-boundaries"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A city is considering Claude for tree-permit application prechecks. The tool may identify missing information but must not approve or reject permits. Staff currently use a short checklist, and missing-information notices sometimes delay applicants for weeks. No solution has been chosen. Which discovery activities directly establish whether an AI precheck is justified within this boundary? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Document applicant and staff impacts, authoritative inputs, permitted outputs, costly error types, and who approves the pilot's acceptance evidence.",
+        "note": "These facts establish intended use, affected people, information dependencies, error costs, and authority without expanding into permit adjudication."
+      },
+      {
+        "id": "b",
+        "text": "Define successful prechecks as applications receiving any generated notice, and use notice volume as the baseline for deciding deployment value.",
+        "note": "Notice volume does not measure useful completeness checks or distinguish helpful requests from incorrect notices that delay applicants."
+      },
+      {
+        "id": "c",
+        "text": "Compare the current checklist, a rules-only precheck, and the AI option on correct completions, avoidable delays, review effort, and cost.",
+        "note": "A shared outcome baseline and a viable non-AI alternative test whether AI adds value after review and error costs are included."
+      },
+      {
+        "id": "d",
+        "text": "Include final permit recommendations in the pilot so the sponsor can judge whether the assistant could eventually replace the approving officer.",
+        "note": "This evaluates a different objective rather than establishing the bounded precheck's value. A nonbinding recommendation is not itself permit approval, but testing eventual officer replacement does not answer the stated discovery question."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.1.json",
+    "orig_id": "ccarp-6.1-permit-precheck-business-case",
+    "license": "MIT"
+  }
+}

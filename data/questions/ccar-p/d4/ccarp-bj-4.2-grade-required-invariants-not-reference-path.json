@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.2-grade-required-invariants-not-reference-path",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.2 Design evaluation datasets and test frameworks using mixed methodologies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "outcome-graders",
+    "business-invariants",
+    "evaluation-harness"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A data-migration benchmark requires an approval before any write, correct final records, and a verified row count. A candidate meets all three using an allowed bulk-update API, but the grader fails it for not using the reference solution's row-by-row tool sequence. How should the test framework change?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Check approval ordering and final-state invariants while allowing valid update strategies.",
+        "note": "Approval ordering is a real intermediate business requirement and must remain enforced. The particular update sequence is not required, so the grader should accept any permitted strategy that produces the verified outcome."
+      },
+      {
+        "id": "b",
+        "text": "Require the row-by-row sequence in the agent prompt to align with the reference.",
+        "note": "This makes the implementation imitate an unnecessarily rigid grader. It excludes an allowed bulk strategy without improving compliance with the actual migration requirements."
+      },
+      {
+        "id": "c",
+        "text": "Grade only final record equality and remove all intermediate-action checks.",
+        "note": "Final-state equality alone would miss writes performed before approval. Intermediate checks are justified when, as here, their ordering is itself a stated safety or business requirement."
+      },
+      {
+        "id": "d",
+        "text": "Accept every trial that invokes the bulk-update API without an exception.",
+        "note": "An exception-free call does not prove correct records, verified counts, or approval before writing. Replacing one sequence proxy with another would still fail to grade the full contract."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.2.json",
+    "orig_id": "ccarp-4.2-grade-required-invariants-not-reference-path",
+    "license": "MIT"
+  }
+}

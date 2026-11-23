@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-027",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a",
+    "b"
+  ],
+  "en": {
+    "question": "You are adding Claude to an existing Java monolith that has no async infrastructure. Which two integration concerns matter most at design time? (Select 2)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Request threads will block on a multi-second call, so a thread budget is needed.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Timeouts, retries, and a circuit breaker are required for an external dependency.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "The JVM must be upgraded before the Anthropic SDK can be used at all.",
+        "note": "Invented constraint; HTTP is reachable from any supported JVM."
+      },
+      {
+        "id": "d",
+        "text": "All prompts must be precompiled into bytecode for acceptable performance.",
+        "note": "Prompts are runtime strings and gain nothing from compilation."
+      },
+      {
+        "id": "e",
+        "text": "Conversation state must be stored server-side by the API to avoid resending it.",
+        "note": "The API is stateless; the client always resends the conversation."
+      }
+    ],
+    "explanation": "A slow external call inside a synchronous request model is a capacity problem, and every remote dependency needs bounded timeouts, retries, and a breaker so one outage does not cascade."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Errors",
+      "url": "https://docs.anthropic.com/en/api/errors"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-027",
+    "license": "MIT"
+  }
+}

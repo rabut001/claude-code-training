@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-016",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Output Handling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "An extraction pipeline validates Claude's JSON against a schema and passes. A record still contains a plausible-looking but incorrect invoice total. What does this demonstrate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The schema was written incorrectly and failed to constrain the total field.",
+        "note": "The schema did its job; it was never meant to verify values."
+      },
+      {
+        "id": "b",
+        "text": "Sampling temperature was set too high for a numeric extraction workload.",
+        "note": "A confidently wrong figure occurs at temperature 0 as well."
+      },
+      {
+        "id": "c",
+        "text": "Schema validation checks shape, not truth; semantics need a separate check.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "The model does not reliably support structured JSON output for this task.",
+        "note": "JSON output plainly worked, since the payload validated."
+      }
+    ],
+    "explanation": "Structural and semantic validation are different problems. A number can be the right type in the right field and still be wrong, so recompute it from line items or reconcile against the source."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Reduce hallucinations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-016",
+    "license": "MIT"
+  }
+}

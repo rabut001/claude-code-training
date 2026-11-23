@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.4-pseudonymized-support-copies",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.4 Ensure compliance with regulations (e.g., GDPR, HIPAA, FedRAMP)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "gdpr",
+    "pseudonymization",
+    "data-inventory",
+    "erasure"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "An EU support system replaces customer names with random IDs but retains a lookup table. Related ticket excerpts appear in a vector index and debugging logs. The privacy owner has validated an erasure request, confirmed no applicable exception for these support copies, and approved an erasure procedure. What should the architect do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Classify the renamed tickets and derived stores as anonymous because the model never sees the customer-name lookup table.",
+        "note": "The system can still attribute the records to a person using additional information. Hiding the lookup from the model does not demonstrate anonymity of the processing."
+      },
+      {
+        "id": "b",
+        "text": "Erase only the lookup-table row and consider all ticket text, searchable excerpts, and logs outside the request's scope.",
+        "note": "Removing one mapping is not evidence that remaining content is no longer identifiable. The scenario's validated request covers the support copies and requires tracing them."
+      },
+      {
+        "id": "c",
+        "text": "Treat the records as pseudonymized personal data, trace the source and derived copies, and apply the approved erasure process across the relevant stores.",
+        "note": "Reattribution through the retained table keeps the data within the personal-data analysis. A data-flow inventory lets the team implement the validated request beyond the primary ticket database."
+      },
+      {
+        "id": "d",
+        "text": "Retain the copies if the vector index and logging service are hosted in the EU, documenting their region as the erasure control.",
+        "note": "EU hosting does not satisfy a validated erasure obligation. Location is distinct from purpose, storage limitation, and implementing the approved rights-handling process."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "EUR-Lex: Regulation (EU) 2016/679, General Data Protection Regulation",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.4.json",
+    "orig_id": "ccarp-5.4-pseudonymized-support-copies",
+    "license": "MIT"
+  }
+}

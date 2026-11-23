@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.2-accountable-residual-risk",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.2 Identify risks, limitations, and failure modes of LLM systems",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "risk-ownership",
+    "residual-risk",
+    "shutdown-authority"
+  ],
+  "answer": [
+    "a",
+    "d"
+  ],
+  "en": {
+    "question": "A launch risk register lists failure modes, affected users, severity, and proposed mitigations. It does not identify who verifies controls, accepts unresolved exposure, or stops the service. Which two additions most directly close these accountability gaps? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Assign each control a responsible owner, required verification evidence, monitoring trigger, and escalation path with resources to act.",
+        "note": "Named ownership linked to evidence and triggers makes control operation and failure response actionable. A mitigation description alone does not establish who maintains its effectiveness."
+      },
+      {
+        "id": "b",
+        "text": "Assign the documentation coordinator to collect weekly updates, leaving release and shutdown decisions to whoever attends the status meeting.",
+        "note": "Collecting information is useful but does not allocate decision authority. Availability at a meeting is not a defined responsibility for accepting risk or stopping the system."
+      },
+      {
+        "id": "c",
+        "text": "Archive the model provider's safety report and treat its publication approval as acceptance of this application's remaining deployment risks.",
+        "note": "A provider report is evidence about a component, not the application's decision consequences and configuration. Its publication approval cannot replace the deployer's risk-acceptance authority."
+      },
+      {
+        "id": "d",
+        "text": "Name the accountable residual-risk approver and the operational role empowered to suspend the service under documented stop conditions.",
+        "note": "Risk acceptance and operational deactivation are distinct responsibilities that must be allocated explicitly. Documented authority allows unacceptable outcomes to trigger action rather than another report."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.2.json",
+    "orig_id": "ccarp-5.2-accountable-residual-risk",
+    "license": "MIT"
+  }
+}

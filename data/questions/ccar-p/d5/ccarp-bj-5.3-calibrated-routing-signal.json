@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.3-calibrated-routing-signal",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.3 Apply human-in-the-loop validation strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "confidence-calibration",
+    "review-routing",
+    "uncertainty"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A team wants to bypass optional review for low-consequence drafts whenever the assistant writes 'confidence: 0.97'. No relationship between that number and correctness has been measured. High-consequence actions already have mandatory review. What should happen before using confidence to route the optional-review cases?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Interpret 0.97 as a 97% probability of correctness because the value is expressed on a zero-to-one scale.",
+        "note": "The numeric format does not establish calibration. A generated probability-like value can accompany confidently incorrect content."
+      },
+      {
+        "id": "b",
+        "text": "Ask the assistant to explain its score and bypass review whenever the explanation contains a source citation.",
+        "note": "The score explanation and citation can themselves be unsupported. Neither demonstrates an empirical relationship between the signal and task correctness."
+      },
+      {
+        "id": "c",
+        "text": "Evaluate the routing signal on representative adjudicated tasks, including error severity and scope limits, while retaining mandatory-review rules.",
+        "note": "Representative labeled outcomes can establish whether the signal supports a useful routing decision for the stated task. Calibration evidence does not create an exception to separate mandatory controls."
+      },
+      {
+        "id": "d",
+        "text": "Reuse a published confidence threshold from another application and monitor user complaints after automatic release begins.",
+        "note": "Calibration and error consequences depend on the task and deployment distribution. Another application's cutoff and delayed complaints do not validate this signal before use."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    },
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.3.json",
+    "orig_id": "ccarp-5.3-calibrated-routing-signal",
+    "license": "MIT"
+  }
+}

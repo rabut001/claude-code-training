@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.7-bounded-local-cli-adapter",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.7 Evaluate connection protocols and select the appropriate integration mechanism (MCP, API/CLI, agent-to-agent)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "integration-mechanisms",
+    "cli",
+    "client-tools",
+    "execution-isolation"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A licensed offline simulator has only an audited noninteractive CLI with a stable JSON output mode. One local Claude application needs a bounded simulation operation; cross-client tool reuse and remote-agent coordination are not requirements. Model-generated free-form shell commands are prohibited. Which integration introduces the least unnecessary machinery while preserving execution controls?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Wrap the CLI as a narrow client tool using validated typed arguments, fixed executable/argv construction, isolated bounded execution, and exit-status/output checks.",
+        "note": "The wrapper adapts the available local interface without granting a free-form shell. Application-owned validation, runtime bounds, and result checks remain necessary because the CLI is the execution boundary."
+      },
+      {
+        "id": "b",
+        "text": "Build a separate MCP service around the same validated CLI solely for this single local caller.",
+        "note": "A carefully implemented MCP wrapper could be valid when reusable interoperability is needed. Here it adds a protocol service without meeting a requirement the narrower client-tool wrapper cannot satisfy."
+      },
+      {
+        "id": "c",
+        "text": "Run a separate autonomous agent that invents simulator command sequences and decides from narrative output when the simulation is complete.",
+        "note": "The available operation has a stable bounded CLI and machine-readable result, so another autonomous controller adds uncertainty and orchestration. It also replaces explicit exit and output checks with model judgment."
+      },
+      {
+        "id": "d",
+        "text": "Expose one command-string parameter to the model and restrict execution only through instructions naming the approved simulator.",
+        "note": "Instructions do not enforce the prohibition on free-form shell commands. A command-string interface can introduce shell syntax or unintended arguments that a fixed executable and validated argv avoid."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: How tool use works",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works"
+    },
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    },
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.7.json",
+    "orig_id": "ccarp-3.7-bounded-local-cli-adapter",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.2-document-to-action-trust-boundary",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.2 Design end-to-end architectures (input → processing → output → feedback loops)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "trust-boundaries",
+    "input-processing-output",
+    "action-controls"
+  ],
+  "answer": [
+    "a",
+    "d"
+  ],
+  "en": {
+    "question": "A procurement assistant ingests supplier attachments, compares offers, and drafts a reply. Sending requires an employee's approval. Attachments can contain instructions to export internal pricing. Which architectural boundaries should be present along the input-to-action path? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Pass attachment contents as untrusted evidence with provenance, separate from application instructions.",
+        "note": "Supplier documents are external data even when they contain imperative text. Keeping their origin and trust status explicit prevents the architecture from intentionally granting them instruction authority."
+      },
+      {
+        "id": "b",
+        "text": "Place recognized supplier instructions into the system prompt after confirming that the attachment came from a registered vendor.",
+        "note": "Vendor registration authenticates a source, not its authority to instruct the application. Promoting document text crosses the trust boundary and enables indirect injection."
+      },
+      {
+        "id": "c",
+        "text": "Let the assistant send the reply immediately and rely on a downstream text classifier to detect unauthorized disclosures.",
+        "note": "Screening after transmission cannot prevent the disclosure or preserve the required employee approval. The control must precede the action it constrains."
+      },
+      {
+        "id": "d",
+        "text": "Enforce allowed data access and approved send operations outside the model's document interpretation.",
+        "note": "Permission and approval checks must constrain executable actions even if document interpretation is compromised. A prompt policy is not an independent authorization boundary."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    },
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.2.json",
+    "orig_id": "ccarp-1.2-document-to-action-trust-boundary",
+    "license": "MIT"
+  }
+}

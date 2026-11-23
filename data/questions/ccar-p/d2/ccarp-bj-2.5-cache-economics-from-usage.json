@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.5-cache-economics-from-usage",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.5 Implement prompt reuse strategies (caching, modular prompts, Skills)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "prompt-caching",
+    "cache-lifetime",
+    "usage-accounting"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A service has matching cacheable prefixes, but requests arrive in sparse bursts and frequently create entries that are never read again. A longer supported lifetime might capture later reuse but has a different write charge. Management wants evidence of lower input spend, not a headline cache discount. Which analysis best supports the decision?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Compare only the usage field input_tokens before and after caching and count its reduction as the total input savings.",
+        "note": "With caching, input_tokens excludes cache reads and cache creation. Looking only at that field omits billed work and can overstate savings."
+      },
+      {
+        "id": "b",
+        "text": "Combine observed creation, read, and uncached token usage with current model/platform rates and reuse timing, then compare candidate lifetimes with an uncached baseline.",
+        "note": "Net savings depend on paid writes being reused enough at the applicable read rate. Arrival times and lifetime determine whether a more expensive write option actually produces additional useful hits."
+      },
+      {
+        "id": "c",
+        "text": "Choose the lifetime producing the highest number of cache reads without including the cost of creating entries.",
+        "note": "More hits do not necessarily offset additional or more expensive writes. A read-count objective can prefer a configuration with higher total input spend."
+      },
+      {
+        "id": "d",
+        "text": "Apply a single assumed cache-read discount to every input token and omit creation costs because the prefixes are eligible for caching.",
+        "note": "Eligibility does not mean every request reads a live entry. Write costs and model/platform-specific rates must be included rather than replaced by a universal discount."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.5.json",
+    "orig_id": "ccarp-2.5-cache-economics-from-usage",
+    "license": "MIT"
+  }
+}

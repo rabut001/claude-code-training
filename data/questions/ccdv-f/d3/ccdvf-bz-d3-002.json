@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d3-002",
+  "exam": "ccdv-f",
+  "domain": "d3",
+  "subdomain": "Claude Code Operation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Your team wants a reusable \"/security-review\" command that every developer in the repository can run with the same instructions. Where should it be defined?",
+    "options": [
+      {
+        "id": "a",
+        "text": "As a committed markdown file in the project's .claude/commands/ directory.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "In each developer's personal user-level Claude Code configuration folder.",
+        "note": "Personal configuration is not shared, so each developer needs their own copy."
+      },
+      {
+        "id": "c",
+        "text": "As a clearly headed section inside the repository's root CLAUDE.md file.",
+        "note": "CLAUDE.md supplies always-on context; it does not create an invocable command."
+      },
+      {
+        "id": "d",
+        "text": "As an MCP server exposing a security_review tool to every connected client.",
+        "note": "Far heavier than needed, since there is no external system to integrate with."
+      }
+    ],
+    "explanation": "Custom slash commands are markdown files under .claude/commands/. Committing them to the project makes the command available to everyone who clones the repository, with one definition to maintain."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Slash commands",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/slash-commands"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d3-claude-code.js",
+    "orig_id": "D3-002",
+    "license": "MIT"
+  }
+}

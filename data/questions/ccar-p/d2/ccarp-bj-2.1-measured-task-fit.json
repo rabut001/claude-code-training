@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.1-measured-task-fit",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.1 Select appropriate Claude models based on trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "model-selection",
+    "task-benchmarks",
+    "cost-quality"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A service extracts delivery dates from short messages. On representative messages and difficult date formats, both candidate models meet the required accuracy and response-time thresholds. Model A has stronger general benchmark results; Model B has lower measured operating cost for this service, including retries. Which model-selection decision is best supported?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Choose Model A because its general benchmark advantage outweighs the service-specific results.",
+        "note": "A broader benchmark does not establish additional value for this extraction contract. Both candidates already meet the stated task and timing requirements."
+      },
+      {
+        "id": "b",
+        "text": "Choose Model B and continue monitoring the extraction and latency thresholds.",
+        "note": "Use-case measurements support the lower-cost candidate when it satisfies the required capability and speed. Continued monitoring can detect changes in input mix or failure rates."
+      },
+      {
+        "id": "c",
+        "text": "Alternate between the models to improve average capability without changing the evaluation.",
+        "note": "Alternation introduces a mixed operating policy without evidence that it improves this task. Its combined quality and cost would need evaluation before adoption."
+      },
+      {
+        "id": "d",
+        "text": "Choose Model A and shorten the prompt until its token cost matches Model B.",
+        "note": "Shortening the prompt can remove necessary instructions and changes the evaluated configuration. Matching input spend alone does not establish equivalent operating cost or quality."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Choosing the right model",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.1.json",
+    "orig_id": "ccarp-2.1-measured-task-fit",
+    "license": "MIT"
+  }
+}

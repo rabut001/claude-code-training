@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-020",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Model Selection and Trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A team argues \"we should always use the newest model because it is strictly better\". What is the most important caveat for a production system?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Behaviour can shift between versions, so validate against your eval suite first.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Newer models are consistently slower than the versions they replace.",
+        "note": "Not generally true; newer releases are often faster at a given tier."
+      },
+      {
+        "id": "c",
+        "text": "Tool use is unavailable on a new model until a later follow-up release.",
+        "note": "Tool use is supported across current model tiers."
+      },
+      {
+        "id": "d",
+        "text": "Newer models cannot be pinned, so rollback is impossible after an upgrade.",
+        "note": "Dated model ids exist precisely so that you can pin and roll back."
+      }
+    ],
+    "explanation": "Better aggregate benchmarks do not guarantee better behaviour on your prompts. Formatting, verbosity, and edge-case handling can move in ways a downstream parser does not expect."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Models overview",
+      "url": "https://docs.anthropic.com/en/docs/about-claude/models"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-020",
+    "license": "MIT"
+  }
+}

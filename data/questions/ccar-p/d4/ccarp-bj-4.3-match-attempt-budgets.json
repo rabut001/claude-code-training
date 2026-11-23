@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.3-match-attempt-budgets",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.3 Conduct A/B testing and iterative improvements",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "attempt-budgets",
+    "pass-at-k",
+    "reliability"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Production permits one attempt per task. A candidate's reported pass@3 counts a task as solved if any of three isolated attempts succeeds; the baseline was scored with one attempt. The candidate's number is higher. What comparison is needed before claiming a production improvement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Compare the candidate's pass@3 with the baseline's all-three-attempt success rate.",
+        "note": "Success at least once and success in every trial are different events. Comparing pass@3 with pass^3 would make the candidate and baseline face incompatible reliability criteria."
+      },
+      {
+        "id": "b",
+        "text": "Allow three candidate attempts in production and retain the one-attempt baseline score.",
+        "note": "This violates the stated one-attempt operating constraint and changes the candidate's resource budget. It would not support the claimed improvement for the permitted deployment."
+      },
+      {
+        "id": "c",
+        "text": "Compare single-attempt outcomes on matched tasks and report repeated-trial consistency separately.",
+        "note": "Matched attempt budgets test the production contract fairly. Repeated isolated trials can additionally expose variability, without treating best-of-three opportunity as one-attempt reliability."
+      },
+      {
+        "id": "d",
+        "text": "Divide the candidate's pass@3 percentage by three to estimate its one-attempt score.",
+        "note": "The probability of at least one success over three attempts is not three times single-attempt success. Task difficulty and dependence also prevent that arithmetic from recovering a valid matched score."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.3.json",
+    "orig_id": "ccarp-4.3-match-attempt-budgets",
+    "license": "MIT"
+  }
+}

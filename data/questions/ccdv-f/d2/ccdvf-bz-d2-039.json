@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-039",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Understanding Requirements",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Which business requirement most clearly argues against an autonomous agent and in favour of a constrained workflow?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Every decision must be auditable and reproducible for a regulator.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "The task involves calling several different internal tools.",
+        "note": "Workflows call tools at predefined points; tool count is not the criterion."
+      },
+      {
+        "id": "c",
+        "text": "Volume is expected to grow substantially over the next year.",
+        "note": "Workflows scale better than agents, so growth argues the same way."
+      },
+      {
+        "id": "d",
+        "text": "Users want answers returned in conversational natural language.",
+        "note": "Natural-language output is available from either architecture."
+      }
+    ],
+    "explanation": "Reproducibility requires a fixed, inspectable path. An agent chooses its own route, so two identical inputs can take different paths, which is the opposite of what an auditor needs."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-039",
+    "license": "MIT"
+  }
+}

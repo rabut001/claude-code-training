@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-002",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Tool Implementation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "What is the role of input_schema in a tool definition?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It validates the value the tool handler returns before it reaches the model.",
+        "note": "It describes inputs only; return values are your handler's concern."
+      },
+      {
+        "id": "b",
+        "text": "It declares which callers or roles are permitted to invoke the tool.",
+        "note": "Authorisation is enforced in your application, never in a schema."
+      },
+      {
+        "id": "c",
+        "text": "It configures the per-minute rate limit applied to that tool's execution.",
+        "note": "Rate limiting is an infrastructure concern outside the tool definition."
+      },
+      {
+        "id": "d",
+        "text": "It is JSON Schema for the parameters, guiding the model and your validation.",
+        "note": ""
+      }
+    ],
+    "explanation": "It serves two purposes at once: telling the model the shape, types, and required fields to produce, and giving your handler a contract to validate against before doing anything."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-002",
+    "license": "MIT"
+  }
+}

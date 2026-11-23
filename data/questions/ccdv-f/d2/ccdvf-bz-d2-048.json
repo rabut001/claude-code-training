@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-048",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Configuration Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A plugin used by your team pins a dependency that conflicts with another plugin's requirement. What is the most sustainable resolution?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Manually edit the installed plugin files to relax the version constraint.",
+        "note": "Local edits are silently lost on the next update and cannot be maintained."
+      },
+      {
+        "id": "b",
+        "text": "Install the plugins into isolated environments with independent resolution.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Remove the pin from both plugins so the newest version is always installed.",
+        "note": "Removing pins invites the breakage the pins were added to prevent."
+      },
+      {
+        "id": "d",
+        "text": "Keep both and document the conflict so developers know which to avoid.",
+        "note": "Documents the problem without resolving it and relies on vigilance."
+      }
+    ],
+    "explanation": "Isolation lets incompatible requirements coexist without either being modified, so upgrades stay clean and nothing has to be re-patched after every release."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Settings",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/settings"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-048",
+    "license": "MIT"
+  }
+}

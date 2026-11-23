@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.3-refinement-loop-fit",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.3 Select appropriate architectural patterns (workflow, agentic, augmented LLM)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "evaluator-optimizer",
+    "refinement-criteria",
+    "pattern-fit"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A team proposes an evaluator-optimizer loop for investment briefings. Analysts currently disagree about what 'more useful' means, and pilot revisions often change style without improving acceptance. Extra iterations threaten the publication deadline. What evidence is needed before this pattern is a defensible choice?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A larger iteration allowance so the generator has enough opportunities to satisfy each analyst's unstated preferences.",
+        "note": "More iterations do not resolve conflicting or undefined criteria. They increase deadline risk without establishing that feedback improves the required outcome."
+      },
+      {
+        "id": "b",
+        "text": "Agreement between two evaluator instances using the current usefulness instruction, without checking analyst acceptance of their revisions.",
+        "note": "Evaluator agreement can reproduce the same ambiguous interpretation. It does not show alignment with the business criterion or measurable improvement from revision."
+      },
+      {
+        "id": "c",
+        "text": "An agreed evaluation rubric plus evidence that iterative feedback measurably improves accepted briefings within the publication deadline.",
+        "note": "Evaluator-optimizer is a good fit when criteria are clear and iterative feedback improves results. Demonstrating that benefit within the operating constraint addresses the observed failure."
+      },
+      {
+        "id": "d",
+        "text": "A more capable generator selected by a general benchmark, while retaining the existing evaluator and open-ended stopping rule.",
+        "note": "General capability does not define usefulness or validate the feedback loop. The unresolved rubric and termination problems remain even if the generator changes."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "Prompt engineering overview",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.3.json",
+    "orig_id": "ccarp-1.3-refinement-loop-fit",
+    "license": "MIT"
+  }
+}

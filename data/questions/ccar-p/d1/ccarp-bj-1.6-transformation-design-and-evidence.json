@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.6-transformation-design-and-evidence",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.6 Align solutions to business value pillars (efficiency, transformation, productivity, cost, performance SLAs)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "business-transformation",
+    "service-design",
+    "value-measurement"
+  ],
+  "answer": [
+    "b",
+    "c"
+  ],
+  "en": {
+    "question": "A public-service program defines its transformation goal as enabling eligible rural residents to complete an intake service previously available only through distant in-person offices. Quality and affordability remain mandatory. The sponsor distinguishes this new service capability from merely accelerating staff drafting. Which design-and-measurement choices directly support that stated goal? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Optimize internal draft generation while keeping every resident dependent on the same in-person intake and office hours.",
+        "note": "This can improve staff efficiency but leaves the access barrier defining the transformation goal unchanged. Faster internal drafting alone does not enable the new service."
+      },
+      {
+        "id": "b",
+        "text": "Design the complete remote intake journey, including required evidence, authorized decisions, and exception handoff.",
+        "note": "A new user-facing capability requires the entire journey to function, not just a text-generation step. Evidence, authority, and exception paths connect the assistant to a usable service."
+      },
+      {
+        "id": "c",
+        "text": "Measure completed eligible rural intakes against prior access, subject to the agreed quality and operating-cost limits.",
+        "note": "This links the new capability to the intended population and actual completion. Quality and cost gates prevent increased access volume from hiding an unacceptable service."
+      },
+      {
+        "id": "d",
+        "text": "Use the growth in generated messages as the primary transformation result, regardless of completed intake journeys.",
+        "note": "Message volume measures interaction activity, which can rise through confusion or retries. It does not establish that previously underserved residents can complete intake."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.6.json",
+    "orig_id": "ccarp-1.6-transformation-design-and-evidence",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.3-manual-thinking-output-budget",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.3 Apply prompt engineering techniques (zero-shot, few-shot, chain-of-thought)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "manual-thinking",
+    "output-budget",
+    "version-scoping"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "On a model explicitly supporting manual extended thinking, ordinary requests without tools frequently end at max_tokens before the final answer is complete. The team configured a large budget_tokens value and assumed it was a strict ceiling on reasoning spend separate from the final-answer limit. Which correction matches the specialized extended-thinking contract?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase budget_tokens while leaving max_tokens unchanged, because the reasoning budget does not consume the final-answer allowance.",
+        "note": "Current-turn thinking and final text share the total output limit. Raising the reasoning target alone does not reserve space for a complete answer."
+      },
+      {
+        "id": "b",
+        "text": "Treat budget_tokens as a target and size max_tokens for combined reasoning and final-answer output.",
+        "note": "The specialized reference identifies max_tokens as the hard total-output ceiling and the manual budget as a target, not a strict cap. This no-tool scenario requires room for the final response in that shared allowance."
+      },
+      {
+        "id": "c",
+        "text": "Omit the visible thinking summary and subtract the hidden reasoning from billed output and output-limit accounting.",
+        "note": "Hiding the summary changes presentation, not whether reasoning tokens were generated. Thinking still consumes output budget and is billed."
+      },
+      {
+        "id": "d",
+        "text": "Keep both limits unchanged and make the final-answer word count the hard API spending control.",
+        "note": "A natural-language word-count request is not the API's token ceiling. It neither caps internal reasoning nor guarantees that sufficient output remains for the answer."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Extended thinking",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking"
+    },
+    {
+      "title": "Thinking",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/thinking"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.3.json",
+    "orig_id": "ccarp-2.3-manual-thinking-output-budget",
+    "license": "MIT"
+  }
+}

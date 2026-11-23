@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.2-pre-execution-versus-feedback",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.2 Improve developer workflows using AI-assisted tooling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "hooks",
+    "async",
+    "execution-order",
+    "verification-gates"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A Claude Code workflow has an identifiable publish-tool call. Required checks must pass before that call starts. Today, an async PostToolUse command hook runs checks and sometimes reports failure after the artifact has already been published. Which redesign creates the required gate rather than merely reporting late feedback?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Run the required checks synchronously in a matching PreToolUse gate that denies publishing on failure; keep background checks only as additional feedback.",
+        "note": "PreToolUse can reject a call before it executes. Waiting for the required checks there establishes the ordering constraint that an asynchronous after-the-fact check cannot provide."
+      },
+      {
+        "id": "b",
+        "text": "Make the PostToolUse hook synchronous and return exit 2 so the completed publish operation is rolled back.",
+        "note": "A synchronous PostToolUse check still occurs after the tool ran. Exit 2 supplies feedback at that event; it does not reverse the publication."
+      },
+      {
+        "id": "c",
+        "text": "Move the check to PreToolUse but retain async mode and return a permissionDecision denial when the background test finishes.",
+        "note": "Background command hooks cannot enforce decision, permissionDecision, or continue fields on the action. Moving the trigger earlier without waiting for the result does not create a synchronous gate."
+      },
+      {
+        "id": "d",
+        "text": "Use a Stop hook that returns exit 2 after failed checks, relying on the continued conversation to prevent the earlier publish call.",
+        "note": "A Stop rejection can keep Claude working instead of ending the conversation. It cannot establish that a tool call earlier in the turn waited for those checks."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Hooks reference",
+      "url": "https://code.claude.com/docs/en/hooks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.2.json",
+    "orig_id": "ccarp-7.2-pre-execution-versus-feedback",
+    "license": "MIT"
+  }
+}

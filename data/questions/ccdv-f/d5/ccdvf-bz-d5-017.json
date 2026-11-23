@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-017",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a",
+    "b"
+  ],
+  "en": {
+    "question": "An interactive assistant is too slow at p95. Which two changes reduce latency without changing the task? (Select 2)",
+    "options": [
+      {
+        "id": "a",
+        "text": "Put the stable prompt and reference material behind a cache breakpoint.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Route simple requests to a smaller model and reserve the large one for hard work.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Raise max_tokens so the model can finish the answer within a single turn.",
+        "note": "A higher ceiling permits longer output, which takes longer to generate."
+      },
+      {
+        "id": "d",
+        "text": "Enable extended thinking on all requests to improve answer quality.",
+        "note": "Extended thinking deliberately adds reasoning time before the answer."
+      },
+      {
+        "id": "e",
+        "text": "Add ten further few-shot examples so the task is less ambiguous.",
+        "note": "More examples mean more input tokens to process before the first output token."
+      }
+    ],
+    "explanation": "A cache hit removes the time spent re-processing a long stable prefix, and tiering by difficulty keeps most traffic off the slowest model. Both cut latency while leaving the task definition untouched."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Reducing latency",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-latency"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-017",
+    "license": "MIT"
+  }
+}

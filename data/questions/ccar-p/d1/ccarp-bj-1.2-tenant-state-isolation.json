@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.2-tenant-state-isolation",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.2 Design end-to-end architectures (input → processing → output → feedback loops)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "tenant-isolation",
+    "runtime-state",
+    "agent-sdk-hosting"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A consulting platform self-hosts the Agent SDK for several client organizations. Inbound requests are authenticated and transcripts are keyed by tenant, but all sessions share a working directory, memory files, and CLI configuration. Each client must be isolated from the others. What is the missing architectural boundary?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Give each tenant an isolated runtime with its own workspace, memory, configuration, and outbound credential inputs.",
+        "note": "Authentication and transcript labels do not isolate the subprocess's other state sources. Tenant separation must cover the filesystem, configuration, and access paths the agent can actually use."
+      },
+      {
+        "id": "b",
+        "text": "Add the authenticated tenant name to every system prompt while retaining the shared runtime environment.",
+        "note": "A prompt label guides behavior but does not prevent the runtime from exposing another tenant's files, memory, settings, or credentials."
+      },
+      {
+        "id": "c",
+        "text": "Store transcripts in separate database tables while preserving the shared workspace to simplify artifact retrieval.",
+        "note": "Separating transcript storage addresses only one state store. The shared filesystem and configuration still permit cross-tenant context or capability leakage."
+      },
+      {
+        "id": "d",
+        "text": "Filter tenant names from final answers and use response monitoring to detect any residual cross-client references.",
+        "note": "Output filtering cannot reliably undo unauthorized reads or tool actions. The isolation requirement must be enforced before shared state reaches the agent."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Hosting the Agent SDK",
+      "url": "https://code.claude.com/docs/en/agent-sdk/hosting"
+    },
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.2.json",
+    "orig_id": "ccarp-1.2-tenant-state-isolation",
+    "license": "MIT"
+  }
+}

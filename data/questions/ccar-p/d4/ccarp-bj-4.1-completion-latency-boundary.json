@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.1-completion-latency-boundary",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.1 Define evaluation metrics (accuracy, latency, cost, safety, security)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "latency-metrics",
+    "service-level-objectives"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A streaming planning assistant shows its first text quickly, but retrieval, tool calls, and occasional retries continue afterward. Its service agreement requires 95% of user requests to receive a complete, validated plan within nine seconds of application receipt. Which measurement tests that agreement?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The 95th percentile of provider time to first generated token.",
+        "note": "Time to first token measures initial model responsiveness. It excludes the remaining generation and application work required to deliver the validated plan."
+      },
+      {
+        "id": "b",
+        "text": "The mean time from application receipt to delivery of a validated plan.",
+        "note": "This uses the correct application boundary, but a mean can hide a slow tail. It does not test the requirement that 95% of requests finish within nine seconds."
+      },
+      {
+        "id": "c",
+        "text": "The 95th percentile of model-call duration, excluding tools and retries.",
+        "note": "This tail measurement omits retrieval, external execution, and retry delays borne by the user. Those delays remain inside the stated application-level agreement."
+      },
+      {
+        "id": "d",
+        "text": "The share of all received requests with validated final delivery within nine seconds.",
+        "note": "This counts every received request and credits only a complete acceptable plan delivered within the application deadline. Retrieval, tools, and retries must all fit within that boundary; the required share is at least 95%."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Reducing latency",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.1.json",
+    "orig_id": "ccarp-4.1-completion-latency-boundary",
+    "license": "MIT"
+  }
+}

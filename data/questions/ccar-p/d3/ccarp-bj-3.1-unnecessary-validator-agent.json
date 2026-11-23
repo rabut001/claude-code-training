@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.1-unnecessary-validator-agent",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.1 Evaluate tool/agent configuration for capability bloat",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "capability-bloat",
+    "agent-configuration",
+    "deterministic-validation"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A build assistant delegates package-coordinate validation to a separate agent with its own prompt, history, and tool catalog. The acceptance rule is exactly the existing deterministic parser's result; no judgment or external evidence is allowed. Delegation adds a model turn and occasional inconsistent validation. Which simplification preserves the required behavior?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Retain the validator agent and constrain its response to a valid/invalid enum.",
+        "note": "A constrained output shape can ensure an allowed label but not agreement with the authoritative parser. It also preserves the extra model turn and agent context."
+      },
+      {
+        "id": "b",
+        "text": "Ask the main and validator agents to vote whenever their validation decisions differ.",
+        "note": "Voting substitutes model agreement for the authoritative deterministic rule. It also adds agent work rather than removing the unnecessary delegation."
+      },
+      {
+        "id": "c",
+        "text": "Call the parser in application code at the validation boundary and remove the validator agent.",
+        "note": "A direct parser call implements the entire acceptance contract without a separate agent context or model decision. The agent adds no capability needed for this deterministic subtask."
+      },
+      {
+        "id": "d",
+        "text": "Retain the validator agent but cache its general instructions between validations.",
+        "note": "Prefix caching can reduce repeated prompt processing but retains the extra model decision and delegation. It cannot make a probabilistic decision equivalent to the required parser result."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    {
+      "title": "Anthropic: Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.1.json",
+    "orig_id": "ccarp-3.1-unnecessary-validator-agent",
+    "license": "MIT"
+  }
+}

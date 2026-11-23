@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d4-005",
+  "exam": "ccdv-f",
+  "domain": "d4",
+  "subdomain": "Debugging and Error Handling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "After a prompt change, accuracy rises from 82% to 87% on a 40-example eval set. What is the correct conclusion?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The change is a clear improvement and should be deployed to production.",
+        "note": "Treats a statistically meaningless difference as evidence."
+      },
+      {
+        "id": "b",
+        "text": "The change made results worse and the previous prompt should be restored.",
+        "note": "The measurement does not support that conclusion either."
+      },
+      {
+        "id": "c",
+        "text": "Two extra correct answers out of 40 is within noise; validate on a larger set.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Accuracy is the wrong metric here and should be replaced with a judged score.",
+        "note": "Accuracy is appropriate here; the sample size is the problem."
+      }
+    ],
+    "explanation": "Five percentage points on 40 examples is two items. A difference that small on a sample that small is indistinguishable from noise, and shipping on it is how teams convince themselves a neutral change helped."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D4-005",
+    "license": "MIT"
+  }
+}

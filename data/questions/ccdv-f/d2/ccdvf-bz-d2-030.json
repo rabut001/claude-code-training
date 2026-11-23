@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-030",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A drafting assistant produces outbound customer emails. Legal requires that no email is sent without a human reading it. Where does this belong?",
+    "options": [
+      {
+        "id": "a",
+        "text": "In the system prompt, instructing the model to request approval before sending.",
+        "note": "Prompt compliance is probabilistic and cannot satisfy a legal requirement."
+      },
+      {
+        "id": "b",
+        "text": "In a tool description noting that sending requires prior human approval.",
+        "note": "Descriptions inform tool selection; they do not gate execution."
+      },
+      {
+        "id": "c",
+        "text": "In an eval that measures how often the agent correctly pauses for review.",
+        "note": "Measures how often the rule holds rather than making it hold."
+      },
+      {
+        "id": "d",
+        "text": "In the application flow, which routes every draft to a reviewer before sending.",
+        "note": ""
+      }
+    ],
+    "explanation": "\"No email without a human reading it\" is an invariant. Only control flow the model cannot bypass enforces it; the agent should not hold an unattended send capability at all."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-030",
+    "license": "MIT"
+  }
+}

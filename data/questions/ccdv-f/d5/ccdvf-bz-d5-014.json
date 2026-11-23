@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-014",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An agent loop repeatedly calls the same search tool with near-identical arguments and never converges. Which diagnosis fits best?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The context window is far larger than this task actually requires.",
+        "note": "Window size does not cause repetition."
+      },
+      {
+        "id": "b",
+        "text": "Sampling temperature is too low, so the model keeps repeating one choice.",
+        "note": "A contributing factor at most; the missing signal and missing bound are the defect."
+      },
+      {
+        "id": "c",
+        "text": "The model tier is more capable than the task warrants, causing overthinking.",
+        "note": "Capability is not the issue when the loop lacks feedback entirely."
+      },
+      {
+        "id": "d",
+        "text": "The tool returns nothing useful, and no iteration ceiling bounds the loop.",
+        "note": ""
+      }
+    ],
+    "explanation": "Repeating a call means the agent receives nothing that changes its state. Fix both sides: return an informative result or error, and enforce a deterministic iteration ceiling in the harness."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d5-model.js",
+    "orig_id": "D5-014",
+    "license": "MIT"
+  }
+}

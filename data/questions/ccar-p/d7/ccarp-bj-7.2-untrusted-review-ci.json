@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.2-untrusted-review-ci",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.2 Improve developer workflows using AI-assisted tooling",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "ci",
+    "untrusted-repositories",
+    "least-privilege",
+    "secrets"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A review-only CI job runs Claude Code against pull-request branches that can modify .claude settings and .mcp.json. It needs to read source and post review findings, but must not execute pull-request-supplied customizations or acquire production authority. Using the documented unattended-loading behavior, which two independent controls belong in the design? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Use fixed, reviewed configuration in an isolated runner, explicitly preventing discovery of pull-request-supplied hooks and MCP servers.",
+        "note": "An unattended run can load repository hooks and MCP servers without interactive trust approval. Explicit configuration and isolation avoid granting execution authority to configuration changed by the material being reviewed."
+      },
+      {
+        "id": "b",
+        "text": "Keep normal project discovery and rely on the unattended run's workspace-trust dialog to approve repository customizations before they execute.",
+        "note": "The documented non-interactive workflow does not show that trust dialog or per-project-server approval prompt. It therefore cannot supply the proposed approval boundary."
+      },
+      {
+        "id": "c",
+        "text": "Provision service credentials through CI secrets and limit GitHub authorization and model tool permissions to the review task, without production credentials.",
+        "note": "Secret storage avoids committed credentials, while least-privilege identities and tool controls limit what the job can do. GitHub authorization and model tool approval are separate controls and both need the task's narrow scope."
+      },
+      {
+        "id": "d",
+        "text": "Allow repository-defined hooks and MCP servers, using a read-only GitHub token as the boundary that contains those processes and protects the model API key.",
+        "note": "A GitHub token limits GitHub operations, not arbitrary local hook or MCP process access. Such processes can still access runner resources or credentials unless their loading and execution are separately constrained."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Run Claude Code programmatically",
+      "url": "https://code.claude.com/docs/en/headless"
+    },
+    {
+      "title": "Claude Code GitHub Actions",
+      "url": "https://code.claude.com/docs/en/github-actions"
+    },
+    {
+      "title": "Hooks reference",
+      "url": "https://code.claude.com/docs/en/hooks"
+    },
+    {
+      "title": "Configure the sandboxed Bash tool",
+      "url": "https://code.claude.com/docs/en/sandboxing"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.2.json",
+    "orig_id": "ccarp-7.2-untrusted-review-ci",
+    "license": "MIT"
+  }
+}

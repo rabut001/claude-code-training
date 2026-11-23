@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-002",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Architecture",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A team's first instinct for every new feature is to build an autonomous agent. What is the most important counterargument?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Agency costs predictability, latency, and money, so add it only when needed.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Agents are considerably harder to implement in Python than workflows are.",
+        "note": "Implementation effort is a real difference but not the core objection."
+      },
+      {
+        "id": "c",
+        "text": "An agent cannot be given more than a handful of tools before it degrades.",
+        "note": "Large tool sets do hurt selection accuracy, but no such hard limit exists."
+      },
+      {
+        "id": "d",
+        "text": "Agents require dedicated long-running infrastructure that workflows avoid.",
+        "note": "Deployment topology is unrelated to the choice of pattern."
+      }
+    ],
+    "explanation": "The recommended posture is the simplest solution that works, with complexity added only when it demonstrably improves outcomes. Autonomy buys adaptability and pays in unpredictability, extra calls, and harder debugging."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-002",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.4-artifacts-not-context-copying",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.4 Design multi-agent systems and orchestration strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "artifact-handoffs",
+    "separate-contexts",
+    "result-fidelity"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Research workers produce detailed tables that authorized analysts must receive unchanged. Copying the tables through a lead agent consumes substantial context, and successive summaries drop rows. The lead only needs conclusions for synthesis, while analysts may inspect the full tables later. Which result-transfer design best fits?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Require the lead to rewrite each full table into its final answer so all downstream consumers use a single representation.",
+        "note": "Rewriting preserves the same lossy transfer point and forces the lead to process all detailed content. It does not meet the unchanged-table requirement reliably."
+      },
+      {
+        "id": "b",
+        "text": "Have workers return only narrative summaries and discard their detailed tables after the lead confirms that synthesis is complete.",
+        "note": "A summary can support synthesis but cannot provide the full unchanged tables that analysts must later inspect."
+      },
+      {
+        "id": "c",
+        "text": "Persist each worker's complete table as a durable artifact and return its reference plus concise findings for synthesis.",
+        "note": "Direct artifact delivery preserves specialized output without copying it through the lead's context. References let authorized consumers retrieve the original tables while the lead handles only the synthesis information it needs."
+      },
+      {
+        "id": "d",
+        "text": "Give every worker every other worker's full table so each can reconstruct missing rows before the lead produces the final version.",
+        "note": "Broadcasting full tables multiplies context transfer and coordination. Reconstruction is unnecessary when the workers' original artifacts can be retained directly."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.4.json",
+    "orig_id": "ccarp-1.4-artifacts-not-context-copying",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.2-adjudicated-feedback-loop",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.2 Design end-to-end architectures (input → processing → output → feedback loops)",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "feedback-loops",
+    "adjudication",
+    "release-gates"
+  ],
+  "answer": [
+    "a",
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "Employees can flag incorrect recommendations in a Claude-based benefits assistant. Some flags are valid corrections; others are preference disagreements or attempts to change company policy. The product team wants a feedback loop that improves future releases without turning every submission into system behavior. Which components belong in that loop? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "An accountable review step that distinguishes confirmed failures from disputed preferences and policy-change requests.",
+        "note": "Feedback needs adjudication against the intended use and authorized policy. This prevents unverified submissions from silently redefining correct behavior."
+      },
+      {
+        "id": "b",
+        "text": "A path from confirmed failures to representative regression cases and evaluation of the proposed revision.",
+        "note": "Reproducible cases connect observed failures to measurable improvement. Evaluating the revision before release checks that a local fix preserves other required behavior."
+      },
+      {
+        "id": "c",
+        "text": "An automatic rule that appends each employee's correction to the trusted instructions for subsequent requests.",
+        "note": "Raw feedback can be incorrect, conflicting, or malicious. Automatically promoting it bypasses adjudication and grants submitters unintended policy authority."
+      },
+      {
+        "id": "d",
+        "text": "A tracked disposition linking each accepted issue to its responsible owner, change, and release outcome.",
+        "note": "Ownership and a recorded outcome close the loop between collection and action. A feedback inbox alone cannot establish whether confirmed defects were addressed."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    },
+    {
+      "title": "Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.2.json",
+    "orig_id": "ccarp-1.2-adjudicated-feedback-loop",
+    "license": "MIT"
+  }
+}

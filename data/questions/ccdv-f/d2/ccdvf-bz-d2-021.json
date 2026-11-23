@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-021",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A long-running agent occasionally crashes with a context window error on turn 40 or so, but works fine for short conversations. Which design change addresses the cause rather than the symptom?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Compact older turns into a structured summary and prune superseded content.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Catch the error and restart the conversation from an empty context.",
+        "note": "Discards the task state the agent needs and surfaces as lost work."
+      },
+      {
+        "id": "c",
+        "text": "Move to a model with a larger window and keep appending every turn.",
+        "note": "Buys a longer runway and then fails the same way at a higher turn count."
+      },
+      {
+        "id": "d",
+        "text": "Reduce max_tokens so each individual response consumes fewer tokens.",
+        "note": "Output size is a small contributor next to accumulated history."
+      }
+    ],
+    "explanation": "Unbounded history growth is the cause, so the fix has to bound it. Compaction preserves decisions while pruning removes content that has since been superseded."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-021",
+    "license": "MIT"
+  }
+}

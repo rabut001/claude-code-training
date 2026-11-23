@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.4-sampled-traces-versus-accounting",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.4 Analyze observability challenges and select monitoring strategies at scale",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "observability",
+    "usage-accounting",
+    "trace-sampling"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A finance team needs historical organization-wide Claude API usage reconciliation. Its observability destination intentionally samples traces, occasionally loses exports, and sometimes receives duplicate spans. Administrative Usage and Cost API access is available for this deployment. Which design is appropriate?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Multiply sampled trace totals by the inverse sample rate and treat the result as an exact billing ledger.",
+        "note": "Sampling estimates cannot reconstruct every missing request exactly, and export loss or duplicate delivery can introduce additional error. The resulting total is not a complete accounting record."
+      },
+      {
+        "id": "b",
+        "text": "Turn off intentional sampling and use delivered trace totals as authoritative because export then becomes lossless.",
+        "note": "Best-effort export can still lose spans even when intentional sampling is disabled. Removing one source of incompleteness does not create a guaranteed ledger."
+      },
+      {
+        "id": "c",
+        "text": "Reconcile historical Usage and Cost API reports, allowing for reporting delay and scope, while using deduplicated traces for diagnosis.",
+        "note": "The administrative reports include usage for requests absent from traces and support reconciliation. Their documented delay and platform or cost-category limitations still need to be respected."
+      },
+      {
+        "id": "d",
+        "text": "Sum all client and server span token totals so missing sampled requests are offset by repeated usage on other spans.",
+        "note": "Double counting observed requests does not recover missing ones. Combining repeated usage levels produces a biased total with no accounting relationship to the omitted requests."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: OpenTelemetry tracing for the Claude API",
+      "url": "https://platform.claude.com/docs/en/manage-claude/opentelemetry"
+    },
+    {
+      "title": "Anthropic: Usage and Cost API",
+      "url": "https://platform.claude.com/docs/en/manage-claude/usage-cost-api"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.4.json",
+    "orig_id": "ccarp-3.4-sampled-traces-versus-accounting",
+    "license": "MIT"
+  }
+}

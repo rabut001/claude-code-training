@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.5-corpus-expansion-revalidation",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.5 Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "corpus-change",
+    "data-lifecycle",
+    "revalidation"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A technical-support assistant's approved corpus contains public installation guides. A department wants to add internal incident reports containing restricted customer details and superseded procedures. The model and prompts will not change. Existing acceptance evidence covers only public guides, and policy forbids disclosing customer-specific reports to unrelated users. What should happen before the expanded index is promoted?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Treat indexing as a data-only refresh and retain the existing approval because no model, prompt, or application code changes.",
+        "note": "The new data changes access and correctness risks even without a model or code change, so prior public-guide evidence is insufficient."
+      },
+      {
+        "id": "b",
+        "text": "Index the reports for all users and rely on a disclaimer that incident procedures may be outdated and customer details may be present.",
+        "note": "A disclaimer does not enforce the stated disclosure boundary or establish which procedures are authoritative."
+      },
+      {
+        "id": "c",
+        "text": "Reassess source authority, access and retention constraints, test the changed retrieval behavior, and obtain owner approval with a recovery plan.",
+        "note": "The corpus expansion changes information dependencies and risks, requiring relevant control and acceptance evidence before promotion."
+      },
+      {
+        "id": "d",
+        "text": "Check ingestion counts and embedding completion, then approve the expanded corpus if the new records are searchable without indexing errors.",
+        "note": "Ingestion success does not establish authorized retrieval, correct use of current procedures, or compliance with the customer-data boundary."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "NIST AI RMF Playbook: Govern",
+      "url": "https://airc.nist.gov/airmf-resources/playbook/govern/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.5.json",
+    "orig_id": "ccarp-6.5-corpus-expansion-revalidation",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.2-uncertain-write-recovery",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.2 Design end-to-end architectures (input → processing → output → feedback loops)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "state-reliability",
+    "retries",
+    "external-effects"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An agent requests a refund, then its tool connection times out before returning a result. A checkpoint contains the operation's idempotency key. The refund service supports status lookup by that key and guarantees that retries with the same key do not create another refund. How should the recovery path use this contract?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Restart the task with a new operation key and let the refund service process the replacement request normally.",
+        "note": "A new key identifies a different operation. If the timed-out request already succeeded, this recovery can create a duplicate refund."
+      },
+      {
+        "id": "b",
+        "text": "Look up the recorded refund key, reconcile its outcome, and resume under the service's same-key retry guarantee.",
+        "note": "A timeout leaves the external effect uncertain. Status reconciliation and the explicitly provided deduplication contract allow recovery without assuming that missing output means no effect."
+      },
+      {
+        "id": "c",
+        "text": "Resume from the last user message and ask Claude whether its previous refund attempt probably completed successfully.",
+        "note": "Model inference about its own attempt cannot establish external service state. Recovery needs the operation record and service evidence."
+      },
+      {
+        "id": "d",
+        "text": "Mark the refund failed and notify the user, leaving the original operation unreconciled until a later complaint.",
+        "note": "The refund may already exist despite the timeout. Reporting failure without reconciling it creates an inaccurate outcome and leaves a potentially consequential effect unmanaged."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    },
+    {
+      "title": "Building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.2.json",
+    "orig_id": "ccarp-1.2-uncertain-write-recovery",
+    "license": "MIT"
+  }
+}

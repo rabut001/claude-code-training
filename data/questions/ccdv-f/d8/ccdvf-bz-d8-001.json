@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-001",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Tool Implementation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "An MCP server exposes search_customers described as \"Find customer records\" and search_orders described as \"Find customer order records\". Claude frequently picks the wrong one. What is the best fix?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Withdraw the less frequently used of the two tools from the exposed set.",
+        "note": "Deleting a needed capability to work around wording breaks functionality."
+      },
+      {
+        "id": "b",
+        "text": "Merge the pair into a single tool with a record_type enumeration parameter.",
+        "note": "A generic multipurpose tool hides intent behind an enum and usually selects worse."
+      },
+      {
+        "id": "c",
+        "text": "Rewrite each description to state purpose, inputs, and when to prefer it.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Add keyword routing that selects the tool before the request reaches Claude.",
+        "note": "Brittle keyword rules discard the contextual understanding that makes tool use work."
+      }
+    ],
+    "explanation": "Selection is driven almost entirely by the description, and these two are nearly identical strings, so there is nothing to discriminate on. Stating the boundary against the sibling tool is the highest-leverage fix."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use best practices",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-001",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.4-stream-terminal-state-monitoring",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.4 Analyze observability challenges and select monitoring strategies at scale",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "observability",
+    "streaming",
+    "request-correlation"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A Claude Messages API 2026-10-21 service uses server-sent events. Its dashboard records success when HTTP 200 arrives, but some streams later emit an overload error and never deliver a complete answer. Which monitoring change best exposes this reliability gap?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Record the first content event as success instead of recording the HTTP response status.",
+        "note": "An early content event still precedes possible stream errors or incomplete generation. Moving the success marker slightly later does not establish a completed answer."
+      },
+      {
+        "id": "b",
+        "text": "Count a request as successful whenever at least one output token is reported in usage.",
+        "note": "A failed stream can generate billable tokens before interruption. Token production is not evidence that the user received a complete acceptable response."
+      },
+      {
+        "id": "c",
+        "text": "Exclude streaming requests from error-rate monitoring and compare only their time to first token.",
+        "note": "Time to first token measures responsiveness, not stream reliability. Excluding these requests hides the failures rather than accounting for their terminal state."
+      },
+      {
+        "id": "d",
+        "text": "Track stream error events, normal completion, final stop reason, and application outcome with the provider request ID.",
+        "note": "Streaming errors can occur after HTTP status is committed. Terminal stream state and application outcome distinguish a delivered answer from an interrupted attempt, while the request ID supports investigation."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Claude API errors",
+      "url": "https://platform.claude.com/docs/en/api/errors"
+    },
+    {
+      "title": "Anthropic: Streaming messages",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/streaming"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.4.json",
+    "orig_id": "ccarp-3.4-stream-terminal-state-monitoring",
+    "license": "MIT"
+  }
+}

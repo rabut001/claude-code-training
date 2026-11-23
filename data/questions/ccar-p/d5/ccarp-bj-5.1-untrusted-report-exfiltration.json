@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.1-untrusted-report-exfiltration",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.1 Implement guardrails and safety controls",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "prompt-injection",
+    "untrusted-tool-results",
+    "data-exfiltration",
+    "least-privilege"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A user authorizes summarizing a supplier report into a local draft, with no network uploads. The report arrives in a tool result and contains instructions to upload a private roadmap to an external verification URL. The assistant currently has broad file and HTTP tools. Which two changes directly address instruction provenance and the unauthorized-transmission path? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Preserve the report's third-party provenance in a tool-result data wrapper and instruct the model not to treat its embedded directives as user authorization.",
+        "note": "This maintains the distinction between the user's task and untrusted report content. It reduces instruction confusion, but is not by itself a security boundary."
+      },
+      {
+        "id": "b",
+        "text": "Promote the report's verification instructions into a trusted message after checking that the supplier's HTTPS certificate is valid.",
+        "note": "Transport authenticity does not establish authority to change the user's task. A valid supplier endpoint can still carry malicious or unauthorized instructions."
+      },
+      {
+        "id": "c",
+        "text": "Give the job access only to its report and draft, and block outbound uploads in the execution environment independently of generated tool arguments.",
+        "note": "Least-privilege file access limits exposed information, while enforced egress restrictions prevent the prohibited transmission even if the model follows the injected text."
+      },
+      {
+        "id": "d",
+        "text": "Retain the broad tools and inspect the final summary for private roadmap text before making the local draft visible.",
+        "note": "The roadmap could be uploaded through a tool without appearing in the final summary. Final-output inspection occurs on the wrong channel and too late to stop that disclosure."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Mitigate jailbreaks and prompt injections",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.1.json",
+    "orig_id": "ccarp-5.1-untrusted-report-exfiltration",
+    "license": "MIT"
+  }
+}

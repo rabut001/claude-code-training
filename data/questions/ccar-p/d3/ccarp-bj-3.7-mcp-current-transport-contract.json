@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.7-mcp-current-transport-contract",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.7 Evaluate connection protocols and select the appropriate integration mechanism (MCP, API/CLI, agent-to-agent)",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "integration-mechanisms",
+    "mcp",
+    "stdio",
+    "streamable-http",
+    "protocol-version"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A reusable tool service must support both a client-launched local worker and an independently hosted remote endpoint. All participating clients and servers target MCP 2026-07-28; compatibility with older initialization-based revisions is out of scope. Which transport and request-metadata decisions match that exact version? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Establish protocol version and capabilities only through a mandatory connection-scoped initialize handshake.",
+        "note": "The current version carries this metadata per request. The transport overview discusses connection-scoped initialization as an earlier-revision compatibility model, not the required current contract."
+      },
+      {
+        "id": "b",
+        "text": "Use stdio for the client-launched worker and Streamable HTTP with per-message POSTs and JSON or request-scoped SSE replies for the remote endpoint.",
+        "note": "These are the documented standard bindings for the two deployment shapes. The framing and delivery differ while the core MCP protocol semantics remain the same."
+      },
+      {
+        "id": "c",
+        "text": "Require a persistent standalone SSE connection before any remote tool request because all MCP HTTP communication depends on that session.",
+        "note": "MCP 2026-07-28 describes per-message HTTP POSTs with JSON-object or request-scoped SSE responses. A mandatory persistent SSE session is not that binding's transport contract."
+      },
+      {
+        "id": "d",
+        "text": "Carry protocol version and client capabilities in the request body's _meta fields, treating the body as authoritative if the binding mirrors metadata.",
+        "note": "This version puts protocol metadata in each request body. Selected values may also be mirrored by the HTTP binding, but the body remains the source of truth."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "MCP specification: Transport overview",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.7.json",
+    "orig_id": "ccarp-3.7-mcp-current-transport-contract",
+    "license": "MIT"
+  }
+}

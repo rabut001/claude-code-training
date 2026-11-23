@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-028",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Technical Fundamentals",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A prompt of 180,000 tokens is sent to a model with a 200,000-token context window, with max_tokens set to 30,000. What happens?",
+    "options": [
+      {
+        "id": "a",
+        "text": "It succeeds, because max_tokens is counted separately from the input window.",
+        "note": "This is the single most common misconception about context windows."
+      },
+      {
+        "id": "b",
+        "text": "It fails or truncates, because input and output share the same window.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "It succeeds and the output is silently capped at 20,000 tokens instead.",
+        "note": "The failure is not silent, so your code must handle it rather than assume a cap."
+      },
+      {
+        "id": "d",
+        "text": "It succeeds, because max_tokens is only an advisory hint to the sampler.",
+        "note": "max_tokens is a hard cap and still has to fit inside the window."
+      }
+    ],
+    "explanation": "The window holds input and output together, so your generation budget is the window minus what the input already consumed. The request must leave room for the response you asked for."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D5-028",
+    "license": "MIT"
+  }
+}

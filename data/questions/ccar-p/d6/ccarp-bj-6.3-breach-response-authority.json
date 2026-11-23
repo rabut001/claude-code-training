@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.3-breach-response-authority",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.3 Manage stakeholder feedback loops and expectation alignment (including SLAs)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "sla-breach",
+    "error-budget-policy",
+    "service-ownership"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A freight assistant misses its agreed monthly availability commitment after a retrieval outage. The signed service agreement requires notification within one hour and activation of an owned manual fallback. The approved error-budget policy suspends feature releases while reliability is restored. The retrieval provider's own dashboard remains green. What should the service owner do first?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Wait for the retrieval provider to acknowledge an outage, then begin the notification clock and determine whether the customer agreement applies.",
+        "note": "The application's measured breach and signed response obligations do not depend on the provider accepting responsibility."
+      },
+      {
+        "id": "b",
+        "text": "Issue the monthly availability report on schedule and preserve current releases because a published miss is sufficient evidence that the team responded.",
+        "note": "A report does not fulfill the explicit notification, fallback, and release-policy actions required by the agreement."
+      },
+      {
+        "id": "c",
+        "text": "Temporarily lower the internal availability objective to match observed performance, then ask the customer whether notification is still necessary this month.",
+        "note": "Changing an internal objective cannot retroactively remove an existing customer commitment or its already-triggered response obligations."
+      },
+      {
+        "id": "d",
+        "text": "Notify on time, activate the fallback, and enforce the reliability policy while investigating the failed dependency.",
+        "note": "This executes the agreed owned response immediately while allowing causal investigation to continue separately."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    },
+    {
+      "title": "Google SRE Workbook: Implementing SLOs",
+      "url": "https://sre.google/workbook/implementing-slos/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.3.json",
+    "orig_id": "ccarp-6.3-breach-response-authority",
+    "license": "MIT"
+  }
+}

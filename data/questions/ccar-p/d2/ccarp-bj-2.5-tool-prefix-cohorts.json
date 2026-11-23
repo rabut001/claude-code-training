@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.5-tool-prefix-cohorts",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.5 Implement prompt reuse strategies (caching, modular prompts, Skills)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "prompt-caching",
+    "tool-schemas",
+    "prefix-hierarchy"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A service caches its unchanged system instructions, but required customer-specific tool schemas differ in the top-level tools array. The service must keep those schemas distinct and does not use an inline tool-change feature. The team expects one system cache entry to be reusable across all customers because the system text is identical. Which adjustment follows the documented prefix hierarchy?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Extend the system entry's lifetime and share it across customer schemas, treating longer retention as permission to ignore preceding tools.",
+        "note": "Lifetime does not alter the prefix hash. The system cache depends on the earlier tools portion as well as the system text."
+      },
+      {
+        "id": "b",
+        "text": "Group reuse measurements by identical tools-and-system prefixes, retaining distinct required schemas and accounting for separate writes.",
+        "note": "The cache hierarchy is tools, then system, then messages. Different top-level tools create different cumulative system prefixes even when system text is unchanged."
+      },
+      {
+        "id": "c",
+        "text": "Serialize system before tools in the request JSON so that the system cache no longer depends on the tools.",
+        "note": "Object-key order in the request does not replace the documented cache hierarchy. The effective prefix still includes tools before system content."
+      },
+      {
+        "id": "d",
+        "text": "Mark an earlier system block and expect it to match independently of the tools array.",
+        "note": "Moving within the system section can exclude later system text but cannot exclude the preceding tools. It does not create a tool-independent system prefix."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.5.json",
+    "orig_id": "ccarp-2.5-tool-prefix-cohorts",
+    "license": "MIT"
+  }
+}

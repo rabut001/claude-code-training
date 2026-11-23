@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.1-migration-contract-check",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.1 Select appropriate Claude models based on trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "model-migration",
+    "feature-compatibility",
+    "thinking-modes"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An existing integration uses manual thinking for analysis calls and forced tool selection for separate action calls. A replacement model scores better on the team's answer-quality benchmark, but its published integration contract rejects the old thinking configuration and restricts forced tool selection. The workflow depends on both controls in their respective calls. What should the migration decision require?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Adapt the workflow to supported controls; retest complete tool behavior, quality, timing, and cost before rollout.",
+        "note": "A model migration changes an execution contract as well as answer quality. Unsupported controls require an intentional workflow change, and the changed integration must satisfy the original requirements."
+      },
+      {
+        "id": "b",
+        "text": "A model-ID substitution only, because higher answer quality establishes backward compatibility.",
+        "note": "Benchmark performance does not override documented request incompatibilities. The old request can fail before the model produces an answer."
+      },
+      {
+        "id": "c",
+        "text": "Removal of the rejected settings, with rollout based solely on the existing answer-quality score.",
+        "note": "Deleting controls may make requests accepted while changing tool behavior and reasoning allocation. The original quality-only benchmark does not certify the modified workflow."
+      },
+      {
+        "id": "d",
+        "text": "Retain the control sequence under its previously accepted beta header, using the answer-quality score as the compatibility gate.",
+        "note": "Header acceptance is not evidence that an unsupported capability becomes effective. Compatibility must be checked for the selected model and platform rather than inherited from the old integration."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Choosing the right model",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+    },
+    {
+      "title": "Extended thinking",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking"
+    },
+    {
+      "title": "Thinking",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/thinking"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.1.json",
+    "orig_id": "ccarp-2.1-migration-contract-check",
+    "license": "MIT"
+  }
+}

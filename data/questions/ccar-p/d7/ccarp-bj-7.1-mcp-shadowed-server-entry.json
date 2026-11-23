@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.1-mcp-shadowed-server-entry",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.1 Configure Claude tools and environments for teams (e.g., Claude Code)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "mcp",
+    "configuration-precedence",
+    "environment-consistency"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A repository's .mcp.json defines an issues server at an approved endpoint. One developer also has an ordinary local-scope server named issues pointing to a test endpoint. There is no managed server definition. Updating the shared entry's URL and authentication configuration does not change that developer's target. The team wants the shared definition used normally, with experiments explicitly named. What is the best diagnosis and correction?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The two scopes merge server fields; keep the local entry and add the approved URL again to the shared entry.",
+        "note": "Duplicate ordinary MCP server names select an entire entry rather than merging its fields. Repeating a field in the lower-priority project entry does not change the selected local server."
+      },
+      {
+        "id": "b",
+        "text": "General user settings supply missing MCP fields; copy the approved server's authentication configuration into ~/.claude/settings.json.",
+        "note": "MCP scope selection is separate from general settings precedence. Adding server properties to user settings does not repair a local MCP entry shadowing the project entry."
+      },
+      {
+        "id": "c",
+        "text": "User-wide MCP definitions always outrank local and project definitions; delete any user-wide issues entry first.",
+        "note": "For ordinary duplicate server names, local outranks project and project outranks user. A user-wide entry is not the higher-priority cause described in this scenario."
+      },
+      {
+        "id": "d",
+        "text": "The local issues entry shadows the whole shared entry; verify its target, then remove or rename the local override and give experiments distinct names.",
+        "note": "The local entry wins as a complete server definition. Removing that collision lets the project definition apply, while a separate experiment name avoids silently redirecting the shared server name."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Connect Claude Code to tools via MCP",
+      "url": "https://code.claude.com/docs/en/mcp"
+    },
+    {
+      "title": "Settings files and precedence",
+      "url": "https://code.claude.com/docs/en/settings"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.1.json",
+    "orig_id": "ccarp-7.1-mcp-shadowed-server-entry",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-010",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Prompt Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A prompt template inserts user input directly: \"Answer this question about our policy: {user_input}\". A user submits text that itself contains instructions. What is the best structural mitigation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Delimit the input as data, and keep privileged capability off that path.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Rely on the system prompt, which takes precedence over user-supplied text.",
+        "note": "System prompts are influential but are not a guaranteed precedence mechanism."
+      },
+      {
+        "id": "c",
+        "text": "Reject any submission containing words such as \"ignore\" or \"disregard\".",
+        "note": "Keyword blocklists are trivially evaded by rephrasing or encoding."
+      },
+      {
+        "id": "d",
+        "text": "Lower the sampling temperature so stray instructions are less likely followed.",
+        "note": "Temperature has no effect on injection susceptibility."
+      }
+    ],
+    "explanation": "Delimiting and framing untrusted input as data is the prompt-layer defence, and it must be paired with an architectural one, because no single layer is sufficient against adversarial text."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Mitigate jailbreaks",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-010",
+    "license": "MIT"
+  }
+}

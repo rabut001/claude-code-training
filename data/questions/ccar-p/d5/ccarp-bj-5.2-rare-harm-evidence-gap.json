@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.2-rare-harm-evidence-gap",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.2 Identify risks, limitations, and failure modes of LLM systems",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "rare-failures",
+    "uncertainty",
+    "risk-acceptance",
+    "irreversible-actions"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A file-management agent has made no unauthorized deletions in 400 routine pilot tasks. Production would include millions of tasks, unfamiliar archive formats, and irreversible deletion. The risk owner requires assurance for those conditions before enabling deletion, but no archive adversarial tests or recovery evidence exist. Which launch conclusion is justified?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The pilot demonstrates zero residual deletion risk, so production monitoring can replace further prelaunch assurance.",
+        "note": "No observed incidents in a bounded routine sample does not establish absence of rare failures or reliability on untested formats. Monitoring also acts after an irreversible loss."
+      },
+      {
+        "id": "b",
+        "text": "An unchanged average task-success score is sufficient, provided any unauthorized deletion is counted as one ordinary failed task.",
+        "note": "A pooled success rate can conceal a severe failure mode among many harmless successes. It does not supply the condition-specific assurance required by the risk owner."
+      },
+      {
+        "id": "c",
+        "text": "Document the unmeasured exposure, keep irreversible deletion disabled, and obtain the required control and evaluation evidence before risk acceptance.",
+        "note": "The evidence does not cover the production conditions or consequences named in the acceptance requirement. Constraining the capability prevents an evidence gap from being treated as a passed risk gate."
+      },
+      {
+        "id": "d",
+        "text": "Launch with a low numerical risk score derived from zero pilot incidents, assigning untested archive formats the same score.",
+        "note": "Extending the observed rate to materially untested conditions creates unsupported precision. A score cannot replace the missing evidence or the owner's acceptance requirement."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.2.json",
+    "orig_id": "ccarp-5.2-rare-harm-evidence-gap",
+    "license": "MIT"
+  }
+}

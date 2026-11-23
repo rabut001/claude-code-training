@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d3-003",
+  "exam": "ccdv-f",
+  "domain": "d3",
+  "subdomain": "Claude Code Operation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which Claude Code capability is intended for running it non-interactively inside a CI pipeline?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Plan mode, which produces a reviewable plan the pipeline can archive.",
+        "note": "Plan mode is an interactive approval workflow."
+      },
+      {
+        "id": "b",
+        "text": "The /resume command, which reattaches the pipeline to a prior session.",
+        "note": "/resume reopens a previous interactive session."
+      },
+      {
+        "id": "c",
+        "text": "Agent memory, which supplies the project context a pipeline job needs.",
+        "note": "Memory supplies context; it is not an execution mode."
+      },
+      {
+        "id": "d",
+        "text": "Headless mode, invoked with the print flag to run a prompt to completion.",
+        "note": ""
+      }
+    ],
+    "explanation": "It runs a single prompt to completion and emits output suitable for scripting, which is what a CI job needs. Interactive features have no meaning where no terminal is attached."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Headless mode",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/sdk"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d3-claude-code.js",
+    "orig_id": "D3-003",
+    "license": "MIT"
+  }
+}

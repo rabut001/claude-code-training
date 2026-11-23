@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d4-003",
+  "exam": "ccdv-f",
+  "domain": "d4",
+  "subdomain": "Debugging and Error Handling",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "How do you determine whether a failure originates in the integration layer or in the model's output?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Model failures surface as HTTP errors, whereas integration failures do not.",
+        "note": "Model quality failures return HTTP 200, which is what makes them hard to catch."
+      },
+      {
+        "id": "b",
+        "text": "Integration failures only appear under high load, so reproduce at peak traffic.",
+        "note": "Integration bugs frequently appear on specific inputs at any load."
+      },
+      {
+        "id": "c",
+        "text": "Inspect the raw response: well-formed but wrong points at the prompt or model.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Model failures are always reproducible when temperature is set to zero.",
+        "note": "Temperature 0 reduces variation but does not guarantee reproducibility."
+      }
+    ],
+    "explanation": "The raw response separates the two. A malformed request, a wrong parameter, an unhandled stop_reason, or a bad tool result points at your code instead."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Errors",
+      "url": "https://docs.anthropic.com/en/api/errors"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d4-eval-debug.js",
+    "orig_id": "D4-003",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-011",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "Identity, Secrets, and Key Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Which practice best protects an Anthropic API key used by a production service?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Inject it at runtime from a secret manager, scoped per service and rotated.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Commit it to the repository, relying on restricted repository access control.",
+        "note": "Repository access changes over time and git history is permanent."
+      },
+      {
+        "id": "c",
+        "text": "Bake it into the container image so the service always starts with it present.",
+        "note": "Image layers are extractable by anyone able to pull the image."
+      },
+      {
+        "id": "d",
+        "text": "Issue one shared key for every service so that rotation stays straightforward.",
+        "note": "One compromise then affects everything, and rotation becomes a coordinated outage."
+      }
+    ],
+    "explanation": "Runtime injection keeps the key out of code, images, and history. Per-service scoping limits blast radius, rotation limits the value of a leak, and usage monitoring detects misuse."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Getting started",
+      "url": "https://docs.anthropic.com/en/api/getting-started"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-011",
+    "license": "MIT"
+  }
+}

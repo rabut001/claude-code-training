@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.5-optimize-generation-dominated-latency",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.5 Optimize token usage, latency, and cost-performance trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "latency-optimization",
+    "output-tokens",
+    "quality-gates"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Profiling shows an assistant spends little time processing its already-cached input, but most completion time generating a long explanation. Users need only a compact decision and two reasons, and the current answers contain repeated material. Which change targets the measured bottleneck without relying on truncation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Extend the input-cache lifetime and leave the response format unchanged.",
+        "note": "The observed input processing is already small and the cache is hitting. Extending its lifetime does not reduce the dominant output-generation work."
+      },
+      {
+        "id": "b",
+        "text": "Request the compact decision format and verify completeness on the quality suite.",
+        "note": "Removing unnecessary generated material targets the dominant latency component. Testing the compact contract checks that shorter answers retain the decision and required reasons rather than merely cutting output off."
+      },
+      {
+        "id": "c",
+        "text": "Enable streaming and keep the same repeated explanation as the final output.",
+        "note": "Streaming can improve time to visible content, but does not establish reduced total generation time. The unnecessary output remains on the completion path."
+      },
+      {
+        "id": "d",
+        "text": "Set a hard output cap below the current answer length and accept any stopped response.",
+        "note": "A hard cap can interrupt the decision or one of its required reasons. Accepting a stopped response without completeness checks trades away the stated output contract."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic: Reducing latency",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-latency"
+    },
+    {
+      "title": "Anthropic: Prompt caching",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.5.json",
+    "orig_id": "ccarp-4.5-optimize-generation-dominated-latency",
+    "license": "MIT"
+  }
+}

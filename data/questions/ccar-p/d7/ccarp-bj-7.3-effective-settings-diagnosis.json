@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.3-effective-settings-diagnosis",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.3 Support debugging and operational issue resolution",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "debugging",
+    "effective-configuration",
+    "settings-validation"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An unattended Claude Code run exits successfully after a team changes a permission entry in ordinary project settings, but the intended restriction is absent. Another developer's interactive session behaves differently. Its /status view lists the project settings as loaded. Before changing prompts or permissions, what investigation is most useful?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Strengthen CLAUDE.md wording first, because a loaded settings source means the remaining difference must be model adherence.",
+        "note": "Listing a settings source does not prove that every value in it was accepted or supplied the effective rule. Rewriting model guidance does not diagnose a dropped or conflicting permission entry."
+      },
+      {
+        "id": "b",
+        "text": "Treat /status as per-key provenance and compare model outputs only after ruling out the shared file as a cause.",
+        "note": "/status identifies active settings sources, not the source and validity of each key. It cannot by itself rule out a rejected value or interaction with other applicable settings."
+      },
+      {
+        "id": "c",
+        "text": "Use the zero process exit to certify the project settings, then investigate tool-server availability rather than configuration loading.",
+        "note": "A non-interactive run can skip broken ordinary settings or individual values and still continue successfully. Process success therefore does not certify that the intended restriction loaded."
+      },
+      {
+        "id": "d",
+        "text": "Record versions and active setting sources, inspect rejected entries with claude doctor, and safely reproduce the restriction using the applicable rules.",
+        "note": "This checks what the client actually accepted and which other sources may affect the outcome. A controlled reproduction verifies the restriction instead of inferring enforcement from a file listing or successful run."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Settings files and precedence",
+      "url": "https://code.claude.com/docs/en/settings"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.3.json",
+    "orig_id": "ccarp-7.3-effective-settings-diagnosis",
+    "license": "MIT"
+  }
+}

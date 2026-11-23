@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.4-cached-input-still-counts",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.4 Optimize context windows and manage token usage",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "context-capacity",
+    "prompt-caching",
+    "context-curation"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "An assistant resends a large cached policy collection on every turn. The team measures substantial cache reads, but the next request's input alone exceeds the selected model's context window. They cannot change models. Which response addresses the capacity problem?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Extend cache lifetime so that policy tokens stop occupying active context.",
+        "note": "Lifetime controls how long a cached prefix can be reused. Cached tokens still occupy the model's context window."
+      },
+      {
+        "id": "b",
+        "text": "Split the policy across cache breakpoints and budget each segment against its own independent context allowance.",
+        "note": "Breakpoints control prefix reuse, not separate context windows. Splitting cache positions does not reduce the combined input size."
+      },
+      {
+        "id": "c",
+        "text": "Reduce max_tokens while retaining the oversized input unchanged.",
+        "note": "Input alone already exceeds capacity, so reducing the output allowance cannot make this request valid. The application must reduce what enters context."
+      },
+      {
+        "id": "d",
+        "text": "Select task-relevant policy evidence; keep the complete collection outside active context.",
+        "note": "Selecting relevant evidence reduces active input size. Caching changes processing and billing but does not provide extra context capacity."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Context windows",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows"
+    },
+    {
+      "title": "Effective context engineering for AI agents",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.4.json",
+    "orig_id": "ccarp-2.4-cached-input-still-counts",
+    "license": "MIT"
+  }
+}

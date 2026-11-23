@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-007",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "Guardrails and Safe Deployment",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Which is an example of a deterministic guardrail as opposed to a probabilistic one?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A code check that blocks responses matching a card-number pattern.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "A system prompt instructing the model to refuse requests for medical advice.",
+        "note": "Instructions strongly influence behaviour but can be circumvented."
+      },
+      {
+        "id": "c",
+        "text": "A few-shot example demonstrating how a refusal should be worded.",
+        "note": "Examples shape behaviour probabilistically."
+      },
+      {
+        "id": "d",
+        "text": "Selecting a more capable model tier that refuses unsafe requests more often.",
+        "note": "Capability reduces error rates without providing any guarantee."
+      }
+    ],
+    "explanation": "A deterministic guardrail is code that always executes and returns the same decision for the same input. It either fires or does not, without depending on the model choosing to comply."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Strengthen guardrails",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-007",
+    "license": "MIT"
+  }
+}

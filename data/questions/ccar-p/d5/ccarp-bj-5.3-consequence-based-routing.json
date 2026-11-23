@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.3-consequence-based-routing",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.3 Apply human-in-the-loop validation strategies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "human-in-the-loop",
+    "risk-routing",
+    "reversibility"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An assistant generates editable email subject-line drafts and can also request permanent project deletion. Evaluated drafts are eligible for sampled review; company policy requires the project owner's approval before every permanent deletion. Which routing strategy meets these rules without adding mandatory review to eligible drafts?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sample both task types after completion, increasing the deletion sample if users report a mistake.",
+        "note": "Post-action sampling cannot prevent a permanent deletion that requires prior owner approval. Consequences and policy distinguish the two task types."
+      },
+      {
+        "id": "b",
+        "text": "Sample eligible drafts and hold each deletion for the qualified owner's explicit approval before execution.",
+        "note": "This uses the permitted lower-cost review strategy for reversible drafts while preserving mandatory approval for irreversible actions. Model confidence does not waive the deletion requirement."
+      },
+      {
+        "id": "c",
+        "text": "Review every subject-line draft before delivery and review deletions only when the assistant reports uncertainty.",
+        "note": "This adds review where it is not mandatory while leaving confident deletion requests outside a required control. Generated certainty is not an exception to the policy."
+      },
+      {
+        "id": "d",
+        "text": "Use the same uncertainty threshold for both tasks and automatically release any output above that threshold.",
+        "note": "A common threshold ignores differences in reversibility and explicit approval obligations. Even an accurately calibrated signal cannot override the stated deletion rule."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.3.json",
+    "orig_id": "ccarp-5.3-consequence-based-routing",
+    "license": "MIT"
+  }
+}

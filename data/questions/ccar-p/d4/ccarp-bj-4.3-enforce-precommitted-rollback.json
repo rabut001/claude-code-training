@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.3-enforce-precommitted-rollback",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.3 Conduct A/B testing and iterative improvements",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "ab-testing",
+    "guardrails",
+    "rollback"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An A/B rollout defines task completion as its primary outcome and requires immediate rollback after any verified unauthorized write by the candidate. The candidate improves completion, but an investigation confirms one unauthorized write. What should the experiment owner do?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Continue until the completion improvement reaches the planned confidence target.",
+        "note": "The security guardrail explicitly requires immediate rollback and is independent of the primary outcome's statistical maturity. Waiting exposes users after the stopping condition has already been met."
+      },
+      {
+        "id": "b",
+        "text": "Roll back the candidate and investigate the write before any renewed rollout.",
+        "note": "The verified event triggers the experiment's precommitted safety condition. An improvement in completion does not override a separate unauthorized-write gate."
+      },
+      {
+        "id": "c",
+        "text": "Exclude the unauthorized-write workflow and declare the candidate the winner.",
+        "note": "Removing the failing slice after observing it changes the eligibility and acceptance rules retrospectively. It does not establish safety for the rollout that was actually tested."
+      },
+      {
+        "id": "d",
+        "text": "Combine the write rate with completion improvement in a weighted final score.",
+        "note": "A weighted score would replace the explicit rollback rule with a compensating trade-off. The experiment owner has not been authorized to average away an unauthorized write."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.3.json",
+    "orig_id": "ccarp-4.3-enforce-precommitted-rollback",
+    "license": "MIT"
+  }
+}

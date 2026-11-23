@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-013",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Agentic Customisation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Which requirement most clearly calls for an MCP server rather than a Skill?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Capturing the team's code review conventions so every review follows them.",
+        "note": "Conventions are instructions, best expressed as a Skill or in memory."
+      },
+      {
+        "id": "b",
+        "text": "Querying and updating records in an internal inventory system over the network.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Standardising the structure and wording of commit messages across the repo.",
+        "note": "A formatting convention is knowledge rather than integration."
+      },
+      {
+        "id": "d",
+        "text": "Explaining the project's directory layout so files are created in the right place.",
+        "note": "Layout description is context, not a capability."
+      }
+    ],
+    "explanation": "Live interaction with an external system, with authenticated calls and state changes, needs executable integration. The other three are knowledge, which Skills or memory files convey."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Model Context Protocol — Introduction",
+      "url": "https://modelcontextprotocol.io/introduction"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-013",
+    "license": "MIT"
+  }
+}

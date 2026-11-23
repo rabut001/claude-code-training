@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.1-purchasing-source-authority",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.1 Conduct structured discovery and requirement gathering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "source-authority",
+    "data-requirements",
+    "discovery-risk"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "A manufacturer wants a Claude assistant to explain which purchasing terms apply to an order. Procurement cites a policy wiki; contract staff cite signed amendments in a separate repository. An amendment can override the wiki, but no one has established repository coverage, access rights, or update delay. A wrong explanation can cause a disputed payment. Which discovery outcome is necessary before committing to a retrieval design?",
+    "options": [
+      {
+        "id": "a",
+        "text": "An agreed policy of retrieving the most recently edited document, with disagreement between repositories counted as ordinary model uncertainty.",
+        "note": "Edit recency does not establish contractual authority, and model uncertainty does not resolve missing amendments or inaccessible evidence."
+      },
+      {
+        "id": "b",
+        "text": "An owner-approved source hierarchy and evidence of amendment coverage, permitted access, update delay, and behavior when authoritative evidence is missing.",
+        "note": "These requirements establish whether the available sources can support the intended explanations within the organization's error tolerance."
+      },
+      {
+        "id": "c",
+        "text": "A prompt requiring both repositories to be quoted, with business acceptance based on whether the response presents competing interpretations clearly.",
+        "note": "Presenting both interpretations does not establish which terms govern or address gaps in authoritative source access and coverage."
+      },
+      {
+        "id": "d",
+        "text": "A larger retrieval budget and a second model reviewer, with source ownership and update expectations deferred until disputed cases appear.",
+        "note": "More retrieval and review cannot guarantee access to missing authoritative amendments; the unresolved data dependencies belong in discovery."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.1.json",
+    "orig_id": "ccarp-6.1-purchasing-source-authority",
+    "license": "MIT"
+  }
+}

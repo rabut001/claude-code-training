@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-6.3-service-commitment-definitions",
+  "exam": "ccar-p",
+  "domain": "d6",
+  "subdomain": "6.3 Manage stakeholder feedback loops and expectation alignment (including SLAs)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "sli",
+    "slo",
+    "sla",
+    "expectation-alignment"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A returns assistant measures 97% of eligible requests receiving a complete response within eight seconds over a rolling 28-day window. Its internal target is 99%. A customer agreement separately defines the promised service and notification and credit obligations when it is missed. Which description correctly distinguishes these artifacts?",
+    "options": [
+      {
+        "id": "a",
+        "text": "The measured 97% is the service level objective; the 99% target is the service level agreement; notification and credits are service level indicators.",
+        "note": "A measured service result is an indicator, while a target is an objective and agreement consequences belong to the agreement."
+      },
+      {
+        "id": "b",
+        "text": "The measured 97% is the service level agreement; the 99% target is the service level indicator; the customer agreement is an internal service level objective.",
+        "note": "This reverses measurement, target, and agreement; a dashboard result is not itself a customer agreement."
+      },
+      {
+        "id": "c",
+        "text": "The measured ratio is a service level indicator, the 99% target is a service level objective, and the customer agreement is a service level agreement.",
+        "note": "An SLI measures service behavior, an SLO sets its target, and an SLA specifies the agreed commitment and associated obligations."
+      },
+      {
+        "id": "d",
+        "text": "The 97% result and 99% target are both service level agreements; notification and credits make the customer document a service level indicator.",
+        "note": "Metrics and targets do not become agreements merely by being reported, and contractual remedies are not measurements of service behavior."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Google SRE Workbook: Implementing SLOs",
+      "url": "https://sre.google/workbook/implementing-slos/"
+    },
+    {
+      "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/stakeholder-engagement-lifecycle-gtm"
+    },
+    {
+      "title": "HHS OCR: Guidance on HIPAA & Cloud Computing",
+      "url": "https://www.hhs.gov/hipaa/for-professionals/special-topics/health-information-technology/cloud-computing/index.html"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/6.3.json",
+    "orig_id": "ccarp-6.3-service-commitment-definitions",
+    "license": "MIT"
+  }
+}

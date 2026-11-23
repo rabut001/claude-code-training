@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.1-whole-session-isolation",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.1 Configure Claude tools and environments for teams (e.g., Claude Code)",
+  "type": "multi",
+  "select": 3,
+  "difficulty": 3,
+  "tags": [
+    "sandboxing",
+    "process-isolation",
+    "mcp",
+    "hooks"
+  ],
+  "answer": [
+    "a",
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "An architecture review uses Claude Code's rolling sandbox documentation retrieved on 2026-10-26. A proposed environment enables the Bash sandbox but also uses built-in file/web tools, a local MCP server, and command hooks. The requirement is a file and network boundary covering the entire session, not only shell commands. Which statements should guide the redesign? Select 3 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Place the Claude Code process and its child processes inside an outer container or VM with the required filesystem and network restrictions.",
+        "note": "An appropriately configured outer process boundary can cover components that the Bash sandbox excludes. Its mounts, network policy, and credentials must actually implement the required restrictions."
+      },
+      {
+        "id": "b",
+        "text": "Apply client permission controls to built-in file and web tools rather than assuming Bash sandbox rules govern those tools.",
+        "note": "The documented Bash boundary does not constrain Read or WebFetch. Separate tool permissions complement outer isolation instead of inheriting sandbox denyRead or allowedDomains rules."
+      },
+      {
+        "id": "c",
+        "text": "Use stricter sandbox denyRead and allowedDomains entries as the common boundary for built-in tools, local MCP servers, and hooks.",
+        "note": "Those entries restrict sandboxed shell activity, not every process or built-in tool in the session. Tightening them does not extend their scope to the excluded components."
+      },
+      {
+        "id": "d",
+        "text": "Review local MCP and command-hook code as separately privileged execution because both run outside the Bash sandbox.",
+        "note": "These processes retain the user's access unless another boundary restricts them. Enabling the Bash sandbox is therefore not evidence that their file or network access is isolated."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Configure the sandboxed Bash tool",
+      "url": "https://code.claude.com/docs/en/sandboxing"
+    },
+    {
+      "title": "Hooks reference",
+      "url": "https://code.claude.com/docs/en/hooks"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.1.json",
+    "orig_id": "ccarp-7.1-whole-session-isolation",
+    "license": "MIT"
+  }
+}

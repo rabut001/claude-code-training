@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.1-verify-workspace-outcome",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.1 Define evaluation metrics (accuracy, latency, cost, safety, security)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "task-success",
+    "environment-state"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A workspace agent must move three specified files to distinct, initially unused destinations without changing their contents. Source and destination paths do not overlap. It finishes by saying that the move succeeded. Which observation should determine the task-success metric?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Each requested destination has its mapped source's original content hash, and every original source path is absent.",
+        "note": "These environment checks distinguish a completed move from copying while leaving originals behind. The source-to-destination mapping and hashes verify placement and unchanged contents; the agent's narrative proves neither."
+      },
+      {
+        "id": "b",
+        "text": "The final assistant message names all three requested destinations.",
+        "note": "A message can accurately repeat destination names even when no move occurred. It measures the description of an action rather than the filesystem outcome."
+      },
+      {
+        "id": "c",
+        "text": "The model emitted three syntactically valid file-move tool calls.",
+        "note": "Valid tool arguments establish an attempted action, not successful execution. A tool can fail or move a file to an unintended location despite a valid call."
+      },
+      {
+        "id": "d",
+        "text": "The model request completed without an API transport error.",
+        "note": "Successful transport says the model response arrived, not that the requested file operations completed correctly. External tool effects need their own outcome checks."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "GNU Coreutils: mv, Move (rename) files",
+      "url": "https://www.gnu.org/software/coreutils/manual/html_node/mv-invocation.html"
+    },
+    {
+      "title": "Anthropic: How tool use works",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/how-tool-use-works"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.1.json",
+    "orig_id": "ccarp-4.1-verify-workspace-outcome",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-014",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A payment-adjustment endpoint is backed by a Claude agent with a refund tool. Network timeouts cause the client to retry, and some customers receive two refunds. Which fix addresses the actual defect?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Instruct the agent in the system prompt never to issue a refund twice.",
+        "note": "The duplicate originates in the network layer, which no prompt can reach."
+      },
+      {
+        "id": "b",
+        "text": "Remove client retries so a timeout surfaces to the user as an error.",
+        "note": "Removes a useful recovery path and still leaves the first refund ambiguous."
+      },
+      {
+        "id": "c",
+        "text": "Log every refund and run a nightly reconciliation job to reverse duplicates.",
+        "note": "Detects the damage after the customer has already been paid twice."
+      },
+      {
+        "id": "d",
+        "text": "Require an idempotency key so a repeated call returns the original result.",
+        "note": ""
+      }
+    ],
+    "explanation": "The request may have succeeded before the timeout, so the retry is legitimate. Only an idempotency key lets the server recognise the repeat and decline to act twice."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-014",
+    "license": "MIT"
+  }
+}

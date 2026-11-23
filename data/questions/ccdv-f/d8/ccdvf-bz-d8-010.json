@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-010",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "MCP Server Development",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Your team wants to expose an internal ticketing system so several different Claude-powered applications can use it without each reimplementing the integration. What does building an MCP server give you?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Faster inference on requests that involve reading or writing ticket data.",
+        "note": "MCP is an integration protocol and does not affect inference speed."
+      },
+      {
+        "id": "b",
+        "text": "Automatic fine-tuning of the model on your accumulated ticket history.",
+        "note": "It has no relationship to fine-tuning of any kind."
+      },
+      {
+        "id": "c",
+        "text": "A standard interface any compatible client can consume without bespoke code.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "A managed authentication layer, removing the need for server-side auth.",
+        "note": "Servers still need authentication, often more carefully with several clients."
+      }
+    ],
+    "explanation": "This is MCP's purpose: build the integration once behind a standard protocol so every compatible client can use it, instead of writing one bespoke adapter per application."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Model Context Protocol — Introduction",
+      "url": "https://modelcontextprotocol.io/introduction"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-010",
+    "license": "MIT"
+  }
+}

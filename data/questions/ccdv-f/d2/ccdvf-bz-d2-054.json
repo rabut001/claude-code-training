@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-054",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a",
+    "b"
+  ],
+  "en": {
+    "question": "Which two fields are essential to log for every Claude API call in production? (Select 2)",
+    "options": [
+      {
+        "id": "a",
+        "text": "stop_reason, so truncation and tool-use turns are visible in diagnostics.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Input and output token counts, for cost attribution and context monitoring.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "The full API key used, so requests can be traced back to a credential.",
+        "note": "Logging credentials is a serious vulnerability; logs are widely replicated."
+      },
+      {
+        "id": "d",
+        "text": "The wall-clock time at which the developer originally authored the prompt.",
+        "note": "Authoring time is irrelevant to runtime behaviour."
+      },
+      {
+        "id": "e",
+        "text": "A screenshot of the user interface captured at the moment of the request.",
+        "note": "Impractical, expensive, and frequently a privacy problem."
+      }
+    ],
+    "explanation": "stop_reason is the most diagnostic field, distinguishing truncation from natural completion from a tool request, and token counts drive cost attribution and reveal context growth before it becomes an incident."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Messages API",
+      "url": "https://docs.anthropic.com/en/api/messages"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D2-054",
+    "license": "MIT"
+  }
+}

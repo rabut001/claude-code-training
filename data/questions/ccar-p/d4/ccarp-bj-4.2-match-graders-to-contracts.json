@@ -1,0 +1,63 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.2-match-graders-to-contracts",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.2 Design evaluation datasets and test frameworks using mixed methodologies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "mixed-method-evaluation",
+    "graders"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An incident assistant returns required categorical fields plus a narrative explaining the likely cause. Field validity has exact rules, while narrative adequacy requires technical judgment. Which evaluation design best fits both contracts?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Grade the fields and narrative by exact match against one reference response.",
+        "note": "Exact checks suit the categorical fields, but a valid technical explanation can use different wording. One reference string would reject acceptable narrative alternatives."
+      },
+      {
+        "id": "b",
+        "text": "Check fields in code and grade narratives with an expert-calibrated rubric.",
+        "note": "Deterministic checks enforce the exact field contract, while a rubric can assess nuanced explanation quality. Calibrating any model grader against expert judgments checks whether its scores reflect the intended criteria."
+      },
+      {
+        "id": "c",
+        "text": "Ask a model grader for one overall score covering fields and narrative.",
+        "note": "A single holistic score can overlook an invalid required field and substitutes variable judgment for an available exact check. It also needs calibration before narrative scores can be trusted."
+      },
+      {
+        "id": "d",
+        "text": "Have experts review narratives and use narrative scores for the whole response.",
+        "note": "Expert narrative review does not establish that the categorical fields satisfy their exact rules. The field contract should be checked explicitly rather than inferred from prose quality."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.2.json",
+    "orig_id": "ccarp-4.2-match-graders-to-contracts",
+    "license": "MIT"
+  }
+}

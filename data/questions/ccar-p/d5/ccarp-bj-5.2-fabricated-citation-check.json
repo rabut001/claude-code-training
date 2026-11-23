@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.2-fabricated-citation-check",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.2 Identify risks, limitations, and failure modes of LLM systems",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "confabulation",
+    "citations",
+    "evidence-validation"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "An assistant gives a confident answer about a maintenance procedure, including a publication title, page number, and quoted instruction. The operator cannot find that quotation in the named publication. Which response best addresses the failure mode before anyone relies on the instruction?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Accept the instruction if the assistant supplies a longer explanation linking the quotation to the requested task.",
+        "note": "Generated explanatory logic can be fabricated along with a citation. More detail does not establish that the instruction appears in an authoritative procedure."
+      },
+      {
+        "id": "b",
+        "text": "Ask the same assistant to repeat the answer and accept it if the citation and page number remain consistent.",
+        "note": "Repeated generation can reproduce the same unsupported claim. Consistency is not independent evidence that the quoted instruction exists."
+      },
+      {
+        "id": "c",
+        "text": "Verify the instruction in the authoritative publication and withhold it if its quotation cannot be substantiated.",
+        "note": "Confabulation can include invented citations and quotations presented confidently. Source validation and abstention prevent presentation quality from substituting for evidence."
+      },
+      {
+        "id": "d",
+        "text": "Accept the quotation but label it AI-generated so the operator can decide how much weight to give its confident wording.",
+        "note": "A disclosure does not validate a potentially false procedural instruction. The unresolved evidence gap remains before the operator relies on it."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "NIST AI 600-1: Generative Artificial Intelligence Profile",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf"
+    },
+    {
+      "title": "Anthropic: Reduce hallucinations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/reduce-hallucinations"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.2.json",
+    "orig_id": "ccarp-5.2-fabricated-citation-check",
+    "license": "MIT"
+  }
+}

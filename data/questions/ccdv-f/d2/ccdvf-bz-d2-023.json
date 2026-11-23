@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-023",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude Application Design",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Your team must choose between a fixed workflow and an autonomous agent for: \"extract fields from an invoice, validate them against the purchase order, and post to the ledger.\" Every invoice follows the same three steps. Which is the better fit?",
+    "options": [
+      {
+        "id": "a",
+        "text": "An agent, because invoices vary in layout and need adaptive handling.",
+        "note": "Layout variation is handled inside the extraction step; the sequence is unchanged."
+      },
+      {
+        "id": "b",
+        "text": "A workflow, because the steps are known and can be predefined in code.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "An agent, because posting to a ledger requires the use of tools.",
+        "note": "Workflows call tools at fixed points; tool use does not require an agent."
+      },
+      {
+        "id": "d",
+        "text": "A workflow, but only if invoice volume stays below a few hundred per day.",
+        "note": "Volume is irrelevant to the choice, and workflows scale better than agents."
+      }
+    ],
+    "explanation": "The dividing line is whether the sequence is known in advance. It is, so encoding it yields deterministic control flow, testable stages, lower cost, and a gate between each step."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-023",
+    "license": "MIT"
+  }
+}

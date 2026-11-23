@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-004",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "Tool Implementation",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Which distinction between client-side and server-side tools is correct?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Client-side tools are executed by Anthropic and server-side tools by you.",
+        "note": "This reverses the two."
+      },
+      {
+        "id": "b",
+        "text": "Client-side tools run in your code; server-side tools run inside the request.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Client-side tools are those that execute within an end user's web browser.",
+        "note": "\"Client\" means your application, which is usually a backend service."
+      },
+      {
+        "id": "d",
+        "text": "The terms are interchangeable and describe the same execution model.",
+        "note": "Who executes the code changes both architecture and security posture."
+      }
+    ],
+    "explanation": "With a custom tool, Claude returns a tool_use block and your application runs the code, then returns a tool_result. Server-side tools execute inside the API request, so you receive results without dispatching anything."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Tool use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-004",
+    "license": "MIT"
+  }
+}

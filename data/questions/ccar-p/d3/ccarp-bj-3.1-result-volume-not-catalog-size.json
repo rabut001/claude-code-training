@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.1-result-volume-not-catalog-size",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.1 Evaluate tool/agent configuration for capability bloat",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "capability-bloat",
+    "tool-results",
+    "aggregation"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A telemetry assistant has four compact, necessary tools and selects them correctly. Its sensor query returns thousands of readings, although the task needs a per-device aggregate and every out-of-range reading. Most context tokens come from these results rather than tool definitions. Which change addresses the measured bloat without losing required evidence?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Aggregate readings in the tool layer and return the requested summary plus all out-of-range records.",
+        "note": "Filtering and aggregation before model ingestion target the large intermediate results. Preserving every exception maintains the evidence required by this task."
+      },
+      {
+        "id": "b",
+        "text": "Introduce tool search and defer all four existing tool definitions.",
+        "note": "Deferring compact definitions addresses initial catalog context, not the thousands of returned readings. It adds discovery without materially reducing this bottleneck."
+      },
+      {
+        "id": "c",
+        "text": "Shorten the four tool descriptions and remove optional-argument examples to reduce the token load.",
+        "note": "This reduces definition tokens rather than the large returned dataset. The measurements show that compact definitions are not the dominant source of context use."
+      },
+      {
+        "id": "d",
+        "text": "Return only the first page of readings and let the model infer device-level totals.",
+        "note": "An arbitrary page omits readings and may hide exceptions. Aggregates inferred from an incomplete sample do not satisfy the requirement for complete device summaries."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing advanced tool use",
+      "url": "https://www.anthropic.com/engineering/advanced-tool-use"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.1.json",
+    "orig_id": "ccarp-3.1-result-volume-not-catalog-size",
+    "license": "MIT"
+  }
+}

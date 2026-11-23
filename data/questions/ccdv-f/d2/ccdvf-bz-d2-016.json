@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-016",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Software Engineering Foundations",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "Your integration tests call the live Claude API on every commit. The suite is slow, flaky, and expensive. What is the best restructuring?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Keep live calls but retry each failing test three times to absorb flakiness.",
+        "note": "Retrying hides genuine failures and multiplies both cost and duration."
+      },
+      {
+        "id": "b",
+        "text": "Mock the API for unit tests and run a small live eval suite on a schedule.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Delete the tests, since probabilistic systems cannot be tested meaningfully.",
+        "note": "The deterministic layers are entirely testable and carry most of the risk."
+      },
+      {
+        "id": "d",
+        "text": "Pin temperature to 0 so live responses become byte-identical across runs.",
+        "note": "Temperature 0 reduces variance but does not guarantee identical output."
+      }
+    ],
+    "explanation": "Most of the codebase is deterministic and should be tested with mocks at commit speed. Quality against the real model is a separate, scheduled measurement, not a per-commit gate."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Create strong empirical evaluations",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-016",
+    "license": "MIT"
+  }
+}

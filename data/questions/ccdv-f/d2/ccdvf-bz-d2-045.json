@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-045",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Configuration Management",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "Your team wants shared, version-controlled Claude Code settings for the project, while each developer keeps personal overrides that are never committed. Which arrangement is correct?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Commit .claude/settings.json; keep .claude/settings.local.json untracked.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Commit both files and rely on developers not to edit the shared one.",
+        "note": "Committing personal overrides produces constant spurious diffs and conflicts."
+      },
+      {
+        "id": "c",
+        "text": "Keep all settings in the user-level home directory configuration only.",
+        "note": "User-level settings are not shared, so the project gets no common baseline."
+      },
+      {
+        "id": "d",
+        "text": "Commit one settings file and have each developer maintain a local branch.",
+        "note": "Long-lived config branches are a merge burden and drift immediately."
+      }
+    ],
+    "explanation": "That split is exactly what the two filenames are for: shared project settings are committed, and the .local variant holds personal overrides and stays untracked."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Claude Code docs — Settings",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/settings"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-045",
+    "license": "MIT"
+  }
+}

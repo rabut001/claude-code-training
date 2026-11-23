@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-7.1-merged-permission-rules",
+  "exam": "ccar-p",
+  "domain": "d7",
+  "subdomain": "7.1 Configure Claude tools and environments for teams (e.g., Claude Code)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "tool-permissions",
+    "settings-precedence",
+    "team-policy"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "In an already trusted Claude Code repository, a shared project ask rule matches a routine test command. A developer saves an allow for the same command in project-local settings, but approval is still requested. There are no managed rules or hook decisions involved. The team now wants to consider automatic approval for that command. What should the architect recommend?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Restart the session so the higher-precedence project-local permission list replaces the shared ask list.",
+        "note": "Permission lists combine across scopes rather than following scalar replacement. A restart does not make the matching local allow override the shared ask."
+      },
+      {
+        "id": "b",
+        "text": "Review the matching shared ask through the team's configuration process; a local allow does not override it merely by being local.",
+        "note": "The documented permission-rule combination preserves an ask despite a local allow. If automatic approval is authorized, the team must address the actual matching policy rather than assume ordinary settings precedence removes it."
+      },
+      {
+        "id": "c",
+        "text": "Move the local allow to user settings so its machine-wide scope grants more authority than the project ask.",
+        "note": "Wider applicability is not greater permission authority. Moving the allow to user scope does not defeat an ask that still applies from the project."
+      },
+      {
+        "id": "d",
+        "text": "Add a more specific local allow and retain the shared ask, relying on command-pattern specificity to make the local rule authoritative.",
+        "note": "A local allow is not an exception mechanism for a matching project ask. Changing its specificity does not establish that the remaining ask can be bypassed."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Settings files and precedence",
+      "url": "https://code.claude.com/docs/en/settings"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/7.1.json",
+    "orig_id": "ccarp-7.1-merged-permission-rules",
+    "license": "MIT"
+  }
+}

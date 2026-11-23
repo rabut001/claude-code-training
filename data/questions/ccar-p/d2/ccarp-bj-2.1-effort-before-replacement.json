@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.1-effort-before-replacement",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.1 Select appropriate Claude models based on trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "model-selection",
+    "reasoning-effort",
+    "latency"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A model meets an engineering-analysis quality threshold but misses the response-time target at the application's explicitly configured high reasoning effort. The selected model supports lower effort settings, which the team has not evaluated. What is the most informative next experiment before replacing the model?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Change to the lowest-priced candidate and carry forward quality certification from the current model's high-effort evaluation.",
+        "note": "Certification of one model and configuration does not transfer to another. The replacement could change handling of the difficult analysis cases."
+      },
+      {
+        "id": "b",
+        "text": "Keep the high-effort setting and ask the model to write a shorter answer.",
+        "note": "Shorter final text can reduce generation work but does not directly test whether internal reasoning effort causes the latency gap. The configured effort remains unchanged."
+      },
+      {
+        "id": "c",
+        "text": "Lower effort in production and judge success from average response time alone.",
+        "note": "Effort trades capability against latency and cost, so quality must be remeasured. Average latency also cannot establish compliance with a tail-latency target."
+      },
+      {
+        "id": "d",
+        "text": "Benchmark supported effort settings on hard cases against quality, tail-latency, and cost gates.",
+        "note": "Effort is a documented within-model trade-off. Testing each configuration against the actual acceptance criteria can reveal whether a model replacement is necessary."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Choosing the right model",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.1.json",
+    "orig_id": "ccarp-2.1-effort-before-replacement",
+    "license": "MIT"
+  }
+}

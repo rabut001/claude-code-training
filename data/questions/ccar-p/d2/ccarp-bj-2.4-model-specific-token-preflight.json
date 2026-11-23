@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.4-model-specific-token-preflight",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.4 Optimize context windows and manage token usage",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 2,
+  "tags": [
+    "token-counting",
+    "input-accounting",
+    "output-headroom"
+  ],
+  "answer": [
+    "a",
+    "c"
+  ],
+  "en": {
+    "question": "A request builder combines system instructions, tool definitions, message history, and a supported document input. It must avoid filling the selected model's window before a substantive answer can be generated. The token-counting endpoint supports this request's input types. Which two preflight measures are appropriate? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Estimate the assembled structured input against the intended model, including the system, tools, history, and document.",
+        "note": "These components all consume input context. Model-specific counting avoids assuming that another tokenizer or text-only approximation accounts for the actual request."
+      },
+      {
+        "id": "b",
+        "text": "Count only the latest user message, because system instructions and tool definitions are configuration rather than context.",
+        "note": "System content and tool definitions occupy the context window even though they are application configuration. Omitting them understates input size."
+      },
+      {
+        "id": "c",
+        "text": "Reserve capacity for generated output, including any current-turn thinking, and allow for the input count being an estimate.",
+        "note": "Input counting does not reserve generation space. Thinking and final text also consume capacity, and estimated counts can differ slightly from actual usage."
+      },
+      {
+        "id": "d",
+        "text": "Reuse a count from another candidate model whenever the request's visible text is identical.",
+        "note": "Tokenization can differ across models even for identical content. A count for another model is not a reliable capacity check for the selected model."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Token counting",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/token-counting"
+    },
+    {
+      "title": "Context windows",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.4.json",
+    "orig_id": "ccarp-2.4-model-specific-token-preflight",
+    "license": "MIT"
+  }
+}

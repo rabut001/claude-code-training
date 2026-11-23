@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d8-011",
+  "exam": "ccdv-f",
+  "domain": "d8",
+  "subdomain": "MCP Server Development",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which MCP primitive is best suited to exposing the contents of a configuration file as background context, rather than as an action?",
+    "options": [
+      {
+        "id": "a",
+        "text": "A tool, since the file must be fetched before its contents can be used.",
+        "note": "A tool implies an invocable action with side effects or computation."
+      },
+      {
+        "id": "b",
+        "text": "A prompt, since the configuration shapes how the model should behave.",
+        "note": "Prompts are user-invoked templates rather than data exposure."
+      },
+      {
+        "id": "c",
+        "text": "A hook, since configuration should be injected at a defined lifecycle point.",
+        "note": "Hooks are a Claude Code lifecycle mechanism, not an MCP primitive."
+      },
+      {
+        "id": "d",
+        "text": "A resource, identified by a URI and read by the application for context.",
+        "note": ""
+      }
+    ],
+    "explanation": "Resources represent data the host application can read and place into context. They are application-controlled and URI-identified, which suits reference material such as a configuration file."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Model Context Protocol — Resources",
+      "url": "https://modelcontextprotocol.io/docs/concepts/resources"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d8-tools-mcp.js",
+    "orig_id": "D8-011",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-025",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Patterns and Frameworks",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Marketing copy must be drafted, then checked against brand tone, reading level, and a banned-phrase list, and revised until it passes. Which pattern is this?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Routing, where a classifier selects the appropriate copywriting handler.",
+        "note": "Nothing here is being categorised and dispatched."
+      },
+      {
+        "id": "b",
+        "text": "Orchestrator-workers, where subtasks are decomposed and then integrated.",
+        "note": "The subtasks are known in advance, so no dynamic decomposition is needed."
+      },
+      {
+        "id": "c",
+        "text": "Evaluator-optimizer, where a draft is scored against criteria and revised.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Parallelisation by voting, where several drafts compete and the best wins.",
+        "note": "Voting selects among independent attempts rather than refining one."
+      }
+    ],
+    "explanation": "It applies when criteria can be stated clearly and output measurably improves through critique. Tone, reading level, and a banned list are exactly that kind of articulable standard."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D1-025",
+    "license": "MIT"
+  }
+}

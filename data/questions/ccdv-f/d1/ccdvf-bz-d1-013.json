@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-013",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Construction with Claude",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An agent completes its task but the final answer omits a constraint stated 30 turns earlier. Which mitigation targets the cause?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Raise max_tokens on the final call so the answer has room for the constraint.",
+        "note": "Output length has no bearing on whether a constraint was attended to."
+      },
+      {
+        "id": "b",
+        "text": "Hold durable constraints in explicit state and re-inject them every turn.",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Lower the sampling temperature so earlier instructions are weighted higher.",
+        "note": "Temperature does not control attention across a long context."
+      },
+      {
+        "id": "d",
+        "text": "Move to a larger model tier with stronger long-context attention.",
+        "note": "Reduces the problem at higher cost without removing the cause."
+      }
+    ],
+    "explanation": "A requirement buried thirty turns back competes with everything added since. Keeping durable constraints in structured state and re-presenting them keeps them salient regardless of conversation length."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-013",
+    "license": "MIT"
+  }
+}

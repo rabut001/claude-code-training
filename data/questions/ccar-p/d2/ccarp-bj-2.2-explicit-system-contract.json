@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.2-explicit-system-contract",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.2 Design system prompts, templates, and guardrails",
+  "type": "single",
+  "select": 1,
+  "difficulty": 1,
+  "tags": [
+    "system-prompts",
+    "output-contract",
+    "uncertainty"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A maintenance assistant receives a different incident description on every request. It must apply the same severity rubric, return named fields, and mark missing evidence as unknown rather than inventing details. Which prompt design most directly establishes this behavior?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Set an expert-engineer role and leave severity definitions and missing-data behavior implicit.",
+        "note": "A role provides perspective but does not define the application's severity boundaries or uncertainty contract. The model would have to infer requirements that should be explicit."
+      },
+      {
+        "id": "b",
+        "text": "Place the incident description in the system prompt and ask the user message to supply whichever rubric seems relevant.",
+        "note": "This mixes changing task data with application instructions and makes the supposedly invariant rubric request-dependent. It weakens the intended separation of policy and incident evidence."
+      },
+      {
+        "id": "c",
+        "text": "State the role, severity rules, output fields, and unknown-value behavior explicitly, and supply the incident separately as task data.",
+        "note": "Clear application instructions establish the decision and output contract. Separating variable evidence helps distinguish what to analyze from how the analysis must behave."
+      },
+      {
+        "id": "d",
+        "text": "Provide a previous successful response and instruct the model to preserve its values unless the new description explicitly contradicts them.",
+        "note": "An example can illustrate structure, but retaining prior values risks carrying facts between unrelated incidents. It also leaves the severity rubric and missing-data rules underspecified."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Prompting best practices",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
+    },
+    {
+      "title": "Effective context engineering for AI agents",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.2.json",
+    "orig_id": "ccarp-2.2-explicit-system-contract",
+    "license": "MIT"
+  }
+}

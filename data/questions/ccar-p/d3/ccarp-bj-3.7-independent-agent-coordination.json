@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.7-independent-agent-coordination",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.7 Evaluate connection protocols and select the appropriate integration mechanism (MCP, API/CLI, agent-to-agent)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "integration-mechanisms",
+    "a2a",
+    "agent-coordination",
+    "mcp"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A manufacturer must delegate an analysis task to a supplier's independently managed agent, implemented on another stack. The supplier owns its reasoning and internal tools, and the manufacturer needs interoperable task updates and eventual results rather than direct access to those tools. Using the boundaries described in the A2A v1.0 release of 2026-03-12, which integration is the best fit?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Expose every internal supplier tool through MCP and have the manufacturer's agent reconstruct the supplier's workflow.",
+        "note": "This changes the boundary from delegating to an independent agent to controlling its implementation tools. It does not preserve the supplier-owned reasoning and task lifecycle required here."
+      },
+      {
+        "id": "b",
+        "text": "Transfer the supplier's command-line scripts into the manufacturer's runtime and coordinate them as local subprocesses.",
+        "note": "Local subprocess control requires access to and responsibility for the supplier's implementation. The scenario instead calls for communication across an independently managed agent boundary."
+      },
+      {
+        "id": "c",
+        "text": "Use A2A for the cross-agent task exchange, with suitable task-update delivery; each agent may still use MCP internally.",
+        "note": "The cited A2A release addresses agent communication across stacks and organizations, including polling, streaming, or webhooks for updates. It explicitly treats MCP tool/context integration as complementary rather than a competing replacement."
+      },
+      {
+        "id": "d",
+        "text": "Use the manufacturer's Claude client-tool IDs as the shared protocol for the supplier's complete agent lifecycle.",
+        "note": "Claude tool-use IDs correlate calls within the client's API conversation. They do not by themselves define an interoperable cross-organization agent task protocol or update lifecycle."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "A2A Protocol: v1.0 release announcement",
+      "url": "https://a2a-protocol.org/latest/blog/2026/03/12/a2a-protocol-ships-v10-production-ready-standard-for-agent-to-agent-communication/"
+    },
+    {
+      "title": "Anthropic: Handle tool calls",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.7.json",
+    "orig_id": "ccarp-3.7-independent-agent-coordination",
+    "license": "MIT"
+  }
+}

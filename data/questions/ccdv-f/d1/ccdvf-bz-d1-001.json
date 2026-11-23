@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d1-001",
+  "exam": "ccdv-f",
+  "domain": "d1",
+  "subdomain": "Agent Architecture",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which characteristic most clearly distinguishes an agent from a workflow?",
+    "options": [
+      {
+        "id": "a",
+        "text": "An agent calls tools during execution, whereas a workflow does not.",
+        "note": "Workflows commonly call tools at fixed steps, so this is not the distinction."
+      },
+      {
+        "id": "b",
+        "text": "An agent runs asynchronously, whereas a workflow runs synchronously.",
+        "note": "Either architecture can be implemented in either execution style."
+      },
+      {
+        "id": "c",
+        "text": "An agent requires a larger model tier than a workflow does.",
+        "note": "Both patterns run on whatever tier the task requires."
+      },
+      {
+        "id": "d",
+        "text": "An agent chooses its own steps; a workflow follows a predefined path.",
+        "note": ""
+      }
+    ],
+    "explanation": "The dividing line is control of the path. A workflow has its sequence encoded by the developer; an agent decides the next action in a loop and judges when the goal is met. Tools, model size, and concurrency are orthogonal."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic — Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d1-agents.js",
+    "orig_id": "D1-001",
+    "license": "MIT"
+  }
+}

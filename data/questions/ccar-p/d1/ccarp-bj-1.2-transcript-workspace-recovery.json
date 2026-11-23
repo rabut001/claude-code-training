@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-1.2-transcript-workspace-recovery",
+  "exam": "ccar-p",
+  "domain": "d1",
+  "subdomain": "1.2 Design end-to-end architectures (input → processing → output → feedback loops)",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "state-persistence",
+    "agent-sdk-hosting",
+    "artifact-recovery"
+  ],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "A self-hosted Agent SDK application produces spreadsheets in each session's working directory. Session transcripts are mirrored to durable storage, but working directories are ephemeral. After a container is rescheduled, the resumed agent refers to files that no longer exist. Which architecture change addresses the actual state gap?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase the transcript retention period and resume each session from its latest mirrored conversation turn.",
+        "note": "Retaining conversation records longer does not persist files outside those records. The agent can remember a file path while the referenced artifact remains absent."
+      },
+      {
+        "id": "b",
+        "text": "Recreate the working directory by asking Claude to infer each file's contents from its prior completion messages.",
+        "note": "Completion messages need not contain complete, exact file data. Regeneration from descriptions cannot establish recovery of the original artifacts."
+      },
+      {
+        "id": "c",
+        "text": "Keep the container stateless and disable resumption so users restart any interrupted artifact-producing task.",
+        "note": "Restarting avoids a misleading resume but sacrifices the stated session continuity and can repeat costly work. It does not solve durable artifact recovery."
+      },
+      {
+        "id": "d",
+        "text": "Persist workspace artifacts independently, preserving their session association, and restore them together with the conversation state.",
+        "note": "The self-hosted subprocess has both transcript state and filesystem state. Recovering both, with the correct session mapping, restores the artifacts referenced by the resumed conversation."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Hosting the Agent SDK",
+      "url": "https://code.claude.com/docs/en/agent-sdk/hosting"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/1.2.json",
+    "orig_id": "ccarp-1.2-transcript-workspace-recovery",
+    "license": "MIT"
+  }
+}

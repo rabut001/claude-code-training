@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.2-isolate-repeated-trial-environments",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.2 Design evaluation datasets and test frameworks using mixed methodologies",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "evaluation-harness",
+    "trial-isolation",
+    "repeatability"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "Repeated trials of an unchanged agent become inconsistent when run concurrently. Trials write to the same scratch filename, leave records for later trials, and share a capped test-tool account. Each task fits its resource allowance when run alone. Which harness change makes comparisons valid?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase the number of concurrent trials to average out the observed failures.",
+        "note": "More trials do not remove shared files, persistent state, or resource contention. Greater concurrency can amplify correlated harness failures rather than estimate independent agent variability."
+      },
+      {
+        "id": "b",
+        "text": "Serialize the trials while retaining their shared scratch files and tool records.",
+        "note": "Serialization may reduce simultaneous contention, but later trials still inherit artifacts and records. The starting state would remain dependent on previous attempts."
+      },
+      {
+        "id": "c",
+        "text": "Reset isolated files and tool state per trial, with independent or scheduled resource allowances.",
+        "note": "Clean trial-specific state prevents cross-trial contamination, while controlled resource allowances avoid introducing failures from shared test limits. Repeated results can then characterize the agent rather than harness interference."
+      },
+      {
+        "id": "d",
+        "text": "Ignore tool failures in grading and score only each trial's final narrative.",
+        "note": "Ignoring tool effects hides real task failures and does not repair the contaminated environment. A narrative can claim success even when shared resources prevented the required outcome."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.2.json",
+    "orig_id": "ccarp-4.2-isolate-repeated-trial-environments",
+    "license": "MIT"
+  }
+}

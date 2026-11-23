@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d5-027",
+  "exam": "ccdv-f",
+  "domain": "d5",
+  "subdomain": "Model Selection and Trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An overnight job classifies 2 million documents. Accuracy must stay above 95%, results are needed by morning, and cost is the binding constraint. What is the best configuration?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Smallest model clearing 95% on a labelled sample, run through Batch at temperature 0.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Frontier model on the real-time Messages API, run at maximum concurrency.",
+        "note": "Real-time premium pricing for work that has an overnight window."
+      },
+      {
+        "id": "c",
+        "text": "Frontier model with extended thinking enabled to maximise classification accuracy.",
+        "note": "Multiplies tokens and latency for a task needing no deep reasoning."
+      },
+      {
+        "id": "d",
+        "text": "Mid-tier model with a five-vote majority taken independently for each document.",
+        "note": "Roughly five times the cost to fix a problem not shown to exist."
+      }
+    ],
+    "explanation": "Every constraint points the same way: nobody is waiting, so Batch halves the cost; classification is deterministic work; and the accuracy floor is a measurable bar the cheapest qualifying model should clear."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Batch processing",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/batch-processing"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-r2-supplement.js",
+    "orig_id": "D5-027",
+    "license": "MIT"
+  }
+}

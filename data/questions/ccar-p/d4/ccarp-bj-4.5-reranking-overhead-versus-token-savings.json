@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-4.5-reranking-overhead-versus-token-savings",
+  "exam": "ccar-p",
+  "domain": "d4",
+  "subdomain": "4.5 Optimize token usage, latency, and cost-performance trade-offs",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "retrieval-optimization",
+    "reranking",
+    "end-to-end-cost"
+  ],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A retrieval experiment adds reranking and reduces generation-context tokens while preserving grounded-answer quality. On the same workload, total cost per acceptable answer including reranker charges and application p95 completion time both exceed their approved ceilings. The existing path meets both limits. What is the justified optimization decision?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Adopt the reranker because fewer generation-context tokens establish a cheaper pipeline.",
+        "note": "The measured total cost already includes reranker charges and is higher. A decrease in one token category is not proof that the complete pipeline is cheaper."
+      },
+      {
+        "id": "b",
+        "text": "Adopt the reranker with streaming and use first-token latency for the existing ceiling.",
+        "note": "Streaming does not establish a reduction in complete application time. Replacing the completion-time metric with first-token latency would change the approved requirement."
+      },
+      {
+        "id": "c",
+        "text": "Retain the current path while testing leaner reranking settings against the full limits.",
+        "note": "The candidate does not meet the stated cost and latency constraints despite its context savings. Further candidate-set or reranking experiments should recheck answer quality and end-to-end measurements rather than assume a universal optimal setting."
+      },
+      {
+        "id": "d",
+        "text": "Adopt the reranker if retrieval recall improves, retaining the observed cost and latency.",
+        "note": "A retrieval-stage improvement does not override the approved application limits, especially when grounded-answer quality is unchanged. Selection must account for the additional runtime step and its total cost."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    },
+    {
+      "title": "Anthropic: Pricing",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "title": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/4.5.json",
+    "orig_id": "ccarp-4.5-reranking-overhead-versus-token-savings",
+    "license": "MIT"
+  }
+}

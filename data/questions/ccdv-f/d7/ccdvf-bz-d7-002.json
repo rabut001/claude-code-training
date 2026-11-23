@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-002",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "AI Application Security",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "An agent with database read access and an email tool summarises incoming support emails. What is the most serious risk, and the correct structural mitigation?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Exfiltration via injected instructions: remove external send from this path.",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "Runaway token spend on long email threads: apply a per-run budget cap.",
+        "note": "A real operational concern, but not the security risk in this design."
+      },
+      {
+        "id": "c",
+        "text": "Inaccurate summaries reaching customers: add a second review pass.",
+        "note": "Summary quality is a quality issue rather than an exfiltration path."
+      },
+      {
+        "id": "d",
+        "text": "Long threads exceeding the window: truncate each email before processing.",
+        "note": "A capacity concern that is unrelated to the exposure."
+      }
+    ],
+    "explanation": "The dangerous combination is untrusted input plus data access plus an outbound channel. Break the chain structurally, and scope the database credential to the minimum the task requires."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Mitigate jailbreaks",
+      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-002",
+    "license": "MIT"
+  }
+}

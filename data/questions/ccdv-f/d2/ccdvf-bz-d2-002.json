@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-002",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "c"
+  ],
+  "en": {
+    "question": "A nightly job classifies roughly 400,000 archived support tickets. Results are not needed until the next morning. Which approach best controls cost?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Raise max_tokens so each classification finishes in a single call.",
+        "note": "max_tokens caps output length; it does not change unit price and may raise spend."
+      },
+      {
+        "id": "b",
+        "text": "Enable streaming, which lowers the total tokens billed per request.",
+        "note": "Streaming changes delivery timing only. Identical tokens are generated and billed."
+      },
+      {
+        "id": "c",
+        "text": "Submit the work through the Batch API and collect results asynchronously.",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "Fire all requests concurrently so the job finishes in a shorter window.",
+        "note": "Concurrency affects wall-clock duration, not the price per token."
+      }
+    ],
+    "explanation": "Batch trades turnaround time for roughly half the per-token price. An overnight window is exactly the situation it exists for, since nobody is waiting on any individual result."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Batch processing",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/batch-processing"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-002",
+    "license": "MIT"
+  }
+}

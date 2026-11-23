@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-2.1-worker-model-admission",
+  "exam": "ccar-p",
+  "domain": "d2",
+  "subdomain": "2.1 Select appropriate Claude models based on trade-offs",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [
+    "multi-model",
+    "delegation",
+    "handoff-fidelity"
+  ],
+  "answer": [
+    "b",
+    "d"
+  ],
+  "en": {
+    "question": "A strong coordinator currently extracts records from document packets. The proposed optimization delegates independent document extractions to lower-cost worker models and leaves reconciliation to the coordinator. Required fields include visually encoded annotations. Which findings justify admitting a worker model into this design? Select 2 answers.",
+    "options": [
+      {
+        "id": "a",
+        "text": "Its input-token price is lower, even though failed extractions require repeated worker calls and coordinator repair.",
+        "note": "Unit token price does not capture retries, handoffs, or reconciliation. Lower worker pricing alone can coexist with higher total operating cost."
+      },
+      {
+        "id": "b",
+        "text": "Representative packet and reconciliation tests confirm required input support and faithful annotation handoffs.",
+        "note": "The coordinator can only reconcile information that reaches it. Testing the input modality and handoff fidelity addresses capability loss introduced by delegation."
+      },
+      {
+        "id": "c",
+        "text": "The coordinator's benchmark remains unchanged when tested without worker-produced inputs.",
+        "note": "That test bypasses the changed part of the design. It cannot detect missing fields or distortions in worker outputs."
+      },
+      {
+        "id": "d",
+        "text": "The complete route passes quality and timing gates more cheaply, counting failures and coordinator work.",
+        "note": "Multi-model delegation is justified by the combined system's trade-off. Counting coordination and failure costs avoids attributing component-level savings to the whole workflow."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Choosing the right model",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/choosing-a-model"
+    },
+    {
+      "title": "How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/research/multi-agent-research-system"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/2.1.json",
+    "orig_id": "ccarp-2.1-worker-model-admission",
+    "license": "MIT"
+  }
+}

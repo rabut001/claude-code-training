@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-5.1-screen-before-stream-release",
+  "exam": "ccar-p",
+  "domain": "d5",
+  "subdomain": "5.1 Implement guardrails and safety controls",
+  "type": "single",
+  "select": 1,
+  "difficulty": 3,
+  "tags": [
+    "output-screening",
+    "streaming",
+    "control-placement"
+  ],
+  "answer": [
+    "a"
+  ],
+  "en": {
+    "question": "A support assistant streams responses to a browser. A mandatory output control must inspect the complete response for confidential identifiers before any response text is visible to the user. The complete-response screen runs only after generation finishes. Which delivery design satisfies this policy?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Buffer generated text on the server, obtain the complete-response verdict, then release approved text or an approved fallback.",
+        "note": "The release boundary occurs after the required verdict, so the browser never receives unapproved response text. Buffering accepts the latency cost imposed by the stated policy."
+      },
+      {
+        "id": "b",
+        "text": "Stream immediately and replace the browser contents with a safe fallback when the complete-response screen detects a confidential identifier.",
+        "note": "Replacing displayed content cannot undo an identifier already seen or copied. The first release would occur before the mandatory complete-response check."
+      },
+      {
+        "id": "c",
+        "text": "Screen each token independently and display it immediately, while retaining the full-response screen as a final check.",
+        "note": "Token-local verdicts do not satisfy a policy requiring a verdict on the complete response. Confidential identifiers can also be recognizable only across multiple tokens."
+      },
+      {
+        "id": "d",
+        "text": "Stream to the browser but disable copying and saving until the completed response receives a positive screening verdict.",
+        "note": "Browser interface restrictions do not prevent users from seeing or capturing streamed text. Visibility itself is prohibited before the complete-response verdict."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Partner Academy: Responsible AI, Safety & Risk for Architects",
+      "url": "https://anthropic-partners.skilljar.com/path/claude-certified-architect-professional/responsible-ai-safety-risk-for-architects"
+    },
+    {
+      "title": "NIST AI Risk Management Framework 1.0: Core",
+      "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/5.1.json",
+    "orig_id": "ccarp-5.1-screen-before-stream-release",
+    "license": "MIT"
+  }
+}

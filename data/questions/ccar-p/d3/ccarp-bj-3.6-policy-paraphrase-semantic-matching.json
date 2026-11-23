@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "id": "ccarp-bj-3.6-policy-paraphrase-semantic-matching",
+  "exam": "ccar-p",
+  "domain": "d3",
+  "subdomain": "3.6 Apply retrieval strategies matched to data shape and query pattern",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [
+    "retrieval",
+    "semantic-search",
+    "paraphrases"
+  ],
+  "answer": [
+    "b"
+  ],
+  "en": {
+    "question": "An employee-policy search service uses BM25. Relevant passages use formal policy terminology, while users ask varied paraphrases that share few exact words. Inspection confirms that the right passages are indexed but not retrieved. The team can add one complementary retrieval signal. Which choice most directly addresses this query pattern?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Increase the weight of exact policy-title matches without adding semantic matching.",
+        "note": "Users' paraphrases do not reliably contain the formal titles. More weight on absent lexical terms does not bridge the demonstrated vocabulary mismatch."
+      },
+      {
+        "id": "b",
+        "text": "Add embedding-based semantic retrieval and evaluate it on representative paraphrased policy questions.",
+        "note": "Embeddings can match related meanings despite different surface wording. Testing the actual paraphrases establishes whether the added signal retrieves the needed passages in this corpus."
+      },
+      {
+        "id": "c",
+        "text": "Restrict retrieval to passages containing every substantive query word.",
+        "note": "Requiring exact term overlap makes the known paraphrase problem stricter. Relevant formal-language passages may contain none of the user's chosen vocabulary."
+      },
+      {
+        "id": "d",
+        "text": "Add a reranker over the same lexical candidate set without changing which passages enter that set.",
+        "note": "The relevant passages are missing before reranking begins. Reordering an unchanged candidate set cannot supply the absent evidence or bridge the candidate-generation vocabulary gap."
+      }
+    ],
+    "explanation": ""
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic Engineering: Introducing Contextual Retrieval",
+      "url": "https://www.anthropic.com/news/contextual-retrieval"
+    },
+    {
+      "title": "Anthropic: Define success criteria and build evaluations",
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/develop-tests"
+    }
+  ],
+  "source": {
+    "repo": "bajor/claude-architect-professional-quiz",
+    "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+    "path": "data/questions/3.6.json",
+    "orig_id": "ccarp-3.6-policy-paraphrase-semantic-matching",
+    "license": "MIT"
+  }
+}

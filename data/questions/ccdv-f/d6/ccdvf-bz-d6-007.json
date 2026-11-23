@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d6-007",
+  "exam": "ccdv-f",
+  "domain": "d6",
+  "subdomain": "Prompt Engineering",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": [
+    "d"
+  ],
+  "en": {
+    "question": "Which prompt is most likely to produce consistent, usable output?",
+    "options": [
+      {
+        "id": "a",
+        "text": "\"Summarise this document accurately and completely for a business reader.\"",
+        "note": "\"Accurately and completely\" is unmeasurable and fixes no format."
+      },
+      {
+        "id": "b",
+        "text": "\"Give me a really good summary of this document, thorough but also concise.\"",
+        "note": "\"Thorough but concise\" is contradictory and gives no structure."
+      },
+      {
+        "id": "c",
+        "text": "\"Summarise this document. Keep the tone professional and the length sensible.\"",
+        "note": "\"Professional\" and \"sensible\" are subjective and will drift between calls."
+      },
+      {
+        "id": "d",
+        "text": "\"Summarise in three bullets under 20 words each: decision, owner, deadline.\"",
+        "note": ""
+      }
+    ],
+    "explanation": "Specificity about structure, length, and required content is what makes output consistent and machine-consumable. It states the format, the size bound, and exactly which facts must appear."
+  },
+  "ja": {
+    "status": "todo"
+  },
+  "references": [
+    {
+      "title": "Anthropic docs — Be clear and direct",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/be-clear-and-direct"
+    }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d6-prompt-context.js",
+    "orig_id": "D6-007",
+    "license": "MIT"
+  }
+}
