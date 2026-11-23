@@ -199,3 +199,11 @@
 | progressive discovery | 段階的な探索 | |
 | snapshot | スナップショット | |
 | recall | 再現率 | 検索や評価の文脈 |
+| handoff | 引き継ぎ | |
+| rubric | 評価基準 | |
+| checkpoint | チェックポイント | |
+| adjudication | 審査 | フィードバックの妥当性などを判定する文脈 |
+| triage | トリアージ | |
+| accountable owner | 責任を持つオーナー | |
+| due diligence | デューデリジェンス | |
+| artifact | 成果物 | |

@@ -102,8 +102,8 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 
 | 順 | 分野 | 状態 | 問題数 | コミット | メモ |
 |---|---|---|---|---|---|
-| 1 | d3 | 完了 | 43 | この分野のコミット | 全問 draft、全検証成功。temperature 1問、p95 4問に補足 |
-| 2 | d1 | 未着手 | 39 | | |
+| 1 | d3 | 完了 | 43 | `04db453` | 全問 draft、全検証成功。temperature 1問、p95 4問に補足 |
+| 2 | d1 | 完了 | 39 | この分野のコミット | 全問 draft、全検証成功。用語の補足対象なし |
 | 3 | d4 | 未着手 | 36 | | |
 | 4 | d5 | 未着手 | 32 | | |
 | 5 | d6 | 未着手 | 32 | | |
@@ -123,6 +123,12 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 - 用語の補足：temperature 1問、p95 4問、ほか11用語は0問。
 - 原文の明らかな誤記は見つからなかった。MCP 2026-07-28、Messages API 2026-10-21などの特定バージョンを前提にした設問は、番号・記述をそのまま訳した。
 - 補足の候補（未追加）：BM25（`ccarp-bj-3.5-context-before-indexing`、`ccarp-bj-3.5-contextualizer-provenance-contamination`、`ccarp-bj-3.5-searchable-context-and-provenance`、`ccarp-bj-3.6-current-structured-aggregation`、`ccarp-bj-3.6-exact-part-identifier-retrieval`、`ccarp-bj-3.6-hybrid-rank-fusion-and-deduplication`、`ccarp-bj-3.6-policy-paraphrase-semantic-matching`）、PKCE・S256（`ccarp-bj-3.2-pkce-metadata-gap`）、SSE（`ccarp-bj-3.7-mcp-current-transport-contract`）、A2A（`ccarp-bj-3.7-direct-api-client-tool-loop`、`ccarp-bj-3.7-independent-agent-coordination`）。名前や略語だけでは仕組みが分かりにくいため記録した。承認済み13用語以外の補足は書いていない。
+
+### d1（2026-11-23）
+
+- 39問（single 28、multi 11）の問題文・全選択肢・全理由を和訳し、draftにした。業務の権限、復旧条件、共有資源、コスト・時間・精度の値と分母を保持した。
+- `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功、全408問との照合成功。CCAR-Pは計82問draft。
+- 用語の補足：13用語すべて0問。新たな原文の誤りや補足候補は見つからなかった。
 
 ### 用語 → 問題 ID（完了分野）
 
