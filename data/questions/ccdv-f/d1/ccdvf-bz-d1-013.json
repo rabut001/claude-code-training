@@ -38,7 +38,35 @@
     "explanation": "A requirement buried thirty turns back competes with everything added since. Keeping durable constraints in structured state and re-presenting them keeps them salient regardless of conversation length."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントはタスクを完了しましたが、最終回答に30ターン前に示した制約が反映されていません。原因に対処する対策はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "最終呼び出しの max_tokens を増やし、制約を含める余地を回答に持たせる。",
+        "note": "出力の長さと、制約に注意が向けられたかどうかは無関係です。"
+      },
+      {
+        "id": "b",
+        "text": "持続的に守る制約を明示的な状態に保持し、毎ターン再び渡す。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "以前の指示の重みを高くするため、サンプリング用の temperature を下げる。",
+        "note": "temperature は、長いコンテキスト内の注意の向け方を制御しません。"
+      },
+      {
+        "id": "d",
+        "text": "長いコンテキストへの注意がより強い、大きなモデル階層に移行する。",
+        "note": "より高いコストで問題を減らしますが、原因を取り除きません。"
+      }
+    ],
+    "explanation": "30ターン前に埋もれた要件は、それ以降に追加されたすべての情報と競合します。持続的に守る制約を構造化された状態に保持し、再提示すれば、会話の長さにかかわらず目立つ状態に保てます。"
+  },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature."
   },
   "references": [
     {

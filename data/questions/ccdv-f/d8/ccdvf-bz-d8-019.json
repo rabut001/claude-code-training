@@ -38,7 +38,35 @@
     "explanation": "Tool arguments are untrusted input whether they came from a confused model or an injected instruction, so validation, parameterised queries, and authorisation belong at the execution site."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "delete_record ツールが、record_id として \"12345 OR 1=1\" を受け取りました。どこで止める必要がありますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "悪意のある引数を使わないようモデルに警告する、ツールの説明。",
+        "note": "説明はモデルへの指針であり、実行を制御するものではありません。"
+      },
+      {
+        "id": "b",
+        "text": "実装内で、引数を検証し、パラメーター化し、認可を確認する。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "引数が問題のない形で出るよう、temperature を0に設定するサンプラー。",
+        "note": "決定論的であることは、引数を安全にはしません。"
+      },
+      {
+        "id": "d",
+        "text": "自分の入力を無害化するようモデルに指示する、システムプロンプト。",
+        "note": "自分の出力の無害化をモデルに依頼することは、セキュリティ上の境界ではありません。"
+      }
+    ],
+    "explanation": "ツールの引数は、混乱したモデルから来た場合でも、注入された指示から来た場合でも、信頼できない入力です。そのため、検証、パラメーター化クエリー、認可は、実行する場所で行います。"
+  },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature."
   },
   "references": [
     {

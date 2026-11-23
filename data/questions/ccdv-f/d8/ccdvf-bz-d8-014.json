@@ -38,7 +38,35 @@
     "explanation": "It removes an implementation and operations burden entirely. The trade-off is that you accept its behaviour and scope rather than tailoring it to your needs."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "自分で実装する同等のカスタムツールと比べ、組み込みツールの主な利点は何ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "組み込みツールは提供元が検証しており、誤った結果を返さない。",
+        "note": "組み込みかどうかにかかわらず、絶対に間違わないツールはありません。"
+      },
+      {
+        "id": "b",
+        "text": "組み込みツールの定義と結果は、トークン集計から除外される。",
+        "note": "それらの定義と結果も、ほかと同様にコンテキストを消費します。"
+      },
+      {
+        "id": "c",
+        "text": "提供元が保守と実行を担うため、自分たちでホストも修正適用もする必要がない。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "組み込みツールは、組織のリクエストのレート制限の対象外である。",
+        "note": "それらを呼び出すリクエストにも、レート制限は適用されます。"
+      }
+    ],
+    "explanation": "実装と運用の負担が完全になくなります。その代わり、自分たちのニーズに合わせて調整するのではなく、その動作と範囲を受け入れることになります。"
+  },
+  "supplement": {
+    "ja": "Bash ツールなど、利用側の環境で実行されるツールもあります。提供済みの仕様や機能を使えば、自作・保守の負担を減らせますが、実行環境の用意や更新まで不要になるとは限りません。{c} は、提供元が実行・保守を担うサーバー側ツールを主に想定した説明です。",
+    "en": "Some tools, such as the Bash tool, run in the user's or application's environment. Using provided interfaces and capabilities can reduce custom development and maintenance work, but does not necessarily eliminate the need to provision or update the execution environment. Option {c} primarily describes server-side tools whose execution and maintenance are handled by the provider."
   },
   "references": [
     {

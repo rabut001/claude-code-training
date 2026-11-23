@@ -38,7 +38,35 @@
     "explanation": "Structural and semantic validation are different problems. A number can be the right type in the right field and still be wrong, so recompute it from line items or reconcile against the source."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "抽出パイプラインが Claude の JSON をスキーマに照らして検証し、合格しました。それでも、もっともらしく見えるものの誤った請求総額を含むレコードがあります。これは何を示しますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "スキーマの記述が誤っており、総額フィールドを制約できていなかった。",
+        "note": "スキーマは役割を果たしています。そもそも値の正しさを検証するためのものではありません。"
+      },
+      {
+        "id": "b",
+        "text": "数値の抽出処理に対して、サンプリング用の temperature が高すぎた。",
+        "note": "自信ありげな誤った数値は、temperature が0でも生じます。"
+      },
+      {
+        "id": "c",
+        "text": "スキーマ検証は構造を確認するもので、真実かは確認しない。意味の検証には別のチェックが必要である。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "モデルが、このタスクの構造化された JSON 出力に安定して対応していない。",
+        "note": "ペイロードが検証に合格したため、JSON 出力は明らかに機能しています。"
+      }
+    ],
+    "explanation": "構造の検証と意味の検証は、異なる問題です。数値は、正しい型で正しいフィールドにあっても誤っていることがあるため、明細から再計算するか、情報源と照合してください。"
+  },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature."
   },
   "references": [
     {

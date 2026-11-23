@@ -38,7 +38,35 @@
     "explanation": "Plan mode exists for risky or wide-reaching changes: Claude may read and analyse but not modify, and you approve the plan before execution. That is a structural gate rather than a request to be careful."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "大規模なリファクタリングを Claude Code に分析させ、ファイルに手を加える前に、承認のために進め方を提示させたいと考えています。このために設計された仕組みはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "リファクタリング全体を実行し、変更内容を報告する Headless mode。",
+        "note": "Headless mode は非対話的なスクリプトでの利用向けで、承認ステップとは正反対です。"
+      },
+      {
+        "id": "b",
+        "text": "大きな作業の前にコンテキストをリセットする /clear コマンド。",
+        "note": "/clear は会話のコンテキストを消すもので、何かの実行を止めるゲートではありません。"
+      },
+      {
+        "id": "c",
+        "text": "Claude の操作を調査に限定し、計画を提案する Plan mode。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "分離された作業用コンテキストで、リファクタリングを行うサブエージェント。",
+        "note": "サブエージェントはサブタスクのコンテキストを分離するもので、ファイル変更のゲートにはなりません。"
+      }
+    ],
+    "explanation": "Plan mode は、リスクのある変更や影響範囲の広い変更のためにあります。Claude は読み取りと分析はできますが変更はできず、実行前に計画を承認します。これは注意するよう求める指示ではなく、構造的なゲートです。"
+  },
+  "supplement": {
+    "ja": "Plan mode は、実際の変更に進む前に、コードや要件を調べ、進め方を計画として提示するためのモードです。 Headless mode は、対話画面を使わず、コマンドラインやスクリプトから処理を実行し、結果を受け取る非対話形式の実行モードです。",
+    "en": "Plan mode is a mode for investigating code and requirements and presenting an approach as a plan before proceeding with actual changes. Headless mode is a non-interactive execution mode that runs tasks and returns results from the command line or scripts without an interactive interface."
   },
   "references": [
     {

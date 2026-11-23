@@ -38,7 +38,35 @@
     "explanation": "\"Must never\" is an absolute requirement and no single probabilistic layer delivers it. The prompt shapes typical behaviour, the output check catches what slips through, and monitoring closes the loop."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "医療チャットボットは、診断を絶対に提供してはいけません。最も強い保証を与える実装はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "診断を絶対にしないようモデルに指示する、強い表現のシステムプロンプト。",
+        "note": "必要な層ですが、絶対的な制約に対しては、それだけでは不十分です。"
+      },
+      {
+        "id": "b",
+        "text": "診断の依頼を拒否する方法を示す、few-shot の例。",
+        "note": "例は確率を改善しますが、結果を保証しません。"
+      },
+      {
+        "id": "c",
+        "text": "安全に関する指示に、より確実に従う高性能なモデル階層。",
+        "note": "指示に従う度合いが高くても、保証にはなりません。"
+      },
+      {
+        "id": "d",
+        "text": "プロンプトに、決定論的な出力チェックと、監視・エスカレーションを組み合わせる。",
+        "note": ""
+      }
+    ],
+    "explanation": "「絶対にしてはいけない」は絶対的な要件であり、単一の確率的な層では達成できません。プロンプトが通常の動作を形作り、出力チェックがすり抜けたものを捉え、監視がループを閉じます。"
+  },
+  "supplement": {
+    "ja": "few-shot は、少数の入力例とそれに対する出力例をプロンプトに含め、望む回答の形や規則を伝える方法です。",
+    "en": "Few-shot prompting provides a small number of example inputs and outputs in the prompt to show the desired response format or rules."
   },
   "references": [
     {

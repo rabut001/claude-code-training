@@ -38,7 +38,31 @@
     "explanation": "The SDK packages the harness Claude Code itself is built on, so you spend your effort on capabilities and policy rather than rebuilding the scaffolding."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Messages API を使ってループを手書きする場合と比べ、Claude Agent SDK は何を提供しますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "コードベースからツールを推測するため、ツールを定義する必要がなくなる。",
+        "note": "エージェントに使用を許可するツールは、引き続き定義します。"
+      },
+      {
+        "id": "b",
+        "text": "呼び出し間の会話状態を、Anthropic のサーバーに永続化する。",
+        "note": "基盤となる API がステートレスであることは変わりません。"
+      },
+      {
+        "id": "c",
+        "text": "エージェントが誤った操作や危険な操作を実行しないことを保証する。",
+        "note": "モデルの判断の正しさを保証できるフレームワークはありません。"
+      },
+      {
+        "id": "d",
+        "text": "ループ、振り分け、コンテキスト、権限、フックからなる実行基盤を提供する。",
+        "note": ""
+      }
+    ],
+    "explanation": "SDK は、Claude Code 自体の基盤である実行基盤をパッケージ化しています。そのため、土台を作り直す代わりに、機能やポリシーに労力をかけられます。"
   },
   "references": [
     {

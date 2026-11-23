@@ -38,7 +38,31 @@
     "explanation": "Prompt iteration without measurement is guessing. A fixed labelled set plus single-variable changes shows which edits helped and catches a change that fixes one category while breaking another."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "期待どおりに動作しないプロンプトを改善する方法として、最も信頼できるものはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "経験に基づいて全面的に書き直し、リリースして苦情を監視する。",
+        "note": "全面的な書き直しでは多くの変数が一度に変わるため、原因について何も学べません。"
+      },
+      {
+        "id": "b",
+        "text": "観測されたすべてのケースを網羅するため、明示的な指示をできるだけ多く加える。",
+        "note": "詰め込みすぎたプロンプトは重要な指示を薄め、正確さを下げることがよくあります。"
+      },
+      {
+        "id": "c",
+        "text": "Claude に自分のプロンプトを批評・採点させ、その提案を適用する。",
+        "note": "自己評価は、後続のタスクの性能を測るものではありません。"
+      },
+      {
+        "id": "d",
+        "text": "ラベル付きの評価セットを作り、一度に1つだけ変更し、変更ごとに測定する。",
+        "note": ""
+      }
+    ],
+    "explanation": "測定せずにプロンプトの改善を繰り返すのは、推測です。固定されたラベル付きセットと、1変数ずつの変更を組み合わせれば、どの編集が役立ったかを示し、あるカテゴリーを改善しながら別のカテゴリーを壊す変更も捉えられます。"
   },
   "references": [
     {

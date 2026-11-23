@@ -38,7 +38,31 @@
     "explanation": "Routing exists for distinct input categories needing separate treatment. Classifying first lets each path use a focused prompt and an appropriately sized model instead of one bloated prompt covering every case."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "サポートチケットには、返金依頼、技術的な不具合、請求に関する質問があり、それぞれ大きく異なる処理と別のプロンプトが必要です。どのパターンが適していますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "並列化。3つの専用ハンドラーをすべて実行し、回答を統合する。",
+        "note": "3つすべてを実行すると費用が無駄になり、統合時に調整が必要な無関係の回答が2つ生成されます。"
+      },
+      {
+        "id": "b",
+        "text": "ルーティング。まずチケットを分類し、対応するハンドラーに振り分ける。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "評価者・最適化者。回答を生成し、批評と修正をループで繰り返す。",
+        "note": "そのパターンは1つの出力を改善するもので、ハンドラーを選ぶものではありません。"
+      },
+      {
+        "id": "d",
+        "text": "3種類すべての処理指示を含む、1つのプロンプト。",
+        "note": "指示をまとめたプロンプトは長く、混乱しやすくなり、すべてのカテゴリーで性能が低下します。"
+      }
+    ],
+    "explanation": "ルーティングは、別々の扱いが必要な明確な入力カテゴリーのためにあります。最初に分類すれば、あらゆるケースを網羅する肥大化した1つのプロンプトの代わりに、各経路で焦点を絞ったプロンプトと適切な大きさのモデルを使えます。"
   },
   "references": [
     {

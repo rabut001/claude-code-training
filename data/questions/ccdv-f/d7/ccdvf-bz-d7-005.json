@@ -44,7 +44,40 @@
     "explanation": "Defence in depth is the governing principle, and the strongest single layer is capability restriction, because an action the agent structurally cannot take cannot be triggered by any input."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントを用いるアプリケーションの防御について、正しい記述はどの2つですか？（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "単独で十分な制御はないため、ガードレールは多層にすべきである。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "指示よりも機能制限が優れる。到達できない操作は、誘発できない。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "十分に詳細なシステムプロンプトがあれば、認可チェックは不要になる。",
+        "note": "プロンプトが認可に取って代わることはありません。強制ではなく、指針です。"
+      },
+      {
+        "id": "d",
+        "text": "モデルに届く前に入力を無害化すれば、プロンプトインジェクションは完全に解決する。",
+        "note": "無害化は役立ちますが、攻撃者は言い換え、エンコード、翻訳によって回避します。"
+      },
+      {
+        "id": "e",
+        "text": "すべてのリクエストで temperature を0にすれば、ジェイルブレイクの成功を防げる。",
+        "note": "temperature は、敵対的な指示への影響の受けやすさとは関係がありません。"
+      }
+    ],
+    "explanation": "基本原則は多層防御です。単独で最も強い層は機能制限であり、エージェントが構造的に実行できない操作は、どのような入力でも引き起こせないためです。"
+  },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature."
   },
   "references": [
     {

@@ -64,6 +64,10 @@
     ],
     "explanation": "検索により、プロンプトを小さく、常に最新に保てます。頻繁に変わる大量の参照データは、モデルやプロンプトに組み込むのではなく、リクエストごとに検索するストアに置くべきです。"
   },
+  "supplement": {
+    "ja": "SKU は、サイズや色などの商品仕様の違いを区別して在庫を管理するための単位です。",
+    "en": "A SKU (stock keeping unit) is an inventory management unit that distinguishes product variants, such as different sizes or colors."
+  },
   "references": [
     {
       "title": "Anthropic docs — Reduce hallucinations",

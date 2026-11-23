@@ -38,7 +38,31 @@
     "explanation": "Voting trades cost for confidence. Running a judgement independently several times and aggregating catches cases a single pass would miss, which is worth the multiplied spend when a miss is expensive."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "投票ステップを伴う並列化パターンが、最も価値を発揮するのはどのような場合ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "システムが最適化すべき特性が、純粋なスループットだけである場合。",
+        "note": "投票は項目あたりの作業量を増やします。スループットを高める方式は、分割です。"
+      },
+      {
+        "id": "b",
+        "text": "項目あたりのコストを可能な限り低くして、タスクを完了する必要がある場合。",
+        "note": "投票数に応じてコストが何倍にもなります。"
+      },
+      {
+        "id": "c",
+        "text": "1回の判断では誤りやすく、独立した試行を比較できる場合。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "同じ入力から、毎回厳密に再現可能な出力を得る必要がある場合。",
+        "note": "複数の確率的な実行を集約しても、再現可能性は得られません。"
+      }
+    ],
+    "explanation": "投票は、コストと引き換えに確信度を高めます。独立して何度か判断を行い、結果を集約すると、1回の処理では見逃すケースを捉えられます。見逃しの代償が大きい場合は、何倍もの支出に見合います。"
   },
   "references": [
     {

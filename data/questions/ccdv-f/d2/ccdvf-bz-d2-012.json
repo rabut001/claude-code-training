@@ -64,6 +64,10 @@
     ],
     "explanation": "単一スレッドのイベントループがネットワーク I/O でブロックされると、他の処理に一切応答できません。不具合は呼び出し方にあり、モデル、プロンプト、制限にはありません。"
   },
+  "supplement": {
+    "ja": "I/O は入出力を意味し、ネットワーク通信やファイルの読み書きなど、プログラムと外部とのデータのやり取りを指します。",
+    "en": "I/O means input/output: data exchanged between a program and its surroundings, such as network communication or file reads and writes."
+  },
   "references": [
     {
       "title": "Anthropic docs — Client SDKs",

@@ -64,6 +64,10 @@
     ],
     "explanation": "グラウンディングは事実を与え、引用は各主張を検索したテキストと照合可能にします。また、明示的に回答を控える道を用意すれば、情報源に記載がないときに作り話をする圧力を取り除けます。"
   },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。 few-shot は、少数の入力例とそれに対する出力例をプロンプトに含め、望む回答の形や規則を伝える方法です。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature. Few-shot prompting provides a small number of example inputs and outputs in the prompt to show the desired response format or rules."
+  },
   "references": [
     {
       "title": "Anthropic docs — Reduce hallucinations",

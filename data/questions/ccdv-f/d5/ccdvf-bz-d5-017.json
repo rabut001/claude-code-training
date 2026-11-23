@@ -75,6 +75,10 @@
     ],
     "explanation": "キャッシュへのヒットによって、長くて変化しないプレフィックスを再処理する時間がなくなります。また、難易度に応じた階層の使い分けによって、トラフィックの大半で最も遅いモデルを使わずに済みます。どちらも、タスクの定義を変えずにレイテンシを減らします。"
   },
+  "supplement": {
+    "ja": "few-shot は、少数の入力例とそれに対する出力例をプロンプトに含め、望む回答の形や規則を伝える方法です。 p95 は95パーセンタイルを表します。応答時間の場合、測定した応答の約95%がその時間以内に収まることを意味します。 extended thinking は、最終的な回答を出す前に、モデルが内部の推論に追加の処理を使う機能です。",
+    "en": "Few-shot prompting provides a small number of example inputs and outputs in the prompt to show the desired response format or rules. p95 denotes the 95th percentile. For response time, approximately 95% of the measured responses complete within that time. Extended thinking is a feature that lets the model spend additional computation on internal reasoning before producing its final answer."
+  },
   "references": [
     {
       "title": "Anthropic docs — Reducing latency",

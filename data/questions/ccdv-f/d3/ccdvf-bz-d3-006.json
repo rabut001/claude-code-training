@@ -38,7 +38,31 @@
     "explanation": "A persistent, project-wide, team-shared fact belongs in committed project configuration, because anything depending on a human remembering will eventually be forgotten by someone."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "毎セッションでコンテキストを無駄に消費する、大きな生成物のディレクトリを Claude Code に読ませないようにしたいと考えています。どこに記すべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "新しい作業セッションの開始時に毎回、注意事項として入力する。",
+        "note": "すべての開発者が毎セッション、いつまでも手作業で繰り返すことになります。"
+      },
+      {
+        "id": "b",
+        "text": "全員に適用されるよう、コミットしたプロジェクト設定と CLAUDE.md に記す。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "作業開始前に開発者が呼び出す、カスタムスラッシュコマンド。",
+        "note": "誰かが呼び出すのを覚えておく必要が、依然としてあります。"
+      },
+      {
+        "id": "d",
+        "text": "そのディレクトリに関係する作業を扱う、サブエージェントの定義。",
+        "note": "サブエージェントは委任されたサブタスクのコンテキストを分離するもので、プロジェクト全体の除外設定ではありません。"
+      }
+    ],
+    "explanation": "永続的で、プロジェクト全体に適用し、チームで共有する事実は、コミットするプロジェクト設定に置きます。人が覚えていることに依存するものは、いずれ誰かに忘れられるためです。"
   },
   "references": [
     {

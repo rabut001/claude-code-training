@@ -44,7 +44,7 @@
 | truncation | 出力の途切れ | 出力上限などで生成が途中で切れること |
 | stop sequence | 停止シーケンス | API の識別子は英語のまま |
 | token counting | トークンカウント | |
-| extended thinking | 英語のまま | 機能名 |
+| extended thinking | 英語のまま | 回答前に、モデルが内部の推論に追加の処理を使う機能 |
 | payload | ペイロード | |
 | endpoint | エンドポイント | |
 | schema | スキーマ | |
@@ -70,7 +70,7 @@
 | grounding | グラウンディング | |
 | citation | 引用 | 根拠となる検索箇所などの引用 |
 | fine-tuning | ファインチューニング | |
-| few-shot | 英語のまま | |
+| few-shot | 英語のまま | 少数の入出力例をプロンプトに含め、望む応答の形や規則を伝える方法 |
 | untrusted data | 信頼できないデータ | |
 | blast radius | 被害の影響範囲 / 影響範囲 | 文脈に応じて使い分ける |
 | calibration / calibrated | 較正 / 較正された | 確信度の文脈 |
@@ -113,3 +113,73 @@
 | frontier model | 最先端のモデル | |
 | cost attribution | 費用の配賦 | 機能などへの費用の割り当て |
 | tokenisation | トークン化 | |
+| subagent / sub-agent | サブエージェント | |
+| autonomy / agency | 自律性 | |
+| routing | ルーティング | 動詞は「振り分ける」 |
+| prompt chaining | プロンプトチェーン | |
+| parallelisation | 並列化 | |
+| voting | 投票 | |
+| sectioning | 分割 | 並列化の方式 |
+| evaluator-optimiser / evaluator-optimizer | 評価者・最適化者 | ワークフローパターン |
+| hook | フック | |
+| side effect | 副作用 | |
+| control flow | 制御フロー | |
+| trace | トレース | |
+| self-hosted / self-hosting | セルフホスト | |
+| managed deployment | マネージド環境へのデプロイ | |
+| context isolation | コンテキストの分離 | |
+| entity | エンティティー | |
+| context pruning | コンテキストの枝刈り | |
+| context bloat | コンテキストの肥大化 | |
+| task isolation | タスクの分離 | |
+| prefill / prefilling | 事前入力 | アシスタントターンの冒頭を指定する文脈 |
+| defensive parsing | 防御的な解析 | |
+| chain of thought / chain-of-thought | 思考の連鎖 | |
+| true positive | 真陽性 | |
+| near-miss case | 紛らわしい非該当ケース | 分類の境界を説明する文脈 |
+| delimiter | 区切り | |
+| code fence | コードフェンス | |
+| structural / semantic validation | 構造の検証 / 意味の検証 | |
+| client-side tool / server-side tool | クライアント側ツール / サーバー側ツール | |
+| built-in tool / custom tool | 組み込みツール / カスタムツール | |
+| pagination | ページ分割 | |
+| attack surface | 攻撃対象領域 | |
+| primitive | 基本要素 | MCP の文脈 |
+| resource | リソース | MCP の文脈 |
+| transport | トランスポート | |
+| embedding | 埋め込み | |
+| parameterised query | パラメーター化クエリー | |
+| sanitise | 無害化する | |
+| indirect prompt injection | 間接的なプロンプトインジェクション | |
+| jailbreak | ジェイルブレイク | |
+| exfiltration | データ流出 | |
+| data minimisation | データ最小化 | |
+| redact | 秘匿化する | |
+| entitlement | アクセス権 | |
+| defence in depth | 多層防御 | |
+| capability restriction | 機能制限 | |
+| content moderation | コンテンツモデレーション | |
+| fail-open / fail-closed | フェイルオープン / フェイルクローズ | |
+| linting | 静的検査 | |
+| secret manager | シークレットマネージャー | |
+| delegated token | 委任トークン | |
+| principal | 主体 | 認可の文脈 |
+| identity model | アイデンティティーモデル | |
+| rotation | ローテーション | キーや認証情報の更新 |
+| Plan mode | 英語のまま | 変更前にコードや要件を調べ、進め方を計画として提示するモード |
+| Headless mode | 英語のまま | 対話画面を使わず、コマンドラインやスクリプトから処理を実行する非対話形式のモード |
+| custom slash command | カスタムスラッシュコマンド | |
+| project memory | プロジェクトメモリー | |
+| agent memory | エージェントメモリー | |
+| integration layer | 連携層 | |
+| parametric knowledge | パラメーター内の知識 | |
+| quota | 割り当て量 | |
+| temperature | 英語のまま | 次のトークンを選ぶ際のランダムさを調整するパラメーター。低い値では高確率の候補が選ばれやすく、高い値では比較的低確率の候補も選ばれやすい |
+| top_p | 英語のまま | 次のトークンの候補を確率の高い順に集め、累積確率のしきい値で候補を絞るパラメーター |
+| p95 / p99 | 英語のまま | 95 / 99パーセンタイル。レイテンシなら、測定値の95% / 99%がその値以下に収まることを表す |
+| OCR | 英語のまま | 画像中の文字を認識してテキスト化する処理 |
+| SKU | 英語のまま | 商品の種類や仕様を区別する在庫管理単位 |
+| CI | 英語のまま | 継続的インテグレーション。コードの変更を取り込み、ビルドやテストを継続的に実行する開発の仕組み |
+| I/O | 英語のまま | 入出力。ネットワーク通信やファイルの読み書きなど |
+| base64 | 英語のまま | 画像などのバイナリーデータを文字列で表す符号化方式 |
+| patch | 修正を適用する | ソフトウェア保守の文脈で、動詞として使う場合 |

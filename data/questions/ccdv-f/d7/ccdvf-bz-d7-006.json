@@ -38,7 +38,31 @@
     "explanation": "Progressive autonomy: the agent proposes and a human disposes, real behaviour is measured, and the permission boundary widens only where evidence supports it. Blast radius grows deliberately."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "本番環境の設定を変更できるエージェントを展開しています。最も安全なデプロイ方法はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "実際の失敗のパターンが早く表れるよう、全員に一度に有効にする。",
+        "note": "失敗のパターンが誰にも分からない段階で、影響を最大限に広げることになります。"
+      },
+      {
+        "id": "b",
+        "text": "本番のトラフィックが最も少ない、夜間の時間帯に限定する。",
+        "note": "静かな時間帯はリスクではなく目撃者を減らし、不具合の発見が遅れます。"
+      },
+      {
+        "id": "c",
+        "text": "初日から完全な自律性を与えるが、後で追跡できるよう、すべての操作を記録する。",
+        "note": "ログは被害が出た後の診断に役立ちますが、何も防ぎません。"
+      },
+      {
+        "id": "d",
+        "text": "人の承認を伴う提案のみのモードで始め、その後に自律性を広げる。",
+        "note": ""
+      }
+    ],
+    "explanation": "自律性を段階的に広げます。エージェントが提案し、人が判断し、実際の動作を測定し、証拠に裏付けられた箇所でだけ権限の境界を広げます。被害の影響範囲は、意図的に広げます。"
   },
   "references": [
     {

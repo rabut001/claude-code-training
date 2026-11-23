@@ -44,7 +44,40 @@
     "explanation": "Both guards are deterministic and live outside the model. An iteration ceiling stops a non-converging loop and a budget bounds cost and latency; neither can be talked around by the model."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "本番環境のすべてのエージェントループに必要なガードはどの2つですか？（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "プロンプトではなく実行基盤が強制する、最大反復回数。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "超過したら実行を終了する、実時間またはトークンの予算。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "エージェントの選択を再現可能に保つための、サンプリング用の temperature の0への固定。",
+        "note": "決定論的なサンプリングでも、反復回数は制限されません。"
+      },
+      {
+        "id": "d",
+        "text": "N回を超えてループしないよう指示する、システムプロンプト。",
+        "note": "プロンプトでは終了を強制できません。ループを制御するのはコードです。"
+      },
+      {
+        "id": "e",
+        "text": "すべてのツールが整形式の JSON オブジェクトを返すという規約。",
+        "note": "妥当な規約ですが、安全のためのガードではありません。"
+      }
+    ],
+    "explanation": "どちらのガードも決定論的で、モデルの外部にあります。反復回数の上限は収束しないループを止め、予算はコストとレイテンシを制限します。どちらも、モデルの言葉によって回避されることはありません。"
+  },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature."
   },
   "references": [
     {

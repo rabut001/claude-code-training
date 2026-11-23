@@ -64,6 +64,10 @@
     ],
     "explanation": "キャッシュは、プロンプトの先頭からプレフィックスが完全に一致するかを照合するため、先頭にタイムスタンプがあるとまったく機能しません。変化しない内容を先に置き、次にキャッシュの区切り、最後に変動する部分を置く必要があります。"
   },
+  "supplement": {
+    "ja": "extended thinking は、最終的な回答を出す前に、モデルが内部の推論に追加の処理を使う機能です。",
+    "en": "Extended thinking is a feature that lets the model spend additional computation on internal reasoning before producing its final answer."
+  },
   "references": [
     {
       "title": "Anthropic docs — Prompt caching",

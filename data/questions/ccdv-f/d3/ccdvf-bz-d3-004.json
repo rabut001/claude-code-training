@@ -38,7 +38,31 @@
     "explanation": "Compacting preserves task continuity while reducing the context. Clearing is right only when you are genuinely starting an unrelated task."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude Code の長いセッションがコンテキストの上限に近づいていますが、開発者は同じタスクを続けたいと考えています。適切なコマンドはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "蓄積した会話を削除し、まっさらな状態で始める /clear。",
+        "note": "消去すると、開発者が明示的に保持したいタスクの状態を捨てることになります。"
+      },
+      {
+        "id": "b",
+        "text": "セッションを要約し、少ないコンテキストで続行する /compact。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "現在のリポジトリからプロジェクトのメモリーファイルを再生成する /init。",
+        "note": "/init は CLAUDE.md を作成または更新するもので、コンテキストの大きさには何もしません。"
+      },
+      {
+        "id": "d",
+        "text": "より大きなコンテキストウィンドウを持つモデルに切り替える /model。",
+        "note": "モデルを切り替えても、蓄積した会話は減りません。"
+      }
+    ],
+    "explanation": "圧縮は、コンテキストを減らしながらタスクの継続性を保ちます。消去が適切なのは、実際に無関係な別のタスクを始める場合だけです。"
   },
   "references": [
     {

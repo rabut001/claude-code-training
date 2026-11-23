@@ -38,7 +38,31 @@
     "explanation": "Skills package procedural knowledge as instructions applied when relevant. With no external system to call, the requirement is purely to teach the assistant the procedure."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "外部システムの呼び出しを伴わない、繰り返し実行できる複数段階の手順（「リリースの進め方」）が文章で書かれています。最も適したカスタマイズの仕組みはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "タスクが合致すると自動的に適用される、再利用可能な指示である Skill。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "カスタマイズの仕組みの中で、最も高機能な MCP サーバー。",
+        "note": "MCP は外部システムとの連携を解決しますが、ここにはそのようなシステムがありません。"
+      },
+      {
+        "id": "c",
+        "text": "空の入力スキーマを持ち、手順の文章を返すカスタムツール。",
+        "note": "入力も実行する処理もないツールは、この仕組みの誤用です。"
+      },
+      {
+        "id": "d",
+        "text": "すべてのプロンプトで起動し、リリース手順を先頭に追加するフック。",
+        "note": "フックは、ライフサイクルの時点で決定論的な処理を強制するもので、手順を伝えるものではありません。"
+      }
+    ],
+    "explanation": "Skills は、手順に関する知識を、関係する場合に適用される指示としてまとめます。呼び出す外部システムがないため、要件は純粋にアシスタントに手順を教えることです。"
   },
   "references": [
     {

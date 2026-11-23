@@ -38,7 +38,31 @@
     "explanation": "Every enabled server injects tool definitions into context and widens the selection space. Scoping the enabled set per agent cuts token overhead and sharply improves selection accuracy."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "組織で30個の MCP サーバーを設定したところ、エージェントが遅くなり、ツール選択の正確さも低下しました。最も適切な対策はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "各エージェントに関係するサーバーだけを有効にし、ツール群の焦点を保つ。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "すべての定義が余裕を持って収まるよう、すべてのリクエストでコンテキストウィンドウを拡大する。",
+        "note": "肥大化を解消せず受け入れるだけで、選択の正確さは低いままです。"
+      },
+      {
+        "id": "c",
+        "text": "30個すべてのサーバーを、1つの集約用 MCP サーバーの背後にまとめる。",
+        "note": "30個のサーバーに相当するツールを1つのサーバーで公開しても、問題は同じです。"
+      },
+      {
+        "id": "d",
+        "text": "すべてのエージェントを、利用可能な最も高性能なモデル階層に移す。",
+        "note": "より高いコストで症状を軽減しますが、根本原因は残ります。"
+      }
+    ],
+    "explanation": "有効な各サーバーは、コンテキストにツール定義を追加し、選択の範囲を広げます。エージェントごとに有効なサーバーの範囲を絞ることで、トークンのオーバーヘッドを減らし、選択の正確さを大きく改善します。"
   },
   "references": [
     {

@@ -38,7 +38,35 @@
     "explanation": "A deterministic guardrail is code that always executes and returns the same decision for the same input. It either fires or does not, without depending on the model choosing to comply."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "確率的なガードレールではなく、決定論的なガードレールの例はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "カード番号のパターンに一致するレスポンスをブロックする、コードのチェック。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "医療上の助言を求めるリクエストを拒否するよう、モデルに指示するシステムプロンプト。",
+        "note": "指示は動作に強く影響しますが、回避されることがあります。"
+      },
+      {
+        "id": "c",
+        "text": "拒否をどのように表現すべきか示す、few-shot の例。",
+        "note": "例は、動作を確率的に形作ります。"
+      },
+      {
+        "id": "d",
+        "text": "危険なリクエストをより頻繁に拒否する、より高性能なモデル階層の選択。",
+        "note": "能力が高ければ誤りの割合は減りますが、何も保証されません。"
+      }
+    ],
+    "explanation": "決定論的なガードレールは、必ず実行され、同じ入力には同じ判断を返すコードです。モデルが従うことを選ぶかどうかに依存せず、作動するか、しないかが決まります。"
+  },
+  "supplement": {
+    "ja": "few-shot は、少数の入力例とそれに対する出力例をプロンプトに含め、望む回答の形や規則を伝える方法です。",
+    "en": "Few-shot prompting provides a small number of example inputs and outputs in the prompt to show the desired response format or rules."
   },
   "references": [
     {

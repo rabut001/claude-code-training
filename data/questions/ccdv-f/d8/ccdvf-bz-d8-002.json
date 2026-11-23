@@ -38,7 +38,31 @@
     "explanation": "It serves two purposes at once: telling the model the shape, types, and required fields to produce, and giving your handler a contract to validate against before doing anything."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "ツール定義における input_schema の役割は何ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ツールハンドラーの戻り値がモデルに届く前に、その値を検証する。",
+        "note": "記述するのは入力だけです。戻り値はハンドラーが担います。"
+      },
+      {
+        "id": "b",
+        "text": "どの呼び出し元やロールに、ツールの呼び出しを許可するかを宣言する。",
+        "note": "認可はアプリケーションで強制するもので、スキーマでは行いません。"
+      },
+      {
+        "id": "c",
+        "text": "そのツールの実行に適用する、1分あたりのレート制限を設定する。",
+        "note": "レート制限は基盤の問題であり、ツール定義の外側にあります。"
+      },
+      {
+        "id": "d",
+        "text": "パラメーターの JSON Schema であり、モデルと検証の指針になる。",
+        "note": ""
+      }
+    ],
+    "explanation": "2つの役割を同時に果たします。生成すべき構造、型、必須フィールドをモデルに伝えることと、ハンドラーが何かを実行する前に検証するための契約を与えることです。"
   },
   "references": [
     {

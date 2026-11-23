@@ -38,7 +38,31 @@
     "explanation": "Prefilling puts the opening tokens of the assistant turn under your control and generation continues from there, which is how an opening brace suppresses conversational preamble before JSON."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Messages API のリクエストで、アシスタントターンを事前入力する目的は何ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "リクエストに含める必要がある入力トークン数を減らすこと。",
+        "note": "事前入力はトークンを減らすのではなく増やします。"
+      },
+      {
+        "id": "b",
+        "text": "プロンプトキャッシュ層で再利用するため、レスポンスを登録すること。",
+        "note": "プロンプトキャッシュとは無関係です。"
+      },
+      {
+        "id": "c",
+        "text": "レスポンスの書き出しを制約し、選んだ形式に誘導すること。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "会話の特定の1ターンについて、システムプロンプトに優先すること。",
+        "note": "システムの指示は、通常どおり適用され続けます。"
+      }
+    ],
+    "explanation": "事前入力では、アシスタントターンの冒頭のトークンを自分で制御し、そこから生成が続きます。この仕組みにより、開き波かっこを置けば、JSON の前に会話的な前置きが入るのを抑えられます。"
   },
   "references": [
     {

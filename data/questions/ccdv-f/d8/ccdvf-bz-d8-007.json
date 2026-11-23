@@ -44,7 +44,36 @@
     "explanation": "Separating reads from writes means the common path holds no destructive capability, and per-tool least privilege bounds what a compromised or misused tool can reach. Both shrink the blast radius structurally."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "金融業務エージェントのツール群を設計しています。リスクを最も減らす設計上の選択はどの2つですか？（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "読み取りと書き込みの機能を、それぞれ別のコード経路を持つ別々のツールに分ける。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "1つの特権アカウントを共有せず、各ツールの認証情報の権限範囲を狭くする。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "柔軟性のため、任意の SQL を受け取る汎用の execute_query ツールを公開する。",
+        "note": "任意の SQL を使えると攻撃対象領域は最大になり、典型的なインジェクションの標的になります。"
+      },
+      {
+        "id": "d",
+        "text": "幅広い選択肢をモデルが検討できるよう、ツールの説明を広い内容にする。",
+        "note": "曖昧な説明は、誤ったツールの選択を引き起こします。"
+      },
+      {
+        "id": "e",
+        "text": "モデルが常に完全な情報を持つよう、API の完全な生レスポンスを返す。",
+        "note": "生のレスポンスはコンテキストを肥大化させ、エージェントに見せるべきでないフィールドを漏らす可能性があります。"
+      }
+    ],
+    "explanation": "読み取りと書き込みを分けることで、通常の経路は破壊的な機能を持たなくなります。また、ツールごとの最小権限により、侵害された、または誤用されたツールがアクセスできる範囲を制限します。どちらも、構造的に被害の影響範囲を縮小します。"
   },
   "references": [
     {

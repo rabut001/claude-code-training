@@ -64,6 +64,10 @@
     ],
     "explanation": "ツール使用のターンを継続するときは、thinking ブロックを変更せずに返す必要があります。これらは署名されているため、変更したり省略したりするとターンが無効になります。"
   },
+  "supplement": {
+    "ja": "extended thinking は、最終的な回答を出す前に、モデルが内部の推論に追加の処理を使う機能です。",
+    "en": "Extended thinking is a feature that lets the model spend additional computation on internal reasoning before producing its final answer."
+  },
   "references": [
     {
       "title": "Anthropic docs — Extended thinking",

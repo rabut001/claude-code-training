@@ -38,7 +38,31 @@
     "explanation": "Validate at the boundary and return an actionable error. Naming the offending field and the expected type usually lets the model correct itself on the next iteration, which is self-healing for free."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "スキーマでは整数が必要な箇所に文字列を指定して、Claude がツールを呼び出しました。ハンドラーの最適な動作はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "不正な呼び出しでエージェントの実行が終了するよう、例外を発生させる。",
+        "note": "不正な引数が1つあるだけで、実行全体を失うべきではありません。"
+      },
+      {
+        "id": "b",
+        "text": "通知せずに値を期待する型へ変換し、処理を続ける。",
+        "note": "通知のない型変換はバグを隠し、後段で微妙に誤った結果を生みます。"
+      },
+      {
+        "id": "c",
+        "text": "何も返さず、その後の進め方をモデルに判断させる。",
+        "note": "空のレスポンスでは、モデルに修正の手掛かりがなく、繰り返しを招きます。"
+      },
+      {
+        "id": "d",
+        "text": "フィールドと期待する型を明示した、エラーの tool_result を返す。",
+        "note": ""
+      }
+    ],
+    "explanation": "境界で検証し、対処につながるエラーを返してください。問題のフィールドと期待する型を示すと、通常はモデルが次の反復で自分で修正でき、追加の手間なく自己修復できます。"
   },
   "references": [
     {

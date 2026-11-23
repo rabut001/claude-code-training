@@ -64,6 +64,10 @@
     ],
     "explanation": "コミットしたシークレットは、履歴、クローン、フォーク、CI キャッシュに残ります。実行時にシークレットストアから注入すれば、認証情報をリポジトリに一切含めずに済みます。"
   },
+  "supplement": {
+    "ja": "CI（継続的インテグレーション）は、コードの変更を共有のリポジトリへ継続的に取り込み、ビルドやテストを自動実行して確認する開発の仕組みです。",
+    "en": "CI (continuous integration) is a development practice of regularly integrating code changes into a shared repository and checking them with automated builds and tests."
+  },
   "references": [
     {
       "title": "Anthropic docs — Getting started",

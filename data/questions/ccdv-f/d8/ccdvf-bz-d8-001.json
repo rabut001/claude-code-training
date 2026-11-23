@@ -38,7 +38,31 @@
     "explanation": "Selection is driven almost entirely by the description, and these two are nearly identical strings, so there is nothing to discriminate on. Stating the boundary against the sibling tool is the highest-leverage fix."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "MCP サーバーが、\"顧客レコードを検索する\"という説明の search_customers と、\"顧客の注文レコードを検索する\"という説明の search_orders を公開しています。Claude は頻繁に誤ったほうを選びます。最適な修正はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "2つのツールのうち、使用頻度が低いほうを公開対象から外す。",
+        "note": "表現の問題を回避するために必要な機能を削除すると、機能が損なわれます。"
+      },
+      {
+        "id": "b",
+        "text": "record_type という列挙型パラメーターを持つ1つのツールに統合する。",
+        "note": "汎用の多目的ツールは、意図を列挙型の背後に隠し、通常は選択を悪化させます。"
+      },
+      {
+        "id": "c",
+        "text": "目的、入力、どのような場合に優先して使うかが分かるよう、各説明を書き直す。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "リクエストが Claude に届く前にツールを選ぶ、キーワードによる振り分けを加える。",
+        "note": "壊れやすいキーワードの規則は、ツール使用を機能させている文脈理解を捨ててしまいます。"
+      }
+    ],
+    "explanation": "選択はほぼ説明によって決まりますが、この2つの文はほとんど同じで、区別の手掛かりがありません。もう一方のツールとの境界を明示することが、最も効果の大きい修正です。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Bloat hurts twice. You pay for every token on every turn, and a window packed with verbose tool output and superseded files makes it harder for the model to attend to what matters."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "「コンテキストの肥大化」とは何で、コスト以外にも問題となるのはなぜですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "純粋に課金上の問題であり、品質に測定可能な影響はない。",
+        "note": "品質の低下のほうが、問題のより深刻な側面とも言えます。"
+      },
+      {
+        "id": "b",
+        "text": "価値の低い内容の蓄積が、コストを増やし、関連するシグナルを薄めること。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "選んだタスクに対して、コンテキストウィンドウが小さすぎる状態。",
+        "note": "それは肥大化ではなく、容量制限の説明です。"
+      },
+      {
+        "id": "d",
+        "text": "どの回答にも必要のないほど、max_tokens を高く設定した場合の影響。",
+        "note": "max_tokens は出力を制限するもので、コンテキストを蓄積しません。"
+      }
+    ],
+    "explanation": "肥大化には二重の害があります。各ターンですべてのトークンに料金を支払い、さらに、冗長なツール出力や置き換え済みのファイルでウィンドウが埋まると、モデルが重要な内容に注意を向けにくくなります。"
   },
   "references": [
     {

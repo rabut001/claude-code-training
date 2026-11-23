@@ -38,7 +38,31 @@
     "explanation": "You cannot fix an intermittent failure you cannot reproduce. Complete traces reveal whether the cause is truncation, a particular input shape, a parameter difference, or a tool returning bad data."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude を使う機能が「ときどき意味不明な結果を返す」と、ユーザーから報告されています。最初の診断として最も効果的な手順はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "失敗するケースの完全なトレースを記録し、共通するパターンを探す。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "機能をより大きなモデルに移し、報告が減るかを確認する。",
+        "note": "失敗を理解する前に変数を変えるのは、費用の高い推測です。"
+      },
+      {
+        "id": "c",
+        "text": "現在のベストプラクティスの指針を使い、プロンプトを一から書き直す。",
+        "note": "手探りの書き直しは、修正になることも、別のものを壊すことも、何も変えないこともあり、測定できません。"
+      },
+      {
+        "id": "d",
+        "text": "出力は不正確な場合があると警告する免責事項を、画面に加える。",
+        "note": "免責事項は期待を調整しますが、欠陥には対処しません。"
+      }
+    ],
+    "explanation": "再現できない断続的な失敗は、修正できません。完全なトレースがあれば、原因が出力の途切れ、特定の入力構造、パラメーターの違い、ツールが返す不適切なデータのどれかを明らかにできます。"
   },
   "references": [
     {

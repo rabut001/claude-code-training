@@ -38,7 +38,35 @@
     "explanation": "Compaction is the standard answer for long sessions: bulky historical turns are replaced by a dense summary that preserves decisions and state while recent turns stay in full. The information survives; the token cost does not."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "コーディングエージェントの品質が約25ターン後から低下し、以前の決定を忘れ、完了した作業を繰り返します。これに最も直接対処する手法はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "古いターンを構造化された要約に圧縮し、直近のターンはそのまま保持する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "各レスポンスで以前の決定を言い直す余地ができるよう、max_tokens を増やす。",
+        "note": "出力の長さと、以前のコンテキストの保持は無関係です。"
+      },
+      {
+        "id": "c",
+        "text": "同じことを繰り返すのをやめるよう、temperature を上げる。",
+        "note": "temperature を上げると増えるのは出力の変化であり、記憶の再現ではありません。"
+      },
+      {
+        "id": "d",
+        "text": "ノイズの多いツール結果が履歴を圧迫しないよう、ツール使用を無効にする。",
+        "note": "機能を取り除いても、すでに失われたコンテキストは戻りません。"
+      }
+    ],
+    "explanation": "長いセッションへの標準的な対処は圧縮です。かさばる過去のターンを、決定や状態を保持する情報密度の高い要約に置き換え、直近のターンは全文を残します。情報は残りますが、トークンのコストは残りません。"
+  },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature."
   },
   "references": [
     {

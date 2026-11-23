@@ -38,7 +38,31 @@
     "explanation": "The orchestrator owns decomposition, delegation, and integration: it decides the subtasks, supplies each worker a scoped context, and synthesises the returned results."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "オーケストレーター・ワーカーのパターンで、オーケストレーターが担う責任はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "目標を分解し、各ワーカーのコンテキストの範囲を定め、結果を統合する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "すべてのワーカーに代わって、あらゆるツール呼び出しを中央で実行する。",
+        "note": "ワーカーは自分のツールを実行します。それを中央に集約すると、このパターンの目的が失われます。"
+      },
+      {
+        "id": "c",
+        "text": "ワーカーが独自のアクセスを必要としないよう、API の認証情報を保持する。",
+        "note": "認証情報の扱いは基盤の問題であり、このパターンを特徴付ける役割ではありません。"
+      },
+      {
+        "id": "d",
+        "text": "ワーカーが返した内容とは無関係に、最終回答を生成する。",
+        "note": "ワーカーの出力を無視すると、委任する意味がありません。"
+      }
+    ],
+    "explanation": "オーケストレーターは、分解、委任、統合を担います。サブタスクを決め、各ワーカーに範囲を絞ったコンテキストを渡し、返された結果をまとめます。"
   },
   "references": [
     {

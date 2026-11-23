@@ -38,7 +38,31 @@
     "explanation": "Runtime injection keeps the key out of code, images, and history. Per-service scoping limits blast radius, rotation limits the value of a leak, and usage monitoring detects misuse."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "本番サービスで使う Anthropic API キーを最も適切に保護する実践はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "シークレットマネージャーから実行時に渡し、サービスごとに権限範囲を絞り、ローテーションする。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "リポジトリの制限されたアクセス制御に頼り、キーをリポジトリにコミットする。",
+        "note": "リポジトリへのアクセスは時間とともに変わり、git の履歴は永続的です。"
+      },
+      {
+        "id": "c",
+        "text": "サービスが必ずキーを持って起動するよう、コンテナイメージに埋め込む。",
+        "note": "イメージを取得できる人なら、誰でもイメージのレイヤーを抽出できます。"
+      },
+      {
+        "id": "d",
+        "text": "ローテーションを簡単に保つため、すべてのサービスに1つの共有キーを発行する。",
+        "note": "1つの侵害がすべてに影響し、ローテーションに連携した停止が必要になります。"
+      }
+    ],
+    "explanation": "実行時に渡すことで、キーをコード、イメージ、履歴に残さずに済みます。サービスごとに権限範囲を絞ると被害の影響範囲が制限され、ローテーションは漏えいしたキーの価値を下げ、使用状況の監視は不正使用を検出します。"
   },
   "references": [
     {

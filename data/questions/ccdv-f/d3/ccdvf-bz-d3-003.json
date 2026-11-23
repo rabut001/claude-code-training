@@ -38,7 +38,35 @@
     "explanation": "It runs a single prompt to completion and emits output suitable for scripting, which is what a CI job needs. Interactive features have no meaning where no terminal is attached."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "CI パイプライン内で非対話的に実行することを想定した、Claude Code の機能はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "パイプラインで保存できる、レビュー可能な計画を作る Plan mode。",
+        "note": "Plan mode は、対話的な承認ワークフローです。"
+      },
+      {
+        "id": "b",
+        "text": "以前のセッションにパイプラインを再接続する /resume コマンド。",
+        "note": "/resume は、以前の対話的なセッションを開き直します。"
+      },
+      {
+        "id": "c",
+        "text": "パイプラインのジョブに必要なプロジェクトのコンテキストを渡す、エージェントメモリー。",
+        "note": "メモリーはコンテキストを渡すもので、実行モードではありません。"
+      },
+      {
+        "id": "d",
+        "text": "print フラグで呼び出し、プロンプトを完了まで実行する Headless mode。",
+        "note": ""
+      }
+    ],
+    "explanation": "1つのプロンプトを完了まで実行し、スクリプトで扱うのに適した出力を返すため、CI ジョブの要件に合います。端末が接続されていない環境では、対話的な機能に意味はありません。"
+  },
+  "supplement": {
+    "ja": "CI（継続的インテグレーション）は、コードの変更を共有のリポジトリへ継続的に取り込み、ビルドやテストを自動実行して確認する開発の仕組みです。 Plan mode は、実際の変更に進む前に、コードや要件を調べ、進め方を計画として提示するためのモードです。 Headless mode は、対話画面を使わず、コマンドラインやスクリプトから処理を実行し、結果を受け取る非対話形式の実行モードです。",
+    "en": "CI (continuous integration) is a development practice of regularly integrating code changes into a shared repository and checking them with automated builds and tests. Plan mode is a mode for investigating code and requirements and presenting an approach as a plan before proceeding with actual changes. Headless mode is a non-interactive execution mode that runs tasks and returns results from the command line or scripts without an interactive interface."
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Resources represent data the host application can read and place into context. They are application-controlled and URI-identified, which suits reference material such as a configuration file."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "設定ファイルの内容を、操作ではなく背景のコンテキストとして公開するのに最も適した MCP の基本要素はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "内容を使う前にファイルを取得する必要があるため、ツール。",
+        "note": "ツールは、副作用や計算を伴う、呼び出し可能な操作を意味します。"
+      },
+      {
+        "id": "b",
+        "text": "設定はモデルの振る舞いを形作るため、プロンプト。",
+        "note": "プロンプトはユーザーが呼び出すテンプレートであり、データの公開ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "定められたライフサイクルの時点で設定を渡すべきなので、フック。",
+        "note": "フックは Claude Code のライフサイクルの仕組みであり、MCP の基本要素ではありません。"
+      },
+      {
+        "id": "d",
+        "text": "URI で識別され、アプリケーションがコンテキスト用に読み取る、リソース。",
+        "note": ""
+      }
+    ],
+    "explanation": "リソースは、ホストアプリケーションが読み取り、コンテキストに入れられるデータを表します。アプリケーションが制御し、URI で識別されるため、設定ファイルのような参考資料に適しています。"
   },
   "references": [
     {

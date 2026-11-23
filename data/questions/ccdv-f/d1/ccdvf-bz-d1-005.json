@@ -38,7 +38,31 @@
     "explanation": "Generate-critique-revise is the evaluator-optimiser loop, and its characteristic failure is non-convergence. A deterministic ceiling in the harness, plus a defined behaviour when it is reached, is required."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "文章作成システムがマーケティングメールを生成し、ブランドのガイドラインに照らして批評し、修正する処理を、批評で合格するまで繰り返します。これはどのパターンで、本番環境の安全性のために何を加える必要がありますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ルーティングであり、既知の分類に合わないチケット用のフォールバックカテゴリーを加える。",
+        "note": "説明のどこにも、分類や振り分けのステップはありません。"
+      },
+      {
+        "id": "b",
+        "text": "並列化であり、並列の出力を調整する統合関数を加える。",
+        "note": "並行して実行されるものも、統合するものもありません。"
+      },
+      {
+        "id": "c",
+        "text": "プロンプトチェーンであり、固定の指示ブロックの後にキャッシュの区切りを加える。",
+        "note": "順序は固定された前向きのチェーンではなく、フィードバックのループです。"
+      },
+      {
+        "id": "d",
+        "text": "評価者・最適化者であり、ループを制限する最大反復回数を加える。",
+        "note": ""
+      }
+    ],
+    "explanation": "生成・批評・修正は、評価者・最適化者のループであり、特徴的な失敗は収束しないことです。実行基盤で決定論的な上限を設け、上限に達した場合の動作も定義する必要があります。"
   },
   "references": [
     {

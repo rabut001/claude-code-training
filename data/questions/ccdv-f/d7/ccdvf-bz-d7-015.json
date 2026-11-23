@@ -38,7 +38,35 @@
     "explanation": "Once pushed, a secret must be assumed captured. It persists in history, clones, forks, CI caches, and automated scrapers that monitor public pushes continuously, so removal is not remediation."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "開発者が API キーをコミットし、数分以内に気づいて、キーを削除するコミットを push しました。次に何をする必要がありますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "侵害されたと扱い、失効、ローテーション、露出していた期間の使用ログの確認を行う。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "現在のファイルにはキーがないため、追加の対応は不要である。",
+        "note": "キーは git の履歴と、既存のすべての clone に残っています。"
+      },
+      {
+        "id": "c",
+        "text": "git の履歴を書き換えてコミットを削除し、対応を完了とする。",
+        "note": "履歴を書き換えても、すでに取得されたコピーは回収できません。"
+      },
+      {
+        "id": "d",
+        "text": "キーが再びコミットされないよう、該当ファイルを .gitignore に加える。",
+        "note": "再発は防げますが、すでに露出したキーには何も対処できません。"
+      }
+    ],
+    "explanation": "一度 push されたシークレットは、取得されたと見なす必要があります。履歴、clone、フォーク、CI キャッシュや、公開の push を常時監視する自動収集プログラムに残るため、削除は是正措置にはなりません。"
+  },
+  "supplement": {
+    "ja": "CI（継続的インテグレーション）は、コードの変更を共有のリポジトリへ継続的に取り込み、ビルドやテストを自動実行して確認する開発の仕組みです。",
+    "en": "CI (continuous integration) is a development practice of regularly integrating code changes into a shared repository and checking them with automated builds and tests."
   },
   "references": [
     {

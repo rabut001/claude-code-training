@@ -38,7 +38,31 @@
     "explanation": "Live interaction with an external system, with authenticated calls and state changes, needs executable integration. The other three are knowledge, which Skills or memory files convey."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Skill よりも MCP サーバーが必要なことを、最も明確に示す要件はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "すべてのレビューで守られるよう、チームのコードレビュー規約を記録する。",
+        "note": "規約は指示なので、Skill やメモリーで表すのが適切です。"
+      },
+      {
+        "id": "b",
+        "text": "ネットワーク経由で、社内の在庫管理システムのレコードを照会・更新する。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "リポジトリ全体で、コミットメッセージの構造と表現を統一する。",
+        "note": "書式の規約は、連携ではなく知識です。"
+      },
+      {
+        "id": "d",
+        "text": "正しい場所にファイルを作成するよう、プロジェクトのディレクトリ構成を説明する。",
+        "note": "構成の説明はコンテキストであり、機能ではありません。"
+      }
+    ],
+    "explanation": "認証された呼び出しや状態変更を伴う、外部システムとの実際のやり取りには、実行可能な連携が必要です。ほかの3つは知識であり、Skills やメモリーファイルで伝えられます。"
   },
   "references": [
     {

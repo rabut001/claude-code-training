@@ -38,7 +38,31 @@
     "explanation": "Tool failures are normal events in an agent loop rather than fatal ones. The protocol supports signalling an error result, which keeps the model informed so it can retry or route around the failure."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントのループ内で、ツール呼び出しが一時的なネットワークエラーで失敗しました。ツールハンドラーは何を返すべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "エラーの印を付けた tool_result に、明確で対処につながるメッセージを含めて返す。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "何も返さず、例外を発生させて、エージェントの実行全体を即座に中止する。",
+        "note": "一時的なエラーで中止すると、それまでの作業を不必要にすべて捨てることになります。"
+      },
+      {
+        "id": "c",
+        "text": "空文字列を返し、エージェントが次に選んだステップへ進めるようにする。",
+        "note": "空の結果は\"データが見つからない\"と区別できず、誤答を招きます。"
+      },
+      {
+        "id": "d",
+        "text": "ループを実行し続けられるよう、もっともらしい仮のデータを返す。",
+        "note": "捏造したデータは後続のすべてのステップを汚染し、最悪の結果になります。"
+      }
+    ],
+    "explanation": "ツールの失敗は、エージェントのループでは致命的な出来事ではなく、通常の出来事です。プロトコルはエラー結果の通知に対応しているため、モデルが状況を把握し、再試行や失敗を回避する経路の選択ができます。"
   },
   "references": [
     {

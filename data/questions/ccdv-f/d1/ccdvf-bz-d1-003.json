@@ -38,7 +38,31 @@
     "explanation": "Chaining decomposes a task into fixed sequential calls. Because the sequence is known in advance you can insert deterministic gate checks between steps and fail fast, trading a little latency for higher per-step accuracy."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "プロンプトチェーンのワークフローパターンを特徴付ける構造はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "実行時にモデルが、複数のサブエージェントのうちどれを呼び出すかを決める。",
+        "note": "これは、分類によってハンドラーを選ぶルーティングの説明です。"
+      },
+      {
+        "id": "b",
+        "text": "複数のモデルが同じ質問に答え、判定役が最良の回答を選ぶ。",
+        "note": "これは、投票や判定役を使う並列化の説明です。"
+      },
+      {
+        "id": "c",
+        "text": "各呼び出しが直前のステップの出力を使う、固定された呼び出しの連鎖。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "1回の呼び出しで、最初から最後までタスク全体を処理する。",
+        "note": "1回の呼び出しはチェーンではなく、途中のゲートもありません。"
+      }
+    ],
+    "explanation": "チェーンは、タスクを固定された一連の呼び出しに分解します。順序が事前に分かっているため、ステップ間に決定論的なゲートのチェックを挟み、問題があれば早期に失敗させられます。わずかなレイテンシと引き換えに、各ステップの正確さを高めます。"
   },
   "references": [
     {

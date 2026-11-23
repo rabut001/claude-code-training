@@ -44,7 +44,40 @@
     "explanation": "Filtering tool output at the source stops the largest contributor to bloat, and holding durable state in an explicit external store keeps critical constraints salient however long the session runs."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "長時間動作するエージェントのコンテキストを適切に保つ実践はどの2つですか？（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "冗長なツール出力がコンテキストに入る前に、切り詰めるか絞り込む。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "目標、決定、制約を会話の外に永続化し、再び渡す。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "後で重要になる可能性に備え、途中の結果をすべて保持する。",
+        "note": "すべてを保持することこそが、肥大化と最終的な容量超過を引き起こします。"
+      },
+      {
+        "id": "d",
+        "text": "エージェントが確実に方針を守るよう、サンプリング用の temperature を0に固定する。",
+        "note": "サンプリング用の temperature は、コンテキストをまったく管理しません。"
+      },
+      {
+        "id": "e",
+        "text": "各ターンでコンテキストを新しく構築するため、プロンプトキャッシュを無効にする。",
+        "note": "キャッシュは、変化しないプレフィックスのコストを減らすもので、コンテキストを適切に保つこととは無関係です。"
+      }
+    ],
+    "explanation": "ツール出力を発生元で絞り込めば、肥大化の最大の要因を防げます。また、持続的な状態を明示的な外部ストアに保持すれば、セッションがどれだけ長く続いても、重要な制約を目立つ状態に保てます。"
+  },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature."
   },
   "references": [
     {

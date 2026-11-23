@@ -38,7 +38,31 @@
     "explanation": "The dividing line is control of the path. A workflow has its sequence encoded by the developer; an agent decides the next action in a loop and judges when the goal is met. Tools, model size, and concurrency are orthogonal."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントとワークフローを最も明確に区別する特徴はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "エージェントは実行中にツールを呼び出すが、ワークフローは呼び出さない。",
+        "note": "ワークフローも通常、決まったステップでツールを呼び出すため、これは両者の違いではありません。"
+      },
+      {
+        "id": "b",
+        "text": "エージェントは非同期に実行されるが、ワークフローは同期的に実行される。",
+        "note": "どちらの構成も、どちらの実行方式でも実装できます。"
+      },
+      {
+        "id": "c",
+        "text": "エージェントには、ワークフローより大きなモデル階層が必要である。",
+        "note": "どちらのパターンも、タスクに必要な階層で実行できます。"
+      },
+      {
+        "id": "d",
+        "text": "エージェントは自らステップを選び、ワークフローは事前に定義された経路に従う。",
+        "note": ""
+      }
+    ],
+    "explanation": "違いは、処理経路を誰が制御するかです。ワークフローでは開発者が順序をコードに定めますが、エージェントはループ内で次の行動を決め、目標が達成されたかを判断します。ツール、モデルの大きさ、並行処理は、それとは独立した事柄です。"
   },
   "references": [
     {

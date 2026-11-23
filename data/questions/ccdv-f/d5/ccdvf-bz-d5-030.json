@@ -64,6 +64,10 @@
     ],
     "explanation": "ストリーミングは配信の仕組みなので、同じ入力トークンと出力トークンが処理され、課金されます。ユーザーが最初のトークンをより早く見られるというだけであり、ユーザー体験の最適化です。"
   },
+  "supplement": {
+    "ja": "extended thinking は、最終的な回答を出す前に、モデルが内部の推論に追加の処理を使う機能です。",
+    "en": "Extended thinking is a feature that lets the model spend additional computation on internal reasoning before producing its final answer."
+  },
   "references": [
     {
       "title": "Anthropic docs — Streaming",

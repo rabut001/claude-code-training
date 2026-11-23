@@ -38,7 +38,31 @@
     "explanation": "It treats every response as potentially truncated or malformed rather than assuming the model produced what was asked, which is why stop_reason is checked before the content is trusted."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "モデル出力の「防御的な解析」とは何ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "最初の結果が正しいことを確認するため、レスポンスをもう一度解析すること。",
+        "note": "2回解析しても同じ結果になり、何も証明できません。"
+      },
+      {
+        "id": "b",
+        "text": "stop_reason を確認し、構造と値を検証し、失敗時の経路を定めること。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "不正な形式のペイロードをより早く拒否するため、高速なパーサーを選ぶこと。",
+        "note": "パーサーの性能と、正しさに関する対処は無関係です。"
+      },
+      {
+        "id": "d",
+        "text": "末尾のノイズを避けるため、レスポンスの先頭部分だけを読むこと。",
+        "note": "恣意的な切り詰めは、防ごうとしている不正な形式の入力を自ら作り出します。"
+      }
+    ],
+    "explanation": "モデルが依頼どおりに生成したと決めつけず、すべてのレスポンスに、途中で途切れたり形式が不正だったりする可能性があると扱います。そのため、内容を信頼する前に stop_reason を確認します。"
   },
   "references": [
     {

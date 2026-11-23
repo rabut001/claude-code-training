@@ -38,7 +38,31 @@
     "explanation": "Model output is untrusted input at a system boundary. Parse, validate, and define the failure path, whether reject, escalate, or fall back, before anything touches the database."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude が生成した JSON を別のサービスが受け取り、データベースを更新します。受け取る側のコードは何をすべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "解析し、スキーマに照らして検証し、処理する前に失敗に対処する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "レスポンスをプレーンテキストに平坦化し、保存のために後段へ渡す。",
+        "note": "テキストに平坦化すると、受け取る側が依存する構造が失われます。"
+      },
+      {
+        "id": "c",
+        "text": "解析に失敗したら再試行し、最初に正常に解析できたレスポンスを処理する。",
+        "note": "解析できるレスポンスでも、意味的に誤っている可能性があります。解析は検証ではありません。"
+      },
+      {
+        "id": "d",
+        "text": "レスポンスを見本のテンプレートと比較し、一致していれば処理を進める。",
+        "note": "「似て見える」はチェックではなく、不正な形式のレコードを通してしまいます。"
+      }
+    ],
+    "explanation": "モデルの出力は、システムの境界では信頼できない入力です。データベースに何かが触れる前に、解析、検証を行い、拒否、エスカレーション、フォールバックなど、失敗時の経路を定めてください。"
   },
   "references": [
     {

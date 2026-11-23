@@ -38,7 +38,31 @@
     "explanation": "The trade is control against operational burden. Self-hosting the harness satisfies residency, isolation, and integration constraints, but you then own scaling, upgrades, monitoring, and incidents."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントをマネージド環境ではなくセルフホスト環境にデプロイすべき場合について、最も適切な説明はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "推論量があるしきい値を超えると、セルフホストのほうが確実に安くなる。",
+        "note": "開発者の作業時間も含めると、総コストは増えることがよくあります。"
+      },
+      {
+        "id": "b",
+        "text": "データレジデンシー、分離、社内システムとの深い連携の要件に適している。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "マネージド環境には、組織固有のカスタムツールを登録できない。",
+        "note": "カスタムツールは、どちらのデプロイ方式でも使えます。"
+      },
+      {
+        "id": "d",
+        "text": "セルフホストなら、API の認証情報の管理とローテーションが不要になる。",
+        "note": "モデルによる推論には、引き続き認証された API アクセスが必要です。"
+      }
+    ],
+    "explanation": "制御の自由度と運用負担のトレードオフです。実行基盤をセルフホストすると、データレジデンシー、分離、連携の制約を満たせますが、スケーリング、更新、監視、インシデント対応を自分たちで担うことになります。"
   },
   "references": [
     {
