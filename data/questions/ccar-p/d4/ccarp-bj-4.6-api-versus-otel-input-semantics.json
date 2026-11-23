@@ -42,7 +42,31 @@
     "explanation": ""
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "同じ完了済みリクエストについて、Messages APIの使用量は input_tokens=1200、cache_creation_input_tokens=2000、cache_read_input_tokens=6800 と報告しています。OpenTelemetryのスパンは gen_ai.usage.input_tokens=10000 と報告し、キャッシュ読み取りと書き込みの詳細もあります。正規化後、各インターフェースが独立に報告すべき総入力はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "Messages API：1200、OpenTelemetry：10000",
+        "note": "Messages APIの input_tokens はキャッシュされていない部分なので、1200だけを使うと、キャッシュ書き込みの2000と読み取りの6800トークンが抜けます。OpenTelemetryの総計10000は、既にそれらを含みます。"
+      },
+      {
+        "id": "b",
+        "text": "Messages API：10000、OpenTelemetry：18800",
+        "note": "Messages APIの区分を合計すると、正しく10000になります。gen_ai.usage.input_tokens にキャッシュ読み取りと書き込みの詳細を加えると、その8800トークンを誤って二重計上します。"
+      },
+      {
+        "id": "c",
+        "text": "Messages API：10000、OpenTelemetry：10000",
+        "note": "Messages APIの総入力は1200 + 2000 + 6800 = 10000で、OpenTelemetryの入力合計には既にキャッシュの活動が含まれます。これらは1つの要求に対する別の観測であり、足し合わせてはいけません。"
+      },
+      {
+        "id": "d",
+        "text": "Messages API：20000、OpenTelemetry：20000",
+        "note": "正規化したAPIの合計をテレメトリーの合計に加えると、同じ要求の使用量が重複します。独立したインターフェースは、別々の入力処理の事象ではありません。"
+      }
+    ],
+    "explanation": ""
   },
   "references": [
     {

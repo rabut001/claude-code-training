@@ -103,8 +103,8 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 | 順 | 分野 | 状態 | 問題数 | コミット | メモ |
 |---|---|---|---|---|---|
 | 1 | d3 | 完了 | 43 | `04db453` | 全問 draft、全検証成功。temperature 1問、p95 4問に補足 |
-| 2 | d1 | 完了 | 39 | この分野のコミット | 全問 draft、全検証成功。用語の補足対象なし |
-| 3 | d4 | 未着手 | 36 | | |
+| 2 | d1 | 完了 | 39 | `6406ca5` | 全問 draft、全検証成功。用語の補足対象なし |
+| 3 | d4 | 完了 | 36 | この分野のコミット | 全問 draft、全検証成功。4用語各1問に補足 |
 | 4 | d5 | 未着手 | 32 | | |
 | 5 | d6 | 未着手 | 32 | | |
 | 6 | d2 | 未着手 | 30 | | |
@@ -130,7 +130,16 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 - `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功、全408問との照合成功。CCAR-Pは計82問draft。
 - 用語の補足：13用語すべて0問。新たな原文の誤りや補足候補は見つからなかった。
 
+### d4（2026-11-23）
+
+- 36問（single 26、multi 10）をdraftにした。全選択肢の理由を訳し、計算式・数値・評価の分母と観測期間を保持した。
+- `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功、全408問との照合成功。CCAR-Pは計118問draft。
+- 用語の補足：few-shot、temperature、top_p、p95が各1問、ほか9用語は0問。
+- 原文の明らかな誤りは見つからなかった。補足の候補（未追加）：pass@3・pass^3（`ccarp-bj-4.3-match-attempt-budgets`）、top_k（`ccarp-bj-4.4-diagnose-versioned-sampling-rejection`）。記号や名前だけでは意味が分かりにくいため記録した。
+
 ### 用語 → 問題 ID（完了分野）
 
-- temperature：`ccarp-bj-3.3-output-cap-truncation`
-- p95：`ccarp-bj-3.3-parallel-independent-tool-latency`、`ccarp-bj-3.3-quality-and-tail-latency-gates`、`ccarp-bj-3.3-reranking-complete-tradeoff`、`ccarp-bj-3.3-route-specific-model-tradeoffs`
+- temperature：`ccarp-bj-3.3-output-cap-truncation`、`ccarp-bj-4.4-diagnose-versioned-sampling-rejection`
+- p95：`ccarp-bj-3.3-parallel-independent-tool-latency`、`ccarp-bj-3.3-quality-and-tail-latency-gates`、`ccarp-bj-3.3-reranking-complete-tradeoff`、`ccarp-bj-3.3-route-specific-model-tradeoffs`、`ccarp-bj-4.5-reranking-overhead-versus-token-savings`
+- few-shot：`ccarp-bj-4.2-protect-heldout-incident-families`
+- top_p：`ccarp-bj-4.4-diagnose-versioned-sampling-rejection`

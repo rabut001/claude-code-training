@@ -207,3 +207,10 @@
 | accountable owner | 責任を持つオーナー | |
 | due diligence | デューデリジェンス | |
 | artifact | 成果物 | |
+| holdout | 最終評価用の集合 | 調整に使わない評価データを指す場合 |
+| fixture | フィクスチャー | テストの固定入力や環境 |
+| cluster randomization | クラスター無作為化 | |
+| cohort | コホート | |
+| confounding | 交絡 | |
+| statistical power | 検出力 | |
+| correlation ID | 相関ID | |
