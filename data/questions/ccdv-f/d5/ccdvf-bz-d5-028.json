@@ -64,6 +64,10 @@
     ],
     "explanation": "ウィンドウには入力と出力を合わせて格納するため、生成に使える予算は、ウィンドウの容量から入力ですでに消費した分を引いたものです。リクエストでは、指定したレスポンスのための余地を残す必要があります。"
   },
+  "supplement": {
+    "ja": "入力18万トークンに対する出力の残り容量は2万トークンです。リクエストを受け付けるモデルでは、その容量に達する前に回答が完了すれば正常終了し、容量に達すると生成が止まります。ただし、モデルによっては入力と max_tokens の合計が上限を超えた時点でリクエスト自体が拒否されます。",
+    "en": "With 180,000 input tokens, the remaining capacity for output is 20,000 tokens. On models that accept the request, the response can complete normally before reaching that capacity; generation stops if it reaches the limit. Other models may reject the request upfront when input tokens plus max_tokens exceed the context window."
+  },
   "references": [
     {
       "title": "Anthropic docs — Context windows",
