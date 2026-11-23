@@ -40,16 +40,17 @@ git -C .cache/upstream/bajor checkout 05b068db2529b69ea76a2104dae0fd4c197d4d98
 ### 3. 実行して検証する
 
 ```bash
-python3 tools/import_breeganzo.py
-python3 tools/import_bajor.py
-python3 tools/validate.py --strict-counts
-python3 tools/build.py
-python3 -m unittest discover -s tests
+./dev py tools/import_breeganzo.py
+./dev py tools/import_bajor.py
+./dev validate --strict-counts
+./dev check
 ```
+
+（`docker` が使えない場合は、AGENTS.md の「5. 開発環境とコマンド」のとおり、`python3 tools/…` を直接実行してかまいません）
 
 **完了の条件**
 
-- `validate.py --strict-counts` がエラー0件で通る（ccdv-f が180問、ccar-p が228問）
+- `./dev validate --strict-counts` がエラー0件で通る（ccdv-f が180問、ccar-p が228問）
 - 正解がずれていない。CCDV-F・CCAR-P それぞれ5問ほどを元データと見比べて確認し、確認した問題の ID を作業メモに書く
 - 複数選択の問題（CCDV-F は9問、CCAR-P は63問の予定）が、`type: "multi"` になっている
 

@@ -1,0 +1,3 @@
+# イメージのビルドに必要なのは requirements-dev.txt だけ
+*
+!requirements-dev.txt

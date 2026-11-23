@@ -1,0 +1,24 @@
+# 開発用コンテナ。直接使わず、./dev から呼び出す。
+name: claude-cert-quiz
+
+x-common: &common
+  build: .
+  image: claude-cert-quiz-dev:1
+  # 作られるファイルの所有者をホストのユーザーに合わせる（./dev が HOST_UID / HOST_GID を渡す）
+  user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+  working_dir: /work
+  volumes:
+    - .:/work
+  init: true
+
+services:
+  # スクリプトの実行用（./dev validate、./dev build など）
+  dev:
+    <<: *common
+
+  # 開発サーバー（./dev serve）。既定では、このPCからだけ開ける
+  web:
+    <<: *common
+    command: ["python3", "-m", "http.server", "8000", "--directory", "app", "--bind", "0.0.0.0"]
+    ports:
+      - "${WEB_BIND:-127.0.0.1}:${WEB_PORT:-8000}:8000"

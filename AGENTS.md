@@ -15,7 +15,7 @@ Anthropic の Claude 認定試験（**CCDV-F** と **CCAR-P**）の練習問題�
 
 | 担当 | 主な作業 | 編集してよい場所 |
 |---|---|---|
-| **Claude Code** | アプリ本体、データ仕様、検証・ビルドの仕組み | `app/`、`schema/`、`tools/validate.py`、`tools/build.py`、`tests/`、`.github/` |
+| **Claude Code** | アプリ本体、データ仕様、検証・ビルドの仕組み、開発環境 | `app/`、`schema/`、`tools/validate.py`、`tools/build.py`、`tests/`、`.github/`、`Dockerfile`、`compose.yaml`、`dev`、`requirements-dev.txt` |
 | **Codex** | 問題の取り込みと和訳 | `data/questions/`、`tools/import_*.py`、`docs/glossary.md`、`docs/tasks/` の自分の作業メモ |
 | **ユーザー** | 方針の決定、`main` へのマージ | すべて |
 
@@ -69,24 +69,43 @@ tools/
 tests/fixtures/        アプリ開発用のサンプル問題
 app/                   PWA 本体（app/data/ は生成物。手で編集しない）
 .github/workflows/     GitHub Pages への公開
+Dockerfile、compose.yaml、dev、requirements-dev.txt   開発用コンテナ（「5. 開発環境とコマンド」）
+.cache/                作業用ファイル（元リポジトリの clone、PDF など。git の管理対象外）
 ```
 
-## 5. コマンド
+## 5. 開発環境とコマンド
 
-Python 3.10 以上、標準ライブラリだけで動きます（`pip install` は不要です）。
+**作業は Linux（WSL）上で行い、Python・PDF の処理・開発サーバーは Docker コンテナの中で動かします。**
+コンテナは `./dev` から使います。git・gh・Claude Code・Codex は Linux 側のものを使います。
+
+| ツール | 置き場所 |
+|---|---|
+| Python 3.12、poppler-utils（PDF の読み取り）、Playwright + Chromium（ブラウザでのテスト） | コンテナ（`Dockerfile`） |
+| Docker / Docker Compose、git、gh、Claude Code、Codex | Linux |
 
 ```bash
-python3 tools/validate.py                          # data/ を検証する（コミット前に必ず実行）
-python3 tools/validate.py --questions tests/fixtures/questions   # サンプル問題を検証する
-python3 tools/build.py                             # app/data/ を生成する
-python3 tools/build.py --questions tests/fixtures/questions      # サンプル問題でビルドする
-python3 -m unittest discover -s tests              # validate.py / build.py のテスト
-python3 -m http.server 8000 -d app                 # http://localhost:8000 でアプリを確認する
+./dev check                                        # テスト → 検証 → ビルド（コミット前に必ず実行。CI と同じ内容）
+./dev validate                                     # data/ を検証する
+./dev validate --questions tests/fixtures/questions   # サンプル問題を検証する
+./dev validate --strict-counts                     # 問題数が出典どおりかも確認する
+./dev build                                        # app/data/ を生成する
+./dev build --questions tests/fixtures/questions   # サンプル問題でビルドする
+./dev test                                         # validate.py / build.py のテスト
+./dev serve                                        # http://localhost:8000 でアプリを確認する
+./dev pdf .cache/guide.pdf .cache/guide.txt        # PDF をテキストにする
+./dev py tools/import_bajor.py                     # 任意の Python スクリプトを実行する
+./dev help                                         # すべてのコマンド
 ```
+
+- コンテナからはリポジトリの中しか見えません。PDF などの作業用ファイルは `.cache/`（git の管理対象外）に置きます。
+- 初回は、イメージを作るのに数分かかります（`./dev image` で作り直せます）。
+- Python のパッケージを Linux 側に `pip install` しないでください。必要なら `requirements-dev.txt` に追加します（Claude Code の担当）。
+- **`docker` が使えない環境の場合**（Codex の実行制限など）に限って、`tools/` のスクリプトを Linux 側の `python3` で直接実行してかまいません（標準ライブラリだけで動き、Python 3.10 以上が対象です）。
+  例：`python3 tools/validate.py`、`python3 -m unittest discover -s tests`。ブラウザでのテストはコンテナでしか動きません。
 
 ## 6. 守ること
 
-- コミットする前に `python3 tools/validate.py` を通してください。エラーが残ったままコミットしません。
+- コミットする前に `./dev check` を通してください。エラーが残ったままコミットしません。
 - `app/data/` は生成物です。git で管理せず、GitHub Actions が公開のたびに作ります。
 - 問題の **ID は一度決めたら変えません**（アプリの学習記録のキーになっているため）。
 - 英語の原文（`en`）は**元の問題集のまま**にします。誤りを見つけても書き換えず、`docs/tasks/` に報告してください。

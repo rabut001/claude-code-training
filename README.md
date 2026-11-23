@@ -16,9 +16,10 @@ GitHub Pages で公開した URL をスマホで開き、「ホーム画面に�
 ## 開発
 
 ルールと分担は [AGENTS.md](AGENTS.md) にまとめています。
+Python などは Docker コンテナの中で動かします（Docker と Docker Compose が必要です）。
 
 ```bash
-python3 tools/validate.py
-python3 tools/build.py
-python3 -m http.server 8000 -d app
+./dev check    # テスト → 検証 → ビルド
+./dev serve    # http://localhost:8000 で確認
+./dev help     # すべてのコマンド
 ```

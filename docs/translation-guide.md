@@ -39,5 +39,5 @@
 
 1. `ja` を `{ "status": "todo" }` から、`question`・`options`・`explanation` を埋めた形にする。
 2. `status` を `draft` にする（`reviewed` はユーザーが付ける）。
-3. `python3 tools/validate.py` を通す。
+3. `./dev check` を通す。
 4. 分野ごとにコミットする（例：「CCDV-F d2 を和訳（59問）」）。

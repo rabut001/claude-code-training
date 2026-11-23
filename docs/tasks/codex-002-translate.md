@@ -36,11 +36,10 @@
 ### 確認
 
 ```bash
-python3 tools/validate.py
-python3 tools/build.py
+./dev check
 ```
 
-**完了の条件**：その分野の全問が `draft` になっていて、`validate.py` がエラー0件で通ること。
+**完了の条件**：その分野の全問が `draft` になっていて、`./dev check` がエラー0件で通ること。
 
 ### コミット
 
