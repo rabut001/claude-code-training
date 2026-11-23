@@ -65,8 +65,8 @@
     "explanation": "ツールスキーマは、書式の依頼を型で定めた契約に変えます。そのため、説明文から JSON を抽出する必要がなくなり、症状を繕う代わりに、その種類の問題全体を取り除けます。"
   },
   "supplement": {
-    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。",
-    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature."
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。 ツールのスキーマを指定しただけでは、スキーマに違反するデータが生成される可能性もあります。ただし、この問題の選択肢の中では、ツールを定義して引数を読み取る {c} が最も適切です。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature. Specifying a tool schema alone does not guarantee conformance; data that violates the schema may still be generated. Among the choices in this question, however, defining a tool and reading its arguments in option {c} is the most appropriate approach."
   },
   "references": [
     {
