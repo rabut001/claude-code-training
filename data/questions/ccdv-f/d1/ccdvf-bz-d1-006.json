@@ -38,7 +38,31 @@
     "explanation": "Context isolation is the structural benefit of the pattern. A purpose-built context per worker holds token cost down, removes irrelevant material that degrades focus, and makes each worker a unit you can evaluate alone."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "オーケストレーター・ワーカー構成で、ワーカーにオーケストレーターの会話全体を共有させるより、各ワーカーにコンテキストを明示的に渡すことが望ましいのはなぜですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ワーカーごとに絞ったコンテキストにより、ウィンドウを小さく保ち、各ワーカーを独立してテストできる。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "セキュリティ上の理由で、ワーカーが会話履歴を読むことは禁止されている。",
+        "note": "これはコンテキストを適切に保つための設計上の選択であり、アクセス制限ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "Messages API では、呼び出し間でメッセージ履歴を共有することが許可されていない。",
+        "note": "任意の履歴を送信できます。禁止するものはありません。"
+      },
+      {
+        "id": "d",
+        "text": "1つのコンテキストを共有すると、ワーカーを厳密に逐次実行する必要が生じる。",
+        "note": "実行時の並行処理と、渡すコンテキストは独立しています。"
+      }
+    ],
+    "explanation": "コンテキストの分離が、このパターンの構造上の利点です。ワーカーごとに目的に合ったコンテキストを用意することで、トークンのコストを抑え、集中を妨げる無関係な情報を除き、各ワーカーを単独で評価できる単位にできます。"
   },
   "references": [
     {

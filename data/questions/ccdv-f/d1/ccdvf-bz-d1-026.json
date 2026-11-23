@@ -38,7 +38,31 @@
     "explanation": "The dividing line is whether you know the steps. If you do, encoding them gives deterministic control flow, testable stages, and a system you can reason about; reserve agents for genuinely unknown paths."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントよりもワークフローが適しているのは、どのような場合ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "タスクに2回以上のモデル呼び出しが必要になる場合は、常に。",
+        "note": "複数の呼び出しはどちらの方式でも制御できるため、回数は基準ではありません。"
+      },
+      {
+        "id": "b",
+        "text": "コストだけが考慮事項であり、品質を犠牲にできる場合だけ。",
+        "note": "通常、予測可能性とデバッグのしやすさも、少なくともコストと同程度に重要です。"
+      },
+      {
+        "id": "c",
+        "text": "外部ツールが不要で、タスク全体をプロセス内で実行できる場合。",
+        "note": "ワークフローも、処理の決まった箇所でツールを呼び出すことがよくあります。"
+      },
+      {
+        "id": "d",
+        "text": "必要なステップが分かっており、事前定義されたコードの経路として表現できる場合。",
+        "note": ""
+      }
+    ],
+    "explanation": "違いは、ステップが分かっているかどうかです。分かっているなら、コードに定めることで、決定論的な制御フロー、テスト可能なステージ、動作を理解できるシステムが得られます。エージェントは、経路が実際に未知である場合に使ってください。"
   },
   "references": [
     {

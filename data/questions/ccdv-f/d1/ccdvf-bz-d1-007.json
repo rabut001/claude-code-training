@@ -38,7 +38,31 @@
     "explanation": "Checkpoints go where a wrong action is costly and cannot be undone. Payments, deletions, and outbound messages are the canonical cases: the agent proposes, a human approves, then the side effect runs."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "完全な自律動作よりも、ヒューマンインザループ（人による確認）のチェックポイントが必要であることを最も強く示す要件はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "タスクのために、エージェントが複数の長い文書を読み、内容を照合する必要がある。",
+        "note": "読む処理は読み取り専用であり、被害の影響範囲はありません。"
+      },
+      {
+        "id": "b",
+        "text": "タスクの完了に、通常10秒を超える実時間がかかる。",
+        "note": "所要時間は性能上の懸念であり、リスクを示すものではありません。"
+      },
+      {
+        "id": "c",
+        "text": "エージェントが、外部に影響を及ぼす取り消し不能な操作を実行できる。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "エージェントが、数個を超える種類のツールにアクセスする必要がある。",
+        "note": "ツールの数からは、個々の操作の重大さは分かりません。"
+      }
+    ],
+    "explanation": "チェックポイントは、誤った操作の代償が大きく、元に戻せない箇所に置きます。支払い、削除、外部へのメッセージ送信が典型例です。エージェントが提案し、人が承認し、その後に副作用を伴う処理を実行します。"
   },
   "references": [
     {

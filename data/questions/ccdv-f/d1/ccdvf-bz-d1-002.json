@@ -38,7 +38,31 @@
     "explanation": "The recommended posture is the simplest solution that works, with complexity added only when it demonstrably improves outcomes. Autonomy buys adaptability and pays in unpredictability, extra calls, and harder debugging."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "新機能を作るたびに、まず自律型エージェントを作ろうとしています。最も重要な反論はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "エージェントの自律性には予測可能性、レイテンシ、金銭面の代償があるため、必要な場合にだけ導入する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "エージェントは、ワークフローに比べて Python での実装がはるかに難しい。",
+        "note": "実装の手間に違いがあるのは事実ですが、反対する中心的な理由ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "エージェントは、数個を超えるツールを与えると性能が低下するため、それ以上は与えられない。",
+        "note": "ツールが多いと選択の正確さは確かに下がりますが、そのような厳格な上限はありません。"
+      },
+      {
+        "id": "d",
+        "text": "エージェントには専用の長時間稼働する基盤が必要だが、ワークフローには不要である。",
+        "note": "デプロイ構成は、どちらのパターンを選ぶかとは無関係です。"
+      }
+    ],
+    "explanation": "推奨される姿勢は、機能する最も単純な解決策を選び、成果が向上すると実証できる場合にだけ複雑さを加えることです。自律性によって適応力が得られますが、予測の難しさ、呼び出しの増加、デバッグの難しさという代償があります。"
   },
   "references": [
     {

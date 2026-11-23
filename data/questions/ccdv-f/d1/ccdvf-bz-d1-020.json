@@ -38,7 +38,31 @@
     "explanation": "The contradiction arises because each subagent inferred the fact independently. Resolving it once and passing it down explicitly removes the ambiguity at its source."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "複数エージェントのシステムで、2つのサブエージェントが同じエンティティーについて矛盾する前提を置くため、結果に一貫性がありません。最も効果的な構造上の修正はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "サブエージェントを再び1つの大きなエージェントに統合し、1つのコンテキストを共有する。",
+        "note": "構成をまとめると分離が失われ、何も保証されません。"
+      },
+      {
+        "id": "b",
+        "text": "各サブエージェントのコンテキストウィンドウを拡大し、より多くの履歴を見えるようにする。",
+        "note": "容量を増やしても、独立した推論が一致するわけではありません。"
+      },
+      {
+        "id": "c",
+        "text": "オーケストレーターでエンティティーを一度だけ確定し、その値を各ワーカーに渡す。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "サブエージェントを並行して実行せず、厳密に順番に実行する。",
+        "note": "順序を付けても、変わるのはタイミングであり、独立した推論ではありません。"
+      }
+    ],
+    "explanation": "矛盾が生じるのは、各サブエージェントがその事実を独立に推論したためです。一度だけ確定し、明示的に下位へ渡すことで、曖昧さを根本から取り除けます。"
   },
   "references": [
     {

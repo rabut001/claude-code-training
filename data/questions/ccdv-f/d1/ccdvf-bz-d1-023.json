@@ -38,7 +38,31 @@
     "explanation": "Distinct categories requiring distinct handling is the textbook trigger. Classify once cheaply, then dispatch, so each path gets a specialised prompt and the right tier without paying for the others."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "届くチケットは、請求、技術、営業に分類されます。それぞれ別のプロンプトが必要で、請求にはさらに高性能なモデルが必要です。どのパターンが適していますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ルーティング。まず分類し、適切なハンドラーとモデル階層に振り分ける。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "プロンプトチェーン。3つのハンドラーすべてに、順番にチケットを渡す。",
+        "note": "チェーンはステージを順番に実行しますが、これらは互いに排他的な選択肢です。"
+      },
+      {
+        "id": "c",
+        "text": "チケットの処理方法を、自ら決める自律型エージェント。",
+        "note": "判断ロジックは既知で固定されているため、エージェントはコストと予測の難しさを増やします。"
+      },
+      {
+        "id": "d",
+        "text": "並列化。3つのハンドラーをすべて実行し、最良の出力を選ぶ。",
+        "note": "分類器なら1回の安価な呼び出しで決まることに、3倍のコストをかけることになります。"
+      }
+    ],
+    "explanation": "異なるカテゴリーごとに異なる扱いが必要な状況は、教科書的な適用例です。安価に1回分類してから振り分けることで、各経路はほかの経路の費用を払わずに、専用のプロンプトと適切な階層を使えます。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Independent subtasks parallelise, cutting wall-clock time, and each subagent works in its own context. The orchestrator then synthesises from five summaries rather than drowning in five full document sets."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "調査エージェントが、独立した5つの情報源から情報を集め、統合してレポートを作る必要があります。最も効率的な構造はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "1つのコンテキストで、1つのエージェントが5つの情報源すべてに順番に問い合わせる。",
+        "note": "逐次的な収集は遅く、すべての未加工の情報源が1つのウィンドウに蓄積されます。"
+      },
+      {
+        "id": "b",
+        "text": "ユーザー向けの別々のチャットセッションを5つ使い、出力を手作業で統合する。",
+        "note": "手作業の統合は、自動化された構成ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "オーケストレーターが5つのサブエージェントに処理を振り分け、それぞれが要約した結果を返す。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "1つのエージェントが、最も有望そうな情報源に問い合わせて終了する。",
+        "note": "1つの情報源で終了すると、明示された要件をまったく満たせません。"
+      }
+    ],
+    "explanation": "独立したサブタスクは並列化して実時間を短縮でき、各サブエージェントはそれぞれのコンテキストで作業します。その後、オーケストレーターは、5組の全文書に埋もれることなく、5つの要約から情報を統合します。"
   },
   "references": [
     {

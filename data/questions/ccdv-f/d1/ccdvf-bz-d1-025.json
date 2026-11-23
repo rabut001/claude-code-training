@@ -38,7 +38,31 @@
     "explanation": "It applies when criteria can be stated clearly and output measurably improves through critique. Tone, reading level, and a banned list are exactly that kind of articulable standard."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "マーケティング文案を作成し、ブランドの語調、読解レベル、禁止表現リストに照らして確認し、合格するまで修正する必要があります。これはどのパターンですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "分類器が適切な文案作成ハンドラーを選ぶ、ルーティング。",
+        "note": "ここでは、分類して振り分けるものはありません。"
+      },
+      {
+        "id": "b",
+        "text": "サブタスクを分解してから統合する、オーケストレーター・ワーカー。",
+        "note": "サブタスクは事前に分かっているため、動的な分解は必要ありません。"
+      },
+      {
+        "id": "c",
+        "text": "下書きを基準に照らして採点し、修正する、評価者・最適化者。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "複数の下書きが競い、最良のものが選ばれる、投票による並列化。",
+        "note": "投票は、1つの試行を改善するのではなく、独立した試行の中から選びます。"
+      }
+    ],
+    "explanation": "基準を明確に示すことができ、批評によって出力が測定可能な形で改善する場合に適用します。語調、読解レベル、禁止表現リストは、まさにそのように明示できる基準です。"
   },
   "references": [
     {

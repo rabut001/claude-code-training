@@ -38,7 +38,31 @@
     "explanation": "Agent failures are path failures: a wrong tool, bad arguments, a misread result. Only a per-iteration trace locates the step that went wrong and shows whether the model, the tool, or the harness was at fault."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントの失敗を事後に診断するため、ログに記録すると最も役立つ情報はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "元のリクエストとともに保存した、ユーザーに返された最終回答。",
+        "note": "何かが間違っていることは分かりますが、どこで起きたかは分かりません。"
+      },
+      {
+        "id": "b",
+        "text": "リクエストの種類別に分類した、実行全体の合計レイテンシ。",
+        "note": "診断に必要な内容を含まない性能指標です。"
+      },
+      {
+        "id": "c",
+        "text": "終了するまでに実行が消費した、ループの反復回数。",
+        "note": "収束しないことは分かりますが、原因は明らかになりません。"
+      },
+      {
+        "id": "d",
+        "text": "反復ごとのツール呼び出し、引数、結果、stop_reason、トークン使用量。",
+        "note": ""
+      }
+    ],
+    "explanation": "エージェントの失敗は、処理経路の失敗です。ツールの選択ミス、不適切な引数、結果の読み違いなどがあります。反復ごとのトレースだけが、問題の起きたステップを特定し、モデル、ツール、実行基盤のどれに原因があったかを示します。"
   },
   "references": [
     {

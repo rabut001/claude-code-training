@@ -38,7 +38,31 @@
     "explanation": "This is the deterministic-versus-probabilistic distinction the exam returns to repeatedly. A hook runs as code at a defined lifecycle point, inspects the pending action, and can deny it outright."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントに rm -rf のような破壊的なシェルコマンドを絶対に実行させてはいけません。システムプロンプトに強い指示を加えました。これでは不十分なのはなぜで、適切な仕組みは何ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "プロンプトは確率的な指針であり、フックならコマンドを検査してブロックできる。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "システムプロンプトは厳密に守られるため、その指示で十分である。",
+        "note": "システムプロンプトは動作に強く影響しますが、強制する仕組みではありません。"
+      },
+      {
+        "id": "c",
+        "text": "破壊的なコマンドが選ばれないよう、サンプリング用の temperature を下げる。",
+        "note": "temperature は、いかなる安全上の境界も作りません。"
+      },
+      {
+        "id": "d",
+        "text": "破壊的な操作を試す回数が少ない、小さなモデル階層を使う。",
+        "note": "モデルの大きさによって、実行基盤が実行する操作が制限されることはありません。"
+      }
+    ],
+    "explanation": "これは、この試験で繰り返し問われる、決定論的な仕組みと確率的な仕組みの違いです。フックは、定められたライフサイクルの時点でコードとして実行され、実行予定の操作を検査し、完全に拒否できます。"
   },
   "references": [
     {

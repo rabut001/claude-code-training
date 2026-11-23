@@ -38,7 +38,31 @@
     "explanation": "The loop is driven by stop_reason. Each pass executes the requested tool, appends the assistant turn plus the matching tool_result, and re-invokes the model, exiting on \"end_turn\" or a harness guard."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Messages API を直接使って構築した、ツールを使用するエージェントの基本ループはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "リクエストを1回送り、レスポンスから最終回答を解析する。",
+        "note": "1回の呼び出しでは、ツールの結果を取り込む機会がありません。"
+      },
+      {
+        "id": "b",
+        "text": "stop_reason が \"tool_use\" の間、ツールを実行し、結果を追加して再び呼び出す。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "目標を送信し、エージェントが完了を報告するまでジョブのエンドポイントをポーリングする。",
+        "note": "Messages API には、ポーリングするサーバー側のエージェントジョブはありません。"
+      },
+      {
+        "id": "d",
+        "text": "モデルがツールを直接呼び出せるよう、永続的なソケットを開く。",
+        "note": "Anthropic がツールに接続することはありません。ツールを実行するのは自分たちのコードです。"
+      }
+    ],
+    "explanation": "ループは stop_reason によって制御されます。各反復で要求されたツールを実行し、アシスタントターンと対応する tool_result を追加して、モデルを再び呼び出します。\"end_turn\" または実行基盤のガードによって終了します。"
   },
   "references": [
     {

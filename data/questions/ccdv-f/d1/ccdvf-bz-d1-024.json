@@ -38,7 +38,31 @@
     "explanation": "Loop termination is an invariant and belongs in the code that runs the loop. The orchestrator counts iterations, watches the clock and the spend, and exits regardless of what the model wants next."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントが40回反復し、同じ失敗するツールを繰り返し呼び出しています。設計に何を含めるべきでしたか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "失敗した呼び出しを繰り返さないよう伝える、より詳細なシステムプロンプト。",
+        "note": "指示は提案にすぎず、暴走したループには保証が必要です。"
+      },
+      {
+        "id": "b",
+        "text": "オーケストレーターによる厳格な制限。反復回数の上限、タイムアウト、コストの上限。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "過去の試行をすべて見られるようにする、より大きなコンテキストウィンドウ。",
+        "note": "失敗を見ても止まっておらず、コストは増え続けています。"
+      },
+      {
+        "id": "d",
+        "text": "試行ごとに手法を変えるようにする、より高い temperature。",
+        "note": "ランダムな変化は終了条件にはならず、新しい失敗を生む可能性があります。"
+      }
+    ],
+    "explanation": "ループの終了は不変条件であり、ループを実行するコードが担います。オーケストレーターは反復回数を数え、時刻と支出を監視し、モデルが次に何を望むかにかかわらず終了します。"
   },
   "references": [
     {

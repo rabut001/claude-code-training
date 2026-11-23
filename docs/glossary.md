@@ -113,3 +113,19 @@
 | frontier model | 最先端のモデル | |
 | cost attribution | 費用の配賦 | 機能などへの費用の割り当て |
 | tokenisation | トークン化 | |
+| subagent / sub-agent | サブエージェント | |
+| autonomy / agency | 自律性 | |
+| routing | ルーティング | 動詞は「振り分ける」 |
+| prompt chaining | プロンプトチェーン | |
+| parallelisation | 並列化 | |
+| voting | 投票 | |
+| sectioning | 分割 | 並列化の方式 |
+| evaluator-optimiser / evaluator-optimizer | 評価者・最適化者 | ワークフローパターン |
+| hook | フック | |
+| side effect | 副作用 | |
+| control flow | 制御フロー | |
+| trace | トレース | |
+| self-hosted / self-hosting | セルフホスト | |
+| managed deployment | マネージド環境へのデプロイ | |
+| context isolation | コンテキストの分離 | |
+| entity | エンティティー | |

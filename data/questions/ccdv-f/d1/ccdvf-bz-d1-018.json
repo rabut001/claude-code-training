@@ -38,7 +38,31 @@
     "explanation": "Pick the abstraction matching the control flow you need. A graph framework gives explicit nodes, edges, and checkpointed state; the Agent SDK gives a model-driven loop with context, permissions, and hooks solved."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude Agent SDK と LangGraph のようなサードパーティーのグラフ型フレームワークのどちらを使うか検討しています。判断の中心に据えるべき観点はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "長期的なサポートの代替指標となる、コミュニティーの規模とリポジトリの人気。",
+        "note": "この判断では、人気は技術的な基準ではありません。"
+      },
+      {
+        "id": "b",
+        "text": "サードパーティーのフレームワークのほうが、公式 SDK より実行時のオーバーヘッドが小さいこと。",
+        "note": "性能を左右するのはモデル呼び出しであり、フレームワークのオーバーヘッドではありません。"
+      },
+      {
+        "id": "c",
+        "text": "Agent SDK は Claude Code の中からしか使えず、適用範囲が限られること。",
+        "note": "Agent SDK は、エージェントを構築するための汎用ライブラリーです。"
+      },
+      {
+        "id": "d",
+        "text": "アプリに必要なのが、明示的に分岐する制御フローか、モデル主導のループか。",
+        "note": ""
+      }
+    ],
+    "explanation": "必要な制御フローに合う抽象化を選んでください。グラフ型フレームワークは、明示的なノード、エッジ、チェックポイントで保存した状態を提供します。Agent SDK は、コンテキスト、権限、フックの仕組みが用意されたモデル主導のループを提供します。"
   },
   "references": [
     {

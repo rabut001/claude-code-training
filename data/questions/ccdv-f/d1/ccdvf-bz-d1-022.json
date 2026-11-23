@@ -38,7 +38,31 @@
     "explanation": "Selection accuracy degrades as the set grows and descriptions overlap. Showing only contextually relevant tools and writing descriptions that clearly separate purpose and inputs is the standard remedy."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントが40個のツールを利用でき、頻繁に誤ったツールを選びます。最も改善が期待できる変更はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "40個すべてのツール定義が余裕を持って収まるよう、コンテキストウィンドウを拡大する。",
+        "note": "すべてを収めることではなく、それらを区別することが問題です。"
+      },
+      {
+        "id": "b",
+        "text": "定義ブロックのトークン消費を減らすため、すべてのツール名を短くする。",
+        "note": "短い名前は伝える意味が少なく、通常は選択を悪化させます。"
+      },
+      {
+        "id": "c",
+        "text": "より幅広いツールの選択肢を探索するよう、temperature を上げる。",
+        "note": "探索を増やすと、誤った選択は減るのではなく増えます。"
+      },
+      {
+        "id": "d",
+        "text": "タスクに関係するツールだけを提示し、各説明で用途の境界を明確にする。",
+        "note": ""
+      }
+    ],
+    "explanation": "ツールの数が増え、説明が重複すると、選択の正確さは低下します。状況に関係するツールだけを提示し、目的と入力の違いが明確になる説明を書くことが、標準的な対策です。"
   },
   "references": [
     {

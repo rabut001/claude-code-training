@@ -38,7 +38,31 @@
     "explanation": "Context isolation is the point. A subagent can read twenty files and hand back a paragraph, so the main conversation pays for the conclusion rather than the whole exploration."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "メインの会話で作業を続ける代わりに、サブタスクをサブエージェントに委任する主な理由は何ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "サブエージェント内で消費するトークンには、公表されたより低い料金が適用される。",
+        "note": "どこで消費しても、トークンの料金は同じです。"
+      },
+      {
+        "id": "b",
+        "text": "サブタスクが分離されたコンテキストで実行され、結論だけを返す。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "メインのエージェントには許可されていないツールを、サブエージェントには許可できる。",
+        "note": "ツールの利用可否は設定上の選択であり、本質的な特性ではありません。"
+      },
+      {
+        "id": "d",
+        "text": "サブエージェントのターンは、親の実行のトークン集計から除外される。",
+        "note": "サブエージェントも、ほかのモデル呼び出しと同様に課金対象のトークンを消費します。"
+      }
+    ],
+    "explanation": "目的はコンテキストの分離です。サブエージェントが20個のファイルを読み、1段落を返せば、メインの会話で費用を支払うのは調査の全過程ではなく、結論になります。"
   },
   "references": [
     {
