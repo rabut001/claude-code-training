@@ -38,7 +38,31 @@
     "explanation": "Caching rewards reuse of a large stable prefix. Unrelated short inputs share nothing substantial, so there is no prefix worth caching and the write premium makes it worse; that workload wants Batch."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "プロンプトキャッシュの恩恵が最も小さい処理はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "互いに無関係な短い文字列50,000件を、それぞれ異なる指示で1回だけ処理する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "すべてのリクエストに同じ20,000トークンのポリシーマニュアルを含めるサポートボット。",
+        "note": "呼び出すたびに繰り返し使う大きなマニュアルは、キャッシュの理想的な利用例です。"
+      },
+      {
+        "id": "c",
+        "text": "セッションの各ターンに、同じ大きなファイル群を含めるコードアシスタント。",
+        "note": "ターンをまたいで再利用される固定のファイル群は、非常によくキャッシュが効きます。"
+      },
+      {
+        "id": "d",
+        "text": "アップロードした1つの文書について、ユーザーが多数の質問をする契約書 Q&A ツール。",
+        "note": "1つの文書について多数の質問をするのは、典型的なキャッシュの利用パターンです。"
+      }
+    ],
+    "explanation": "キャッシュは、大きくて変化しないプレフィックスを再利用する場合に効果があります。互いに無関係な短い入力には、共有するまとまった内容がありません。そのため、キャッシュする価値のあるプレフィックスがなく、書き込みの割増料金でかえって不利になります。この処理には Batch が向いています。"
   },
   "references": [
     {

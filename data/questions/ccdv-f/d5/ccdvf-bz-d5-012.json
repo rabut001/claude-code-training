@@ -38,7 +38,31 @@
     "explanation": "Those three attack perceived latency from different directions: streaming emits the first token immediately, a faster tier generates quicker, and a cache hit skips re-processing the prefix."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "ライブチャットの操作感を実現するため、最初のトークンまでの時間をできるだけ短くする必要があります。最も効果的な組み合わせはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "回答の品質を高めるため、max_tokens を増やし、extended thinking を有効にする。",
+        "note": "どちらもレイテンシを増やします。また、extended thinking は意図的に最初に推論の時間を使います。"
+      },
+      {
+        "id": "b",
+        "text": "レスポンスをストリーミングし、より高速なモデル階層を選び、変化しないプレフィックスをキャッシュする。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "負荷の急増を平準化するため、チャットのトラフィックを Batch API に送る。",
+        "note": "Batch は非同期で、数分から数時間かかることがあるため、対話的な処理とは正反対です。"
+      },
+      {
+        "id": "d",
+        "text": "モデルが早く答えにたどり着けるよう、few-shot の例を増やす。",
+        "note": "例が増えるほど、最初の出力トークンの前に処理する入力が増えます。"
+      }
+    ],
+    "explanation": "この3つは、それぞれ異なる方向から体感上のレイテンシに対処します。ストリーミングは最初のトークンを即座に送り、より高速な階層は生成を速め、キャッシュへのヒットはプレフィックスの再処理を省きます。"
   },
   "references": [
     {

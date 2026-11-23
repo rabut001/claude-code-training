@@ -38,7 +38,31 @@
     "explanation": "Greedy decoding removes most variation but is not a guarantee. Near-ties in logits combined with floating-point and serving-stack differences can still flip a token, so correctness must never depend on identical output."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "temperature を0に設定し、同じ入力にはバイト単位で同一の出力が返ると期待しています。しかし、本番環境では依然として、ときどき出力に違いが見られます。正しい説明はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ツール定義も指定するリクエストでは temperature が無視される。",
+        "note": "ツールを定義しているかどうかにかかわらず、temperature は適用されます。"
+      },
+      {
+        "id": "b",
+        "text": "決定論的な動作には、同じリクエストで top_p も0に設定する必要がある。",
+        "note": "Anthropic はどちらか一方を調整するよう勧めており、どちらを設定してもサンプリングの結果が保証されるわけではありません。"
+      },
+      {
+        "id": "c",
+        "text": "temperature が0だとサンプリングは貪欲法になるが、同一の出力は保証されない。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "レスポンスがキャッシュされるのを防ぐため、サービスがサンプリングにわずかな揺らぎを加える。",
+        "note": "意図的なノイズは加えられません。このサービスはそのようには動作しません。"
+      }
+    ],
+    "explanation": "貪欲デコーディングは出力の違いをほぼなくしますが、同一の出力を保証するものではありません。ロジットの値が僅差である場合、浮動小数点演算や配信基盤の違いが重なると、選ばれるトークンが変わることがあります。そのため、正しさが出力の同一性に依存する設計にしてはいけません。"
   },
   "references": [
     {

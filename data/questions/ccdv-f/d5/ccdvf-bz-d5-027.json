@@ -38,7 +38,31 @@
     "explanation": "Every constraint points the same way: nobody is waiting, so Batch halves the cost; classification is deterministic work; and the accuracy floor is a measurable bar the cheapest qualifying model should clear."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "夜間のジョブで200万件の文書を分類します。正答率を95%より高く保ち、朝までに結果を得る必要があり、コストが最大の制約です。最適な構成はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ラベル付きサンプルで95%を超える最小のモデルを、temperature を0にして Batch で実行する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "最先端のモデルを、リアルタイムの Messages API で、最大の並行数で実行する。",
+        "note": "一晩の処理時間がある作業に、リアルタイム処理の高額な料金を支払うことになります。"
+      },
+      {
+        "id": "c",
+        "text": "分類の正確さを最大限に高めるため、最先端のモデルで extended thinking を有効にする。",
+        "note": "深い推論を必要としないタスクで、トークン数とレイテンシが何倍にもなります。"
+      },
+      {
+        "id": "d",
+        "text": "中位のモデルで、各文書について独立に5回判定して多数決を取る。",
+        "note": "存在が示されていない問題を解決するために、およそ5倍のコストがかかります。"
+      }
+    ],
+    "explanation": "すべての制約が同じ方向を示しています。待っている人がいないので、Batch でコストを半分にできます。分類は決定論的な作業であり、正確さの下限は測定可能な基準なので、その基準を満たす最も安価なモデルを使うべきです。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Premium capability earns its price when volume is low, the reasoning is genuinely hard, and a mistake costs far more than the inference, such as multi-file refactoring or complex legal analysis."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "最も高性能で、最も高価なモデル階層を使うことが最も正当化されるタスクの特徴はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ソーシャルメディアの短い投稿に対する、大量の感情ラベル付け。",
+        "note": "大量かつ単純なタスクは、最も安価な階層を使う典型的なケースです。"
+      },
+      {
+        "id": "b",
+        "text": "標準的な請求書のヘッダーにある、固定形式のフィールドからの日付抽出。",
+        "note": "固定形式の抽出は、小さなモデルで簡単に処理できます。"
+      },
+      {
+        "id": "c",
+        "text": "ユーザーインターフェースの短い文字列の、12の対象言語への翻訳。",
+        "note": "短い文字列の翻訳に、最先端の推論能力は必要ありません。"
+      },
+      {
+        "id": "d",
+        "text": "処理量が少なく、重要性が高く、誤りの発見に大きな費用がかかる作業。",
+        "note": ""
+      }
+    ],
+    "explanation": "複数ファイルのリファクタリングや複雑な法的分析のように、処理量が少なく、推論が実際に難しく、誤りのコストが推論コストをはるかに上回る場合、高い能力はその料金に見合います。"
   },
   "references": [
     {

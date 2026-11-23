@@ -38,7 +38,31 @@
     "explanation": "Tokens are sub-word fragments. The three-to-four-character heuristic is fine for rough English planning but understates code, nested JSON, and non-Latin scripts, so use token counting when the number matters."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "予算を見積もるうえで、トークンについて正確な説明はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "1トークンは1単語に対応するため、単語数は信頼できる代替指標になる。",
+        "note": "長い単語や珍しい単語は複数のトークンに分割されます。よく使われる短い単語は1トークンになることがあります。"
+      },
+      {
+        "id": "b",
+        "text": "生成された出力だけがトークン化されて課金され、渡した入力は対象にならない。",
+        "note": "入力も課金対象であり、ほとんどのアプリケーションでは入力が料金の大半を占めます。"
+      },
+      {
+        "id": "c",
+        "text": "空白と句読点はトークン数に含まれない。",
+        "note": "空白と句読点も、ほかの文字と同様にトークンを消費します。"
+      },
+      {
+        "id": "d",
+        "text": "トークンは単語より小さな単位で、英語ではおおよそ3〜4文字に相当する。",
+        "note": ""
+      }
+    ],
+    "explanation": "トークンは単語より小さな断片です。3〜4文字という目安は英語での大まかな見積もりには使えますが、コード、入れ子の JSON、ラテン文字以外の文字体系では過小評価になります。数が重要な場合はトークンカウントを使ってください。"
   },
   "references": [
     {

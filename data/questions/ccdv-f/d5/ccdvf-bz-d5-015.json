@@ -38,7 +38,31 @@
     "explanation": "Both shape the same sampling distribution, and moving them together produces interactions that are hard to predict or debug. Pick one lever, tune it, leave the other at its default."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Anthropic の推奨に合致するパラメーターの指針はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "temperature と top_p は相互作用するため、両方ではなく、どちらか一方を調整する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "サンプリングをより細かく制御するため、temperature と top_p を同時に調整する。",
+        "note": "これは、指針で明確に避けるよう警告されている方法です。"
+      },
+      {
+        "id": "c",
+        "text": "本番環境のすべての処理で、top_p は1.0、temperature は1.0のままにする。",
+        "note": "それらはデフォルト値であって、規則ではありません。抽出や分類では通常、より低い値が適しています。"
+      },
+      {
+        "id": "d",
+        "text": "最大限の創造性が求められるタスクでは、temperature を1.0より大きくする。",
+        "note": "Claude の temperature の範囲は0〜1なので、それより大きい値は無効です。"
+      }
+    ],
+    "explanation": "どちらも同じサンプリング分布を形作るもので、同時に変えると、予測やデバッグが難しい相互作用が生じます。どちらか一方を選んで調整し、もう一方はデフォルトのままにしてください。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Model choice is a per-step decision rather than a per-application one. Cheap models handle lookups and routing; the expensive model is reserved for the step whose quality decides the outcome."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントが長いツール呼び出しの連鎖を実行しており、大半のステップは単純な参照で、1つのステップだけが難しい情報統合です。最も費用対効果の高い構成はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "動作の一貫性を保つため、連鎖全体を最も高性能なモデルで実行する。",
+        "note": "単純な参照に高額な料金を支払うことは、最もよくある、回避可能なエージェントのコストです。"
+      },
+      {
+        "id": "b",
+        "text": "定型的なステップは安価で高速なモデルで、情報統合は高性能なモデルで実行する。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "連鎖全体を最も安価な階層で実行し、情報統合の品質低下を受け入れる。",
+        "note": "重要な唯一のステップの品質を下げると、その連鎖の目的を損ないます。"
+      },
+      {
+        "id": "d",
+        "text": "2つの異なるモデルで連鎖を実行し、最後に結果を比較する。",
+        "note": "支出が2倍になり、2つの結果のどちらを採用すべきかを信頼できる形で判断する方法もありません。"
+      }
+    ],
+    "explanation": "モデルの選択は、アプリケーション単位ではなく、ステップ単位の判断です。参照や振り分けは安価なモデルが処理し、高価なモデルは、その品質が結果を左右するステップに使います。"
   },
   "references": [
     {

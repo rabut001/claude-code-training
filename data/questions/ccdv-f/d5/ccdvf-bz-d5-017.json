@@ -44,7 +44,36 @@
     "explanation": "A cache hit removes the time spent re-processing a long stable prefix, and tiering by difficulty keeps most traffic off the slowest model. Both cut latency while leaving the task definition untouched."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "対話型アシスタントの p95 の応答が遅すぎます。タスクを変えずにレイテンシを減らせる変更はどの2つですか？（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "変化しないプロンプトと参考資料を、キャッシュの区切りより前に置く。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "単純なリクエストを小さなモデルに振り分け、大きなモデルは難しい処理に使う。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "モデルが1ターンで回答を完了できるよう、max_tokens を増やす。",
+        "note": "上限を増やすと、生成により時間のかかる長い出力が可能になります。"
+      },
+      {
+        "id": "d",
+        "text": "回答の品質を高めるため、すべてのリクエストで extended thinking を有効にする。",
+        "note": "extended thinking は、回答前に意図的に推論時間を追加します。"
+      },
+      {
+        "id": "e",
+        "text": "タスクの曖昧さを減らすため、few-shot の例をさらに10件追加する。",
+        "note": "例が増えるほど、最初の出力トークンの前に処理する入力トークンが増えます。"
+      }
+    ],
+    "explanation": "キャッシュへのヒットによって、長くて変化しないプレフィックスを再処理する時間がなくなります。また、難易度に応じた階層の使い分けによって、トラフィックの大半で最も遅いモデルを使わずに済みます。どちらも、タスクの定義を変えずにレイテンシを減らします。"
   },
   "references": [
     {

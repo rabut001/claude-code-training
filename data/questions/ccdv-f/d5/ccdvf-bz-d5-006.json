@@ -38,7 +38,31 @@
     "explanation": "Extended thinking buys internal reasoning tokens before the answer. It pays off on genuinely multi-step problems and is wasted latency and cost on mechanical transformation or simple classification."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "extended thinking を有効にすることを最も強く示唆するタスクの特徴はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "渡された名前のリストを、オブジェクトからなる JSON 配列に整形し直す。",
+        "note": "機械的な変換では、熟考しても得るものはありません。"
+      },
+      {
+        "id": "b",
+        "text": "検索で取得した文章を直接参照し、そこから調べた値を返す。",
+        "note": "渡された文章からの抽出は、推論というより参照です。"
+      },
+      {
+        "id": "c",
+        "text": "顧客の短い文を、肯定的、中立的、否定的のいずれかに分類する。",
+        "note": "単純な分類は、思考トークンを使わなくても十分に処理できます。"
+      },
+      {
+        "id": "d",
+        "text": "相互に依存する複数の推論を要する、微妙な論理エラーをデバッグする。",
+        "note": ""
+      }
+    ],
+    "explanation": "extended thinking は、回答前の内部推論トークンに費用をかける機能です。複数段階の推論が実際に必要な問題では効果がありますが、機械的な変換や単純な分類では、レイテンシとコストの無駄になります。"
   },
   "references": [
     {

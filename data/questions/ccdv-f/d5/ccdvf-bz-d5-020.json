@@ -38,7 +38,31 @@
     "explanation": "Better aggregate benchmarks do not guarantee better behaviour on your prompts. Formatting, verbosity, and edge-case handling can move in ways a downstream parser does not expect."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "「新しいモデルは必ず優れているので、常に最新モデルを使うべきだ」という意見があります。本番システムで最も重要な留意点はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "バージョン間で動作が変わることがあるため、まず自分たちの評価スイートで検証する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "新しいモデルは、置き換え前のバージョンより常に遅い。",
+        "note": "一般にそうとは言えません。同じ階層なら、新しいリリースのほうが高速なこともよくあります。"
+      },
+      {
+        "id": "c",
+        "text": "新しいモデルでは、後続のリリースまでツール使用が利用できない。",
+        "note": "現在の各モデル階層で、ツール使用はサポートされています。"
+      },
+      {
+        "id": "d",
+        "text": "新しいモデルはバージョンを固定できないため、更新後のロールバックは不可能である。",
+        "note": "日付付きのモデル ID は、まさにバージョンの固定とロールバックを可能にするために存在します。"
+      }
+    ],
+    "explanation": "全体的なベンチマークが向上しても、自分たちのプロンプトでの動作が良くなるとは限りません。書式、冗長さ、例外的なケースの扱いが、後段のパーサーの想定しない形で変わることがあります。"
   },
   "references": [
     {

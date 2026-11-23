@@ -38,7 +38,31 @@
     "explanation": "Hallucination is the model filling a gap from parametric memory. Grounding removes the gap, citation makes claims checkable, and an escape hatch removes the pressure to invent when sources are silent."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "法務アシスタントが、存在しない判例を自信ありげに引用しています。この種の失敗を最も効果的に減らす組み合わせはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "temperature を0にし、事実に即して正確に答えるようモデルに指示する。",
+        "note": "temperature が0の場合、最も確率の高い出力が返されますが、それが自信ありげな作り話であることもあります。"
+      },
+      {
+        "id": "b",
+        "text": "処理を、現在利用できる中で最大のモデル階層に移す。",
+        "note": "大きなモデルはハルシネーションの頻度が低いですが、能力が高いことは保証にはなりません。"
+      },
+      {
+        "id": "c",
+        "text": "検索した情報源に回答を根拠付け、引用を必須にし、\"見つからない\"という回答を許容する。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "出力に不正確な内容が含まれる可能性をユーザーに警告する免責事項を表示する。",
+        "note": "免責事項は責任を転嫁するもので、正確さを改善しません。"
+      }
+    ],
+    "explanation": "ハルシネーションは、モデルがパラメーターに蓄えた記憶で情報の空白を埋めることです。グラウンディングはその空白をなくし、引用は主張を検証可能にし、回答を控える選択肢は、情報源に記載がない場合に作り話をする圧力を取り除きます。"
   },
   "references": [
     {

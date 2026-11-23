@@ -38,7 +38,31 @@
     "explanation": "Each response reports the token counts that actually drove the charge, including cache reads and writes. Persisting that with a feature tag turns attribution into arithmetic rather than estimation."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "経理から、Claude の支出を機能ごとに分けた内訳を求められています。どのような計測の仕組みで実現できますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "月次請求の総額を、人数に応じて各機能に配分する。",
+        "note": "集計済みの総額を、後から機能ごとに分けることはできません。"
+      },
+      {
+        "id": "b",
+        "text": "機能ごとの API リクエスト発行数を数え、月ごとに比較する。",
+        "note": "リクエスト数では、リクエストあたりのトークン数の大きな違いが考慮されません。"
+      },
+      {
+        "id": "c",
+        "text": "各機能の平均プロンプト長から、推定値を求める。",
+        "note": "推定値はずれていき、キャッシュの効果もまったく捉えられません。"
+      },
+      {
+        "id": "d",
+        "text": "すべてのレスポンスの usage ブロックに、機能とモデルのタグを付ける。",
+        "note": ""
+      }
+    ],
+    "explanation": "各レスポンスには、キャッシュの読み取りと書き込みも含め、実際の課金のもとになったトークン数が報告されます。機能のタグとともに保存すれば、費用の配賦を推定ではなく計算で行えます。"
   },
   "references": [
     {

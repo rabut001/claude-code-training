@@ -38,7 +38,31 @@
     "explanation": "Repeating a call means the agent receives nothing that changes its state. Fix both sides: return an informative result or error, and enforce a deterministic iteration ceiling in the harness."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントのループが、ほぼ同じ引数で同じ検索ツールを繰り返し呼び出し、いつまでも収束しません。最も適切な診断はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "コンテキストウィンドウが、このタスクに実際に必要な大きさをはるかに上回っている。",
+        "note": "ウィンドウの大きさが繰り返しを引き起こすわけではありません。"
+      },
+      {
+        "id": "b",
+        "text": "サンプリング用の temperature が低すぎるため、モデルが同じ選択を繰り返している。",
+        "note": "せいぜい一因にすぎません。欠陥は、必要なシグナルと上限が欠けていることです。"
+      },
+      {
+        "id": "c",
+        "text": "モデル階層の能力がタスクに必要な水準を超えているため、考えすぎが起きている。",
+        "note": "ループにフィードバックがまったくない場合、能力は問題ではありません。"
+      },
+      {
+        "id": "d",
+        "text": "ツールが有用な情報を何も返さず、ループの反復回数にも上限がない。",
+        "note": ""
+      }
+    ],
+    "explanation": "呼び出しを繰り返すのは、エージェントの状態を変える情報を何も受け取っていないということです。役に立つ結果やエラーを返すことと、実行基盤で決定論的に反復回数の上限を強制することの、両方を修正してください。"
   },
   "references": [
     {

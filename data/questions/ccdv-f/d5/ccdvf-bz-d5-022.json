@@ -38,7 +38,31 @@
     "explanation": "Spend is tokens in plus tokens out. Those three reduce token volume rather than degrade the task: less input, no output nobody reads, and a discounted rate on the repeated prefix."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "大量の要約を行うサービスで、品質を下げずに支出を減らせる可能性が最も高い変更はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "すべてのリクエストでトークンを節約するため、システムプロンプトを完全に削除する。",
+        "note": "節約できる量はごくわずかで、通常は品質が低下するため、かえって損になります。"
+      },
+      {
+        "id": "b",
+        "text": "モデルがより経済的なレスポンスを生成するよう、temperature を0にする。",
+        "note": "サンプリング用の temperature は料金に影響しません。"
+      },
+      {
+        "id": "c",
+        "text": "入力の定型文を削り、出力の長さに上限を設け、変化しないプレフィックスをキャッシュする。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "逐次的な配信には追加料金がかかるため、ストリーミングを無効にする。",
+        "note": "ストリーミングの課金は、ブロッキングのレスポンスと同じです。"
+      }
+    ],
+    "explanation": "支出は、入力トークンと出力トークンの合計で決まります。この3つは、タスクの品質を下げるのではなく、トークン量を減らすものです。入力を減らし、誰も読まない出力をなくし、繰り返すプレフィックスには割引料金を適用します。"
   },
   "references": [
     {

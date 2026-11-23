@@ -38,7 +38,31 @@
     "explanation": "The cache matches an exact prefix from the start of the prompt, so a leading timestamp defeats it entirely. Stable content must come first, then the breakpoint, then the variable part."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "プロンプトキャッシュを有効にしたものの、キャッシュにほとんどヒットしません。プロンプトの先頭にはタイムスタンプとユーザー名があり、その後に長い固定のポリシー文書が続きます。何が問題ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ポリシー文書が、キャッシュ可能な最小トークン数を下回っている。",
+        "note": "最小値は存在しますが、この文書はそれを十分に上回っています。"
+      },
+      {
+        "id": "b",
+        "text": "キャッシュに必要な extended thinking を有効にしていない。",
+        "note": "キャッシュと extended thinking は独立した機能です。"
+      },
+      {
+        "id": "c",
+        "text": "初めてヒットする前に、別途キャッシュを準備する呼び出しでエントリーを格納する必要がある。",
+        "note": "準備用のエンドポイントは存在しません。最初のリクエストでキャッシュが格納されます。"
+      },
+      {
+        "id": "d",
+        "text": "変動する内容が先頭位置にあるため、毎回プレフィックスが異なる。",
+        "note": ""
+      }
+    ],
+    "explanation": "キャッシュは、プロンプトの先頭からプレフィックスが完全に一致するかを照合するため、先頭にタイムスタンプがあるとまったく機能しません。変化しない内容を先に置き、次にキャッシュの区切り、最後に変動する部分を置く必要があります。"
   },
   "references": [
     {
