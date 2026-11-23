@@ -69,6 +69,10 @@
     ],
     "explanation": ""
   },
+  "supplement": {
+    "ja": "A2A：Agent2Agent。異なる仕組みや組織のAIエージェントが、タスクの依頼、進捗、結果などをやり取りするための共通プロトコルです。",
+    "en": "A2A: Agent2Agent. A common protocol through which AI agents using different systems or belonging to different organizations exchange task requests, progress, results, and related information."
+  },
   "references": [
     {
       "title": "A2A Protocol: v1.0 release announcement",

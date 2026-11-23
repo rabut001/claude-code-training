@@ -71,6 +71,10 @@
     ],
     "explanation": ""
   },
+  "supplement": {
+    "ja": "SSE：Server-Sent Events。HTTP接続を通じて、サーバーからクライアントへイベントを順次送る方式です。生成途中の回答を少しずつ届ける用途などに使えます。",
+    "en": "SSE: Server-Sent Events. A method for sending events sequentially from a server to a client over an HTTP connection. It can be used, for example, to deliver an answer incrementally while it is being generated."
+  },
   "references": [
     {
       "title": "MCP specification: Transport overview",

@@ -68,6 +68,10 @@
     ],
     "explanation": ""
   },
+  "supplement": {
+    "ja": "pass@3：同じタスクを3回試したとき、少なくとも1回成功する確率・割合です。例えば「成功・失敗・失敗」でも成功として数えます。 pass^3：同じタスクを3回試したとき、3回すべて成功する確率・割合です。繰り返しても安定して成功するかを測ります。",
+    "en": "pass@3: The probability or proportion of succeeding at least once when the same task is attempted three times. For example, success–failure–failure still counts as a success. pass^3: The probability or proportion of succeeding in all three attempts at the same task. It measures whether success remains consistent across repeated attempts."
+  },
   "references": [
     {
       "title": "Anthropic Engineering: Demystifying evals for AI agents",

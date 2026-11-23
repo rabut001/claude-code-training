@@ -69,6 +69,10 @@
     ],
     "explanation": ""
   },
+  "supplement": {
+    "ja": "SLI：Service Level Indicator。サービスの状態を測る指標です。例えば「要求のうち、4秒以内に使える回答を届けた割合」です。 SLO：Service Level Objective。SLIに対して設定する目標です。例えば「4秒以内に回答する割合を99%以上にする」です。 SLA：Service Level Agreement。提供者と顧客などが交わす、サービス水準についての合意です。未達時の補償などを含むことがあります。",
+    "en": "SLI: Service Level Indicator. A metric measuring service behavior, such as the proportion of requests that deliver a usable answer within four seconds. SLO: Service Level Objective. A target set for an SLI, such as delivering an answer within four seconds for at least 99% of requests. SLA: Service Level Agreement. An agreement about service levels between a provider and a customer or other parties. It may include compensation or other remedies when commitments are not met."
+  },
   "references": [
     {
       "title": "Google SRE Workbook: Implementing SLOs",

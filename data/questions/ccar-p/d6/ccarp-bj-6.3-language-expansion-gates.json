@@ -69,6 +69,10 @@
     ],
     "explanation": ""
   },
+  "supplement": {
+    "ja": "SLA：Service Level Agreement。提供者と顧客などが交わす、サービス水準についての合意です。未達時の補償などを含むことがあります。",
+    "en": "SLA: Service Level Agreement. An agreement about service levels between a provider and a customer or other parties. It may include compensation or other remedies when commitments are not met."
+  },
   "references": [
     {
       "title": "NIST AI Risk Management Framework 1.0: Core",

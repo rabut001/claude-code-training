@@ -69,8 +69,8 @@
     "explanation": ""
   },
   "supplement": {
-    "ja": "few-shot は、少数の入力例とそれに対する出力例をプロンプトに含め、望む回答の形や規則を伝える方法です。",
-    "en": "Few-shot prompting provides a small number of example inputs and outputs in the prompt to show the desired response format or rules."
+    "ja": "few-shot は、少数の入力例とそれに対する出力例をプロンプトに含め、望む回答の形や規則を伝える方法です。 zero-shot：入力例と出力例を示さず、指示や質問でモデルにタスクを解かせる方法です。「例がない」という意味で、指示や参考情報を与えないという意味ではありません。",
+    "en": "Few-shot prompting provides a small number of example inputs and outputs in the prompt to show the desired response format or rules. Zero-shot: A method of asking a model to perform a task through instructions or questions without providing example inputs and outputs. It means no examples, not an absence of instructions or reference information."
   },
   "references": [
     {

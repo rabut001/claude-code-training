@@ -69,6 +69,10 @@
     ],
     "explanation": ""
   },
+  "supplement": {
+    "ja": "Priority Tier：契約した処理容量の範囲で、Claude APIのリクエストを優先処理するサービス枠です。混雑時の過負荷エラーを減らすことを目的としています。",
+    "en": "Priority Tier: A Claude API service tier that prioritizes requests within committed processing capacity. It is intended to reduce overload errors during periods of high demand."
+  },
   "references": [
     {
       "title": "Anthropic: Usage and Cost API",

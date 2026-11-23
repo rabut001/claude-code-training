@@ -68,6 +68,10 @@
     ],
     "explanation": ""
   },
+  "supplement": {
+    "ja": "OAuth：アプリに、別のサービスへの限定的なアクセス権を与えるための仕組みです。例えば、ユーザーのパスワードをアプリへ渡さずに、許可したデータの読み取りを認められます。",
+    "en": "OAuth: A framework for granting an application limited access to another service. For example, it can permit reading authorized data without giving the application the user's password."
+  },
   "references": [
     {
       "title": "MCP specification: Authorization",

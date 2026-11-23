@@ -108,7 +108,7 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 | 4 | d5 | 完了 | 32 | `6b6a8ab` | 全問 draft、全検証成功。OCR 1問に補足 |
 | 5 | d6 | 完了 | 32 | `25296c5` | 全問 draft、全検証成功。用語の補足対象なし |
 | 6 | d2 | 完了 | 30 | `43324db` | 全問 draft、全検証成功。few-shot 2問、extended thinking 1問に補足 |
-| 7 | d7 | 完了 | 16 | この行を含む最終コミット | 全問 draft、全検証成功。CI 2問に補足 |
+| 7 | d7 | 完了 | 16 | `44d812f` | 全問 draft、全検証成功。CI 2問に補足 |
 
 ### 共通の確認方法
 
@@ -183,3 +183,59 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 - extended thinking：`ccarp-bj-2.3-manual-thinking-output-budget`
 - CI：`ccarp-bj-7.2-untrusted-review-ci`、`ccarp-bj-7.3-headless-acceptance-metadata`
 - p99・SKU・I/O・base64・Plan mode・Headless mode：該当なし（それぞれ0問）
+
+
+### 追加21用語の補足（2026-11-23、ユーザー承認済み・完了）
+
+- チャットで21用語の説明一覧を提示し、ユーザーから「全て補足に追加してください」と指示を受けた。日本語の説明は提示文を使い、用語名のラベルを付け、強調のMarkdownを除いた。同じ内容の英訳も追加した。
+- 全228問の `ja` の問題文・選択肢・理由を確認し、該当する29問の `supplement` だけを追加・更新した。補足そのものや出典・IDにだけ現れる用語からは対象を増やしていない。1問に複数用語があればまとめ、既存の補足は日英ともそのまま残した。
+- 分野別の変更数：d1 0問、d2 1問、d3 16問、d4 4問、d5 4問、d6 3問、d7 1問。21用語の説明を延べ36件追加。補足のあるCCAR-Pの問題は合計40問になった。
+- 変更前の全408問を `.cache/ccarp-extra-original/` に保存した。`.cache/ccarp_extra_supplements.py verify` で、対象問題の `supplement` 以外は不変、対象外の379問はバイト単位で不変、既存の補足と追加する日英説明が期待どおりに保持されていることを確認した。用語定義と対象一覧は `.cache/ccarp-extra-terms.json`、`.cache/ccarp-extra-report.json` に保存（管理対象外）。
+- `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功、`git diff --check` 成功。CCAR-P全228問とCCDV-F全180問はdraftのまま。原文・和訳・正解・ID・出典は変更していない。
+- 上記の各分野と最終確認にある「補足候補（未追加）」は翻訳完了時点の記録。今回の追加で21用語はすべて対応済みとなり、未対応の補足候補は残っていない。pushとmainへのマージは行っていない。
+
+#### 追加用語 → 対象問題
+
+| 用語 | 問題数 | 問題ID |
+|---|---|---|
+| BM25 | 7 | `ccarp-bj-3.5-context-before-indexing`、`ccarp-bj-3.5-contextualizer-provenance-contamination`、`ccarp-bj-3.5-searchable-context-and-provenance`、`ccarp-bj-3.6-current-structured-aggregation`、`ccarp-bj-3.6-exact-part-identifier-retrieval`、`ccarp-bj-3.6-hybrid-rank-fusion-and-deduplication`、`ccarp-bj-3.6-policy-paraphrase-semantic-matching` |
+| PKCE | 1 | `ccarp-bj-3.2-pkce-metadata-gap` |
+| S256 | 1 | `ccarp-bj-3.2-pkce-metadata-gap` |
+| SSE | 1 | `ccarp-bj-3.7-mcp-current-transport-contract` |
+| A2A | 2 | `ccarp-bj-3.7-direct-api-client-tool-loop`、`ccarp-bj-3.7-independent-agent-coordination` |
+| pass@3 | 1 | `ccarp-bj-4.3-match-attempt-budgets` |
+| pass^3 | 1 | `ccarp-bj-4.3-match-attempt-budgets` |
+| top_k | 1 | `ccarp-bj-4.4-diagnose-versioned-sampling-rejection` |
+| HIPAA | 2 | `ccarp-bj-5.4-encrypted-ephi-custodian`、`ccarp-bj-5.4-hipaa-feature-path-change` |
+| ePHI | 2 | `ccarp-bj-5.4-encrypted-ephi-custodian`、`ccarp-bj-5.4-hipaa-feature-path-change` |
+| BAA | 1 | `ccarp-bj-5.4-hipaa-feature-path-change` |
+| DPIA | 1 | `ccarp-bj-5.4-gdpr-significant-decision-gates` |
+| FedRAMP | 1 | `ccarp-bj-5.4-federal-internal-search-boundary` |
+| SLI | 1 | `ccarp-bj-6.3-service-commitment-definitions` |
+| SLO | 1 | `ccarp-bj-6.3-service-commitment-definitions` |
+| SLA | 2 | `ccarp-bj-6.3-language-expansion-gates`、`ccarp-bj-6.3-service-commitment-definitions` |
+| エラーバジェット | 1 | `ccarp-bj-6.3-breach-response-authority` |
+| zero-shot | 1 | `ccarp-bj-2.3-sufficient-zero-shot-baseline` |
+| OAuth | 3 | `ccarp-bj-3.2-initial-scope-and-resource-binding`、`ccarp-bj-3.2-protected-resource-discovery`、`ccarp-bj-3.2-resource-and-upstream-token-separation` |
+| OpenTelemetry | 4 | `ccarp-bj-3.4-trace-content-privacy-controls`、`ccarp-bj-3.4-usage-aggregation-semantics`、`ccarp-bj-4.6-api-versus-otel-input-semantics`、`ccarp-bj-7.3-api-versus-tool-outcomes` |
+| Priority Tier | 1 | `ccarp-bj-4.6-cost-report-period-and-coverage` |
+
+#### 説明を確認した資料
+
+- BM25：[Anthropic — Contextual retrieval](https://www.anthropic.com/research/contextual-retrieval)
+- PKCE・S256：[IETF RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)
+- SSE：[WHATWG HTML Standard](https://html.spec.whatwg.org/multipage/server-sent-events.html)
+- A2A：[A2A — What is A2A?](https://a2a-protocol.org/latest/topics/what-is-a2a/)
+- pass@3・pass^3：[Anthropic — Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents)
+- top_k：[Hugging Face — Generation](https://huggingface.co/docs/transformers/v4.56.1/en/main_classes/text_generation)
+- HIPAA：[HHS — Summary of the HIPAA Privacy Rule](https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html)
+- ePHI：[HHS — The Security Rule](https://www.hhs.gov/hipaa/for-professionals/security/index.html)
+- BAA：[HHS — Business Associate Contracts](https://www.hhs.gov/hipaa/for-professionals/covered-entities/sample-business-associate-agreement-provisions/index.html)
+- DPIA：[GDPR第35条](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679)
+- FedRAMP：[FedRAMP Authorization Act](https://www.fedramp.gov/archive/2023-01-11-announces-passing-fedramp-auth-act/)
+- SLI・SLO・SLA：[Google SRE — Service Level Objectives](https://sre.google/sre-book/service-level-objectives/)
+- エラーバジェット：[Google SRE — Service Best Practices](https://sre.google/sre-book/service-best-practices/)
+- zero-shot：[Google Cloud — Generative AI glossary](https://docs.cloud.google.com/docs/ai-ml/generative-ai/glossary)
+- OAuth：[IETF RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749)
+- OpenTelemetry：[OpenTelemetry — What is OpenTelemetry?](https://opentelemetry.io/docs/what-is-opentelemetry/)
+- Priority Tier：[Claude Platform Docs — Service tiers](https://platform.claude.com/docs/en/api/service-tiers)

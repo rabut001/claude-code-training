@@ -69,6 +69,10 @@
     ],
     "explanation": ""
   },
+  "supplement": {
+    "ja": "FedRAMP：米国連邦政府が利用するクラウドサービスについて、セキュリティの評価や認可を標準化する制度です。特定のサービスとその対象範囲について評価します。",
+    "en": "FedRAMP: A United States federal program that standardizes security assessment and authorization for cloud services used by federal agencies. Assessment concerns a specific service and its defined scope."
+  },
   "references": [
     {
       "title": "FedRAMP: Using a FedRAMP Certified Cloud Service",

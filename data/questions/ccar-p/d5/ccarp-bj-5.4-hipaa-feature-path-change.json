@@ -71,8 +71,8 @@
     "explanation": ""
   },
   "supplement": {
-    "ja": "OCR（光学文字認識）は、画像に含まれる文字を読み取り、テキストデータに変換する処理です。",
-    "en": "OCR (optical character recognition) reads characters in an image and converts them into text data."
+    "ja": "OCR（光学文字認識）は、画像に含まれる文字を読み取り、テキストデータに変換する処理です。 HIPAA：米国の法律で、関連する規則が医療情報のプライバシーや安全な取り扱いなどを定めています。対象となる医療機関や、その委託先などに義務があります。 ePHI：electronic Protected Health Information。HIPAAの保護対象となる、電子形式の個人を識別できる医療情報です。 BAA：Business Associate Agreement。HIPAAの対象事業者と、医療情報を扱う委託先などが結ぶ契約です。情報の利用・開示の範囲、保護策、事故の報告などを定めます。",
+    "en": "OCR (optical character recognition) reads characters in an image and converts them into text data. HIPAA: A United States law whose associated rules govern matters such as the privacy and secure handling of health information. Obligations apply to covered healthcare organizations and their service providers, among others. ePHI: Electronic Protected Health Information. Individually identifiable health information in electronic form that is protected under HIPAA. BAA: Business Associate Agreement. A contract between a HIPAA-covered entity and a service provider or other business associate handling health information. It specifies matters such as permitted uses and disclosures, safeguards, and incident reporting."
   },
   "references": [
     {

@@ -69,6 +69,10 @@
     ],
     "explanation": ""
   },
+  "supplement": {
+    "ja": "OpenTelemetry：処理の流れを表すトレース、数値指標、ログなどを生成・収集・送信するための共通の仕組みです。遅延やエラーの原因を調べる際に使います。",
+    "en": "OpenTelemetry: A common framework for generating, collecting, and exporting traces that describe processing flows, metrics, logs, and related telemetry. It is used to investigate causes of latency and errors."
+  },
   "references": [
     {
       "title": "Anthropic: OpenTelemetry tracing for the Claude API",

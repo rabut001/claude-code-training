@@ -68,6 +68,10 @@
     ],
     "explanation": ""
   },
+  "supplement": {
+    "ja": "エラーバジェット：SLOの範囲内で許容できる失敗の量です。例えば成功率の目標が99.9%なら、残り0.1%が失敗の許容量になります。",
+    "en": "Error budget: The amount of failure permitted within an SLO. For example, a 99.9% success-rate target leaves a failure allowance of 0.1%."
+  },
   "references": [
     {
       "title": "Anthropic Partner Academy: Stakeholder Engagement, Lifecycle & GTM",
