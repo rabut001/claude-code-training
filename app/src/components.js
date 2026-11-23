@@ -101,15 +101,20 @@ export function questionCard(exam, q, { lang, order, selected = [], reveal = fal
       : null;
   }
 
-  // このアプリの作成者による補足（元の問題集の文章とは区別して表示する）
-  const supplement = reveal && q.supplement && q.supplement.ja
-    ? el(
+  // このアプリの作成者による補足（元の問題集の文章とは区別して表示する）。表示中の言語に合わせる
+  let supplement = null;
+  if (reveal && q.supplement) {
+    const supLang = t.lang === "en" && q.supplement.en ? "en" : "ja";
+    const body = q.supplement[supLang];
+    if (body) {
+      supplement = el(
         "aside",
-        { class: "supplement", lang: "ja" },
-        el("h3", { text: "補足（このアプリの作成者による追記）" }),
-        el("p", {}, richText(q.supplement.ja)),
-      )
-    : null;
+        { class: "supplement", lang: supLang },
+        el("h3", { text: supLang === "en" ? "Supplement (added by the author of this app)" : "補足（このアプリの作成者による追記）" }),
+        el("p", {}, richText(resolveOptionRefs(body, ids))),
+      );
+    }
+  }
 
   return el(
     "article",
@@ -120,6 +125,17 @@ export function questionCard(exam, q, { lang, order, selected = [], reveal = fal
     explanation,
     supplement,
   );
+}
+
+/**
+ * 補足の中の {a}・{b} などを、画面に出ている選択肢の記号（A, B, …）に置き換える。
+ * 選択肢は並び順を入れ替えて表示するので、id ではなく表示した位置で記号が決まる。
+ */
+export function resolveOptionRefs(text, displayedIds) {
+  return String(text).replace(/\{([a-z])\}/g, (whole, id) => {
+    const i = displayedIds.indexOf(id);
+    return i >= 0 ? String.fromCharCode(65 + i) : whole;
+  });
 }
 
 export function emptyState(title, body, action = null) {

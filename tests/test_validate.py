@@ -133,22 +133,26 @@ class InvalidQuestions(Base):
     def test_supplement_is_optional_and_accepted(self):
         q = self.load(SINGLE)
         q = {**{k: v for k, v in q.items() if k not in ("references", "source")},
-             "supplement": {"ja": "補足の本文です。"},
+             "supplement": {"ja": "{a} が正解です。", "en": "{a} is correct."},
              "references": q["references"], "source": q["source"]}
         self.save(SINGLE, q)
         self.assertEqual(self.errors(), [])
 
     def test_supplement_rejects_unknown_keys(self):
-        q = self.load(SINGLE); q["supplement"] = {"ja": "補足", "en": "note"}; self.save(SINGLE, q)
-        self.assertError("仕様にないフィールド 'en'")
+        q = self.load(SINGLE); q["supplement"] = {"ja": "補足", "en": "note", "fr": "x"}; self.save(SINGLE, q)
+        self.assertError("仕様にないフィールド 'fr'")
 
     def test_supplement_must_not_be_empty(self):
-        q = self.load(SINGLE); q["supplement"] = {"ja": " "}; self.save(SINGLE, q)
+        q = self.load(SINGLE); q["supplement"] = {"ja": " ", "en": "note"}; self.save(SINGLE, q)
         self.assertError("supplement.ja: 空です")
 
-    def test_supplement_requires_ja(self):
-        q = self.load(SINGLE); q["supplement"] = {}; self.save(SINGLE, q)
-        self.assertError("必須フィールド 'ja'")
+    def test_supplement_requires_ja_and_en(self):
+        q = self.load(SINGLE); q["supplement"] = {"ja": "補足"}; self.save(SINGLE, q)
+        self.assertError("必須フィールド 'en'")
+
+    def test_supplement_option_ref_must_exist(self):
+        q = self.load(SINGLE); q["supplement"] = {"ja": "{z} は誤りです。", "en": "{z} is wrong."}; self.save(SINGLE, q)
+        self.assertError("{z} は en.options にない選択肢です")
 
     def test_strict_counts(self):
         self.assertEqual(self.errors(), [])

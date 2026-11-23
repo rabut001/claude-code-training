@@ -64,6 +64,10 @@
     ],
     "explanation": "再現性には、固定され、確認可能な経路が必要です。エージェントは自ら経路を選ぶため、同一の2つの入力でも異なる経路をたどることがあります。これは、監査担当者が必要とするものとは逆です。"
   },
+  "supplement": {
+    "ja": "{c} も、ワークフローを選ぶ理由にはなりますが、処理量の増加はエージェントでも工夫すれば対応できる「程度の問題」です。一方、{a} の監査可能性・再現性は、エージェントでは原理的に満たせない「必須の条件」です。問題文の「最も明確に示す業務要件」という記載から {a} が正解になる、というのが問題作成者の意図だと思われます。",
+    "en": "Option {c} can also be a reason to choose a workflow, but growth in volume is a \"matter of degree\" that an agent can also handle with some design effort. Option {a}'s auditability and reproducibility, on the other hand, is a \"hard requirement\" that an agent fundamentally cannot satisfy. Given that the question asks for the requirement that \"most clearly argues\" for a workflow, the question author's intent appears to be that {a} is the correct answer."
+  },
   "references": [
     {
       "title": "Anthropic — Building effective agents",

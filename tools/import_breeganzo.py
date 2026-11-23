@@ -190,7 +190,7 @@ def write_questions(questions: list[dict], output: Path, expected: int) -> None:
             # このアプリの作成者による補足（docs/data-format.md「2-4」）も残す。並び順は ja のすぐ後ろ
             if "supplement" in existing:
                 supplement = existing["supplement"]
-                if not isinstance(supplement, dict) or not isinstance(supplement.get("ja"), str):
+                if not isinstance(supplement, dict) or not all(isinstance(supplement.get(k), str) for k in ("ja", "en")):
                     raise ValueError(f"{path}: 既存の supplement が不正です。上書きを中止します")
                 question = insert_after(question, "ja", "supplement", supplement)
         pending.append((path, json.dumps(question, ensure_ascii=False, indent=2) + "\n"))

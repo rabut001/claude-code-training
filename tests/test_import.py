@@ -41,25 +41,25 @@ class WriteQuestions(unittest.TestCase):
     def test_keeps_translation_and_supplement_in_order(self):
         existing = copy.deepcopy(self.fresh)
         existing["ja"] = self.translated_ja
-        existing = import_breeganzo.insert_after(existing, "ja", "supplement", {"ja": "補足です。"})
+        existing = import_breeganzo.insert_after(existing, "ja", "supplement", {"ja": "補足です。", "en": "A supplement."})
         self.path.parent.mkdir(parents=True)
         self.path.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
         out = self.write(self.fresh)
         self.assertEqual(out["ja"], self.translated_ja)
-        self.assertEqual(out["supplement"], {"ja": "補足です。"})
+        self.assertEqual(out["supplement"], {"ja": "補足です。", "en": "A supplement."})
         keys = list(out)
         self.assertEqual(keys.index("supplement"), keys.index("ja") + 1)
         # 取り込み直しても中身が変わらない
         self.assertEqual(self.path.read_text(encoding="utf-8"), json.dumps(existing, ensure_ascii=False, indent=2) + "\n")
 
     def test_keeps_supplement_even_when_untranslated(self):
-        existing = import_breeganzo.insert_after(copy.deepcopy(self.fresh), "ja", "supplement", {"ja": "補足です。"})
+        existing = import_breeganzo.insert_after(copy.deepcopy(self.fresh), "ja", "supplement", {"ja": "補足です。", "en": "A supplement."})
         self.path.parent.mkdir(parents=True)
         self.path.write_text(json.dumps(existing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         out = self.write(self.fresh)
         self.assertEqual(out["ja"], {"status": "todo"})
-        self.assertEqual(out["supplement"], {"ja": "補足です。"})
+        self.assertEqual(out["supplement"], {"ja": "補足です。", "en": "A supplement."})
 
     def test_rejects_broken_supplement(self):
         existing = copy.deepcopy(self.fresh)

@@ -23,7 +23,7 @@ import build  # noqa: E402
 
 FIXTURES = ROOT / "tests" / "fixtures" / "questions"
 VIEWPORT = {"width": 390, "height": 844}
-SUPPLEMENT = "テスト用の補足です。"
+SUPPLEMENT = {"ja": "テスト用の補足です。{c} ではなく {a} を選びます。", "en": "A test supplement. Choose {a}, not {c}."}
 
 
 def fixture_questions():
@@ -55,7 +55,7 @@ class AppTest(unittest.TestCase):
         sup_path = qdir / "ccdv-f" / "d7" / "ccdvf-bz-d7-005.json"
         q = json.loads(sup_path.read_text(encoding="utf-8"))
         q = {**{k: v for k, v in q.items() if k not in ("references", "source")},
-             "supplement": {"ja": SUPPLEMENT}, "references": q["references"], "source": q["source"]}
+             "supplement": SUPPLEMENT, "references": q["references"], "source": q["source"]}
         sup_path.write_text(json.dumps(q, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         assert build.build(ROOT / "data", qdir, cls.site / "data") == 0
         handler = functools.partial(QuietHandler, directory=str(cls.site))
@@ -160,20 +160,36 @@ class AppTest(unittest.TestCase):
         expect(self.page.get_by_role("button", name="間違えた問題の復習")).to_be_enabled()
 
     def test_supplement_is_shown_after_answering(self):
+        # 選択肢の並びを入れ替える設定にして、{a}・{c} が画面の記号に置き換わることを確かめる
+        self.page.add_init_script(
+            "localStorage.setItem('ccq:v1:settings', JSON.stringify({lang:'ja', shuffleOptions:true}));"
+        )
         self.open("#/exam/ccdv-f")
         # 「セキュリティと安全性」の全問（補足を付けた ccdvf-bz-d7-005 の1問だけ）
         drill = self.page.locator(".domain").filter(has_text="セキュリティと安全性")
         drill.get_by_role("button", name="全問").click()
         expect(self.page.locator(".supplement")).to_have_count(0)  # 回答前は出さない
-        q = self.current_question()
-        self.click_options(sorted(q["answer"]))
+        s = self.session()
+        qid = s["ids"][s["index"]]
+        order = s["order"][qid]
+        letter = {oid: chr(ord("A") + i) for i, oid in enumerate(order)}
+        q = self.questions[qid]
+        for oid in sorted(q["answer"]):
+            self.page.locator(".option").nth(order.index(oid)).click()
         self.page.get_by_role("button", name="回答する").click()
+
         sup = self.page.locator(".supplement")
         expect(sup).to_contain_text("補足（このアプリの作成者による追記）")
-        expect(sup).to_contain_text(SUPPLEMENT)
+        expect(sup).to_contain_text(f"テスト用の補足です。{letter['c']} ではなく {letter['a']} を選びます。")
         # 補足の位置は解説の後ろ
-        order = self.page.evaluate("[...document.querySelectorAll('.qcard > *')].map((e) => e.className)")
-        self.assertLess(order.index("explain"), order.index("supplement"))
+        classes = self.page.evaluate("[...document.querySelectorAll('.qcard > *')].map((e) => e.className)")
+        self.assertLess(classes.index("explain"), classes.index("supplement"))
+
+        # 英語表示では英語版の補足
+        self.page.get_by_role("button", name="表示する言語を切り替える").click()
+        expect(sup).to_contain_text("Supplement (added by the author of this app)")
+        expect(sup).to_contain_text(f"A test supplement. Choose {letter['a']}, not {letter['c']}.")
+        expect(sup).to_have_attribute("lang", "en")
 
     def test_untranslated_question_falls_back_to_english(self):
         self.open("#/exam/ccar-p")

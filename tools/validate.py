@@ -31,7 +31,8 @@ COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 QUESTION_KEYS = {"schema", "id", "exam", "domain", "subdomain", "type", "select", "difficulty",
                  "tags", "answer", "en", "ja", "supplement", "references", "source"}
 QUESTION_REQUIRED = QUESTION_KEYS - {"supplement"}
-SUPPLEMENT_KEYS = {"ja"}
+SUPPLEMENT_KEYS = {"ja", "en"}
+OPTION_REF_RE = re.compile(r"\{([a-z])\}")  # 補足の中で選択肢を指す目印（{a} など）
 EN_KEYS = {"question", "options", "explanation"}
 JA_KEYS = {"status", "question", "options", "explanation"}
 OPTION_KEYS = {"id", "text", "note"}
@@ -340,8 +341,19 @@ def check_question(r: Report, path: Path, q: dict, exams: dict[str, dict], quest
     # supplement（任意。このアプリの作成者による補足）
     if "supplement" in q:
         sup = q["supplement"]
-        if check_keys(r, f"{w}.supplement", sup, SUPPLEMENT_KEYS) and "ja" in sup:
-            check_text(r, f"{w}.supplement.ja", sup["ja"])
+        if check_keys(r, f"{w}.supplement", sup, SUPPLEMENT_KEYS):
+            for lang in ("ja", "en"):
+                if lang not in sup:
+                    continue
+                check_text(r, f"{w}.supplement.{lang}", sup[lang])
+                if isinstance(sup[lang], str):
+                    for ref in OPTION_REF_RE.findall(sup[lang]):
+                        if en_ids and ref not in en_ids:
+                            r.error(f"{w}.supplement.{lang}", f"{{{ref}}} は en.options にない選択肢です")
+            refs_ja = sorted(set(OPTION_REF_RE.findall(sup.get("ja", "") if isinstance(sup.get("ja"), str) else "")))
+            refs_en = sorted(set(OPTION_REF_RE.findall(sup.get("en", "") if isinstance(sup.get("en"), str) else "")))
+            if refs_ja != refs_en:
+                r.warn(f"{w}.supplement", f"ja と en で指している選択肢が違います（ja: {refs_ja}、en: {refs_en}）")
 
     # references
     refs = q.get("references")
