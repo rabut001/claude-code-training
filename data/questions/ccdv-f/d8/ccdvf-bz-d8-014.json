@@ -53,7 +53,7 @@
       },
       {
         "id": "c",
-        "text": "提供元が保守と実行を担うため、自分たちでホストも修正もする必要がない。",
+        "text": "提供元が保守と実行を担うため、自分たちでホストも修正適用もする必要がない。",
         "note": ""
       },
       {
@@ -63,6 +63,10 @@
       }
     ],
     "explanation": "実装と運用の負担が完全になくなります。その代わり、自分たちのニーズに合わせて調整するのではなく、その動作と範囲を受け入れることになります。"
+  },
+  "supplement": {
+    "ja": "Bash ツールなど、利用側の環境で実行されるツールもあります。提供済みの仕様や機能を使えば、自作・保守の負担を減らせますが、実行環境の用意や更新まで不要になるとは限りません。{c} は、提供元が実行・保守を担うサーバー側ツールを主に想定した説明です。",
+    "en": "Some tools, such as the Bash tool, run in the user's or application's environment. Using provided interfaces and capabilities can reduce custom development and maintenance work, but does not necessarily eliminate the need to provision or update the execution environment. Option {c} primarily describes server-side tools whose execution and maintenance are handled by the provider."
   },
   "references": [
     {
