@@ -239,3 +239,7 @@
 | placeholder | プレースホルダー | |
 | just-in-time retrieval | 必要な時点での検索 | |
 | surface | 利用環境 / 出力先 | 製品の利用環境か、応答とツール引数の出力先かで使い分ける |
+| managed settings | 管理された設定 | |
+| permission policy | 権限方針 | |
+| command hook / prompt hook / agent hook | コマンドフック / プロンプトフック / エージェントフック | |
+| unattended run | 無人実行 | 対話的な操作なしに動く実行 |

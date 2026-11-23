@@ -1,6 +1,6 @@
 # codex-005：CCAR-P の全228問を和訳する
 
-- 状態：作業中
+- 状態：完了
 - 担当：Codex
 - ブランチ：`content/translate-ccar-p`（作成済み。`main` の `06e2980`（CCDV-F の残り91問のマージ後）から作り、この指示書だけをコミットしてある）
 - 作業フォルダ：`~/repos/claude-code-training.codex`（Codex 用の worktree）
@@ -107,8 +107,8 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 | 3 | d4 | 完了 | 36 | `753c978` | 全問 draft、全検証成功。4用語各1問に補足 |
 | 4 | d5 | 完了 | 32 | `6b6a8ab` | 全問 draft、全検証成功。OCR 1問に補足 |
 | 5 | d6 | 完了 | 32 | `25296c5` | 全問 draft、全検証成功。用語の補足対象なし |
-| 6 | d2 | 完了 | 30 | この分野のコミット | 全問 draft、全検証成功。few-shot 2問、extended thinking 1問に補足 |
-| 7 | d7 | 未着手 | 16 | | |
+| 6 | d2 | 完了 | 30 | `43324db` | 全問 draft、全検証成功。few-shot 2問、extended thinking 1問に補足 |
+| 7 | d7 | 完了 | 16 | この行を含む最終コミット | 全問 draft、全検証成功。CI 2問に補足 |
 
 ### 共通の確認方法
 
@@ -158,7 +158,22 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 - 用語の補足：few-shot 2問、extended thinking 1問、ほか11用語は0問。原文の明らかな誤りは見つからなかった。
 - 補足の候補（未追加）：zero-shot（`ccarp-bj-2.3-sufficient-zero-shot-baseline`）。原文の「実例がない」という説明もそのまま訳した。
 
-### 用語 → 問題 ID（完了分野）
+### d7（2026-11-23）
+
+- 16問（single 12、multi 4）をdraftにした。全選択肢の理由を訳し、設定の優先順位、ファイル名、権限とフックのフィールド、CLIコマンド、バージョン条件を保持した。
+- `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功、全408問との照合成功。CCAR-P全228問がdraftになった。
+- 用語の補足：CI 2問、ほか12用語は0問。原文の明らかな誤りや、新たな補足候補は見つからなかった。
+
+### 最終確認
+
+- CCAR-P全228問（single 165、multi 63）はすべてdraft。複数選択は2つ選択48問、3つ選択15問で、文末と `select` が一致する。CCDV-F全180問と合わせ全408問が訳済みで、reviewedには変更していない。
+- 全問題で `ja.explanation` は空文字、4選択肢すべての `note` は和訳済み。選択肢912個は末尾の句点なし、理由912個は「。」で終わる表記に統一した。
+- `.cache/ccarp_quality.py` で原文の数値・識別子と訳を横断照合。原文の数値の欠落・変更と、アンダースコア／キャメルケースの識別子の欠落は0件。数字表記の差204件は英語の数詞から半角数字への翻訳などで、原文の数量を保持している。原文に対する訳の文字数比の平均は、選択肢が正解0.422・誤答0.399、理由が正解0.434・誤答0.438。比率差の大きい選択肢も見直し、原文にない説明の追加や条件の省略がないことを確認した。長い英語の識別子を維持するための比率差は残る。
+- 補足は14問（用語の出現は延べ15件）。13用語の承認済み説明だけを使い、CCDV-Fの日本語・英語の文面と一致する。問題の `ja` と `supplement` 以外は不変。CCDV-F全180問はバイト単位で不変で、担当外ファイルの変更はない。
+- 略語・機能名の追加の確認候補（補足未追加）：OAuth（`ccarp-bj-3.2-initial-scope-and-resource-binding`、`ccarp-bj-3.2-protected-resource-discovery`、`ccarp-bj-3.2-resource-and-upstream-token-separation`）、OpenTelemetry（`ccarp-bj-3.4-trace-content-privacy-controls`、`ccarp-bj-3.4-usage-aggregation-semantics`、`ccarp-bj-4.6-api-versus-otel-input-semantics`、`ccarp-bj-7.3-api-versus-tool-outcomes`）、Priority Tier（`ccarp-bj-4.6-cost-report-period-and-coverage`）。これまでの各分野の候補も含め、承認済み13用語以外の説明は書いていない。
+- 7分野をそれぞれ1コミットにした。pushとmainへのマージは行わず、ユーザーによる確認・マージに引き渡す。
+
+### 用語 → 問題 ID（全体）
 
 - temperature：`ccarp-bj-3.3-output-cap-truncation`、`ccarp-bj-4.4-diagnose-versioned-sampling-rejection`
 - p95：`ccarp-bj-3.3-parallel-independent-tool-latency`、`ccarp-bj-3.3-quality-and-tail-latency-gates`、`ccarp-bj-3.3-reranking-complete-tradeoff`、`ccarp-bj-3.3-route-specific-model-tradeoffs`、`ccarp-bj-4.5-reranking-overhead-versus-token-savings`
@@ -166,3 +181,5 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 - top_p：`ccarp-bj-4.4-diagnose-versioned-sampling-rejection`
 - OCR：`ccarp-bj-5.4-hipaa-feature-path-change`
 - extended thinking：`ccarp-bj-2.3-manual-thinking-output-budget`
+- CI：`ccarp-bj-7.2-untrusted-review-ci`、`ccarp-bj-7.3-headless-acceptance-metadata`
+- p99・SKU・I/O・base64・Plan mode・Headless mode：該当なし（それぞれ0問）
