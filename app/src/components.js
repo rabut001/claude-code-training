@@ -101,6 +101,16 @@ export function questionCard(exam, q, { lang, order, selected = [], reveal = fal
       : null;
   }
 
+  // このアプリの作成者による補足（元の問題集の文章とは区別して表示する）
+  const supplement = reveal && q.supplement && q.supplement.ja
+    ? el(
+        "aside",
+        { class: "supplement", lang: "ja" },
+        el("h3", { text: "補足（このアプリの作成者による追記）" }),
+        el("p", {}, richText(q.supplement.ja)),
+      )
+    : null;
+
   return el(
     "article",
     { class: "qcard", lang: t.lang },
@@ -108,6 +118,7 @@ export function questionCard(exam, q, { lang, order, selected = [], reveal = fal
     el("p", { class: "qtext" }, richText(t.question)),
     list,
     explanation,
+    supplement,
   );
 }
 

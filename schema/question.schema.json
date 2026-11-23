@@ -43,6 +43,15 @@
       "if": { "properties": { "status": { "enum": ["draft", "reviewed"] } } },
       "then": { "required": ["status", "question", "options", "explanation"] }
     },
+    "supplement": {
+      "description": "このアプリの作成者による補足（任意）。docs/data-format.md「2-4」",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ja"],
+      "properties": {
+        "ja": { "type": "string", "minLength": 1 }
+      }
+    },
     "references": {
       "type": "array",
       "items": {

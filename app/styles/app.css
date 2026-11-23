@@ -338,6 +338,17 @@ main {
 .explain h3 { font-size: 0.85rem; color: var(--muted); }
 .refs { margin: 0; padding-left: 1.2em; font-size: 0.85rem; }
 
+.supplement {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-left: 4px solid var(--warn);
+  background: var(--warn-soft);
+  border-radius: 0 10px 10px 0;
+}
+.supplement > * { margin: 0; }
+.supplement h3 { font-size: 0.85rem; color: var(--warn); }
+
 .jump summary { cursor: pointer; color: var(--muted); font-size: 0.9rem; padding: 4px 0; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 6px; padding-top: 8px; }
 .grid__cell {

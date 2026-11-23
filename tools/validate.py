@@ -29,7 +29,9 @@ DOMAIN_RE = re.compile(r"^d[0-9]+$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 
 QUESTION_KEYS = {"schema", "id", "exam", "domain", "subdomain", "type", "select", "difficulty",
-                 "tags", "answer", "en", "ja", "references", "source"}
+                 "tags", "answer", "en", "ja", "supplement", "references", "source"}
+QUESTION_REQUIRED = QUESTION_KEYS - {"supplement"}
+SUPPLEMENT_KEYS = {"ja"}
 EN_KEYS = {"question", "options", "explanation"}
 JA_KEYS = {"status", "question", "options", "explanation"}
 OPTION_KEYS = {"id", "text", "note"}
@@ -226,7 +228,7 @@ def check_options(r: Report, where: str, opts, *, expect_ids: list[str] | None =
 
 def check_question(r: Report, path: Path, q: dict, exams: dict[str, dict], questions_root: Path) -> None:
     w = rel(path)
-    if not check_keys(r, w, q, QUESTION_KEYS):
+    if not check_keys(r, w, q, QUESTION_KEYS, QUESTION_REQUIRED):
         return
 
     if q.get("schema") != SCHEMA_VERSION:
@@ -334,6 +336,12 @@ def check_question(r: Report, path: Path, q: dict, exams: dict[str, dict], quest
                             r.warn(f"{w}.ja.options[{i}].note", "en に note がないのに訳に note があります")
     else:
         r.error(f"{w}.ja", "オブジェクトではありません（未訳なら {\"status\": \"todo\"}）")
+
+    # supplement（任意。このアプリの作成者による補足）
+    if "supplement" in q:
+        sup = q["supplement"]
+        if check_keys(r, f"{w}.supplement", sup, SUPPLEMENT_KEYS) and "ja" in sup:
+            check_text(r, f"{w}.supplement.ja", sup["ja"])
 
     # references
     refs = q.get("references")

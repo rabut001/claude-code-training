@@ -130,6 +130,26 @@ class InvalidQuestions(Base):
         (self.qdir / SINGLE).write_text("{", encoding="utf-8")
         self.assertError("JSON の構文エラー")
 
+    def test_supplement_is_optional_and_accepted(self):
+        q = self.load(SINGLE)
+        q = {**{k: v for k, v in q.items() if k not in ("references", "source")},
+             "supplement": {"ja": "補足の本文です。"},
+             "references": q["references"], "source": q["source"]}
+        self.save(SINGLE, q)
+        self.assertEqual(self.errors(), [])
+
+    def test_supplement_rejects_unknown_keys(self):
+        q = self.load(SINGLE); q["supplement"] = {"ja": "補足", "en": "note"}; self.save(SINGLE, q)
+        self.assertError("仕様にないフィールド 'en'")
+
+    def test_supplement_must_not_be_empty(self):
+        q = self.load(SINGLE); q["supplement"] = {"ja": " "}; self.save(SINGLE, q)
+        self.assertError("supplement.ja: 空です")
+
+    def test_supplement_requires_ja(self):
+        q = self.load(SINGLE); q["supplement"] = {}; self.save(SINGLE, q)
+        self.assertError("必須フィールド 'ja'")
+
     def test_strict_counts(self):
         self.assertEqual(self.errors(), [])
         self.assertError("問題数が", strict_counts=True)

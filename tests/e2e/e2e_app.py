@@ -23,6 +23,7 @@ import build  # noqa: E402
 
 FIXTURES = ROOT / "tests" / "fixtures" / "questions"
 VIEWPORT = {"width": 390, "height": 844}
+SUPPLEMENT = "テスト用の補足です。"
 
 
 def fixture_questions():
@@ -48,7 +49,15 @@ class AppTest(unittest.TestCase):
         cls.tmp = Path(tempfile.mkdtemp())
         cls.site = cls.tmp / "app"
         shutil.copytree(ROOT / "app", cls.site, ignore=shutil.ignore_patterns("data"))
-        assert build.build(ROOT / "data", FIXTURES, cls.site / "data") == 0
+        # サンプル問題をコピーし、1問にだけ補足（supplement）を付けてからビルドする
+        qdir = cls.tmp / "questions"
+        shutil.copytree(FIXTURES, qdir)
+        sup_path = qdir / "ccdv-f" / "d7" / "ccdvf-bz-d7-005.json"
+        q = json.loads(sup_path.read_text(encoding="utf-8"))
+        q = {**{k: v for k, v in q.items() if k not in ("references", "source")},
+             "supplement": {"ja": SUPPLEMENT}, "references": q["references"], "source": q["source"]}
+        sup_path.write_text(json.dumps(q, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        assert build.build(ROOT / "data", qdir, cls.site / "data") == 0
         handler = functools.partial(QuietHandler, directory=str(cls.site))
         cls.server = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
         threading.Thread(target=cls.server.serve_forever, daemon=True).start()
@@ -149,6 +158,22 @@ class AppTest(unittest.TestCase):
         self.open("#/exam/ccdv-f")
         expect(self.page.locator(".summary__foot")).to_contain_text("前回正解 1 / 2問")
         expect(self.page.get_by_role("button", name="間違えた問題の復習")).to_be_enabled()
+
+    def test_supplement_is_shown_after_answering(self):
+        self.open("#/exam/ccdv-f")
+        # 「セキュリティと安全性」の全問（補足を付けた ccdvf-bz-d7-005 の1問だけ）
+        drill = self.page.locator(".domain").filter(has_text="セキュリティと安全性")
+        drill.get_by_role("button", name="全問").click()
+        expect(self.page.locator(".supplement")).to_have_count(0)  # 回答前は出さない
+        q = self.current_question()
+        self.click_options(sorted(q["answer"]))
+        self.page.get_by_role("button", name="回答する").click()
+        sup = self.page.locator(".supplement")
+        expect(sup).to_contain_text("補足（このアプリの作成者による追記）")
+        expect(sup).to_contain_text(SUPPLEMENT)
+        # 補足の位置は解説の後ろ
+        order = self.page.evaluate("[...document.querySelectorAll('.qcard > *')].map((e) => e.className)")
+        self.assertLess(order.index("explain"), order.index("supplement"))
 
     def test_untranslated_question_falls_back_to_english(self):
         self.open("#/exam/ccar-p")

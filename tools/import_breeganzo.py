@@ -152,6 +152,18 @@ def answer_ids(indices: list[int], option_count: int, qtype: str, select: int) -
     return [chr(ord("a") + i) for i in indices]
 
 
+def insert_after(obj: dict, after: str, key: str, value) -> dict:
+    """after のキーのすぐ後ろに key を入れた新しい dict を返す（JSON の並び順をそろえるため）。"""
+    out = {}
+    for k, v in obj.items():
+        if k == key:
+            continue
+        out[k] = v
+        if k == after:
+            out[key] = value
+    return out
+
+
 def write_questions(questions: list[dict], output: Path, expected: int) -> None:
     if len(questions) != expected:
         raise ValueError(f"問題数が {len(questions)} です（予定は {expected}）")
@@ -175,6 +187,12 @@ def write_questions(questions: list[dict], output: Path, expected: int) -> None:
                 raise ValueError(f"{path}: 既存の ja が不正です。上書きを中止します")
             if ja["status"] != "todo":
                 question["ja"] = ja
+            # このアプリの作成者による補足（docs/data-format.md「2-4」）も残す。並び順は ja のすぐ後ろ
+            if "supplement" in existing:
+                supplement = existing["supplement"]
+                if not isinstance(supplement, dict) or not isinstance(supplement.get("ja"), str):
+                    raise ValueError(f"{path}: 既存の supplement が不正です。上書きを中止します")
+                question = insert_after(question, "ja", "supplement", supplement)
         pending.append((path, json.dumps(question, ensure_ascii=False, indent=2) + "\n"))
     # 読み取り・変換のエラーは、書き出しを始める前に検出する。
     for path, body in pending:
