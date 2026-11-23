@@ -43,10 +43,13 @@ export function isPersistent() {
 }
 
 // ---- 設定 ----
-const DEFAULT_SETTINGS = { lang: "ja", shuffleOptions: true };
+// quickPool：クイック10問で出題の対象にする問題（未回答・誤答・チェック）。前回選んだものを覚えておく
+const DEFAULT_SETTINGS = { lang: "ja", shuffleOptions: true, quickPool: { unanswered: true, wrong: true, checked: true } };
 
 export function getSettings() {
-  return { ...DEFAULT_SETTINGS, ...load("settings", {}) };
+  const s = { ...DEFAULT_SETTINGS, ...load("settings", {}) };
+  s.quickPool = { ...DEFAULT_SETTINGS.quickPool, ...(s.quickPool || {}) };
+  return s;
 }
 
 export function setSettings(patch) {
@@ -73,13 +76,50 @@ export function recordAnswer(examId, questionId, correct, at = Date.now()) {
   return p;
 }
 
+/** 1問分の学習記録を、指定した状態に戻す（採点の取り消しで使う）。entry が null なら記録を消す */
+export function restoreProgress(examId, questionId, entry) {
+  const progress = getProgress(examId);
+  if (entry) progress[questionId] = entry;
+  else delete progress[questionId];
+  save(`progress:${examId}`, progress);
+}
+
 export function resetProgress(examId) {
   remove(`progress:${examId}`);
+  remove(`checks:${examId}`);
+}
+
+// ---- チェック（後から見返したい問題。試験ごと） ----
+// { [questionId]: true }
+export function getChecks(examId) {
+  return load(`checks:${examId}`, {});
+}
+
+export function setCheck(examId, questionId, on) {
+  setChecks(examId, { [questionId]: on });
+}
+
+/** 複数の問題のチェックをまとめて付け外しする。states: { [questionId]: true / false } */
+export function setChecks(examId, states) {
+  const checks = getChecks(examId);
+  for (const [id, on] of Object.entries(states)) {
+    if (on) checks[id] = true;
+    else delete checks[id];
+  }
+  save(`checks:${examId}`, checks);
 }
 
 // ---- 解いている途中のセッション（1つだけ保持） ----
+export const SESSION_VERSION = 2;
+
+/** 保存してあるセッション。形式の古いもの（以前のアプリで始めたもの）は捨てる */
 export function getSession() {
-  return load("session", null);
+  const s = load("session", null);
+  if (s && s.v !== SESSION_VERSION) {
+    remove("session");
+    return null;
+  }
+  return s;
 }
 
 export function setSession(session) {

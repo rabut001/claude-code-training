@@ -2,7 +2,7 @@
 // 方針：ネットワークを優先し、取れたものはキャッシュに保存する。オフラインのときはキャッシュから返す。
 // （問題データやアプリを更新したとき、オンラインなら必ず新しいものが表示される）
 
-const CACHE = "ccq-v1";
+const CACHE = "ccq-v2";
 const SHELL = [
   "./",
   "index.html",
@@ -16,6 +16,7 @@ const SHELL = [
   "src/components.js",
   "src/views/home.js",
   "src/views/exam.js",
+  "src/views/quick.js",
   "src/views/quiz.js",
   "src/views/result.js",
   "src/views/settings.js",

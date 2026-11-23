@@ -3,6 +3,7 @@
 import { el } from "./util.js";
 import { homeView } from "./views/home.js";
 import { examView } from "./views/exam.js";
+import { quickView } from "./views/quick.js";
 import { quizView } from "./views/quiz.js";
 import { resultView } from "./views/result.js";
 import { settingsView } from "./views/settings.js";
@@ -10,10 +11,13 @@ import { settingsView } from "./views/settings.js";
 const app = document.getElementById("app");
 const titleEl = document.getElementById("title");
 const backEl = document.getElementById("back");
+const settingsEl = document.getElementById("settings");
+const actionEl = document.getElementById("topAction");
 
 const routes = [
   [/^#?\/?$/, () => homeView],
   [/^#\/exam\/([a-z0-9-]+)$/, () => examView],
+  [/^#\/quick\/([a-z0-9-]+)$/, () => quickView],
   [/^#\/quiz$/, () => quizView],
   [/^#\/result$/, () => resultView],
   [/^#\/settings$/, () => settingsView],
@@ -49,12 +53,28 @@ async function route() {
       if (token !== renderToken) return; // 古い画面の描画は捨てる
       app.replaceChildren(node);
     },
-    setTop({ title, back }) {
+    /**
+     * 上部バーを設定する。
+     *   title   見出し（文字列）。titleNode を渡すと、見出しの中身をその要素にする（模試の残り時間など）
+     *   back    戻る先のハッシュ。null なら戻るボタンを出さない
+     *   onBack  戻るボタンを押したときに先に呼ぶ。false を返すと戻らない（模試の確認など）
+     *   action  右端に出すボタン { label, onClick }。null なら設定（⚙）を出す
+     */
+    setTop({ title, titleNode = null, back, onBack = null, action = null }) {
       if (token !== renderToken) return;
-      titleEl.textContent = title;
+      titleEl.replaceChildren(titleNode || title);
       document.title = title === "Claude認定 問題集" ? title : `${title}｜Claude認定 問題集`;
       backEl.hidden = !back;
-      backEl.onclick = back ? () => navigate(back) : null;
+      backEl.onclick = back
+        ? () => {
+            if (onBack && onBack() === false) return;
+            navigate(back);
+          }
+        : null;
+      settingsEl.hidden = Boolean(action);
+      actionEl.hidden = !action;
+      actionEl.textContent = action ? action.label : "";
+      actionEl.onclick = action ? action.onClick : null;
     },
     navigate,
     onCleanup(fn) {
