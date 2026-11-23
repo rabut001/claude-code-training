@@ -44,7 +44,36 @@
     "explanation": "stop_reason is the most diagnostic field, distinguishing truncation from natural completion from a tool request, and token counts drive cost attribution and reveal context growth before it becomes an incident."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "本番で Claude API を呼び出すたびに、ログに記録すべき必須のフィールドを2つ選んでください。（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "出力の途切れとツール使用のターンを診断で確認できるようにする stop_reason。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "コストの帰属とコンテキストの監視に使う、入力と出力のトークン数。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "リクエストを認証情報まで追跡できるようにする、使用した API キー全体。",
+        "note": "認証情報をログに残すことは重大な脆弱性です。ログは広く複製されます。"
+      },
+      {
+        "id": "d",
+        "text": "開発者がそのプロンプトを最初に作成した時点の実時刻。",
+        "note": "作成時刻は実行時の振る舞いに関係しません。"
+      },
+      {
+        "id": "e",
+        "text": "リクエスト時点で撮影した、ユーザーインターフェースのスクリーンショット。",
+        "note": "非現実的で費用がかかり、プライバシーの問題にもなりがちです。"
+      }
+    ],
+    "explanation": "stop_reason は診断に最も役立つフィールドで、出力の途切れ、自然な完了、ツールの要求を区別します。また、トークン数はコストの帰属に使え、インシデントになる前にコンテキストの増大を明らかにします。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "It names a metric, a threshold, and an evaluation set, so two engineers would compute the same answer and the team knows when the work is finished."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude を使ったトリアージ機能の成功基準として、適切に定義されているものはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "トリアージの品質が、現在の手作業のプロセスより明らかに良く感じられること。",
+        "note": "「明らかに良く感じられる」は、計算も CI での合否判定もできません。"
+      },
+      {
+        "id": "b",
+        "text": "受信する各チケットの背後にある意図を、モデルが正しく理解すること。",
+        "note": "「意図を理解する」は観測できません。観測できるのは、結果として得られるラベルだけです。"
+      },
+      {
+        "id": "c",
+        "text": "調整用とは別の500件のチケットで、人のラベルと92%以上一致すること。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "レスポンスが正確で、役に立ち、適切に専門的な語調であること。",
+        "note": "主観的な形容が3つあるだけで、しきい値も測定手順もありません。"
+      }
+    ],
+    "explanation": "指標、しきい値、評価セットが指定されているため、2人のエンジニアが同じ結果を計算でき、チームは作業がいつ完了したかを判断できます。"
   },
   "references": [
     {

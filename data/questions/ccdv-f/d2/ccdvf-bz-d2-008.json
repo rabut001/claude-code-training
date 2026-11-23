@@ -38,7 +38,31 @@
     "explanation": "Claude accepts images directly as content blocks, so layout, tables, and stamps stay visible to the model rather than being flattened by a separate OCR pass."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "請求書処理サービスで、スキャンした PDF と領収書の写真から明細項目を抽出する必要があります。Claude API に合った連携方法はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "最初に OCR を実行し、得られたプレーンテキストだけをモデルに送る。",
+        "note": "実行可能ですが、OCR では明細項目の抽出に重要な位置関係のあるレイアウトが失われます。"
+      },
+      {
+        "id": "b",
+        "text": "API は表形式の入力しか受け付けないため、事前に各ページを CSV に変換する。",
+        "note": "前提が誤っています。API は表形式の入力に限定されません。"
+      },
+      {
+        "id": "c",
+        "text": "プロンプトとともに、ユーザーメッセージ内の base64 コンテンツブロックとして画像を渡す。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "ファイルをオブジェクトストレージにアップロードし、プロンプトのテキストで URL を参照する。",
+        "note": "モデルは任意の URL から取得できません。データそのものをリクエストに含める必要があります。"
+      }
+    ],
+    "explanation": "Claude は画像をコンテンツブロックとして直接受け付けるため、別途 OCR 処理で平坦化することなく、レイアウト、表、印影をモデルが見られる状態で保てます。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "It should carry durable, project-specific facts that are expensive to rediscover each session and stable enough to be worth committing."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "プロジェクトの CLAUDE.md に最も適した内容はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "プロジェクトのすべての依存先の API ドキュメントの完全なコピー。",
+        "note": "必要に応じて検索すべき内容で、毎回のセッションが肥大化します。"
+      },
+      {
+        "id": "b",
+        "text": "現在のスプリントのチケット一覧と、各項目の担当者。",
+        "note": "毎週変わる内容であり、課題管理ツールに置くべきです。"
+      },
+      {
+        "id": "c",
+        "text": "ビルドとテストのコマンド、アーキテクチャの規約、プロジェクト固有のルール。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "追加の設定なしでツールを動かすための、データベース認証情報と API キー。",
+        "note": "ファイル名にかかわらず、シークレットのコミットは重大な脆弱性です。"
+      }
+    ],
+    "explanation": "各セッションで再発見するには手間がかかり、コミットする価値があるほど安定した、継続的に使うプロジェクト固有の事実を記載すべきです。"
   },
   "references": [
     {

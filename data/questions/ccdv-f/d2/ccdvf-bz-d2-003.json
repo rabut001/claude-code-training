@@ -38,7 +38,31 @@
     "explanation": "529 is overloaded_error, a transient server-side condition. Backoff spreads retries out; jitter stops every client in your fleet retrying on the same beat and re-creating the spike."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "トラフィックが急増した際に、API クライアントが HTTP 529 レスポンスを受け取るようになりました。正しい対処はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "クライアントエラーとして扱い、リクエストのペイロードを修正してから再送する。",
+        "note": "ペイロードの問題は 400 として現れます。529 は、リクエストの形式が不正であることを示していません。"
+      },
+      {
+        "id": "b",
+        "text": "529 は一時的な過負荷を示すため、指数バックオフとジッターを使って再試行する。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "529 は恒久的な容量不足による拒否を示すため、直ちにリクエストを失敗として扱う。",
+        "note": "明確に一時的な状態なので、直ちに諦めると、回復可能な処理を捨てることになります。"
+      },
+      {
+        "id": "d",
+        "text": "529 は特定のモデルのデプロイでのみ発生するため、モデルを切り替える。",
+        "note": "過負荷は処理容量に関する状態であり、1つのモデルに限定されません。"
+      }
+    ],
+    "explanation": "529 は overloaded_error であり、サーバー側の一時的な状態です。バックオフは再試行の間隔を広げます。ジッターは、稼働中の全クライアントが同じタイミングで再試行し、急増を再び引き起こすことを防ぎます。"
   },
   "references": [
     {

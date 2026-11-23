@@ -38,7 +38,31 @@
     "explanation": "Bounded retry with backoff handles the transient case and a defined degradation path handles the sustained one, so the user gets honesty instead of a hang and operators get a record."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "チャット機能は、Claude API が一時的に利用できなくなっても、ユーザーにスタックトレースを見せずに対応する必要があります。正しい振る舞いはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "API が再び利用可能になるまで、バックオフしながら無期限に再試行する。",
+        "note": "無制限の再試行はリソースを占有し、部分的な障害を全体の障害に変えてしまいます。"
+      },
+      {
+        "id": "b",
+        "text": "上限回数まで再試行し、その後は適切に機能を縮退させ、失敗をログに記録する。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "会話が続くよう、もっともらしい汎用的な回答をローカルで生成する。",
+        "note": "ユーザーが見分けられない、自信に満ちた誤答が最悪の結果です。"
+      },
+      {
+        "id": "d",
+        "text": "通知せずに失敗させ、該当ターンには空のレスポンスを返す。",
+        "note": "通知しない失敗は、ユーザーと運用者の両方からインシデントを隠します。"
+      }
+    ],
+    "explanation": "バックオフ付きの回数制限のある再試行で一時的な障害に対処し、定義済みの縮退経路で長引く障害に対処します。これにより、ユーザーには処理が止まったままになる代わりに正直な説明が届き、運用者には記録が残ります。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Committed secrets persist in history, clones, forks, and CI caches. Injecting from a secret store at run time keeps the credential out of the repository entirely."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "チームメンバーが、CI で結合テストを実行できるよう、リポジトリにコミットする設定ファイルに Anthropic API キーをハードコードしています。コードレビューではどう対応すべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "リポジトリへのアクセスが開発チームに限定されていれば、承認する。",
+        "note": "アクセス権の一覧は変わり、リポジトリはフォークされ、履歴は残り続けます。"
+      },
+      {
+        "id": "b",
+        "text": "承認するが、後でキーを移すための追加対応チケットを作る。",
+        "note": "マージした瞬間から露出が始まり、チケットではそれを封じ込められません。"
+      },
+      {
+        "id": "c",
+        "text": "却下し、実行時に CI が暗号化されたシークレットストアからキーを読み込むようにする。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "同じプルリクエストでそのファイルを .gitignore に追加するなら、承認する。",
+        "note": "gitignore は、既に追跡されコミットされたファイルを削除しません。"
+      }
+    ],
+    "explanation": "コミットしたシークレットは、履歴、クローン、フォーク、CI キャッシュに残ります。実行時にシークレットストアから注入すれば、認証情報をリポジトリに一切含めずに済みます。"
   },
   "references": [
     {

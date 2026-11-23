@@ -38,7 +38,31 @@
     "explanation": "Thinking blocks must be passed back unmodified when continuing a tool-use turn. They are signed, so altering or dropping them invalidates the turn."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "アプリケーションで、extended thinking とツール使用を併用しています。ツールの実行後に tool_result を返します。リクエストを有効な状態に保つには、アシスタントターンに何を保持する必要がありますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "トークンを節約するために thinking ブロックを省略し、tool_use ブロックだけを保持する。",
+        "note": "省略すると継続処理が壊れるため、ここでその節約はできません。"
+      },
+      {
+        "id": "b",
+        "text": "tool_use ブロックとともに、返されたとおりの thinking ブロックを保持する。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "元のブロックの代わりに、推論のプレーンテキストの要約を保持する。",
+        "note": "何らかの変更を加えるとブロックは無効になり、要約への置き換えも変更に当たります。"
+      },
+      {
+        "id": "d",
+        "text": "アシスタントターンの内容は何も保持せず、tool_result の内容だけを再送する。",
+        "note": "会話を正しい形式に保つには、アシスタントターンが必要です。"
+      }
+    ],
+    "explanation": "ツール使用のターンを継続するときは、thinking ブロックを変更せずに返す必要があります。これらは署名されているため、変更したり省略したりするとターンが無効になります。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "429 is rate limiting. Backoff reduces pressure, jitter desynchronises a fleet of retrying clients, and retry-after is the server telling you exactly how long to wait."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "本番サービスからのリクエストが、断続的に HTTP 429 を返します。最初の対応として最も適切な変更の組み合わせはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "すべての再試行をやめ、サービスを早期に失敗させて直ちに負荷を減らす。",
+        "note": "回復可能な状態を、ユーザーに見える失敗に変えてしまいます。"
+      },
+      {
+        "id": "b",
+        "text": "ジッター付きの指数バックオフを適用し、retry-after ヘッダーに従う。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "待機中の処理をより早く解消するため、クライアントの並行数を増やす。",
+        "note": "レート制限に対して並行数を増やすと、429 がさらに増えます。"
+      },
+      {
+        "id": "d",
+        "text": "レイテンシ要件に関係なく、すべての呼び出しを Batch API に移す。",
+        "note": "オフライン処理にしか適しておらず、レイテンシが重要な処理を損ないます。"
+      }
+    ],
+    "explanation": "429 はレート制限です。バックオフは負荷を下げ、ジッターは再試行する多数のクライアントのタイミングをずらします。また、retry-after は、どれだけ待つべきかをサーバーが正確に示すものです。"
   },
   "references": [
     {

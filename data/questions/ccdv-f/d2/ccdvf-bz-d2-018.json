@@ -38,7 +38,31 @@
     "explanation": "Nothing is retained between calls. Apparent memory is entirely a product of the client resending history, which is why context growth and cost are the caller's responsibility."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Messages API が状態を保持するかどうかについて、最も適切な説明はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "内部 ID をキーにして、一定期間だけ会話の状態を保持する。",
+        "note": "サーバー側に会話を保存する仕組みはありません。"
+      },
+      {
+        "id": "b",
+        "text": "ステートレスであり、クライアントはリクエストのたびに会話全体を再送する。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "会話中にツール使用を有効にした場合に限り、状態を保存する。",
+        "note": "ツール使用を有効にしても、サーバー側での永続化は行われません。"
+      },
+      {
+        "id": "d",
+        "text": "呼び出し間でシステムプロンプトを保持するが、以前のメッセージのターンは破棄する。",
+        "note": "system パラメーターも他の内容と同様に、各リクエストで再送します。"
+      }
+    ],
+    "explanation": "呼び出し間で何も保持されません。記憶があるように見えるのは、すべてクライアントが履歴を再送しているためです。そのため、コンテキストの増大とコストは呼び出し元の責任になります。"
   },
   "references": [
     {

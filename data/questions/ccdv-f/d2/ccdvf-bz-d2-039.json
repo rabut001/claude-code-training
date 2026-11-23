@@ -38,7 +38,31 @@
     "explanation": "Reproducibility requires a fixed, inspectable path. An agent chooses its own route, so two identical inputs can take different paths, which is the opposite of what an auditor needs."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "自律型エージェントよりも、制約されたワークフローを選ぶべきことを最も明確に示す業務要件はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "すべての判断が、規制当局に対して監査可能かつ再現可能であること。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "タスクに、複数の異なる社内ツールの呼び出しが含まれること。",
+        "note": "ワークフローも事前定義した箇所でツールを呼び出します。ツールの数は判断基準ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "今後1年間で、処理量の大幅な増加が見込まれること。",
+        "note": "ワークフローはエージェントより拡張性に優れるため、処理量の増加も同じ選択を支持します。"
+      },
+      {
+        "id": "d",
+        "text": "ユーザーが、会話形式の自然言語で回答を返してほしいと考えていること。",
+        "note": "どちらのアーキテクチャでも、自然言語での出力は可能です。"
+      }
+    ],
+    "explanation": "再現性には、固定され、確認可能な経路が必要です。エージェントは自ら経路を選ぶため、同一の2つの入力でも異なる経路をたどることがあります。これは、監査担当者が必要とするものとは逆です。"
   },
   "references": [
     {

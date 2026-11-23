@@ -38,7 +38,31 @@
     "explanation": "Retrieval keeps the prompt small and always current. Volatile, high-volume reference data belongs in a store queried per request, not baked into the model or the prompt."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "サポートアプリケーションで、毎日変わる80,000 SKU の製品カタログに関する質問に答える必要があります。最も適切な設計はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "カタログ全体をシステムプロンプトに配置し、毎朝更新する。",
+        "note": "80,000 SKU は収まらず、呼び出しのたびに全体の料金を支払うことになります。"
+      },
+      {
+        "id": "b",
+        "text": "現在のカタログのスナップショットで毎晩モデルをファインチューニングする。",
+        "note": "ファインチューニングで学習するのは振る舞いであり、変動する事実ではありません。また、毎日の実施は現実的ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "クエリごとに関連する少数の SKU を検索し、根拠となるコンテキストとして与える。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "昨日の回答をキャッシュし、次にカタログが更新されるまで返す。",
+        "note": "仕組み上、古い回答を返すことになり、未見の質問にも対応できません。"
+      }
+    ],
+    "explanation": "検索により、プロンプトを小さく、常に最新に保てます。頻繁に変わる大量の参照データは、モデルやプロンプトに組み込むのではなく、リクエストごとに検索するストアに置くべきです。"
   },
   "references": [
     {

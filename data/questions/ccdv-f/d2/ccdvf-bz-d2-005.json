@@ -44,7 +44,36 @@
     "explanation": "Streaming emits content deltas during generation and closes with a message-level event carrying usage. Those two facts satisfy both stated UI requirements."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "チャット UI は、生成されるテキストを逐次表示するとともに、ターンの終了時に累計トークン数を表示する必要があります。ストリーミングレスポンスが提供するものを2つ選んでください。（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "レスポンスの生成中に順次送出されるコンテンツの差分。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "入力と出力の累計トークン使用量を含む終了イベント。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "そのターンで課金対象となるトークン総数の確実な削減。",
+        "note": "ストリーミングで変わるのは配信方法であり、課金ではありません。同じトークンが生成され、課金されます。"
+      },
+      {
+        "id": "d",
+        "text": "最初の差分が届く前に配信される、完全なレスポンス本文。",
+        "note": "これは非ストリーミングのレスポンスの説明であり、目的を完全に損ないます。"
+      },
+      {
+        "id": "e",
+        "text": "次のターンで取得できる、サーバーに保持された会話記録。",
+        "note": "API はステートレスであり、会話記録はサーバー側に保持されません。"
+      }
+    ],
+    "explanation": "ストリーミングは生成中にコンテンツの差分を送出し、使用量を含むメッセージ単位のイベントで終了します。この2点が、提示された UI の要件を両方満たします。"
   },
   "references": [
     {

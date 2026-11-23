@@ -38,7 +38,31 @@
     "explanation": "anthropic-version pins the request to a known API contract, so later API changes cannot silently alter the behaviour your integration depends on."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude Messages API を HTTP で直接呼び出すたびに、API キーに加えて必要となるヘッダーはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "クライアントが扱える圧縮方式を指定する accept-encoding。",
+        "note": "任意の HTTP ネゴシエーションであり、ほとんどのクライアントが自動で処理します。"
+      },
+      {
+        "id": "b",
+        "text": "リクエストを行うクライアントライブラリとそのバージョンを示す user-agent。",
+        "note": "診断には役立ちますが、必須ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "呼び出しを追跡するための一意の識別子を指定する x-request-id。",
+        "note": "関連付けに役立ちますが、API は呼び出し元による指定を必須としていません。"
+      },
+      {
+        "id": "d",
+        "text": "リクエストが準拠する API バージョンを固定する anthropic-version。",
+        "note": ""
+      }
+    ],
+    "explanation": "anthropic-version はリクエストを既知の API の契約に固定するため、後の API 変更で、連携が依存する動作が気付かないうちに変わることを防げます。"
   },
   "references": [
     {

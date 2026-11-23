@@ -38,7 +38,31 @@
     "explanation": "Token counting returns an exact figure for the real request without consuming generation, which is precisely what a pre-flight budget gate needs."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "組み立てた大きなプロンプトが内部の予算を超える場合にリクエストを拒否できるよう、呼び出しを実行する前にトークンコストを知る必要があります。最も簡潔な方法はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "文字数を4で割り、推定値に安全のための余裕を加える。",
+        "note": "これは大まかな経験則であり、コード、JSON、英語以外のテキストでは大きくずれます。"
+      },
+      {
+        "id": "b",
+        "text": "リクエストを送信し、返されたレスポンスから usage.input_tokens を読み取る。",
+        "note": "それでは、避けたかった呼び出しの料金が既に発生してから測定することになります。"
+      },
+      {
+        "id": "c",
+        "text": "送信する HTTP リクエストの Content-Length ヘッダーを調べる。",
+        "note": "バイト数はトークン数ではなく、両者の比率は内容によって変わります。"
+      },
+      {
+        "id": "d",
+        "text": "送信前に、組み立てたリクエストでトークンカウントのエンドポイントを呼び出す。",
+        "note": ""
+      }
+    ],
+    "explanation": "トークンカウントは、生成を行わずに実際のリクエストの正確な値を返します。これは、実行前に予算を確認する仕組みにまさに必要なものです。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "If the environment selects its own prompt version, a staging edit has no path into production. That is a structural separation rather than a procedural one."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "ステージングでのプロンプト変更が誤って本番に影響することを、最もよく防ぐ方法はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "マージ前に、すべてのプロンプト変更を2人目のレビュアーが承認することを必須にする。",
+        "note": "レビューが誤りを発見するのは確率的であり、環境を分離するものではありません。"
+      },
+      {
+        "id": "b",
+        "text": "ステージングのプロンプトだと分かるよう、名前に識別用のプレフィックスを付ける。",
+        "note": "命名規則は手がかりであり、境界ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "通常の営業時間外に限って、プロンプトの変更をデプロイする。",
+        "note": "インシデントを防ぐのではなく、その発生時刻を変えるだけです。"
+      },
+      {
+        "id": "d",
+        "text": "プロンプトを環境ごとの設定として扱い、デプロイごとに参照するものを決める。",
+        "note": ""
+      }
+    ],
+    "explanation": "環境ごとに独自のプロンプトバージョンを選択すれば、ステージングの編集が本番に入る経路はありません。これは手順による分離ではなく、構造による分離です。"
   },
   "references": [
     {

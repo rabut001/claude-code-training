@@ -38,7 +38,31 @@
     "explanation": "Model id belongs in configuration precisely because you need to vary it: a cheaper model in dev, a canary in staging, an instant rollback in prod. Fifteen literals means fifteen chances to miss one."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "チームが、15個のソースファイルにモデル識別子を文字列リテラルとしてハードコードしています。主なリスクは何ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "文字列リテラルの解決は、設定された変数よりわずかに遅い。",
+        "note": "意味のある性能差はありません。"
+      },
+      {
+        "id": "b",
+        "text": "モデル識別子が設定として指定されないリクエストは、API に拒否される。",
+        "note": "API は、指定元にかかわらず、有効なモデル ID を受け付けます。"
+      },
+      {
+        "id": "c",
+        "text": "モデルの選択は環境ごとに異なるため、分散して記述すると展開やロールバックで誤りが起きやすい。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "コンパイル済みのアプリケーション成果物のサイズが、測定可能なほど増える。",
+        "note": "影響はごく小さく、ここでの懸念ではありません。"
+      }
+    ],
+    "explanation": "モデル ID を設定に置くのは、まさに変更する必要があるからです。開発環境では安いモデル、ステージングではカナリア、本番では即座のロールバックが必要です。リテラルが15個あれば、更新を見落とす機会も15回あります。"
   },
   "references": [
     {

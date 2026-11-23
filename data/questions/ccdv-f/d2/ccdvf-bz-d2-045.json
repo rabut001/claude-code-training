@@ -38,7 +38,31 @@
     "explanation": "That split is exactly what the two filenames are for: shared project settings are committed, and the .local variant holds personal overrides and stays untracked."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "プロジェクトで共有しバージョン管理する Claude Code の設定と、決してコミットしない開発者個人の上書き設定を使い分けたいと考えています。正しい配置はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": ".claude/settings.json をコミットし、.claude/settings.local.json は追跡しない。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "両方のファイルをコミットし、開発者が共有ファイルを編集しないことに頼る。",
+        "note": "個人の上書き設定をコミットすると、不要な差分と競合が絶えず発生します。"
+      },
+      {
+        "id": "c",
+        "text": "すべての設定を、ホームディレクトリにあるユーザーレベルの設定だけに保存する。",
+        "note": "ユーザーレベルの設定は共有されないため、プロジェクトに共通の基準ができません。"
+      },
+      {
+        "id": "d",
+        "text": "設定ファイルを1つコミットし、各開発者がローカルブランチを維持する。",
+        "note": "長期間維持する設定用ブランチは、マージの負担になり、すぐに差異が生じます。"
+      }
+    ],
+    "explanation": "この分け方は、まさに2つのファイル名の用途です。共有するプロジェクト設定をコミットし、.local 側に個人の上書き設定を保存して、追跡対象にしません。"
   },
   "references": [
     {

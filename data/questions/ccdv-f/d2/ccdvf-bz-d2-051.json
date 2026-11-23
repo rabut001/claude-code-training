@@ -38,7 +38,31 @@
     "explanation": "Every tool_use must be answered by a corresponding tool_result carrying the matching id, all inside the single following user turn. Omitting any of them is an API error."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "アシスタントターンが、1つのレスポンスで2つの tool_use ブロックを返しました。アプリケーションはどのように応答する必要がありますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "それぞれ1つの tool_result ブロックを含む、連続する2つのユーザーターンを送る。",
+        "note": "ターンを分けると、必要な交互の並びが崩れ、最初の結果が対応先を失います。"
+      },
+      {
+        "id": "b",
+        "text": "最初のツールだけを実行し、2つ目は冗長として無視する。",
+        "note": "応答のない tool_use は API に拒否されます。"
+      },
+      {
+        "id": "c",
+        "text": "モデルが1つのツール呼び出しに決めるよう、元のリクエストを再送する。",
+        "note": "モデルが既に決めた処理を捨て、1往復分を無駄にします。"
+      },
+      {
+        "id": "d",
+        "text": "1つのユーザーターンに、tool_use_id で対応付けた各 tool_result を含めて送る。",
+        "note": ""
+      }
+    ],
+    "explanation": "すべての tool_use に対し、一致する ID を持つ対応する tool_result で応答し、それらをすべて直後の1つのユーザーターンに含める必要があります。どれか1つでも省略すると API エラーになります。"
   },
   "references": [
     {

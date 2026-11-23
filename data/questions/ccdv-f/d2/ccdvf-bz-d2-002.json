@@ -38,7 +38,31 @@
     "explanation": "Batch trades turnaround time for roughly half the per-token price. An overnight window is exactly the situation it exists for, since nobody is waiting on any individual result."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "夜間のジョブで、アーカイブ済みのサポートチケット約400,000件を分類します。結果は翌朝までに得られれば十分です。コストを最も適切に抑えられる方法はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "各分類が1回の呼び出しで完了するように max_tokens を増やす。",
+        "note": "max_tokens は出力の長さの上限を定めるもので、単価は変わらず、支出が増える可能性があります。"
+      },
+      {
+        "id": "b",
+        "text": "リクエストごとの課金対象トークン総数を減らすストリーミングを有効にする。",
+        "note": "ストリーミングで変わるのは配信のタイミングだけです。同じトークンが生成され、課金されます。"
+      },
+      {
+        "id": "c",
+        "text": "Batch API で処理を送信し、結果を非同期で収集する。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "すべてのリクエストを並行して送信し、ジョブを短時間で完了させる。",
+        "note": "並行処理が影響するのは実際の経過時間であり、トークン単価ではありません。"
+      }
+    ],
+    "explanation": "バッチ処理では、結果が得られるまでの時間と引き換えに、トークン単価が約半分になります。個々の結果を誰も待っていない夜間の処理時間帯は、まさにこの仕組みが想定する状況です。"
   },
   "references": [
     {

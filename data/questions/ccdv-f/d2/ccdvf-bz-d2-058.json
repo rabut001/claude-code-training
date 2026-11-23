@@ -38,7 +38,31 @@
     "explanation": "The messages array contains only user and assistant turns. Placing a \"system\" role inside it is a common error that produces a 400."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "system パラメーターについて、正しい説明はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "messages 配列内で、role が \"system\" のメッセージとして指定する。",
+        "note": "この API の messages 配列内には system ロールがありません。"
+      },
+      {
+        "id": "b",
+        "text": "messages 配列とは別の、リクエストのトップレベルのパラメーターである。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "効果を維持するには、各ユーザーメッセージ内で繰り返す必要がある。",
+        "note": "リクエスト全体に適用されるため、繰り返してもトークンを無駄にするだけです。"
+      },
+      {
+        "id": "d",
+        "text": "1つ以上のツールも定義するリクエストでのみ利用可能になる。",
+        "note": "常に利用でき、ツール使用とは独立しています。"
+      }
+    ],
+    "explanation": "messages 配列に含まれるのは user と assistant のターンだけです。その中に \"system\" ロールを配置するのは、400 を引き起こすよくある誤りです。"
   },
   "references": [
     {

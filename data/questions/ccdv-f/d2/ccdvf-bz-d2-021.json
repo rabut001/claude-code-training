@@ -38,7 +38,31 @@
     "explanation": "Unbounded history growth is the cause, so the fix has to bound it. Compaction preserves decisions while pruning removes content that has since been superseded."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "長時間動作するエージェントが、短い会話では問題なく動く一方、40ターン目前後でコンテキストウィンドウのエラーにより時折クラッシュします。症状ではなく原因に対処する設計変更はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "古いターンを構造化された要約に圧縮し、後の情報で置き換えられた内容を削除する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "エラーを捕捉し、空のコンテキストから会話を再開する。",
+        "note": "エージェントに必要なタスクの状態を捨てるため、作業の消失として表面化します。"
+      },
+      {
+        "id": "c",
+        "text": "ウィンドウがより大きいモデルに移行し、すべてのターンを追加し続ける。",
+        "note": "猶予は延びますが、ターン数が増えると同じ形で失敗します。"
+      },
+      {
+        "id": "d",
+        "text": "個々のレスポンスが使うトークン数を減らすため、max_tokens を減らす。",
+        "note": "蓄積した履歴に比べると、出力サイズの影響は小さいものです。"
+      }
+    ],
+    "explanation": "原因は上限なく増大する履歴なので、修正にはその増大を抑える必要があります。圧縮では決定事項を保持し、削除では後の情報で置き換えられた内容を取り除きます。"
   },
   "references": [
     {

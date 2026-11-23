@@ -38,7 +38,31 @@
     "explanation": "\"No email without a human reading it\" is an invariant. Only control flow the model cannot bypass enforces it; the agent should not hold an unattended send capability at all."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "下書き作成アシスタントが、顧客に送るメールを作成します。法務部は、人が読むまでメールを一切送信しないことを求めています。この要件はどこに組み込むべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "送信前に承認を求めるようモデルに指示する、システムプロンプト内。",
+        "note": "プロンプトへの従順さは確率的であり、法務上の要件を満たせません。"
+      },
+      {
+        "id": "b",
+        "text": "送信には事前の人による承認が必要と記した、ツールの説明内。",
+        "note": "説明はツール選択の参考になりますが、実行を制御しません。"
+      },
+      {
+        "id": "c",
+        "text": "エージェントがレビューのために正しく停止する頻度を測る、評価の中。",
+        "note": "ルールを守らせるのではなく、守られる頻度を測定するだけです。"
+      },
+      {
+        "id": "d",
+        "text": "送信前に、すべての下書きをレビュアーに回すアプリケーションの処理フロー内。",
+        "note": ""
+      }
+    ],
+    "explanation": "「人が読むまでメールを一切送信しない」は不変条件です。モデルが迂回できない制御フローだけがこれを強制できます。そもそも、エージェントに無人で送信できる機能を持たせるべきではありません。"
   },
   "references": [
     {

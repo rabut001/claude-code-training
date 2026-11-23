@@ -38,7 +38,31 @@
     "explanation": "A tool schema converts a formatting request into a typed contract, so you read structured arguments instead of scraping prose. The failure mode is designed out rather than patched."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "後続のサービスが Claude の生成する JSON を利用しています。モデルが時折 JSON を Markdown のコードフェンスで囲んだり、その前に1文追加したりして、利用側がクラッシュします。最も堅牢な修正はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ペイロードを解析する前に、正規表現で Markdown のフェンスを取り除く。",
+        "note": "今日の変形には対処できても、明日の変形で壊れます。解析を保護する仕組みはないままです。"
+      },
+      {
+        "id": "b",
+        "text": "生の JSON だけを返すよう、プロンプトでより強く指示する。",
+        "note": "従う確率は上がりますが、保証されることはありません。"
+      },
+      {
+        "id": "c",
+        "text": "input_schema が目的の構造になっているツールを定義し、その引数を読み取る。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "アシスタントターンに開始波括弧を事前入力して、前置きを抑える。",
+        "note": "確かな改善であり行う価値はありますが、型で定めた契約より弱い方法です。"
+      }
+    ],
+    "explanation": "ツールのスキーマにより、書式についての要求を型で定めた契約に変えられるため、文章から抜き出す代わりに構造化された引数を読み取れます。失敗の原因を後付けで修正するのではなく、設計によって取り除きます。"
   },
   "references": [
     {

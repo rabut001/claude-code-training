@@ -38,7 +38,31 @@
     "explanation": "\"Handles automatically\" is not a specification. Until you know the categories, the acceptable accuracy, and which actions need a human, you cannot design, evaluate, or finish the system."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "ステークホルダーが「顧客メールを自動で処理する AI」を求めています。プロンプトを一切書く前に、何をすべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "具体的な進捗を早期に示せるよう、直ちにプロトタイプの作成を始める。",
+        "note": "受け入れ基準のないプロトタイプは、妥当性の確認もリリースもできません。"
+      },
+      {
+        "id": "b",
+        "text": "回答品質が制約要因にならないよう、最も高性能なモデルを選ぶ。",
+        "note": "要件より先にモデルを選ぶのは推測であり、たいていは高くつきます。"
+      },
+      {
+        "id": "c",
+        "text": "ファインチューニング用データとして、大量の過去のメールを集める。",
+        "note": "プロンプトだけでは不十分だと確認する前に、ファインチューニングを前提にしています。"
+      },
+      {
+        "id": "d",
+        "text": "カテゴリー、最低限の精度、自律的に実行する操作、コスト予算を確定する。",
+        "note": ""
+      }
+    ],
+    "explanation": "「自動で処理する」は仕様ではありません。カテゴリー、許容できる精度、人の確認が必要な操作が分かるまで、システムを設計し、評価し、完成させることはできません。"
   },
   "references": [
     {

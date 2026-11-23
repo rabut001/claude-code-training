@@ -38,7 +38,31 @@
     "explanation": "Most of the codebase is deterministic and should be tested with mocks at commit speed. Quality against the real model is a separate, scheduled measurement, not a per-commit gate."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "結合テストで、コミットのたびに実際の Claude API を呼び出しています。テストスイートは遅く、不安定で、費用もかかります。最も適切な再構成はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "実際の呼び出しを維持し、不安定さを吸収するために失敗した各テストを3回再試行する。",
+        "note": "再試行は本当の失敗を隠し、コストと所要時間の両方を増やします。"
+      },
+      {
+        "id": "b",
+        "text": "単体テストでは API をモック化し、小規模な実 API の評価スイートを定期実行する。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "確率的なシステムでは意味のあるテストができないため、テストを削除する。",
+        "note": "決定論的な層は十分にテスト可能であり、リスクの大部分もそこにあります。"
+      },
+      {
+        "id": "d",
+        "text": "temperature を 0 に固定し、実際のレスポンスを実行間でバイト単位まで同一にする。",
+        "note": "temperature 0 はばらつきを減らしますが、同一の出力を保証しません。"
+      }
+    ],
+    "explanation": "コードベースの大半は決定論的であり、コミットの頻度に対応できる速さでモックを使ってテストすべきです。実際のモデルに対する品質は、コミットごとの合否条件ではなく、別途定期的に測定するものです。"
   },
   "references": [
     {
