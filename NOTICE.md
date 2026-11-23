@@ -1,0 +1,71 @@
+# NOTICE
+
+このアプリの問題は、次の問題集を元にしています。英語の原文は元のまま収録し、日本語訳を加えています。
+いずれも MIT ライセンスで公開されており、ライセンスの条件に従って著作権表示とライセンス文を以下に掲載します。
+
+本番の試験問題ではありません。Anthropic とは関係のない非公式の教材です。
+「Claude」は Anthropic, PBC の商標です。
+
+---
+
+## CCDV-F：Breeganzo/CCDV-F-Preparation
+
+- 出典：https://github.com/Breeganzo/CCDV-F-Preparation
+- 使用した commit：f3f7759c4fff3244ff88ae9bafeb1a2a72890180
+
+```
+MIT License
+
+Copyright (c) 2026 Breeganzo
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## CCAR-P：bajor/claude-architect-professional-quiz
+
+- 出典：https://github.com/bajor/claude-architect-professional-quiz
+- 使用した commit：05b068db2529b69ea76a2104dae0fd4c197d4d98
+
+```
+MIT License
+
+Copyright (c) 2026 Maciej Bajor
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The license covers this application's code and original practice material.
+Linked third-party documentation, exam-guide objective quotations, and
+trademarks remain the property of their respective owners.
+```

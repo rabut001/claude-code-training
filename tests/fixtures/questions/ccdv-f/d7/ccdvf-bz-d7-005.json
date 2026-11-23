@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d7-005",
+  "exam": "ccdv-f",
+  "domain": "d7",
+  "subdomain": "AI Application Security",
+  "type": "multi",
+  "select": 2,
+  "difficulty": 3,
+  "tags": [],
+  "answer": ["a", "b"],
+  "en": {
+    "question": "Which two statements about defending an agentic application are correct? (Select 2)",
+    "options": [
+      { "id": "a", "text": "Guardrails should be layered, because no single control is sufficient alone.", "note": "" },
+      { "id": "b", "text": "Capability restriction beats instruction: an unreachable action cannot be induced.", "note": "" },
+      { "id": "c", "text": "A sufficiently detailed system prompt removes the need for authorisation checks.", "note": "Prompts never replace authorisation; they are guidance rather than enforcement." },
+      { "id": "d", "text": "Prompt injection is fully solved by sanitising input before it reaches the model.", "note": "Sanitisation helps, but adversaries rephrase, encode, and translate around it." },
+      { "id": "e", "text": "Running every request at temperature 0 prevents jailbreak attempts succeeding.", "note": "Temperature has no bearing on susceptibility to adversarial instructions." }
+    ],
+    "explanation": "Defence in depth is the governing principle, and the strongest single layer is capability restriction, because an action the agent structurally cannot take cannot be triggered by any input."
+  },
+  "ja": {
+    "status": "draft",
+    "question": "エージェント型アプリケーションの防御について述べた文のうち、正しいものはどれですか？（2つ選択）",
+    "options": [
+      { "id": "a", "text": "ガードレールは多層にすべきである。単独で十分な対策はないからだ。", "note": "" },
+      { "id": "b", "text": "指示より権限の制限が効く。実行できない操作は誘導しようがない。", "note": "" },
+      { "id": "c", "text": "十分に詳しいシステムプロンプトがあれば、認可のチェックは不要になる。", "note": "プロンプトは認可の代わりにはなりません。プロンプトは指針であって、強制する仕組みではありません。" },
+      { "id": "d", "text": "モデルに届く前に入力を無害化すれば、プロンプトインジェクションは完全に防げる。", "note": "無害化は役に立ちますが、攻撃者は言い換え、エンコード、翻訳などで回避してきます。" },
+      { "id": "e", "text": "すべてのリクエストを temperature 0 で実行すれば、ジェイルブレイクは成功しない。", "note": "temperature は、悪意のある指示への影響の受けやすさとは関係がありません。" }
+    ],
+    "explanation": "基本の考え方は多層防御です。そして、単独の層として最も強いのは権限の制限です。エージェントが構造的に実行できない操作は、どんな入力によっても引き起こせないからです。"
+  },
+  "references": [
+    { "title": "Anthropic docs — Strengthen guardrails", "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks" }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d7-security.js",
+    "orig_id": "D7-005",
+    "license": "MIT"
+  }
+}

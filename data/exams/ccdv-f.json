@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "ccdv-f",
+  "code": "CCDV-F",
+  "name": {
+    "en": "Claude Certified Developer – Foundations",
+    "ja": "Claude認定デベロッパー – ファンデーション"
+  },
+  "exam": {
+    "questions": 53,
+    "minutes": 120,
+    "pass_scaled": 720,
+    "scale_min": 100,
+    "scale_max": 1000,
+    "pass_raw_estimate": 0.689
+  },
+  "domains": [
+    { "id": "d1", "name": { "en": "Agents and Workflows", "ja": "エージェントとワークフロー" }, "weight": 14.7, "mock_items": 8 },
+    { "id": "d2", "name": { "en": "Applications and Integration", "ja": "アプリケーションと統合" }, "weight": 33.1, "mock_items": 18 },
+    { "id": "d3", "name": { "en": "Claude Code", "ja": "Claude Code" }, "weight": 3.1, "mock_items": 2 },
+    { "id": "d4", "name": { "en": "Eval, Testing, and Debugging", "ja": "評価・テスト・デバッグ" }, "weight": 2.6, "mock_items": 1 },
+    { "id": "d5", "name": { "en": "Model Selection and Optimization", "ja": "モデル選択と最適化" }, "weight": 16.8, "mock_items": 9 },
+    { "id": "d6", "name": { "en": "Prompt and Context Engineering", "ja": "プロンプトとコンテキストエンジニアリング" }, "weight": 11.0, "mock_items": 6 },
+    { "id": "d7", "name": { "en": "Security and Safety", "ja": "セキュリティと安全性" }, "weight": 8.1, "mock_items": 4 },
+    { "id": "d8", "name": { "en": "Tools and MCPs", "ja": "ツールとMCP" }, "weight": 10.6, "mock_items": 5 }
+  ],
+  "sources": [
+    {
+      "abbr": "bz",
+      "repo": "Breeganzo/CCDV-F-Preparation",
+      "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+      "license": "MIT",
+      "questions": 180
+    }
+  ]
+}

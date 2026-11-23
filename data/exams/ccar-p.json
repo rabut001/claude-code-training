@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "id": "ccar-p",
+  "code": "CCAR-P",
+  "name": {
+    "en": "Claude Certified Architect – Professional",
+    "ja": "Claude認定アーキテクト – プロフェッショナル"
+  },
+  "exam": {
+    "questions": 63,
+    "minutes": 120,
+    "pass_scaled": 720,
+    "scale_min": 100,
+    "scale_max": 1000,
+    "pass_raw_estimate": 0.689
+  },
+  "domains": [
+    { "id": "d1", "name": { "en": "Solution Design & Architecture", "ja": "ソリューション設計とアーキテクチャ" }, "weight": 17, "mock_items": 11 },
+    { "id": "d2", "name": { "en": "Claude Models, Prompting & Context Engineering", "ja": "Claudeのモデル・プロンプト・コンテキストエンジニアリング" }, "weight": 13, "mock_items": 8 },
+    { "id": "d3", "name": { "en": "Integration", "ja": "統合" }, "weight": 19, "mock_items": 12 },
+    { "id": "d4", "name": { "en": "Evaluation, Testing & Optimization", "ja": "評価・テスト・最適化" }, "weight": 16, "mock_items": 10 },
+    { "id": "d5", "name": { "en": "Governance, Safety & Risk Management", "ja": "ガバナンス・安全性・リスク管理" }, "weight": 14, "mock_items": 9 },
+    { "id": "d6", "name": { "en": "Stakeholder Communication & Lifecycle Management", "ja": "ステークホルダーとのコミュニケーションとライフサイクル管理" }, "weight": 14, "mock_items": 9 },
+    { "id": "d7", "name": { "en": "Developer Productivity & Operational Enablement", "ja": "開発者の生産性と運用の支援" }, "weight": 7, "mock_items": 4 }
+  ],
+  "sources": [
+    {
+      "abbr": "bj",
+      "repo": "bajor/claude-architect-professional-quiz",
+      "commit": "05b068db2529b69ea76a2104dae0fd4c197d4d98",
+      "license": "MIT",
+      "questions": 228
+    }
+  ]
+}

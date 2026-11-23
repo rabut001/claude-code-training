@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "ccdvf-bz-d2-001",
+  "exam": "ccdv-f",
+  "domain": "d2",
+  "subdomain": "Claude API Mechanics",
+  "type": "single",
+  "select": 1,
+  "difficulty": 2,
+  "tags": [],
+  "answer": ["a"],
+  "en": {
+    "question": "Your service calls the Messages API with a set of tools. A response comes back with stop_reason set to \"tool_use\". What must your application do next to continue the conversation correctly?",
+    "options": [
+      { "id": "a", "text": "Execute the requested tools and send a user turn containing matching tool_result blocks.", "note": "" },
+      { "id": "b", "text": "Append an assistant turn holding the tool output formatted as explanatory prose.", "note": "Prose loses the tool_use_id linkage, so the API cannot match result to request." },
+      { "id": "c", "text": "Resend the same request with tool_choice set to none so the model answers directly.", "note": "Forcing a direct answer discards the tool call the model determined it needed." },
+      { "id": "d", "text": "Run the tools and fold their output into the next user question as extra context.", "note": "Free-text context is not a tool_result, leaving the tool_use unanswered, which errors." }
+    ],
+    "explanation": "The protocol is specific: a tool_use block must be answered by a tool_result block carrying the matching tool_use_id, and it travels in a user turn. Anything else breaks the linkage the API expects."
+  },
+  "ja": {
+    "status": "draft",
+    "question": "あなたのサービスは、ツールを指定して Messages API を呼び出しています。返ってきたレスポンスの stop_reason が \"tool_use\" でした。会話を正しく続けるために、アプリケーションは次に何をする必要がありますか？",
+    "options": [
+      { "id": "a", "text": "要求されたツールを実行し、対応する tool_result ブロックを含むユーザーターンを送る。", "note": "" },
+      { "id": "b", "text": "ツールの出力を説明文の形にまとめたアシスタントターンを追加する。", "note": "説明文にすると tool_use_id による対応付けが失われ、API が結果と要求を対応させられません。" },
+      { "id": "c", "text": "モデルが直接答えるよう、tool_choice を none にして同じリクエストを再送する。", "note": "直接の回答を強制すると、モデルが必要と判断したツール呼び出しが捨てられてしまいます。" },
+      { "id": "d", "text": "ツールを実行し、その出力を追加の文脈として次のユーザーの質問に組み込む。", "note": "自由記述の文脈は tool_result ではないので、tool_use に応答していない状態になり、エラーになります。" }
+    ],
+    "explanation": "やり方は厳密に決まっています。tool_use ブロックには、対応する tool_use_id を持つ tool_result ブロックで応答する必要があり、それはユーザーターンで送ります。それ以外の方法では、API が想定している対応関係が崩れます。"
+  },
+  "references": [
+    { "title": "Anthropic docs — Tool use", "url": "https://docs.anthropic.com/en/docs/build-with-claude/tool-use" }
+  ],
+  "source": {
+    "repo": "Breeganzo/CCDV-F-Preparation",
+    "commit": "f3f7759c4fff3244ff88ae9bafeb1a2a72890180",
+    "path": "data/questions-d2-apps.js",
+    "orig_id": "D2-001",
+    "license": "MIT"
+  }
+}

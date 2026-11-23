@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schema/question.schema.json",
+  "title": "Question (schema 1)",
+  "description": "1問分のデータ。説明は docs/data-format.md、検証の正本は tools/validate.py（ファイル間の整合性チェックはこのスキーマでは表せない）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "exam", "domain", "subdomain", "type", "select", "difficulty", "tags", "answer", "en", "ja", "references", "source"],
+  "properties": {
+    "schema": { "const": 1 },
+    "id": { "type": "string", "pattern": "^(ccdvf|ccarp)-[a-z]{2}-[a-z0-9][a-z0-9.-]*$" },
+    "exam": { "enum": ["ccdv-f", "ccar-p"] },
+    "domain": { "type": "string", "pattern": "^d[0-9]+$" },
+    "subdomain": { "type": ["string", "null"] },
+    "type": { "enum": ["single", "multi"] },
+    "select": { "type": "integer", "minimum": 1 },
+    "difficulty": { "enum": [1, 2, 3, null] },
+    "tags": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "answer": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-f]$" }
+    },
+    "en": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["question", "options", "explanation"],
+      "properties": {
+        "question": { "type": "string", "minLength": 1 },
+        "options": { "type": "array", "minItems": 2, "maxItems": 6, "items": { "$ref": "#/$defs/option" } },
+        "explanation": { "type": "string" }
+      }
+    },
+    "ja": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["todo", "draft", "reviewed"] },
+        "question": { "type": "string", "minLength": 1 },
+        "options": { "type": "array", "minItems": 2, "maxItems": 6, "items": { "$ref": "#/$defs/option" } },
+        "explanation": { "type": "string" }
+      },
+      "if": { "properties": { "status": { "enum": ["draft", "reviewed"] } } },
+      "then": { "required": ["status", "question", "options", "explanation"] }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "url"],
+        "properties": {
+          "title": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "pattern": "^https://" }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repo", "commit", "path", "orig_id", "license"],
+      "properties": {
+        "repo": { "type": "string", "pattern": "^[^/\\s]+/[^/\\s]+$" },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "path": { "type": "string", "minLength": 1 },
+        "orig_id": { "type": "string", "minLength": 1 },
+        "license": { "const": "MIT" }
+      }
+    }
+  },
+  "$defs": {
+    "option": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "text", "note"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-f]$" },
+        "text": { "type": "string", "minLength": 1 },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
