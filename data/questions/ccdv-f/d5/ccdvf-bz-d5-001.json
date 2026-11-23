@@ -64,6 +64,10 @@
     ],
     "explanation": "貪欲デコーディングは出力の違いをほぼなくしますが、同一の出力を保証するものではありません。ロジットの値が僅差である場合、浮動小数点演算や配信基盤の違いが重なると、選ばれるトークンが変わることがあります。そのため、正しさが出力の同一性に依存する設計にしてはいけません。"
   },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。 top_p は、次のトークンの候補を確率の高い順に集め、確率の合計が指定したしきい値に達するまでを候補として残す設定です。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature. top_p selects next-token candidates in decreasing probability order, keeping candidates until their cumulative probability reaches the specified threshold."
+  },
   "references": [
     {
       "title": "Anthropic docs — Messages API parameters",

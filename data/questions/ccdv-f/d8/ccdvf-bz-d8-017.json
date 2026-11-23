@@ -64,6 +64,10 @@
     ],
     "explanation": "選択はほぼ説明によって決まります。ほとんど同じ4つの名前と薄い説明では、モデルに区別の手掛かりがありません。用途が重なる多数のツールより、違いが明確な少数のツールが優れています。"
   },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature."
+  },
   "references": [
     {
       "title": "Anthropic docs — Tool use",

@@ -64,6 +64,10 @@
     ],
     "explanation": "空の配列は、一致するものがない、不適切な問い合わせ、失敗のいずれも意味し得ます。曖昧さのない結果なら、エージェントは空白を推測で埋める代わりに、\"何も存在しない\"と\"何かが失敗した\"を区別できます。"
   },
+  "supplement": {
+    "ja": "few-shot は、少数の入力例とそれに対する出力例をプロンプトに含め、望む回答の形や規則を伝える方法です。",
+    "en": "Few-shot prompting provides a small number of example inputs and outputs in the prompt to show the desired response format or rules."
+  },
   "references": [
     {
       "title": "Anthropic docs — Tool use",

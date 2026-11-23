@@ -64,6 +64,10 @@
     ],
     "explanation": "この3つは、それぞれ異なる方向から体感上のレイテンシに対処します。ストリーミングは最初のトークンを即座に送り、より高速な階層は生成を速め、キャッシュへのヒットはプレフィックスの再処理を省きます。"
   },
+  "supplement": {
+    "ja": "few-shot は、少数の入力例とそれに対する出力例をプロンプトに含め、望む回答の形や規則を伝える方法です。 extended thinking は、最終的な回答を出す前に、モデルが内部の推論に追加の処理を使う機能です。",
+    "en": "Few-shot prompting provides a small number of example inputs and outputs in the prompt to show the desired response format or rules. Extended thinking is a feature that lets the model spend additional computation on internal reasoning before producing its final answer."
+  },
   "references": [
     {
       "title": "Anthropic docs — Reducing latency",

@@ -44,7 +44,7 @@
 | truncation | 出力の途切れ | 出力上限などで生成が途中で切れること |
 | stop sequence | 停止シーケンス | API の識別子は英語のまま |
 | token counting | トークンカウント | |
-| extended thinking | 英語のまま | 機能名 |
+| extended thinking | 英語のまま | 回答前に、モデルが内部の推論に追加の処理を使う機能 |
 | payload | ペイロード | |
 | endpoint | エンドポイント | |
 | schema | スキーマ | |
@@ -166,8 +166,8 @@
 | principal | 主体 | 認可の文脈 |
 | identity model | アイデンティティーモデル | |
 | rotation | ローテーション | キーや認証情報の更新 |
-| Plan mode | 英語のまま | 機能名 |
-| Headless mode | 英語のまま | 機能名 |
+| Plan mode | 英語のまま | 変更前にコードや要件を調べ、進め方を計画として提示するモード |
+| Headless mode | 英語のまま | 対話画面を使わず、コマンドラインやスクリプトから処理を実行する非対話形式のモード |
 | custom slash command | カスタムスラッシュコマンド | |
 | project memory | プロジェクトメモリー | |
 | agent memory | エージェントメモリー | |

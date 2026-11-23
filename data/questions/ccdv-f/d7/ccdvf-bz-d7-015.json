@@ -64,6 +64,10 @@
     ],
     "explanation": "一度 push されたシークレットは、取得されたと見なす必要があります。履歴、clone、フォーク、CI キャッシュや、公開の push を常時監視する自動収集プログラムに残るため、削除は是正措置にはなりません。"
   },
+  "supplement": {
+    "ja": "CI（継続的インテグレーション）は、コードの変更を共有のリポジトリへ継続的に取り込み、ビルドやテストを自動実行して確認する開発の仕組みです。",
+    "en": "CI (continuous integration) is a development practice of regularly integrating code changes into a shared repository and checking them with automated builds and tests."
+  },
   "references": [
     {
       "title": "Anthropic docs — Getting started",

@@ -64,6 +64,10 @@
     ],
     "explanation": "品質のリグレッションは、品質の測定に現れます。評価スコアは条件を管理した指標で、ユーザーによる訂正は実利用の指標です。この2つがそろえば、インフラではなく内容の問題を示します。"
   },
+  "supplement": {
+    "ja": "p99 は99パーセンタイルを表します。応答時間の場合、測定した応答の約99%がその時間以内に収まることを意味します。",
+    "en": "p99 denotes the 99th percentile. For response time, approximately 99% of the measured responses complete within that time."
+  },
   "references": [
     {
       "title": "Anthropic docs — Create strong empirical evaluations",

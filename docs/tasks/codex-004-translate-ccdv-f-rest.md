@@ -172,3 +172,32 @@ git log --oneline -3              # 先頭がこの指示書のコミットで�
 - `docs/glossary.md` には temperature、top_p、p95 / p99、OCR、SKU、CI、I/O、base64 の8行を追加し、few-shot のメモに意味を追記した。これは翻訳用の内部用語集であり、アプリでの補足表示とは別である。d2・d5 を含む他の問題への補足は未追加。
 - temperature の説明は Anthropic の公式用語集の Temperature 項（https://platform.claude.com/docs/en/about-claude/glossary#temperature）で確認した。具体的なモデルの対応範囲や設定値の範囲には踏み込まず、パラメーターの一般的な意味を補足した。
 - レビュー反映後も `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功（CCDV-F 180問すべて draft、CCAR-P 228問）、`git diff --check` 成功。`.cache/verify_term_review.py` で、d1-017 の `ja.explanation` と d6-006 の `supplement` 以外の全問題データが不変であることを照合した。英語原文・正解・出典はすべて保持した。
+
+### 用語の補足を一括追加（2026-11-23）
+
+- ユーザーの「挙げてもらった用語については、一括で補足を足してください」という指示により、前の回答の表に挙げた10用語と、同じ回答で触れた extended thinking、Plan mode、Headless mode の計13用語を対象にした。用語が出現する各問題へ、日本語・英語の `supplement` を追加した。今回の指示は、d2・d5 にも用語の補足を追加する範囲を含む。
+- 作業開始時に、更新されたローカル `main`（`22e0665`、UI 改善のマージ）を取り込み、`3f163c6` から補足の追加を開始した。取り込まれたアプリや E2E テストの変更は `main` 由来であり、今回手動では編集していない。
+- 対象は57問、用語と問題の組み合わせは68件。このうち d6-006 の temperature の日英補足は前のレビューですでに記載済みのため、内容をそのまま保持した。新規に補足を追加した問題ファイルは56問。複数の用語が出る問題では、各用語の説明を同じ `supplement` にまとめた。
+- 問題文・選択肢・理由・解説・正解・ID・出典・参考資料は変更していない。用語の説明は答え合わせ後の補足欄で表示する。一般的な意味を説明し、個別モデルの対応範囲、料金、設定値の推奨、原文の正誤についての新しい主張は足していない。
+- `docs/glossary.md` の extended thinking、Plan mode、Headless mode のメモにも、補足と整合する意味を追記した。
+
+| 用語 | 補足を備える問題数 | 説明の内容 |
+|---|---:|---|
+| temperature | 34 | 次の出力トークンを選ぶ際のランダムさを調整する設定。低い値と高い値による候補の選ばれ方の違い |
+| few-shot | 8 | 少数の入力と出力の例で、望む回答の形や規則を伝える方法 |
+| top_p | 2 | 高確率の候補から、累積確率のしきい値で候補を絞る設定 |
+| p95 | 1 | 応答時間などの95パーセンタイル |
+| p99 | 1 | 応答時間などの99パーセンタイル |
+| OCR | 1 | 画像中の文字をテキスト化する処理 |
+| SKU | 1 | サイズや色などの商品仕様を区別する在庫管理単位 |
+| CI | 6 | コードの変更を取り込み、ビルドやテストを自動実行する仕組み |
+| I/O | 1 | 通信やファイルの読み書きなどの入出力 |
+| base64 | 1 | バイナリーデータをテキストとして扱える文字列にする符号化方式 |
+| extended thinking | 8 | 最終回答の前に、モデルが内部の推論に追加の処理を使う機能 |
+| Plan mode | 2 | 変更前に調査し、計画を提示するモード |
+| Headless mode | 2 | 対話画面を使わずに実行するモード |
+
+- 対象の照合・割り当ては `.cache/bulk_term_supplements.py`、日英の共通文面は `.cache/bulk-term-definitions.json`、対象問題と適用内容は `.cache/bulk-term-plan.json`、変更前の全408問は `.cache/bulk-term-original/` に保存した（いずれも管理対象外）。日本語の問題・選択肢・理由・解説内の表記を走査し、補足そのものに出た用語で対象を増やしていない。
+- 定義の確認には Anthropic 公式の用語集と few-shot・extended thinking の説明、Claude Code 公式の Plan mode・非対話実行の説明を参照した。参考リンク：https://platform.claude.com/docs/en/about-claude/glossary#temperature 、https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices 、https://platform.claude.com/docs/en/build-with-claude/extended-thinking 、https://code.claude.com/docs/en/common-workflows 、https://code.claude.com/docs/en/headless 。問題の `references` フィールドには追加していない。
+- 最終確認：`./dev check` 成功（32テスト、データ検証、ビルド）、`./dev validate --strict-counts` 成功（CCDV-F 180問すべて draft、CCAR-P 228問）、`git diff --check` 成功。専用の照合では、全57問の日英の網羅、各用語の重複なし、既存補足の保持、反復適用しても増えないこと、フィールド順と書式を確認した。全408問を開始時のスナップショットと比べ、56問の `supplement` 以外に変更がないことも確認した。
+- 変更対象は問題56ファイル、用語集、作業メモの計58ファイル。用語補足の一括追加として1コミットにまとめる。push と `main` へのマージは行わず、引き続きユーザーによるレビュー・マージ待ちとする。

@@ -64,6 +64,10 @@
     ],
     "explanation": "extended thinking は、回答前の内部推論トークンに費用をかける機能です。複数段階の推論が実際に必要な問題では効果がありますが、機械的な変換や単純な分類では、レイテンシとコストの無駄になります。"
   },
+  "supplement": {
+    "ja": "extended thinking は、最終的な回答を出す前に、モデルが内部の推論に追加の処理を使う機能です。",
+    "en": "Extended thinking is a feature that lets the model spend additional computation on internal reasoning before producing its final answer."
+  },
   "references": [
     {
       "title": "Anthropic docs — Extended thinking",

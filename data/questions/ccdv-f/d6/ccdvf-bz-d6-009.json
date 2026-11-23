@@ -64,6 +64,10 @@
     ],
     "explanation": "例は、書式や規約を伝えるうえで最も効果的です。特に、文章で規則を書くと長く曖昧になる一方、1つの実例ならすぐ明確になるような、例外的なケースに有効です。"
   },
+  "supplement": {
+    "ja": "few-shot は、少数の入力例とそれに対する出力例をプロンプトに含め、望む回答の形や規則を伝える方法です。",
+    "en": "Few-shot prompting provides a small number of example inputs and outputs in the prompt to show the desired response format or rules."
+  },
   "references": [
     {
       "title": "Anthropic docs — Multishot prompting",

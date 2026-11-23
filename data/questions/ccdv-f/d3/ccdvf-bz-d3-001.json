@@ -64,6 +64,10 @@
     ],
     "explanation": "Plan mode は、リスクのある変更や影響範囲の広い変更のためにあります。Claude は読み取りと分析はできますが変更はできず、実行前に計画を承認します。これは注意するよう求める指示ではなく、構造的なゲートです。"
   },
+  "supplement": {
+    "ja": "Plan mode は、実際の変更に進む前に、コードや要件を調べ、進め方を計画として提示するためのモードです。 Headless mode は、対話画面を使わず、コマンドラインやスクリプトから処理を実行し、結果を受け取る非対話形式の実行モードです。",
+    "en": "Plan mode is a mode for investigating code and requirements and presenting an approach as a plan before proceeding with actual changes. Headless mode is a non-interactive execution mode that runs tasks and returns results from the command line or scripts without an interactive interface."
+  },
   "references": [
     {
       "title": "Claude Code docs — Common workflows",

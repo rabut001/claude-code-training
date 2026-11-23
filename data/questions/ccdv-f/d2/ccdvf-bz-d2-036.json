@@ -64,6 +64,10 @@
     ],
     "explanation": "指標、しきい値、評価セットが指定されているため、2人のエンジニアが同じ結果を計算でき、チームは作業がいつ完了したかを判断できます。"
   },
+  "supplement": {
+    "ja": "CI（継続的インテグレーション）は、コードの変更を共有のリポジトリへ継続的に取り込み、ビルドやテストを自動実行して確認する開発の仕組みです。",
+    "en": "CI (continuous integration) is a development practice of regularly integrating code changes into a shared repository and checking them with automated builds and tests."
+  },
   "references": [
     {
       "title": "Anthropic docs — Define success criteria",

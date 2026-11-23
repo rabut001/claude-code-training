@@ -64,6 +64,10 @@
     ],
     "explanation": "推論トークンは生成されるトークンなので、出力として課金され、レスポンスの予算に含まれます。そのため、budget_tokens は max_tokens より小さく設定する必要があり、思考によってコストもレイテンシも増えます。"
   },
+  "supplement": {
+    "ja": "extended thinking は、最終的な回答を出す前に、モデルが内部の推論に追加の処理を使う機能です。",
+    "en": "Extended thinking is a feature that lets the model spend additional computation on internal reasoning before producing its final answer."
+  },
   "references": [
     {
       "title": "Anthropic docs — Extended thinking",

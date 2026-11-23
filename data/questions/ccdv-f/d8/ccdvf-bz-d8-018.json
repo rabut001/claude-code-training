@@ -64,6 +64,10 @@
     ],
     "explanation": "これは、まさに MCP が解消するために存在する重複です。オープンな標準に従って一度実装すれば、対応するすべてのクライアントが利用でき、保守して安全に保つコードベースを1つにできます。"
   },
+  "supplement": {
+    "ja": "CI（継続的インテグレーション）は、コードの変更を共有のリポジトリへ継続的に取り込み、ビルドやテストを自動実行して確認する開発の仕組みです。",
+    "en": "CI (continuous integration) is a development practice of regularly integrating code changes into a shared repository and checking them with automated builds and tests."
+  },
   "references": [
     {
       "title": "Model Context Protocol",

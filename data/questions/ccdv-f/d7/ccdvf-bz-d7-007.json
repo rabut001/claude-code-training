@@ -64,6 +64,10 @@
     ],
     "explanation": "決定論的なガードレールは、必ず実行され、同じ入力には同じ判断を返すコードです。モデルが従うことを選ぶかどうかに依存せず、作動するか、しないかが決まります。"
   },
+  "supplement": {
+    "ja": "few-shot は、少数の入力例とそれに対する出力例をプロンプトに含め、望む回答の形や規則を伝える方法です。",
+    "en": "Few-shot prompting provides a small number of example inputs and outputs in the prompt to show the desired response format or rules."
+  },
   "references": [
     {
       "title": "Anthropic docs — Strengthen guardrails",

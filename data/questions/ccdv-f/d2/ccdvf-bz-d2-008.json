@@ -64,6 +64,10 @@
     ],
     "explanation": "Claude は画像をコンテンツブロックとして直接受け付けるため、別途 OCR 処理で平坦化することなく、レイアウト、表、印影をモデルが見られる状態で保てます。"
   },
+  "supplement": {
+    "ja": "OCR（光学文字認識）は、画像に含まれる文字を読み取り、テキストデータに変換する処理です。 base64 は、画像などのバイナリーデータを、テキストとして送信・保存できる文字列に変換する符号化方式です。",
+    "en": "OCR (optical character recognition) reads characters in an image and converts them into text data. base64 is an encoding that converts binary data, such as an image, into a character string that can be transmitted or stored as text."
+  },
   "references": [
     {
       "title": "Anthropic docs — Vision",
