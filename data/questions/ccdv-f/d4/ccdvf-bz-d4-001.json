@@ -38,7 +38,31 @@
     "explanation": "An empty array could mean no matches, a bad query, or a failure. An unambiguous result lets the agent distinguish \"nothing exists\" from \"something went wrong\" rather than filling the gap with assumption."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントが誤った最終回答を返しました。トレースには正しいツール呼び出しが記録されていますが、ツールは空の配列を返し、エージェントは推測で回答を進めています。欠陥はどこにありますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "ツールを呼び出さなくても答えを知っているべきだった、モデル。",
+        "note": "ツールが取得するデータについて、パラメーター内の知識に頼ることこそ、ここで説明されている失敗です。"
+      },
+      {
+        "id": "b",
+        "text": "空の結果の扱いに関する few-shot の例が、もっと必要だったプロンプト。",
+        "note": "本当に曖昧なツールレスポンスは、例では解決できません。"
+      },
+      {
+        "id": "c",
+        "text": "推論がより優れたものに更新すべきだった、モデルのバージョン。",
+        "note": "新しいモデルも、まったく同じ曖昧なシグナルに直面します。"
+      },
+      {
+        "id": "d",
+        "text": "明確なシグナルではなく、曖昧な空の配列を返したツール。",
+        "note": ""
+      }
+    ],
+    "explanation": "空の配列は、一致するものがない、不適切な問い合わせ、失敗のいずれも意味し得ます。曖昧さのない結果なら、エージェントは空白を推測で埋める代わりに、\"何も存在しない\"と\"何かが失敗した\"を区別できます。"
   },
   "references": [
     {

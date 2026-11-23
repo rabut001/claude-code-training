@@ -38,7 +38,31 @@
     "explanation": "Five percentage points on 40 examples is two items. A difference that small on a sample that small is indistinguishable from noise, and shipping on it is how teams convince themselves a neutral change helped."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "プロンプトの変更後、40件の評価セットで正答率が82%から87%に上がりました。正しい結論はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "変更は明確な改善であり、本番環境にデプロイすべきである。",
+        "note": "統計的に意味のない差を、証拠として扱っています。"
+      },
+      {
+        "id": "b",
+        "text": "変更で結果が悪化したため、以前のプロンプトに戻すべきである。",
+        "note": "測定結果は、その結論も支持していません。"
+      },
+      {
+        "id": "c",
+        "text": "40件中で正解が2件増えた程度ならノイズの範囲内なので、より大きなセットで検証する。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "ここでは正答率は誤った指標であり、判定によるスコアに置き換えるべきである。",
+        "note": "ここでは正答率は適切です。問題はサンプル数です。"
+      }
+    ],
+    "explanation": "40件で5ポイントの差は、2件分です。このように小さなサンプルでの小さな差は、ノイズと区別できません。それを根拠にリリースすると、効果のない変更が役立ったと自分たちを思い込ませることになります。"
   },
   "references": [
     {

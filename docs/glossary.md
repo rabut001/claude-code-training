@@ -166,3 +166,11 @@
 | principal | 主体 | 認可の文脈 |
 | identity model | アイデンティティーモデル | |
 | rotation | ローテーション | キーや認証情報の更新 |
+| Plan mode | 英語のまま | 機能名 |
+| Headless mode | 英語のまま | 機能名 |
+| custom slash command | カスタムスラッシュコマンド | |
+| project memory | プロジェクトメモリー | |
+| agent memory | エージェントメモリー | |
+| integration layer | 連携層 | |
+| parametric knowledge | パラメーター内の知識 | |
+| quota | 割り当て量 | |

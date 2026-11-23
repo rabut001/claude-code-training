@@ -38,7 +38,31 @@
     "explanation": "Repeated corrections are exactly what project memory is for: the knowledge becomes persistent, shared through version control, and loaded in every session."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude Code が、プロジェクトに対して誤ったテストコマンドを繰り返し使っていることに気づきました。最も持続的な修正はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "作業セッションの開始時に毎回、手作業でコマンドを修正する。",
+        "note": "すべての開発者が、同じ修正をいつまでも際限なく繰り返すことになります。"
+      },
+      {
+        "id": "b",
+        "text": "正しいコマンドを使う run_tests ツールを公開する MCP サーバーを構築する。",
+        "note": "アシスタントはすでにコマンドを実行できるため、大がかりすぎます。"
+      },
+      {
+        "id": "c",
+        "text": "正規のビルドとテストのコマンドを、プロジェクトの CLAUDE.md に記録する。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "リポジトリについての推論がより優れた、高性能なモデル階層にチームを移行する。",
+        "note": "伝えられていないプロジェクト固有のコマンドを、推測できるモデルはありません。"
+      }
+    ],
+    "explanation": "修正の繰り返しは、まさにプロジェクトメモリーの用途です。知識が永続化され、バージョン管理を通じて共有され、すべてのセッションで読み込まれます。"
   },
   "references": [
     {

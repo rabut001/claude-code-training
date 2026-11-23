@@ -38,7 +38,31 @@
     "explanation": "The raw response separates the two. A malformed request, a wrong parameter, an unhandled stop_reason, or a bad tool result points at your code instead."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "失敗が連携層に由来するのか、モデルの出力に由来するのかを、どう判断しますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "モデルの失敗は HTTP エラーとして表れ、連携の失敗はそうならない。",
+        "note": "モデルの品質上の失敗でも HTTP 200が返り、そのことが検出を難しくしています。"
+      },
+      {
+        "id": "b",
+        "text": "連携の失敗は高負荷時にしか起きないため、トラフィックのピーク時に再現する。",
+        "note": "連携のバグは、負荷にかかわらず、特定の入力で起きることがよくあります。"
+      },
+      {
+        "id": "c",
+        "text": "生のレスポンスを調べる。形式が正しくても内容が誤っていれば、プロンプトかモデルが疑われる。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "temperature を0にすれば、モデルの失敗は必ず再現できる。",
+        "note": "temperature が0だと出力の違いは減りますが、再現可能性は保証されません。"
+      }
+    ],
+    "explanation": "生のレスポンスによって、両者を切り分けます。一方、不正な形式のリクエスト、誤ったパラメーター、未処理の stop_reason、不適切なツール結果は、自分たちのコードを示唆します。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "It runs a single prompt to completion and emits output suitable for scripting, which is what a CI job needs. Interactive features have no meaning where no terminal is attached."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "CI パイプライン内で非対話的に実行することを想定した、Claude Code の機能はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "パイプラインで保存できる、レビュー可能な計画を作る Plan mode。",
+        "note": "Plan mode は、対話的な承認ワークフローです。"
+      },
+      {
+        "id": "b",
+        "text": "以前のセッションにパイプラインを再接続する /resume コマンド。",
+        "note": "/resume は、以前の対話的なセッションを開き直します。"
+      },
+      {
+        "id": "c",
+        "text": "パイプラインのジョブに必要なプロジェクトのコンテキストを渡す、エージェントメモリー。",
+        "note": "メモリーはコンテキストを渡すもので、実行モードではありません。"
+      },
+      {
+        "id": "d",
+        "text": "print フラグで呼び出し、プロンプトを完了まで実行する Headless mode。",
+        "note": ""
+      }
+    ],
+    "explanation": "1つのプロンプトを完了まで実行し、スクリプトで扱うのに適した出力を返すため、CI ジョブの要件に合います。端末が接続されていない環境では、対話的な機能に意味はありません。"
   },
   "references": [
     {

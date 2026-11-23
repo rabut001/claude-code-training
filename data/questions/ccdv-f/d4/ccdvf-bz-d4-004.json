@@ -38,7 +38,31 @@
     "explanation": "A 400 is a client-side defect such as a bad parameter or a mismatched tool_use_id. Retrying an identical malformed request wastes quota and delays surfacing the bug."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "通常、自動的に再試行すべきでないエラーの種類はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "アカウントの送信が速すぎることを示す、429 rate_limit_error。",
+        "note": "レート制限は一時的です。バックオフを使い、retry-after に従って再試行してください。"
+      },
+      {
+        "id": "b",
+        "text": "何度試しても同じように失敗する、400 invalid_request_error。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "上流の一時的な容量不足を示す、529 overloaded_error。",
+        "note": "過負荷は一時的な容量不足であり、典型的な再試行の対象です。"
+      },
+      {
+        "id": "d",
+        "text": "レスポンスを受け取る前に発生した、接続のタイムアウト。",
+        "note": "タイムアウトは一時的であり、通常は回数を制限した再試行が適切です。"
+      }
+    ],
+    "explanation": "400は、不適切なパラメーターや tool_use_id の不一致など、クライアント側の欠陥です。同じ不正な形式のリクエストを再試行しても、割り当て量を浪費し、バグが表面化するのを遅らせます。"
   },
   "references": [
     {
