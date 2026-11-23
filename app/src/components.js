@@ -1,38 +1,59 @@
 // 複数の画面で使う部品
+//
+// 部品の使い分け（どれが押せるかを見た目で分ける）
+//   白い角丸の箱（card）……… 押すと別の画面へ移る。右端に › を付ける
+//   ボタン（btn）…………… その場で操作する。塗りつぶし（btn--primary）は画面に1つまで
+//   チェックボックス（tick）… オン・オフする。色は付けず、黒の ✔ で示す
+//   選択肢（option）………… 白い箱。採点後は押せないので、箱をやめて色だけにする
+//   枠なし ……………………… 表示するだけのもの
+// 色の使い分け
+//   青（accent）＝選んでいるもの・いまの問題・主な操作、緑（ok）＝正解、赤（ng）＝不正解・注意・削除、それ以外は黒と灰
 
-import { el, richText, percent } from "./util.js";
+import { el, richText } from "./util.js";
 import { textOf } from "./data.js";
-
-/** 進み具合のバー */
-export function bar(value, max, { label = "", tone = "accent" } = {}) {
-  const p = percent(value, max);
-  return el(
-    "div",
-    { class: `bar bar--${tone}`, role: "progressbar", "aria-valuemin": 0, "aria-valuemax": max, "aria-valuenow": value, "aria-label": label },
-    el("div", { class: "bar__fill", style: `width:${p}%` }),
-  );
-}
-
-export function badge(text, tone = "muted") {
-  return el("span", { class: `badge badge--${tone}`, text });
-}
 
 export function domainLabel(exam, domainId) {
   const d = exam.domains.get ? exam.domains.get(domainId) : exam.exam.domains.find((x) => x.id === domainId);
   return d ? d.name.ja : domainId;
 }
 
+/** セッションの名前（上部バーや「続きから」に出す）。分野別ドリルは分野名 */
+export function sessionLabel(exam, session) {
+  if (session.mode === "drill" && session.domain) return domainLabel(exam, session.domain);
+  return { quick: "クイック10問", mock: "本番形式の模試" }[session.mode] || "";
+}
+
+/** 「180問 (回答済: 59問)」 */
+export function countText(total, seen) {
+  return `${total}問 (回答済: ${seen}問)`;
+}
+
 /**
- * 問題カード。
+ * 押すと別の画面へ移る箱。href を渡すとリンク、onClick を渡すとボタンになる。
+ * body には中身（文字列・要素・配列）を渡す。
+ */
+export function card({ href = null, onClick = null, className = "", label = null }, ...body) {
+  const props = { class: `card ${className}`.trim(), "aria-label": label };
+  const chev = el("span", { class: "card__chev", "aria-hidden": "true" }, "›");
+  const inner = el("div", { class: "card__body" }, ...body);
+  return href ? el("a", { ...props, href }, inner, chev) : el("button", { ...props, type: "button", onclick: onClick }, inner, chev);
+}
+
+/** チェックボックスの四角（オンなら黒の ✔） */
+export function tick(on) {
+  return el("span", { class: "tick", "aria-hidden": "true" }, on ? "✔" : "");
+}
+
+/**
+ * 問題（問題文・選択肢・解説・補足）。枠では囲まず、選択肢だけを白い箱にする。
  * opts:
  *   lang        表示したい言語（"ja" / "en"）
  *   order       選択肢の並び順（id の配列）
  *   selected    選んでいる選択肢の id の配列
  *   reveal      正解と解説を表示するか
  *   onToggle    選択肢を押したときに呼ぶ（id を渡す）。null なら押せない
- *   onLang      言語切り替えボタンを押したときに呼ぶ。null ならボタンを出さない
  */
-export function questionCard(exam, q, { lang, order, selected = [], reveal = false, onToggle = null, onLang = null, header = null }) {
+export function questionCard(exam, q, { lang, order, selected = [], reveal = false, onToggle = null }) {
   const t = textOf(q, lang);
   const optById = new Map(t.options.map((o) => [o.id, o]));
   const ids = order && order.length ? order : t.options.map((o) => o.id);
@@ -40,36 +61,26 @@ export function questionCard(exam, q, { lang, order, selected = [], reveal = fal
   const chosen = new Set(selected);
   const answer = new Set(q.answer);
 
-  const meta = el(
-    "div",
-    { class: "qmeta" },
-    header,
-    badge(domainLabel(exam, q.domain)),
-    multi ? badge(`${q.select}つ選択`, "warn") : null,
-    t.fallback ? badge("未訳のため英語で表示", "muted") : null,
-  );
-
-  const langBtn = onLang
-    ? el("button", { class: "chip", type: "button", onclick: onLang, "aria-label": "表示する言語を切り替える" }, t.lang === "ja" ? "English" : "日本語")
-    : null;
-
   const list = el("div", { class: "options", role: multi ? "group" : "radiogroup", "aria-label": "選択肢" });
   ids.forEach((id, i) => {
     const o = optById.get(id);
     if (!o) return;
     const isChosen = chosen.has(id);
     const isAnswer = answer.has(id);
-    let state = "";
+    let cls = "option";
     if (reveal) {
-      if (isAnswer) state = "correct";
-      else if (isChosen) state = "wrong";
+      cls += " is-rev";
+      if (isAnswer) cls += " is-correct";
+      else if (isChosen) cls += " is-wrong";
+    } else if (isChosen) {
+      cls += " is-chosen";
     }
     const mark = reveal ? (isAnswer ? "✓" : isChosen ? "✗" : "") : "";
     const btn = el(
       "button",
       {
         type: "button",
-        class: `option${isChosen ? " is-chosen" : ""}${state ? ` is-${state}` : ""}`,
+        class: cls,
         role: multi ? "checkbox" : "radio",
         "aria-checked": isChosen ? "true" : "false",
         disabled: !onToggle,
@@ -119,8 +130,9 @@ export function questionCard(exam, q, { lang, order, selected = [], reveal = fal
   return el(
     "article",
     { class: "qcard", lang: t.lang },
-    el("div", { class: "qcard__head" }, meta, langBtn),
+    t.fallback ? el("p", { class: "qnote", lang: "ja", text: "未訳のため英語で表示しています" }) : null,
     el("p", { class: "qtext" }, richText(t.question)),
+    multi ? el("p", { class: "qneed", lang: "ja", text: `選択肢から${q.select}つ選ぶ` }) : null,
     list,
     explanation,
     supplement,

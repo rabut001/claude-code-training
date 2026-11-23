@@ -53,9 +53,9 @@ export async function settingsView(ctx) {
           type: "button",
           class: "btn btn--danger",
           onclick: () => {
-            if (confirm(`${e.code} の学習記録をすべて消しますか？（元に戻せません）`)) {
+            if (confirm(`${e.code} の学習記録とチェックをすべて消しますか？（元に戻せません）`)) {
               resetProgress(e.id);
-              alert(`${e.code} の学習記録を消しました。`);
+              alert(`${e.code} の学習記録とチェックを消しました。`);
             }
           },
         },
@@ -74,22 +74,22 @@ export async function settingsView(ctx) {
       el(
         "div",
         { class: "stack" },
-        el("section", { class: "panel stack" }, el("h2", { class: "section-title", text: "表示する言語" }), langGroup, el("p", { class: "hint", text: "出題中も、問題ごとに「English / 日本語」ボタンで切り替えられます。" })),
-        el("section", { class: "panel stack" }, el("h2", { class: "section-title", text: "出題" }), shuffleToggle),
+        el("section", { class: "settings-section" }, el("h2", { class: "section-title", text: "表示する言語" }), langGroup, el("p", { class: "hint", text: "出題中も、問題ごとに「English / 日本語」ボタンで切り替えられます。" })),
+        el("section", { class: "settings-section" }, el("h2", { class: "section-title", text: "出題" }), shuffleToggle),
         el(
           "section",
-          { class: "panel stack" },
+          { class: "settings-section" },
           el("h2", { class: "section-title", text: "学習記録" }),
           el("p", { class: "hint", text: isPersistent() ? "学習記録はこの端末のブラウザに保存されます（ほかの端末とは共有されません）。" : "この環境では学習記録を保存できません。ページを閉じると消えます。" }),
           resets,
         ),
         el(
           "section",
-          { class: "panel stack" },
+          { class: "settings-section" },
           el("h2", { class: "section-title", text: "スマホのホーム画面に追加する" }),
           el("p", { class: "hint", text: "iPhone：Safari の共有ボタン →「ホーム画面に追加」。Android：Chrome のメニュー →「ホーム画面に追加」または「アプリをインストール」。一度開いたあとはオフラインでも使えます。" }),
         ),
-        el("section", { class: "panel stack notice" }, el("h2", { class: "section-title", text: "出典とライセンス" }), notice),
+        el("section", { class: "settings-section notice" }, el("h2", { class: "section-title", text: "出典とライセンス" }), notice),
       ),
     );
   };
