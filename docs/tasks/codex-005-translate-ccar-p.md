@@ -106,8 +106,8 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 | 2 | d1 | 完了 | 39 | `6406ca5` | 全問 draft、全検証成功。用語の補足対象なし |
 | 3 | d4 | 完了 | 36 | `753c978` | 全問 draft、全検証成功。4用語各1問に補足 |
 | 4 | d5 | 完了 | 32 | `6b6a8ab` | 全問 draft、全検証成功。OCR 1問に補足 |
-| 5 | d6 | 完了 | 32 | この分野のコミット | 全問 draft、全検証成功。用語の補足対象なし |
-| 6 | d2 | 未着手 | 30 | | |
+| 5 | d6 | 完了 | 32 | `25296c5` | 全問 draft、全検証成功。用語の補足対象なし |
+| 6 | d2 | 完了 | 30 | この分野のコミット | 全問 draft、全検証成功。few-shot 2問、extended thinking 1問に補足 |
 | 7 | d7 | 未着手 | 16 | | |
 
 ### 共通の確認方法
@@ -151,10 +151,18 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 - 用語の補足：13用語すべて0問。原文の明らかな誤りは見つからなかった。
 - 補足の候補（未追加）：SLI・SLO・SLA（`ccarp-bj-6.3-service-commitment-definitions`）、SLA（`ccarp-bj-6.3-language-expansion-gates`）、エラーバジェット（`ccarp-bj-6.3-breach-response-authority`）。原文にある展開形と区別の説明はそのまま訳した。
 
+### d2（2026-11-23）
+
+- 30問（single 22、multi 8）をdraftにした。全選択肢の理由を訳し、APIフィールド、思考の予算と出力の上限、履歴・キャッシュ・Skillsの読み込み範囲を保持した。
+- `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功、全408問との照合成功。CCAR-Pは計212問draft。
+- 用語の補足：few-shot 2問、extended thinking 1問、ほか11用語は0問。原文の明らかな誤りは見つからなかった。
+- 補足の候補（未追加）：zero-shot（`ccarp-bj-2.3-sufficient-zero-shot-baseline`）。原文の「実例がない」という説明もそのまま訳した。
+
 ### 用語 → 問題 ID（完了分野）
 
 - temperature：`ccarp-bj-3.3-output-cap-truncation`、`ccarp-bj-4.4-diagnose-versioned-sampling-rejection`
 - p95：`ccarp-bj-3.3-parallel-independent-tool-latency`、`ccarp-bj-3.3-quality-and-tail-latency-gates`、`ccarp-bj-3.3-reranking-complete-tradeoff`、`ccarp-bj-3.3-route-specific-model-tradeoffs`、`ccarp-bj-4.5-reranking-overhead-versus-token-savings`
-- few-shot：`ccarp-bj-4.2-protect-heldout-incident-families`
+- few-shot：`ccarp-bj-2.3-few-shot-boundary-coverage`、`ccarp-bj-2.3-sufficient-zero-shot-baseline`、`ccarp-bj-4.2-protect-heldout-incident-families`
 - top_p：`ccarp-bj-4.4-diagnose-versioned-sampling-rejection`
 - OCR：`ccarp-bj-5.4-hipaa-feature-path-change`
+- extended thinking：`ccarp-bj-2.3-manual-thinking-output-budget`

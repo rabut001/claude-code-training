@@ -233,3 +233,9 @@
 | runbook | 手順書 | |
 | release manifest | リリースの構成一覧 | |
 | decommissioning | 廃止 | サービスの運用終了の文脈 |
+| reasoning effort | 推論の労力 | APIの識別子としてのeffortは英語のまま |
+| zero-shot | 英語のまま | 入出力の実例を含めないプロンプトの文脈 |
+| progressive disclosure | 段階的な開示 | |
+| placeholder | プレースホルダー | |
+| just-in-time retrieval | 必要な時点での検索 | |
+| surface | 利用環境 / 出力先 | 製品の利用環境か、応答とツール引数の出力先かで使い分ける |
