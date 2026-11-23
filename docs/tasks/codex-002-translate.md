@@ -2,7 +2,8 @@
 
 - 状態：未着手（codex-001 が `main` にマージされてから始める）
 - 担当：Codex
-- ブランチ：分野ごとに `content/translate-<exam>-<domain>`（例：`content/translate-ccdv-f-d2`）
+- ブランチ：分野ごとに `content/translate-<exam>-<domain>`（例：`content/translate-ccdv-f-d2`）。Codex 用の worktree の中で `git switch -c content/translate-<exam>-<domain> main` として作る
+- 作業フォルダ：`~/repos/claude-code-training.codex`（Codex 用の worktree）
 - 前提：`AGENTS.md`、`docs/data-format.md`、`docs/translation-guide.md`、`docs/glossary.md` を読んでいること
 
 ## やること

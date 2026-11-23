@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """data/ からアプリ用のデータ（app/data/）を生成する。
 
-使い方:
-    python3 tools/build.py                                     # data/questions から生成
-    python3 tools/build.py --questions tests/fixtures/questions  # サンプル問題で生成
+使い方（開発用コンテナ経由。AGENTS.md「5. 開発環境とコマンド」）:
+    ./dev build                                                # data/questions から生成
+    ./dev build --questions tests/fixtures/questions           # サンプル問題で生成
+
+docker が使えない環境では python3 tools/build.py で直接実行してもよい。
 
 出力:
     app/data/index.json      試験の一覧（問題数、和訳の進み具合、各ファイルの version）
@@ -41,7 +43,7 @@ def build(data_dir: Path, questions_dir: Path, out_dir: Path) -> int:
     report, ds = validate.validate(data_dir, questions_dir)
     if report.errors:
         print(f"検証エラーが {len(report.errors)} 件あるため、ビルドを中止しました。")
-        print("python3 tools/validate.py で内容を確認してください。")
+        print("./dev validate で内容を確認してください。")
         return 1
 
     out_resolved = out_dir.resolve()
@@ -85,7 +87,7 @@ def build(data_dir: Path, questions_dir: Path, out_dir: Path) -> int:
     (out_dir / "index.json").write_text(dumps({**index_body, "version": index_version}) + "\n", encoding="utf-8")
     print(f"  index.json（version {index_version}） → {validate.rel(out_dir / 'index.json')}")
     if report.warnings:
-        print(f"（警告が {len(report.warnings)} 件あります。python3 tools/validate.py で確認できます）")
+        print(f"（警告が {len(report.warnings)} 件あります。./dev validate で確認できます）")
     return 0
 
 

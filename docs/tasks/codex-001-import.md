@@ -3,7 +3,11 @@
 - 状態：未着手
 - 担当：Codex
 - ブランチ：`content/import`
-- 前提：`AGENTS.md`、`docs/data-format.md` を読んでいること
+- 作業フォルダ：`~/repos/claude-code-training.codex`（Codex 用の worktree。作成済みで、`content/import` がチェックアウトされています）
+- 前提：`AGENTS.md`（特に「作業フォルダ（git worktree）」）、`docs/data-format.md` を読んでいること
+
+作業はすべて上の作業フォルダの中で行います。統合用のフォルダ（`~/repos/claude-code-training`）では作業しません。
+始める前に `git merge main` で最新の `main` を取り込んでください。
 
 ## やること
 
@@ -21,6 +25,7 @@ git -C .cache/upstream/bajor checkout 05b068db2529b69ea76a2104dae0fd4c197d4d98
 ```
 
 `.cache/` は git の管理対象外です。元リポジトリのファイルはコミットしません。
+（`.cache/` は worktree ごとに別なので、Codex 用の worktree の中に clone します）
 
 ### 2. 取り込みスクリプトを書く
 

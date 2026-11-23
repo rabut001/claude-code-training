@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """問題データを検証する（仕様: docs/data-format.md）。
 
-使い方:
-    python3 tools/validate.py                                  # data/ を検証
-    python3 tools/validate.py --questions tests/fixtures/questions
-    python3 tools/validate.py --exam ccdv-f --strict-counts    # 問題数が出典どおりかも確認
+使い方（開発用コンテナ経由。AGENTS.md「5. 開発環境とコマンド」）:
+    ./dev validate                                             # data/ を検証
+    ./dev validate --questions tests/fixtures/questions
+    ./dev validate --exam ccdv-f --strict-counts               # 問題数が出典どおりかも確認
 
-エラーが1つでもあれば終了コード 1 を返す。標準ライブラリだけで動く。
+エラーが1つでもあれば終了コード 1 を返す。標準ライブラリだけで動くので、
+docker が使えない環境では python3 tools/validate.py で直接実行してもよい。
 """
 from __future__ import annotations
 
