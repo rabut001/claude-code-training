@@ -42,7 +42,31 @@
     "explanation": ""
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "チームは、リポジトリのルートでClaude Codeを起動し、すべての clone に同じプロジェクト設定とMCPサーバー定義を配りたいと考えています。開発者には、このプロジェクト向けの個人的な設定も必要です。認証情報は別途提供されます。これらの担当の境界に合うファイル配置はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": ".claude/settings.local.json と .mcp.json をコミットし、個人のプロジェクト設定は ~/.claude/settings.json に置く",
+        "note": "ローカルの設定ファイルは、開発者1人のプロジェクトの上書き用であり、共有の基準ではありません。ユーザー設定も、このリポジトリだけでなくプロジェクト全体に適用されます。"
+      },
+      {
+        "id": "b",
+        "text": "プロジェクト設定とMCP定義を .claude/settings.json にまとめてコミットし、個人の上書きは .claude/settings.local.json に置く",
+        "note": "設定ファイルの共有と個人のスコープは意図どおりですが、共有のMCPサーバー定義は、プロジェクトルートの別の .mcp.json ファイルに置きます。"
+      },
+      {
+        "id": "c",
+        "text": ".claude/settings.json と .mcp.json をコミットし、個人のプロジェクトの上書きは追跡しない .claude/settings.local.json に置く",
+        "note": "コミットされたプロジェクト設定と .mcp.json が、チームの基準を配布します。追跡しないローカル設定ファイルなら、チームメンバーの設定を変えずに、開発者1人のプロジェクト固有の好みを保存できます。"
+      },
+      {
+        "id": "d",
+        "text": ".claude/settings.json をコミットし、MCP定義は各開発者の ~/.claude.json で配布して、個人の上書きは .claude/settings.local.json に置く",
+        "note": "ローカルとユーザーのMCP定義は ~/.claude.json に置けますが、そのマシン固有のファイルでは、全 clone にリポジトリの基準を配布できません。プロジェクトのMCPスコープは .mcp.json を使います。"
+      }
+    ],
+    "explanation": ""
   },
   "references": [
     {

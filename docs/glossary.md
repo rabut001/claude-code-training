@@ -183,3 +183,63 @@
 | I/O | 英語のまま | 入出力。ネットワーク通信やファイルの読み書きなど |
 | base64 | 英語のまま | 画像などのバイナリーデータを文字列で表す符号化方式 |
 | patch | 修正を適用する | ソフトウェア保守の文脈で、動詞として使う場合 |
+| lexical retrieval / lexical search | 字句検索 | |
+| semantic retrieval / semantic search | 意味検索 | |
+| reranking / reranker | リランキング / リランカー | |
+| rank fusion | 順位融合 | |
+| chunk / chunking | チャンク / チャンク分割 | |
+| provenance | 来歴 | 出典の改訂版や位置などを含む情報 |
+| ingestion | 取り込み | |
+| span | スパン | トレースを構成する処理区間 |
+| tail latency | 遅い側のレイテンシ | |
+| interlock | インターロック | |
+| audience | 対象 | トークンの意図された受信者。フィールド名は英語のまま |
+| scope | スコープ | 認可の文脈 |
+| discovery | 探索 | ツールや認可サーバーを発見する処理 |
+| progressive discovery | 段階的な探索 | |
+| snapshot | スナップショット | |
+| recall | 再現率 | 検索や評価の文脈 |
+| handoff | 引き継ぎ | |
+| rubric | 評価基準 | |
+| checkpoint | チェックポイント | |
+| adjudication | 審査 | フィードバックの妥当性などを判定する文脈 |
+| triage | トリアージ | |
+| accountable owner | 責任を持つオーナー | |
+| due diligence | デューデリジェンス | |
+| artifact | 成果物 | |
+| holdout | 最終評価用の集合 | 調整に使わない評価データを指す場合 |
+| fixture | フィクスチャー | テストの固定入力や環境 |
+| cluster randomization | クラスター無作為化 | |
+| cohort | コホート | |
+| confounding | 交絡 | |
+| statistical power | 検出力 | |
+| correlation ID | 相関ID | |
+| residual risk | 残余リスク | |
+| automation bias | 自動化バイアス | |
+| anchoring | アンカリング | |
+| pseudonymization / pseudonymized | 仮名化 / 仮名化された | |
+| de-identification | 非識別化 | |
+| erasure | 消去 | 個人データの権利対応の文脈 |
+| business associate agreement | 業務提携契約 | 略語BAAは英語のまま |
+| covered entity | 対象事業者 | HIPAAの文脈 |
+| electronic protected health information | 電子保護医療情報 | 略語ePHIは英語のまま |
+| data protection impact assessment | データ保護影響評価 | 略語DPIAは英語のまま |
+| confabulation | 作話 | |
+| requirements discovery | 要件調査 | 単にdiscoveryとある場合も、要件を調べる文脈ではこの訳を使う |
+| service level indicator | サービスレベル指標 | 略語SLIは英語のまま |
+| service level objective | サービスレベル目標 | 略語SLOは英語のまま |
+| service level agreement | サービスレベル合意 | 略語SLAは英語のまま |
+| error budget | エラーバジェット | |
+| runbook | 手順書 | |
+| release manifest | リリースの構成一覧 | |
+| decommissioning | 廃止 | サービスの運用終了の文脈 |
+| reasoning effort | 推論の労力 | APIの識別子としてのeffortは英語のまま |
+| zero-shot | 英語のまま | 入出力の実例を含めないプロンプトの文脈 |
+| progressive disclosure | 段階的な開示 | |
+| placeholder | プレースホルダー | |
+| just-in-time retrieval | 必要な時点での検索 | |
+| surface | 利用環境 / 出力先 | 製品の利用環境か、応答とツール引数の出力先かで使い分ける |
+| managed settings | 管理された設定 | |
+| permission policy | 権限方針 | |
+| command hook / prompt hook / agent hook | コマンドフック / プロンプトフック / エージェントフック | |
+| unattended run | 無人実行 | 対話的な操作なしに動く実行 |

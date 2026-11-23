@@ -42,7 +42,35 @@
     "explanation": ""
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "公開のHTTP MCPクライアントが、MCP 2026-07-28の認可に従っています。選択したOpenID Connectディスカバリー文書には code_challenge_methods_supported がありません。アイデンティティー担当チームは、TLSとリダイレクト先の厳密な登録によって、認可コードの交換は十分安全だと言っています。この仕様の下で、MCPクライアントはどうすべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "リダイレクト先の厳密な登録でコードを引き換える相手を認証できるため、PKCEなしで続行する",
+        "note": "リダイレクトの検証は、引き換える相手が元のPKCE検証子を持つという証明の代わりにはなりません。この仕様では、認可の前にクライアントがPKCEへの対応を確認する必要があります。"
+      },
+      {
+        "id": "b",
+        "text": "OpenID Connectではこのフィールドが任意なので、plain のコードチャレンジを送信し、プロバイダーが対応していると仮定する",
+        "note": "MCPは、OpenID Connectディスカバリーを使う場合でも、このメタデータのフィールドを確認するという明示的な要件を加えています。対応を推測しても要件は満たせず、技術的に可能なクライアントは S256 を使う必要があります。"
+      },
+      {
+        "id": "c",
+        "text": "先に認可を完了し、発行されたアクセストークンの対象が適切か検査する",
+        "note": "対象の検証はリソースへのアクセスを保護しますが、保護されていない認可コードのフローを修復しません。続行前に、PKCE対応の確認不足に対処する必要があります。"
+      },
+      {
+        "id": "d",
+        "text": "メタデータでPKCE対応を確認できるまで続行を拒否し、技術的に可能なら S256 を使う",
+        "note": "MCP 2026-07-28では、サポートされるどちらのディスカバリー方式でも code_challenge_methods_supported がない場合、続行を拒否する必要があります。TLSやリダイレクトの検査によって、コード保護の要件が免除されることはありません。"
+      }
+    ],
+    "explanation": ""
+  },
+  "supplement": {
+    "ja": "PKCE：OAuthで、認可コードの横取りに対処する仕組みです。要求を始めたアプリだけが持つ検証用の文字列を使い、盗まれたコードだけではアクセストークンに交換できないようにします。 S256：PKCEで使う変換方式です。検証用の文字列をSHA-256でハッシュ化して認可時に送り、後のトークン要求で元の文字列との対応を確認します。",
+    "en": "PKCE: An OAuth mechanism that addresses authorization-code interception. It uses a verifier string held only by the application that initiated the request so that a stolen code alone cannot be exchanged for an access token. S256: A transformation method used in PKCE. The verifier string is hashed with SHA-256 and sent during authorization; a later token request verifies its correspondence with the original string."
   },
   "references": [
     {

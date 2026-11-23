@@ -42,7 +42,35 @@
     "explanation": ""
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "手動の extended thinking に明示的に対応するモデルで、ツールなしの通常の要求が、最終回答の完成前に max_tokens で終わることがよくあります。チームは、大きな budget_tokens の値を設定し、最終回答の上限とは別の、推論消費の厳格な上限だと考えていました。extended thinking 固有の契約に合う修正はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "推論の予算は最終回答の許容量を消費しないため、max_tokens を変えずに budget_tokens を増やす",
+        "note": "現在のターンの思考と最終テキストは、出力の総上限を共有します。推論の目標だけを上げても、完全な回答の領域は確保できません。"
+      },
+      {
+        "id": "b",
+        "text": "budget_tokens を目標として扱い、推論と最終回答を合わせた出力に十分な max_tokens を設定する",
+        "note": "専門の資料は、max_tokens を総出力の厳格な上限、手動の予算を厳格な上限ではなく目標としています。このツールなしの状況では、共有する許容量に最終応答の余地が必要です。"
+      },
+      {
+        "id": "c",
+        "text": "見える思考の要約を省き、課金対象の出力と出力上限の計上から隠れた推論を差し引く",
+        "note": "要約を隠しても変わるのは表示であり、推論トークンを生成したかどうかではありません。思考は引き続き出力予算を消費し、課金されます。"
+      },
+      {
+        "id": "d",
+        "text": "両上限は変えずに、最終回答の単語数を厳格なAPI支出の制御にする",
+        "note": "自然言語による単語数の要求は、APIのトークン上限ではありません。内部の推論を制限せず、回答に十分な出力が残ることも保証しません。"
+      }
+    ],
+    "explanation": ""
+  },
+  "supplement": {
+    "ja": "extended thinking は、最終的な回答を出す前に、モデルが内部の推論に追加の処理を使う機能です。",
+    "en": "Extended thinking is a feature that lets the model spend additional computation on internal reasoning before producing its final answer."
   },
   "references": [
     {

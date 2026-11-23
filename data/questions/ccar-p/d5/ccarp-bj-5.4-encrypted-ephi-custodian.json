@@ -43,7 +43,35 @@
     "explanation": ""
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "HIPAAの対象事業者が、クラウドのバックアップ提供者に、自らに代わって暗号化された電子保護医療情報（ePHI）を保持させることを提案しています。提供者は復号キーを持ちません。米国保健福祉省（HHS）のクラウドガイダンスの下で、この取り決めから必要になるアーキテクチャ上の要件はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "キーを持たない提供者は業務提携者の関係の対象外なので、確認を暗号の強度に限定する",
+        "note": "HHSは、復号できない場合でも、対象事業者に代わってePHIを保持する提供者を含めています。キーの分離は、その関係や保護策を取り除きません。"
+      },
+      {
+        "id": "b",
+        "text": "適用される業務提携契約を使い、可用性と復旧を含む提供者のセキュリティ上の義務を評価する",
+        "note": "暗号化されたePHIの保持は、業務提携者の関係を生むことがあります。契約とリスク管理は引き続き必要で、暗号化だけでは完全性、可用性、管理上の保護策には対処できません。"
+      },
+      {
+        "id": "c",
+        "text": "HHS公民権局の製品認証バッジを求め、対象事業者自身のリスク分析の代わりに使う",
+        "note": "HHS公民権局は、特定の製品を推奨・認証しません。製品のバッジとされるものは、実際のデータ経路と責任についての事業者の評価には代えられません。"
+      },
+      {
+        "id": "d",
+        "text": "暗号化バックアップを非識別化された情報として扱い、キーの保有者だけがHIPAAの責任を持つと記録する",
+        "note": "暗号化は、HIPAAでの非識別化と同じではありません。ePHIを保持する提供者の役割と、共有する保護策の責任は、引き続き評価が必要です。"
+      }
+    ],
+    "explanation": ""
+  },
+  "supplement": {
+    "ja": "HIPAA：米国の法律で、関連する規則が医療情報のプライバシーや安全な取り扱いなどを定めています。対象となる医療機関や、その委託先などに義務があります。 ePHI：electronic Protected Health Information。HIPAAの保護対象となる、電子形式の個人を識別できる医療情報です。",
+    "en": "HIPAA: A United States law whose associated rules govern matters such as the privacy and secure handling of health information. Obligations apply to covered healthcare organizations and their service providers, among others. ePHI: Electronic Protected Health Information. Individually identifiable health information in electronic form that is protected under HIPAA."
   },
   "references": [
     {

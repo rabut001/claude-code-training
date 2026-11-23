@@ -42,7 +42,35 @@
     "explanation": ""
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "バージョン2026-10-21を使うClaude Messages APIの連携で、レイテンシを短くするために max_tokens を下げました。以前の設定では必要なチェックリストのフィールドをすべて正しく返せていたのに、今はすべてを返す前に応答が max_tokens で停止します。次の設定変更として最も適切なのはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "現在の出力上限を効率よく使うため、temperature をゼロに下げる",
+        "note": "APIバージョン2026-10-21は、この調整を適用せず temperature を拒否します。また、この変更では、必要なフィールドに十分な出力領域も確保できません。"
+      },
+      {
+        "id": "b",
+        "text": "上限を維持し、構文上完結している冒頭部分であればチェックリストの成功とする",
+        "note": "形式の整った冒頭部分でも、必須フィールドが欠けていることがあります。成功の定義を変えると、品質のリグレッションを解決せずに隠すことになります。"
+      },
+      {
+        "id": "c",
+        "text": "ストリーミングの応答は出力が途切れないため、ストリーミングを有効にして上限を維持する",
+        "note": "ストリーミングは max_tokens を取り除かず、内容の完全性も保証しません。同じ途切れたチェックリストを、小さく分けて届けるだけかもしれません。"
+      },
+      {
+        "id": "d",
+        "text": "簡潔なチェックリストを明示的に求め、十分な出力トークンを許可し、全フィールドの精度とレイテンシを再検証する",
+        "note": "max_tokens は厳格な上限であり、短くても完全な回答を作る指示ではありません。簡潔な出力の指示と十分な上限により、フィールドの欠落を許容せずに不要な文章を減らせます。"
+      }
+    ],
+    "explanation": ""
+  },
+  "supplement": {
+    "ja": "temperature は、LLM（大規模言語モデル）が次に出力するトークン（単語や文字の断片）を選ぶ際のランダムさを調整するパラメーターです。値を低くすると確率の高い候補が選ばれやすくなり、高くすると比較的確率の低い候補も選ばれやすくなって、表現に幅が出ます。物理的な温度を設定するものではありません。",
+    "en": "temperature controls randomness when an LLM (large language model) selects the next output token (a word or character fragment). Lower values favor higher-probability candidates; higher values make relatively lower-probability candidates more likely, allowing more varied wording. It does not set a physical temperature."
   },
   "references": [
     {

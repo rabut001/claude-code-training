@@ -42,7 +42,35 @@
     "explanation": ""
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "保護されたHTTP MCPのデプロイ環境が、MCP 2026-07-28の認可仕様を実装しています。連携の担当者は、認可サーバーがMCPエンドポイントのオリジンでホストされる必要があると思い込み、別にホストされたアイデンティティーサービスを拒否しています。この前提を、どのような探索の設計に置き換えるべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "MCPサーバーの OAuth Protected Resource Metadata を使い、そこで提示された認可サーバーを発見する",
+        "note": "このバージョンでは、保護されたMCPリソースがRFC 9728のメタデータを実装し、クライアントがそれを使って認可サーバーを探索する必要があります。認可サーバーはリソースとは別にホストできます。"
+      },
+      {
+        "id": "b",
+        "text": "ユーザーが既に持っているIDプロバイダーのトークンをMCPエンドポイントで試し、成功したことから発行者を推測する",
+        "note": "別のリソース向けのトークンは探索の仕組みではなく、署名が有効というだけで受け入れてはいけません。意図するMCPリソース向けのトークンを要求する前に、探索を行うべきです。"
+      },
+      {
+        "id": "c",
+        "text": "サーバーが最初に返すツールの説明から、認可サーバーのURLを読み取る",
+        "note": "ツールの説明は、仕様で定めた認可の探索経路ではありません。保護されたエンドポイントでは、ツールを返す前に認可が必要な場合もあります。"
+      },
+      {
+        "id": "d",
+        "text": "ほかの発行者を検討する前に、MCPエンドポイントのオリジンで Dynamic Client Registration を必須にする",
+        "note": "このバージョンの Dynamic Client Registration は、互換性のための任意の対応であり、同一オリジンでの初期設定が必須なのではありません。Protected Resource Metadata が、必要な探索の境界を提供します。"
+      }
+    ],
+    "explanation": ""
+  },
+  "supplement": {
+    "ja": "OAuth：アプリに、別のサービスへの限定的なアクセス権を与えるための仕組みです。例えば、ユーザーのパスワードをアプリへ渡さずに、許可したデータの読み取りを認められます。",
+    "en": "OAuth: A framework for granting an application limited access to another service. For example, it can permit reading authorized data without giving the application the user's password."
   },
   "references": [
     {

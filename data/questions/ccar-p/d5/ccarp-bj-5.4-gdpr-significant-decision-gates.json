@@ -44,7 +44,35 @@
     "explanation": ""
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "EUの管理者が、申請者に同様に重大な影響を与える、自動処理のみに基づく決定を提案しています。プライバシーの法務担当者は、第35条に基づく事前のデータ保護影響評価（DPIA）が必要と判断しており、第22条の例外はまだ確立されていません。処理者との契約は既に締結済みです。公開計画が対処すべき、未解決のガバナンス上の判定条件はどれですか？（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "処理者との契約を、自動化された決定の制限と管理者の影響評価の義務の両方を満たす証拠として使う",
+        "note": "処理者の契約条件が対処するのは別の義務です。第22条の例外を確立せず、管理者に必要な事前DPIAの代わりにもなりません。"
+      },
+      {
+        "id": "b",
+        "text": "処理の前に必要なDPIAを完了し、権利への影響、保護策の案、未解決のリスク、責任あるプライバシー判断を記録する",
+        "note": "この状況では、事前評価の要件が明示的に確立されています。公開の判定には、デプロイ後に実施する約束ではなく、その評価とリスク対処の証拠が必要です。"
+      },
+      {
+        "id": "c",
+        "text": "適用可能な第22条の経路と保護策についてプライバシーの承認を得るか、稼働を認可する前に意思決定のワークフローを再設計する",
+        "note": "第22条には対象範囲と例外がありますが、ここでは例外は確立されていません。チームは、処理者契約から許可を推測せず、その適用可能性と保護策の問題を解消する必要があります。"
+      },
+      {
+        "id": "d",
+        "text": "AI利用の通知と任意の決定後アンケートを追加し、その決定は自動化のみによるものではないと分類する",
+        "note": "通知とフィードバック自体は、意味のある人の意思決定を導入せず、例外も確立しません。別途必要な事前の影響評価も満たしません。"
+      }
+    ],
+    "explanation": ""
+  },
+  "supplement": {
+    "ja": "DPIA：Data Protection Impact Assessment。個人データの処理が人の権利に及ぼすリスクと、その対策を事前に評価するものです。GDPRでは、高いリスクが見込まれる処理などで求められます。",
+    "en": "DPIA: Data Protection Impact Assessment. A prior assessment of the risks that personal-data processing poses to people's rights and the measures addressing those risks. Under the GDPR, it is required for processing likely to present high risks, among other applicable circumstances."
   },
   "references": [
     {
