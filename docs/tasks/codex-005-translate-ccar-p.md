@@ -1,6 +1,6 @@
 # codex-005：CCAR-P の全228問を和訳する
 
-- 状態：未着手
+- 状態：作業中
 - 担当：Codex
 - ブランチ：`content/translate-ccar-p`（作成済み。`main` の `06e2980`（CCDV-F の残り91問のマージ後）から作り、この指示書だけをコミットしてある）
 - 作業フォルダ：`~/repos/claude-code-training.codex`（Codex 用の worktree）
@@ -102,10 +102,29 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 
 | 順 | 分野 | 状態 | 問題数 | コミット | メモ |
 |---|---|---|---|---|---|
-| 1 | d3 | 未着手 | 43 | | |
+| 1 | d3 | 完了 | 43 | この分野のコミット | 全問 draft、全検証成功。temperature 1問、p95 4問に補足 |
 | 2 | d1 | 未着手 | 39 | | |
 | 3 | d4 | 未着手 | 36 | | |
 | 4 | d5 | 未着手 | 32 | | |
 | 5 | d6 | 未着手 | 32 | | |
 | 6 | d2 | 未着手 | 30 | | |
 | 7 | d7 | 未着手 | 16 | | |
+
+### 共通の確認方法
+
+- 作業開始時のHEADは `bfd20ae`。`git merge main` は `Already up to date.` だった。
+- 変更前の全408問を `.cache/ccarp-original/` に保存。照合用の `.cache/ccarp_work.py` で、訳した問題の `ja` と `supplement` 以外のフィールド、他の問題のバイト列、選択肢のID・順序・空欄、複数選択の数、バッククォート、JSON書式を確認する。
+- 13用語の定義は `.cache/bulk-term-definitions.json` の日英両方をCCDV-Fの問題データと照合して一致を確認した。補足は該当する定義の連結だけで構成されていることを検証する。これらの作業用ファイルは管理対象外。
+
+### d3（2026-11-23）
+
+- 43問（single 31、multi 12）の問題文、選択肢、全選択肢の理由を和訳。`ja.explanation` はすべて空文字のまま。選択肢の長さ・理由の密度を原文に合わせ、業務条件とバージョン指定を保持した。
+- `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功、全408問との照合成功。
+- 用語の補足：temperature 1問、p95 4問、ほか11用語は0問。
+- 原文の明らかな誤記は見つからなかった。MCP 2026-07-28、Messages API 2026-10-21などの特定バージョンを前提にした設問は、番号・記述をそのまま訳した。
+- 補足の候補（未追加）：BM25（`ccarp-bj-3.5-context-before-indexing`、`ccarp-bj-3.5-contextualizer-provenance-contamination`、`ccarp-bj-3.5-searchable-context-and-provenance`、`ccarp-bj-3.6-current-structured-aggregation`、`ccarp-bj-3.6-exact-part-identifier-retrieval`、`ccarp-bj-3.6-hybrid-rank-fusion-and-deduplication`、`ccarp-bj-3.6-policy-paraphrase-semantic-matching`）、PKCE・S256（`ccarp-bj-3.2-pkce-metadata-gap`）、SSE（`ccarp-bj-3.7-mcp-current-transport-contract`）、A2A（`ccarp-bj-3.7-direct-api-client-tool-loop`、`ccarp-bj-3.7-independent-agent-coordination`）。名前や略語だけでは仕組みが分かりにくいため記録した。承認済み13用語以外の補足は書いていない。
+
+### 用語 → 問題 ID（完了分野）
+
+- temperature：`ccarp-bj-3.3-output-cap-truncation`
+- p95：`ccarp-bj-3.3-parallel-independent-tool-latency`、`ccarp-bj-3.3-quality-and-tail-latency-gates`、`ccarp-bj-3.3-reranking-complete-tradeoff`、`ccarp-bj-3.3-route-specific-model-tradeoffs`

@@ -183,3 +183,19 @@
 | I/O | 英語のまま | 入出力。ネットワーク通信やファイルの読み書きなど |
 | base64 | 英語のまま | 画像などのバイナリーデータを文字列で表す符号化方式 |
 | patch | 修正を適用する | ソフトウェア保守の文脈で、動詞として使う場合 |
+| lexical retrieval / lexical search | 字句検索 | |
+| semantic retrieval / semantic search | 意味検索 | |
+| reranking / reranker | リランキング / リランカー | |
+| rank fusion | 順位融合 | |
+| chunk / chunking | チャンク / チャンク分割 | |
+| provenance | 来歴 | 出典の改訂版や位置などを含む情報 |
+| ingestion | 取り込み | |
+| span | スパン | トレースを構成する処理区間 |
+| tail latency | 遅い側のレイテンシ | |
+| interlock | インターロック | |
+| audience | 対象 | トークンの意図された受信者。フィールド名は英語のまま |
+| scope | スコープ | 認可の文脈 |
+| discovery | 探索 | ツールや認可サーバーを発見する処理 |
+| progressive discovery | 段階的な探索 | |
+| snapshot | スナップショット | |
+| recall | 再現率 | 検索や評価の文脈 |
