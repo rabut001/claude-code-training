@@ -86,3 +86,30 @@
 | graceful degradation | 適切な機能の縮退 | 動詞句は「適切に機能を縮退させる」 |
 | parser / schema validator | パーサー / スキーマバリデーター | |
 | memory file | メモリーファイル | CLAUDE.md などを指す一般名詞 |
+| sampling | サンプリング | |
+| greedy | 貪欲法による | |
+| greedy decoding | 貪欲デコーディング | |
+| logit | ロジット | |
+| floating-point arithmetic | 浮動小数点演算 | |
+| serving stack | 配信基盤 | モデルを実行して応答を提供する基盤 |
+| training corpus | 学習コーパス | |
+| next-token prediction | 次トークン予測 | |
+| thinking token | 思考トークン | |
+| reasoning token | 推論トークン | |
+| overfitting | 過学習 | |
+| generalisation | 汎化 | |
+| cache breakpoint | キャッシュの区切り | |
+| cache hit | キャッシュへのヒット | |
+| cache read / cache write | キャッシュ読み取り / キャッシュ書き込み | 文中では「キャッシュの読み取り / 書き込み」としてもよい |
+| model tier | モデル階層 | |
+| time-to-first-token | 最初のトークンまでの時間 | |
+| harness | 実行基盤 | エージェントの実行を制御する仕組み |
+| synthesis | 情報統合 | 複数の情報をまとめて結論を出す文脈 |
+| tenant | テナント | |
+| knowledge base | ナレッジベース | |
+| parametric memory | パラメーターに蓄えた記憶 | |
+| sentiment tagging | 感情ラベル付け | |
+| boilerplate | 定型文 | |
+| frontier model | 最先端のモデル | |
+| cost attribution | 費用の配賦 | 機能などへの費用の割り当て |
+| tokenisation | トークン化 | |

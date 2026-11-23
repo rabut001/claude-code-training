@@ -38,7 +38,31 @@
     "explanation": "Tool output is under your control, so reduce it before it reaches the model. This cuts cost, preserves window space for the real task, and removes noise the model would otherwise reason through."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "ツールが40,000トークンの JSON データを返しますが、エージェントに必要なのは3つのフィールドです。最適な処理方法はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "モデルが完全な情報を得られるよう、ペイロード全体を渡す。",
+        "note": "制御されていないツール出力は、エージェントのコンテキスト肥大化の主な原因です。"
+      },
+      {
+        "id": "b",
+        "text": "ツールハンドラー内で絞り込み、必要な3つのフィールドだけを返す。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "より大きなウィンドウを持つモデルに移行し、すべてを渡し続ける。",
+        "note": "無駄に対処しないまま、上限と料金を引き上げることになります。"
+      },
+      {
+        "id": "d",
+        "text": "ペイロードを挿入してから、先に進む前にモデルに要約を依頼する。",
+        "note": "挿入した後で要約する場合、すでに40,000トークンすべての料金を支払っています。"
+      }
+    ],
+    "explanation": "ツール出力は自分で制御できるため、モデルに届く前に減らしてください。これにより、コストを削減し、本来のタスクのためにウィンドウの容量を確保し、そのままならモデルが推論で扱うことになるノイズを取り除けます。"
   },
   "references": [
     {

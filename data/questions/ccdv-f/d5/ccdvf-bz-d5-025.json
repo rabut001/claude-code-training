@@ -38,7 +38,31 @@
     "explanation": "Batch trades immediacy for price. When nothing waits on an individual result and volume is large, a 50% discount on input and output tokens is the clear economic choice."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Message Batches API が適切な選択となる、処理の特徴の組み合わせはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "対話的なレイテンシの要件と、比較的少ない1日あたりの処理量。",
+        "note": "対話的な処理は、まさにバッチが不向きな用途です。"
+      },
+      {
+        "id": "b",
+        "text": "非同期の完了を許容できることと、大量のリクエスト。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "厳格なデータレジデンシーの要件と、部分的な出力のストリーミング。",
+        "note": "バッチはストリーミングを行いません。また、データレジデンシーは別のデプロイ上の懸念です。"
+      },
+      {
+        "id": "d",
+        "text": "頻繁なツール使用と、項目ごとのヒューマンインザループ（人による確認）の承認ステップ。",
+        "note": "人による承認ステップがある場合、オフライン処理ではなく、対話的なループが想定されます。"
+      }
+    ],
+    "explanation": "バッチは、即時性と引き換えに料金を下げます。個々の結果を待っている処理がなく、処理量が多い場合、入力トークンと出力トークンの50%割引は、経済面で明らかに有利な選択です。"
   },
   "references": [
     {

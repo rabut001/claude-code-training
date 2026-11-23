@@ -38,7 +38,31 @@
     "explanation": "Caching matches an exact prefix, so anything variable ahead of the stable block changes it on every call. Stable content first, variable content last."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "サポートボットが、各リクエストで9,000トークンのナレッジベースと40トークンのユーザーの質問を送信しています。プロンプトキャッシュは有効ですが、ヒット率はほぼ0です。最も考えられる原因はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "9,000トークンのナレッジベースが、キャッシュ可能なプレフィックスの最大サイズを超えている。",
+        "note": "9,000トークンは十分に範囲内であり、まさにキャッシュの対象となるものです。"
+      },
+      {
+        "id": "b",
+        "text": "プロンプトキャッシュは、Batch API 経由で送信したリクエストでしか利用できない。",
+        "note": "キャッシュは Messages API の機能で、Batch とは独立しています。"
+      },
+      {
+        "id": "c",
+        "text": "サンプリング用の temperature が0より大きいため、リクエストがキャッシュ対象外になる。",
+        "note": "サンプリング用の temperature は、キャッシュキーの照合に関与しません。"
+      },
+      {
+        "id": "d",
+        "text": "変動する内容がナレッジベースより前にあるため、完全に一致するプレフィックスが繰り返されない。",
+        "note": ""
+      }
+    ],
+    "explanation": "キャッシュはプレフィックスの完全一致を照合するため、変化しないブロックの前に変動するものがあると、呼び出すたびにプレフィックスが変わります。変化しない内容を先に、変動する内容を最後に置いてください。"
   },
   "references": [
     {

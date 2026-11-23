@@ -38,7 +38,31 @@
     "explanation": "The window covers everything processed in one request, which is why verbose tool schemas and large tool results silently consume capacity during long agent runs."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "コンテキストウィンドウの上限は、実際には何を制限しますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "システムプロンプト、ツール定義、メッセージ履歴、出力の合計。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "個々の長さにかかわらず、会話に含まれるメッセージの数。",
+        "note": "短いメッセージ10件と非常に長いメッセージ10件では、消費量が大きく異なります。"
+      },
+      {
+        "id": "c",
+        "text": "1回のリクエストで生成されるレスポンスの長さ。",
+        "note": "それは max_tokens の説明です。max_tokens は出力だけに適用される別の上限です。"
+      },
+      {
+        "id": "d",
+        "text": "1回のリクエストに含めることが許されるツール定義の数。",
+        "note": "ツール定義はウィンドウの容量を消費しますが、別途その個数を制限する上限はありません。"
+      }
+    ],
+    "explanation": "ウィンドウには、1回のリクエストで処理されるすべてが含まれます。そのため、長いエージェント実行では、冗長なツールスキーマや大きなツール結果が、気づかないうちに容量を消費します。"
   },
   "references": [
     {

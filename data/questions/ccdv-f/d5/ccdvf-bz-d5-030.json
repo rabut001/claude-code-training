@@ -38,7 +38,31 @@
     "explanation": "Streaming is a delivery mechanism, so identical input and output tokens are processed and charged. The user simply sees the first token sooner, which makes it a UX optimisation."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "プロダクトマネージャーから、ストリーミングを有効にしても月間の API 料金が下がらなかった理由を尋ねられました。正しい説明はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "料金は下がるはずなので、連携の設定が誤っている。",
+        "note": "ストリーミングはもともとコストを調整する手段ではないため、誤設定ということにはなりません。"
+      },
+      {
+        "id": "b",
+        "text": "接続を開いたままにするオーバーヘッドとして、ストリーミングには約20%が加算される。",
+        "note": "ストリーミングに追加料金はかかりません。"
+      },
+      {
+        "id": "c",
+        "text": "ストリーミングは、extended thinking と組み合わせた場合にだけコストを減らす。",
+        "note": "extended thinking は推論トークンを追加するため、コストが増えます。"
+      },
+      {
+        "id": "d",
+        "text": "ストリーミングが変えるのは配信だけで、生成されて課金されるトークンは同じである。",
+        "note": ""
+      }
+    ],
+    "explanation": "ストリーミングは配信の仕組みなので、同じ入力トークンと出力トークンが処理され、課金されます。ユーザーが最初のトークンをより早く見られるというだけであり、ユーザー体験の最適化です。"
   },
   "references": [
     {

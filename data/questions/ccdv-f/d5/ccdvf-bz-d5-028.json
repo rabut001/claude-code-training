@@ -38,7 +38,31 @@
     "explanation": "The window holds input and output together, so your generation budget is the window minus what the input already consumed. The request must leave room for the response you asked for."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "200,000トークンのコンテキストウィンドウを持つモデルに、180,000トークンのプロンプトを送り、max_tokens を30,000に設定します。何が起きますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "max_tokens は入力ウィンドウとは別に数えられるため、成功する。",
+        "note": "これは、コンテキストウィンドウについて最もよくある誤解です。"
+      },
+      {
+        "id": "b",
+        "text": "入力と出力が同じウィンドウを共有するため、失敗するか、出力が途切れる。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "成功し、出力の上限が通知なく20,000トークンに引き下げられる。",
+        "note": "失敗は通知なく起こるわけではないため、上限が調整されると決めつけず、コードで対処する必要があります。"
+      },
+      {
+        "id": "d",
+        "text": "max_tokens はサンプラーへの参考程度のヒントにすぎないため、成功する。",
+        "note": "max_tokens は厳格な上限であり、ウィンドウ内に収まる必要もあります。"
+      }
+    ],
+    "explanation": "ウィンドウには入力と出力を合わせて格納するため、生成に使える予算は、ウィンドウの容量から入力ですでに消費した分を引いたものです。リクエストでは、指定したレスポンスのための余地を残す必要があります。"
   },
   "references": [
     {

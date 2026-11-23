@@ -38,7 +38,31 @@
     "explanation": "A hard budget is an application invariant, so the code that owns the meter must refuse or throttle at the boundary before a request is issued. Anything the model can influence is not enforcement."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "テナントが月間トークン予算を絶対に超えないよう、テナントごとの予算を強制する必要があります。チェックはどこに置く必要がありますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "自分たちのサービス内で、テナントごとに使用量を計測し、使い切ったらリクエストを拒否する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "システムプロンプト内で、上限に近づいたら簡潔にするよう Claude に依頼する。",
+        "note": "プロンプトによる指示では、金銭的な上限を強制できません。"
+      },
+      {
+        "id": "c",
+        "text": "max_tokens で、テナントの残予算に比例して値を小さくする。",
+        "note": "補助的な制御としては有用ですが、出力だけに上限を設けるもので、入力を考慮しません。"
+      },
+      {
+        "id": "d",
+        "text": "コンソールでテナントごとに設定した、組織単位のレート制限で行う。",
+        "note": "レート制限は組織全体に適用され、アプリケーションのテナントという概念はありません。"
+      }
+    ],
+    "explanation": "厳格な予算はアプリケーションの不変条件なので、使用量の計測を担うコードが、リクエストの発行前に境界で拒否するか、流量を制限する必要があります。モデルが影響を与えられるものは、強制にはなりません。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Next-token prediction optimises for plausible continuation, so an answer with the right shape can score highly whether or not it is true. Confidence in the text carries no information about accuracy."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "モデルが、事実としては間違っている回答を、流暢かつ自信ありげに生成することがあるのはなぜですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "学習コーパスに、その誤った記述が一字一句そのまま含まれていたから。",
+        "note": "作り話は、学習データには存在しなかった新しい組み合わせであることがよくあります。"
+      },
+      {
+        "id": "b",
+        "text": "そのリクエストのサンプリング用の temperature が0より大きく設定されていたから。",
+        "note": "temperature が0の貪欲デコーディングでも、自信ありげな誤答は生成されます。"
+      },
+      {
+        "id": "c",
+        "text": "生成はもっともらしい続きを予測するものであり、流暢であることは真実と検証されたことを意味しないから。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "出力の上限が低すぎて、回答が途中で切れて歪められたから。",
+        "note": "出力の途切れによって不完全な出力が生じますが、それは別の種類の失敗です。"
+      }
+    ],
+    "explanation": "次トークン予測は、もっともらしい続きになるよう最適化されます。そのため、形が整った回答は、真実かどうかにかかわらず高いスコアを得ることがあります。文章に表れた自信からは、正確さについての情報は得られません。"
   },
   "references": [
     {

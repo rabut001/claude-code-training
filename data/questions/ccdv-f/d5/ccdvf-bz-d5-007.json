@@ -38,7 +38,31 @@
     "explanation": "Reasoning tokens are generated tokens, so they are priced as output and sit inside the response budget. That is why budget_tokens must be set below max_tokens and why thinking raises both cost and latency."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "extended thinking が有効な場合、思考トークンは課金と出力上限にどう関係しますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "出力として課金され、max_tokens 内の予算を消費する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "表示される回答より先に来るため、入力トークンとして課金される。",
+        "note": "渡されるのではなく生成されるため、入力ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "再利用される推論に対する、割引されたキャッシュ読み取り料金で課金される。",
+        "note": "キャッシュ読み取り料金は、再利用される入力プレフィックスにだけ適用されます。"
+      },
+      {
+        "id": "d",
+        "text": "一切課金されず、max_tokens にも算入されない。",
+        "note": "無料だと思い込むことは、原因不明の予算超過が起きるよくある理由です。"
+      }
+    ],
+    "explanation": "推論トークンは生成されるトークンなので、出力として課金され、レスポンスの予算に含まれます。そのため、budget_tokens は max_tokens より小さく設定する必要があり、思考によってコストもレイテンシも増えます。"
   },
   "references": [
     {

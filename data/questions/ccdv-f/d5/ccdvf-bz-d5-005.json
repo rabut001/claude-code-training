@@ -38,7 +38,31 @@
     "explanation": "The API is stateless, so every request carries the whole history you choose to send. Input grows roughly linearly with turn count and is paid again on each call; compaction and caching are the mitigations."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "ユーザーの各メッセージは短いのに、長いセッションを通じて、エージェントのリクエストあたりのコストが着実に増えています。何が原因ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "推論が長く続くほど、モデルの効率が徐々に低下する。",
+        "note": "効率が低下するわけではありません。増えているのは、クライアントが送る内容です。"
+      },
+      {
+        "id": "b",
+        "text": "各ターンで蓄積した履歴を再送するため、入力トークンが増えて再び課金される。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "セッションが最終的に終了した時点で、出力トークンが遡って精算される。",
+        "note": "トークンはリクエストごとに課金されます。セッション終了まで先送りされるわけではありません。"
+      },
+      {
+        "id": "d",
+        "text": "レート制限に近づくと、それ以降の各リクエストに追加料金がかかる。",
+        "note": "レート制限はリクエストを制限するもので、追加料金は発生しません。"
+      }
+    ],
+    "explanation": "API はステートレスなので、各リクエストには送信対象として選んだ履歴全体を含めます。入力はターン数にほぼ比例して増え、呼び出すたびに再び料金を支払います。圧縮とキャッシュが対策になります。"
   },
   "references": [
     {

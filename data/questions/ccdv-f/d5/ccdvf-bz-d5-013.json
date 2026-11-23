@@ -38,7 +38,31 @@
     "explanation": "It caps output length and billing follows tokens actually produced. Hitting the cap truncates the response and reports it in stop_reason, which your code should detect rather than assume completeness."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "max_tokens について正しい説明はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "容量を予約し、使い切ったかどうかにかかわらず全額が課金される。",
+        "note": "使わなかった上限分に予約料金はかかりません。"
+      },
+      {
+        "id": "b",
+        "text": "リクエストで利用できるコンテキストウィンドウの大きさを設定する。",
+        "note": "コンテキストウィンドウはモデルの特性であり、リクエストごとの出力上限ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "生成トークン数に上限を設け、到達すると stop_reason が \"max_tokens\" になる。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "モデルが1ターンで行うことを許されるツール呼び出しの回数を制限する。",
+        "note": "ツール呼び出しの回数は max_tokens によって制御されません。"
+      }
+    ],
+    "explanation": "max_tokens は出力の長さの上限を定め、課金は実際に生成されたトークン数に従います。上限に達するとレスポンスが途切れ、そのことが stop_reason で報告されます。コードでは、完了したと決めつけずに、これを検出する必要があります。"
   },
   "references": [
     {

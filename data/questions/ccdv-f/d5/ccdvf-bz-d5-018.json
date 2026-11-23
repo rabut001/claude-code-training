@@ -38,7 +38,31 @@
     "explanation": "Selection is driven by whether the quality bar is met, not by picking the most capable option. At 97% the requirement is satisfied, so at this volume the cheapest sufficient tier wins outright."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "1日あたり200万件の短いメッセージを8つのカテゴリーに分類する必要があります。最小のモデル階層で、調整用とは別のセットの正答率がすでに97%です。最適な選択はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "コストにかかわらず正確さを最大限に高めるため、最も高性能な階層に移行する。",
+        "note": "この処理量で、すでに得られている正確さのために高額な料金を支払うのは無駄です。"
+      },
+      {
+        "id": "b",
+        "text": "品質と支出のバランスを取る妥協案として、中位の階層を採用する。",
+        "note": "妥協案が意味を持つのは、安価な選択肢では不十分な場合だけですが、今回はそうではありません。"
+      },
+      {
+        "id": "c",
+        "text": "正確さの基準をすでに満たしている、最も高速で安価な階層を使い続ける。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "コストと品質のバランスを取るため、リクエストごとに階層を交互に切り替える。",
+        "note": "交互に切り替えると、動作に一貫性がなくなり、評価が複雑になります。"
+      }
+    ],
+    "explanation": "モデルの選択は、品質基準を満たしているかどうかに基づきます。最も高性能な選択肢を選ぶことが目的ではありません。97%で要件は満たされているため、この処理量では、十分な性能を持つ最も安価な階層が明らかに最適です。"
   },
   "references": [
     {

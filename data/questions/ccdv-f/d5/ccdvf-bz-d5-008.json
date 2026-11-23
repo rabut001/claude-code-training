@@ -38,7 +38,31 @@
     "explanation": "Tuning a prompt against the same cases you measure on is overfitting. Those ten stopped being an evaluation the moment they became the optimisation target; a held-out set must never be used for tuning."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "分類用プロンプトが、選び抜いた10件の例では完璧に動作するのに、調整用とは別の400件のセットでは正答率71%です。最も考えられる理由はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "2回の測定の間に、モデルのバージョンが変わった。",
+        "note": "可能性はありますが、バージョンの変更なら、通常は両方の数値が一緒に変動するはずです。"
+      },
+      {
+        "id": "b",
+        "text": "調整用とは別の400件のセットに、誤ったラベルが大量に付いている。",
+        "note": "抜き取り確認の価値はありますが、29ポイントの差があるなら、まず方法論が疑われます。"
+      },
+      {
+        "id": "c",
+        "text": "その10件に対してプロンプトの改善を繰り返したため、それらに過学習している。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "分類の処理に対して、サンプリング用の temperature が低すぎた。",
+        "note": "temperature では、汎化性能の系統的な差を説明できません。"
+      }
+    ],
+    "explanation": "測定に使うのと同じ事例に対してプロンプトを調整するのは、過学習です。その10件は最適化の対象になった時点で、評価ではなくなっています。調整用とは別のセットを、調整に使ってはいけません。"
   },
   "references": [
     {
