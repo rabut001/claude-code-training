@@ -29,6 +29,48 @@ Anthropic の Claude 認定試験（**CCDV-F** と **CCAR-P**）の練習問題�
 - `main` に直接コミットしません。`main` へのマージはユーザーが行います。
 - 1つのブランチでは1つの作業だけを行います（例：`content/import-ccdv-f`、`content/translate-ccdv-f-d2`）。
 
+### 作業フォルダ（git worktree）
+
+Claude Code と Codex は、**git worktree で分けたそれぞれのフォルダ**で作業します。
+1つのフォルダでブランチを切り替えると、相手が編集中のファイルが入れ替わってしまうためです。
+
+| フォルダ | ブランチ | 使う人 |
+|---|---|---|
+| `~/repos/claude-code-training` | `main` | 統合・マージ用（ユーザー） |
+| `~/repos/claude-code-training.claude` | `app/*` | Claude Code |
+| `~/repos/claude-code-training.codex` | `content/*` | Codex |
+
+worktree は、統合用のフォルダで次のように作ります。
+
+```bash
+git worktree add ../claude-code-training.claude -b app/<内容> main
+git worktree add ../claude-code-training.codex -b content/<内容> main
+```
+
+- **自分の worktree の中だけで作業します。** 統合用のフォルダや相手の worktree のファイルは編集しません。統合用のフォルダでブランチを切り替えることもしません。
+- 1つのブランチは、1つの worktree でしかチェックアウトできません。新しい作業を始めるときは、自分の worktree の中で新しいブランチを作ります（`git switch -c content/<内容> main`）。
+- 作業を始めるとき、また `main` が更新されたときは、自分のブランチに `main` を取り込みます（`git merge main`）。
+- 作業が一段落したら `docs/tasks/` の指示書に状況を書き、ユーザーにマージを依頼します。マージは統合用のフォルダで行います。
+- `.cache/`（元リポジトリの clone、PDF など）と `app/data/` は worktree ごとに別々です。必要な worktree の中に置きます。
+- 不要になった worktree は `git worktree remove <フォルダ>` で削除します（フォルダを直接消さない）。
+
+#### Docker を worktree ごとに分ける
+
+`./dev serve` を複数の worktree で同時に動かすと、コンテナの名前とポートがぶつかります。
+そこで、各 worktree の直下に `.env`（git の管理対象外）を置いて分けます。コンテナのイメージは共通なので、作り直す必要はありません。
+
+| worktree | `.env` の中身 |
+|---|---|
+| `.claude` | `COMPOSE_PROJECT_NAME=claude-cert-quiz-claude` と `WEB_PORT=8000` |
+| `.codex` | `COMPOSE_PROJECT_NAME=claude-cert-quiz-codex` と `WEB_PORT=8001` |
+| 統合用 | 置かない（既定の `claude-cert-quiz`、8000番。`.claude` と同時に serve しない） |
+
+#### Codex の設定（実行制限）
+
+worktree でコミットすると、git は統合用フォルダの `.git`（`~/repos/claude-code-training/.git`）に書き込みます。
+Codex の実行制限で書き込める場所が起動フォルダの中だけになっていると、コミットが失敗します。
+その場合は、Codex の設定で書き込み可能な場所に `~/repos/claude-code-training/.git` を追加してください。
+
 ## 3. 問題の出典（ユーザーが決定済み。勝手に増やさない）
 
 | 試験 | 出典 | commit | 問題数 | ライセンス | IDの略号 |
@@ -71,6 +113,7 @@ app/                   PWA 本体（app/data/ は生成物。手で編集しな�
 .github/workflows/     GitHub Pages への公開
 Dockerfile、compose.yaml、dev、requirements-dev.txt   開発用コンテナ（「5. 開発環境とコマンド」）
 .cache/                作業用ファイル（元リポジトリの clone、PDF など。git の管理対象外）
+.env                   worktree ごとの Docker の設定（git の管理対象外。「作業フォルダ（git worktree）」）
 ```
 
 ## 5. 開発環境とコマンド
