@@ -38,7 +38,31 @@
     "explanation": "A business rule is an invariant, so it belongs at the execution boundary where it always runs. The other layers make a violation less likely; only code makes it impossible."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントが、業務ルールに違反する引数（許可された上限を超える割引）を含むツール呼び出しを時折出力します。ツールのスキーマでは、既にそのフィールドを数値型にしています。上限を強制する適切な場所はどこですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "範囲外の値を処理の実行前に拒否する、ツールの実行コード内。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "モデルが要求できる最大割引を記載した、ツールの説明内。",
+        "note": "説明は選択や使用を導きますが、それ自体が実行されることはありません。"
+      },
+      {
+        "id": "c",
+        "text": "明示的かつ強い表現で業務上の制約を記した、システムプロンプト内。",
+        "note": "プロンプトは確率的に振る舞いを方向付けるものであり、コンテキストによって覆される可能性があります。"
+      },
+      {
+        "id": "d",
+        "text": "正しく上限内に収まる割引値を示した、few-shot の例の中。",
+        "note": "例は典型的な出力に影響しますが、極端な値を制約しません。"
+      }
+    ],
+    "explanation": "業務ルールは不変条件なので、必ず実行される実行境界に置く必要があります。他の層は違反の可能性を下げますが、不可能にできるのはコードだけです。"
   },
   "references": [
     {

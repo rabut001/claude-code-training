@@ -38,7 +38,31 @@
     "explanation": "Model version and sampling parameters are the inputs that actually change generated content. An identical prompt on a different model or temperature is a different configuration."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "プラットフォーム内の2つのサービスが、同じシステムプロンプトを送っているのに、明らかに異なる出力を生成しています。原因として最も可能性が高い設定の違いはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "一方のサービスは HTTP/2 で、他方は HTTP/1.1 でリクエストを送っている。",
+        "note": "トランスポートプロトコルは生成に影響しません。"
+      },
+      {
+        "id": "b",
+        "text": "各サービスの参照先が異なるモデルバージョンになっているか、異なる temperature を使っている。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "一方のサービスはプロンプトキャッシュを有効にし、他方は有効にしていない。",
+        "note": "キャッシュで変わるのはコストとレイテンシです。キャッシュヒット時も同等の振る舞いになります。"
+      },
+      {
+        "id": "d",
+        "text": "ネットワークレイテンシが大きく異なるリージョンで、各サービスが動いている。",
+        "note": "レイテンシが影響するのはタイミングであり、レスポンスの内容ではありません。"
+      }
+    ],
+    "explanation": "モデルのバージョンとサンプリングパラメーターは、生成内容を実際に変える入力です。同じプロンプトでも、モデルや temperature が違えば、異なる設定になります。"
   },
   "references": [
     {

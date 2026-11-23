@@ -29,3 +29,60 @@
 | Messages API | 英語のまま | |
 | Message Batches API | 英語のまま | |
 | MCP server | MCP サーバー | |
+| context | コンテキスト | |
+| turn | ターン | user / assistant は、説明文ではユーザー / アシスタント。API の値として記す場合は英語のまま |
+| content block | コンテンツブロック | |
+| delta | 差分 | ストリーミングの文脈 |
+| streaming | ストリーミング | |
+| blocking | ブロッキング | |
+| asynchronous / synchronous | 非同期 / 同期 | |
+| concurrency | 並行処理 / 並行数 | 処理方式か同時実行数かに応じて使い分ける |
+| exponential backoff | 指数バックオフ | |
+| jitter | ジッター | |
+| rate limiting | レート制限 | |
+| retry | 再試行 | |
+| truncation | 出力の途切れ | 出力上限などで生成が途中で切れること |
+| stop sequence | 停止シーケンス | API の識別子は英語のまま |
+| token counting | トークンカウント | |
+| extended thinking | 英語のまま | 機能名 |
+| payload | ペイロード | |
+| endpoint | エンドポイント | |
+| schema | スキーマ | |
+| typed contract | 型で定めた契約 | |
+| regression | リグレッション | |
+| held-out set | 調整用とは別のセット | プロンプトなどの調整用データから分離した評価用データ |
+| ground truth | 正解データ | |
+| mock | モック | 動詞は「モック化する」 |
+| unit test / integration test | 単体テスト / 結合テスト | |
+| deterministic / probabilistic | 決定論的 / 確率的 | |
+| idempotency / idempotency key | 冪等性 / 冪等性キー | |
+| observability | 可観測性 | |
+| operability | 運用のしやすさ | |
+| structured log | 構造化ログ | |
+| secret store | シークレットストア | |
+| credential | 認証情報 | |
+| authorisation | 認可 | |
+| authentication | 認証 | |
+| invariant | 不変条件 | |
+| circuit breaker | サーキットブレーカー | |
+| stateless | ステートレス | |
+| compaction | 圧縮 | 会話履歴を要約する文脈 |
+| grounding | グラウンディング | |
+| citation | 引用 | 根拠となる検索箇所などの引用 |
+| fine-tuning | ファインチューニング | |
+| few-shot | 英語のまま | |
+| untrusted data | 信頼できないデータ | |
+| blast radius | 被害の影響範囲 / 影響範囲 | 文脈に応じて使い分ける |
+| calibration / calibrated | 較正 / 較正された | 確信度の文脈 |
+| confidence | 確信度 | |
+| acceptance criteria | 受け入れ基準 | |
+| data residency | データレジデンシー | |
+| deployment topology | デプロイ構成 | |
+| prefix | プレフィックス | |
+| alias | エイリアス | |
+| pin a version | バージョンを固定する | |
+| rollout / rollback | 展開 / ロールバック | |
+| staging | ステージング | |
+| graceful degradation | 適切な機能の縮退 | 動詞句は「適切に機能を縮退させる」 |
+| parser / schema validator | パーサー / スキーマバリデーター | |
+| memory file | メモリーファイル | CLAUDE.md などを指す一般名詞 |

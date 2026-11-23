@@ -44,7 +44,36 @@
     "explanation": "A slow external call inside a synchronous request model is a capacity problem, and every remote dependency needs bounded timeouts, retries, and a breaker so one outage does not cascade."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "非同期処理の基盤がない既存の Java モノリスに Claude を追加しています。設計時に最も重要な連携上の考慮事項を2つ選んでください。（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "数秒かかる呼び出しでリクエストスレッドがブロックされるため、スレッド数の割り当てを考慮する必要がある。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "外部依存先に対して、タイムアウト、再試行、サーキットブレーカーが必要である。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "Anthropic SDK を使うには、まず JVM をアップグレードする必要がある。",
+        "note": "架空の制約です。サポート対象の JVM であれば HTTP にアクセスできます。"
+      },
+      {
+        "id": "d",
+        "text": "許容できる性能を得るには、すべてのプロンプトを事前にバイトコードへコンパイルする必要がある。",
+        "note": "プロンプトは実行時の文字列であり、コンパイルしても利点はありません。"
+      },
+      {
+        "id": "e",
+        "text": "再送を避けるため、API が会話の状態をサーバー側に保存する必要がある。",
+        "note": "API はステートレスであり、クライアントは常に会話を再送します。"
+      }
+    ],
+    "explanation": "同期的なリクエスト処理モデルの中に遅い外部呼び出しがあると、処理容量の問題になります。また、1つの障害が連鎖しないよう、すべてのリモート依存先に、上限を定めたタイムアウトと再試行、サーキットブレーカーが必要です。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "The Messages API exposes system as its own top-level parameter. The messages array carries only user and assistant turns."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "「保険金請求のトリアージを行うアシスタントです。和解金額は決して提示しないでください。」のような継続的に適用する指示は、Messages API リクエストのどこに配置すべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "messages 配列内で、role が \"system\" のメッセージに配置する。",
+        "note": "この API の messages 配列内には system ロールがありません。この指定は 400 を返します。"
+      },
+      {
+        "id": "b",
+        "text": "会話の最初のユーザーメッセージのテキストの先頭に付ける。",
+        "note": "動作はしますが、継続的な設定が会話の内容に混在します。"
+      },
+      {
+        "id": "c",
+        "text": "リクエストのトップレベルの system パラメーターに配置する。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "効果を維持するため、すべてのユーザーメッセージの末尾で繰り返す。",
+        "note": "無駄な繰り返しであり、指示がユーザーの制御できるテキスト内にある点も変わりません。"
+      }
+    ],
+    "explanation": "Messages API では、system は独立したトップレベルのパラメーターです。messages 配列には user と assistant のターンだけを格納します。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Prompts are tuned against a specific model's behaviour. An alias that moves underneath you turns an upgrade into an unplanned production change you did not evaluate or schedule."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Anthropic が新しいモデルをリリースしました。本番アプリケーションは現在、バージョンを固定せず、エイリアスを参照しています。主なリスクは何ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "アプリケーションを新しい名前に更新するまで、リクエストが失敗するようになる。",
+        "note": "エイリアスは引き続き解決され、リクエストを拒否し始めるわけではありません。"
+      },
+      {
+        "id": "b",
+        "text": "前のバージョンに合わせて調整したプロンプトで、振る舞いが変わる可能性がある。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "次の請求期間に、予告なくトークン単価が変わる。",
+        "note": "価格はモデルごとに公開されており、エイリアスによって生じるリスクではありません。"
+      },
+      {
+        "id": "d",
+        "text": "既存のプロンプトキャッシュが無効化され、再びキャッシュを蓄積する必要が生じる。",
+        "note": "実際に生じる影響ですが、一時的であり、未評価の振る舞いの変化に比べれば小さいものです。"
+      }
+    ],
+    "explanation": "プロンプトは特定のモデルの振る舞いに合わせて調整されています。参照先が変わるエイリアスは、アップグレードを、評価も日程調整もしていない予定外の本番変更にしてしまいます。"
   },
   "references": [
     {

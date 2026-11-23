@@ -38,7 +38,31 @@
     "explanation": "The deployment artifact is not the point; the behavioural blast radius is. A prompt edit can change outputs as profoundly as a code change, so it needs the same review, evaluation, and rollback path."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "チームは「ただのテキストだから」という理由で、プロンプトの変更を直接本番に反映しています。通常のリリースプロセスを通すべき最も有力な理由はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "プロンプトはアプリケーションの振る舞いを決めるため、その変更は振る舞いの変更になる。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "履歴を読めるよう、プロンプトファイルをバージョン管理すべきである。",
+        "note": "正しく、行う価値もありますが、本質的な理由から導かれる結果です。"
+      },
+      {
+        "id": "c",
+        "text": "長いプロンプトは高くつくため、変更がトークン数に与える影響をレビューすべきである。",
+        "note": "二次的なコストの問題であり、リリースプロセスが存在する理由ではありません。"
+      },
+      {
+        "id": "d",
+        "text": "コードレビューにより、プロンプトの知識がチーム全体に広まる。",
+        "note": "有用な副次効果であり、根拠そのものではありません。"
+      }
+    ],
+    "explanation": "問題はデプロイする成果物の種類ではなく、振る舞いの影響範囲です。プロンプトの編集は、コードの変更と同じくらい出力を大きく変える可能性があるため、同じレビュー、評価、ロールバックの経路が必要です。"
   },
   "references": [
     {

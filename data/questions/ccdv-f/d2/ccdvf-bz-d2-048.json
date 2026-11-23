@@ -38,7 +38,31 @@
     "explanation": "Isolation lets incompatible requirements coexist without either being modified, so upgrades stay clean and nothing has to be re-patched after every release."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "チームで使うプラグインが、別のプラグインの要件と競合する依存先のバージョンを固定しています。最も持続可能な解決策はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "インストール済みのプラグインのファイルを手動で編集し、バージョン制約を緩める。",
+        "note": "ローカルの編集は次の更新で気付かないうちに失われるため、維持できません。"
+      },
+      {
+        "id": "b",
+        "text": "それぞれ独立して依存関係を解決する、分離された環境にプラグインをインストールする。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "常に最新バージョンがインストールされるよう、両方のプラグインから固定を取り除く。",
+        "note": "固定を取り除くと、そもそも固定によって防ごうとしていた破損を招きます。"
+      },
+      {
+        "id": "d",
+        "text": "両方を残し、どちらを避けるべきか分かるように競合を文書化する。",
+        "note": "問題を解決せずに文書化するだけで、注意力に依存します。"
+      }
+    ],
+    "explanation": "分離すれば、互換性のない要件をどちらも変更せずに共存させられます。そのため、更新を問題なく行え、リリースのたびに修正を当て直す必要もありません。"
   },
   "references": [
     {

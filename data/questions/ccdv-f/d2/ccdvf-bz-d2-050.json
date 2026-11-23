@@ -38,7 +38,31 @@
     "explanation": "stop_reason states exactly what happened. Generation was cut off mid-stream, so the JSON is incomplete by definition and the fix is capacity or output size rather than formatting or sampling."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "リクエストの stop_reason が \"max_tokens\" で、JSON 本文の解析に失敗します。コードでの正しい対応はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "後の試行では有効な JSON が得られそうなので、同一のリクエストを再発行する。",
+        "note": "やみくもに再試行しても、同じ上限に達して再び途中で切れます。"
+      },
+      {
+        "id": "b",
+        "text": "JSON の解析が成功するまで、ペイロードの末尾の文字を削る。",
+        "note": "途中で切れた JSON を無理に復元すると、データが欠けた有効なオブジェクトになり、誤りが気付かれません。"
+      },
+      {
+        "id": "c",
+        "text": "出力の途切れとして扱い、max_tokens を増やすか、よりコンパクトな出力を要求する。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "モデルがより注意深く整形するよう、temperature を下げて再発行する。",
+        "note": "temperature は、レスポンスに必要なトークン数を変えません。"
+      }
+    ],
+    "explanation": "stop_reason が何が起きたかを正確に示しています。生成が途中で打ち切られたため、JSON は必然的に不完全です。修正すべきは書式やサンプリングではなく、容量または出力サイズです。"
   },
   "references": [
     {

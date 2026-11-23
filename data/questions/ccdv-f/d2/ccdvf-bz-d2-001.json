@@ -38,7 +38,31 @@
     "explanation": "The protocol is specific: a tool_use block must be answered by a tool_result block carrying the matching tool_use_id, and it travels in a user turn. Anything else breaks the linkage the API expects."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "サービスが、ツールを指定して Messages API を呼び出しています。返ってきたレスポンスの stop_reason は \"tool_use\" でした。会話を正しく続けるために、アプリケーションは次に何をする必要がありますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "要求されたツールを実行し、対応する tool_result ブロックを含むユーザーターンを送る。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "ツールの出力を説明文として格納したアシスタントターンを追加する。",
+        "note": "説明文では tool_use_id による対応付けが失われるため、API が結果と要求を対応させられません。"
+      },
+      {
+        "id": "c",
+        "text": "モデルが直接回答するように、tool_choice を none にして同じリクエストを再送する。",
+        "note": "直接の回答を強制すると、モデルが必要と判断したツール呼び出しを破棄することになります。"
+      },
+      {
+        "id": "d",
+        "text": "ツールを実行し、その出力を追加のコンテキストとして次のユーザーの質問に組み込む。",
+        "note": "自由記述のコンテキストは tool_result ではないため、tool_use が未応答のままになり、エラーになります。"
+      }
+    ],
+    "explanation": "プロトコルには明確な決まりがあります。tool_use ブロックには、対応する tool_use_id を持つ tool_result ブロックで応答し、それをユーザーターンで送る必要があります。それ以外の方法では、API が想定する対応関係が崩れます。"
   },
   "references": [
     {

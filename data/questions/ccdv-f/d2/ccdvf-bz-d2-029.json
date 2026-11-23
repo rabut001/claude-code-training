@@ -38,7 +38,31 @@
     "explanation": "Grounding supplies the facts, citation makes each claim checkable against the retrieved text, and an explicit escape hatch removes the pressure to invent when the sources are silent."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "アシスタントは、承認済みのナレッジベースだけに基づいて回答し、それ以外の場合は「分かりません」と答える必要があります。これを最もよく実現する組み合わせはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "該当箇所を検索し、その箇所の引用を必須にし、明示的に回答しない選択を認める。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "temperature を 0 に下げ、推測を避けるようモデルに指示する。",
+        "note": "temperature 0 は最も確率の高い続きを返しますが、それが自信に満ちた誤答である可能性があります。"
+      },
+      {
+        "id": "c",
+        "text": "大きなモデルほどハルシネーションが少ないため、利用可能な最大のモデルを使う。",
+        "note": "頻度は下がりますが、要件が求める保証は得られません。"
+      },
+      {
+        "id": "d",
+        "text": "ナレッジベースから得た正しい回答を、few-shot の例として多数追加する。",
+        "note": "例で伝わるのは形式と語調であり、既知の情報の境界ではありません。"
+      }
+    ],
+    "explanation": "グラウンディングは事実を与え、引用は各主張を検索したテキストと照合可能にします。また、明示的に回答を控える道を用意すれば、情報源に記載がないときに作り話をする圧力を取り除けます。"
   },
   "references": [
     {

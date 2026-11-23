@@ -38,7 +38,31 @@
     "explanation": "\"Handles\" hides the decisions that determine the whole design: which categories are in scope, and which actions the system may take unsupervised. Everything else depends on those answers."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "ステークホルダーが「サポートの受信トレイを処理する AI」を求めています。これを技術要件に落とし込むための、最も有用な最初の手順はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "複数のモデルをベンチマークし、サポートメールで最も優れた性能を示すものを特定する。",
+        "note": "タスクを定義しないままベンチマークしても、最良のものは特定できません。"
+      },
+      {
+        "id": "b",
+        "text": "先月の受信トレイでプロトタイプを作り、ステークホルダーに何が可能かを示す。",
+        "note": "受け入れ基準のないプロトタイプは、妥当性の確認もリリースもできません。"
+      },
+      {
+        "id": "c",
+        "text": "依頼のカテゴリーを列挙し、レビューなしで処理してよいものを決める。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "事前に予算を承認できるよう、月間のトークンコストを見積もる。",
+        "note": "件数と範囲が分かるまで、コストは見積もれません。"
+      }
+    ],
+    "explanation": "「処理する」という言葉には、設計全体を決める判断が隠れています。対象に含めるカテゴリーと、人の監督なしでシステムが実行してよい操作です。それ以外のすべては、これらの答えに依存します。"
   },
   "references": [
     {

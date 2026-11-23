@@ -38,7 +38,31 @@
     "explanation": "stop_reason is diagnostic. \"max_tokens\" means the output ceiling was reached, so either the ceiling must rise or the requested output must shrink. Nothing else is implicated."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "要約処理が、文の途中で途切れたテキストを返します。レスポンスの stop_reason は \"max_tokens\" です。適切な修正はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "モデルがより簡潔なレスポンスを生成するよう、temperature を下げる。",
+        "note": "temperature が制御するのはトークンの選択であり、回答に必要なトークン数ではありません。"
+      },
+      {
+        "id": "b",
+        "text": "完全なレスポンスが返るまで、同一のリクエストを再試行する。",
+        "note": "毎回の再試行に同じ上限が適用されるため、再び途中で切れます。"
+      },
+      {
+        "id": "c",
+        "text": "文の区切りで生成がきれいに終わるよう、停止シーケンスを追加する。",
+        "note": "停止シーケンスは生成をより早く終了させるため、途中で切れる可能性は下がらず、むしろ高まります。"
+      },
+      {
+        "id": "d",
+        "text": "max_tokens を増やすか、現在の上限に収まるよう要約を制約する。",
+        "note": ""
+      }
+    ],
+    "explanation": "stop_reason は原因の特定に使えます。\"max_tokens\" は出力の上限に達したことを意味するため、上限を増やすか、要求する出力を小さくする必要があります。他の要因は示されていません。"
   },
   "references": [
     {

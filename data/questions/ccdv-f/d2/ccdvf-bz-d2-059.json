@@ -38,7 +38,31 @@
     "explanation": "Most of the codebase is ordinary software and should be tested as such, reserving eval sets for the one genuinely probabilistic component rather than abandoning testing wholesale."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude を使ったアプリケーションのどの部分を、従来の決定論的な単体テストで検証すべきですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "実際の入力を代表するサンプル全体に対する、モデルの回答品質。",
+        "note": "回答品質は、ラベル付き評価セットとスコア化した指標で測定します。"
+      },
+      {
+        "id": "b",
+        "text": "背後の処理はすべてモデルに依存するため、ユーザーインターフェースだけ。",
+        "note": "それでは、最もリスクの高いロジックが未テストのままになります。"
+      },
+      {
+        "id": "c",
+        "text": "ツールの実装、パーサー、スキーマバリデーター、再試行のロジック。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "確率的なシステムは単体テストできないため、どの部分も対象にしない。",
+        "note": "確率的なのはモデル呼び出しだけであり、周囲のシステムは決定論的です。"
+      }
+    ],
+    "explanation": "コードベースの大半は通常のソフトウェアであり、そのようにテストすべきです。テストを全面的に放棄するのではなく、実際に確率的な唯一のコンポーネントに評価セットを使います。"
   },
   "references": [
     {

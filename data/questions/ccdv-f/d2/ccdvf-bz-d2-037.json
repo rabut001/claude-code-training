@@ -38,7 +38,31 @@
     "explanation": "Data residency is an infrastructure constraint. It dictates where inference runs and therefore which platform or regional endpoint is admissible, which must be settled before design proceeds."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "規制対象の顧客が、顧客データを自社のクラウドリージョンの外に出してはならないと定めています。これは主にどの要件を制約しますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "デプロイ構成と、使用可能なモデルのエンドポイントまたはプラットフォーム。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "アプリケーションで利用可能な最大コンテキストウィンドウ。",
+        "note": "ウィンドウの大きさはモデルの特性であり、データレジデンシーとは無関係です。"
+      },
+      {
+        "id": "c",
+        "text": "ストリーミングとブロッキングのレスポンス配信の選択。",
+        "note": "配信の仕組みは、データが処理される場所を決めません。"
+      },
+      {
+        "id": "d",
+        "text": "その処理でプロンプトキャッシュを有効にできるかどうか。",
+        "note": "キャッシュはコストに関する機能です。データレジデンシーは選択したエンドポイントによって決まります。"
+      }
+    ],
+    "explanation": "データレジデンシーはインフラ上の制約です。推論を実行する場所、ひいては使用できるプラットフォームやリージョン別エンドポイントを決めるため、設計を進める前に確定する必要があります。"
   },
   "references": [
     {

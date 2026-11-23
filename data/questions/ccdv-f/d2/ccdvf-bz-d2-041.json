@@ -38,7 +38,31 @@
     "explanation": "Change one variable and measure it. The eval suite tells you what moved, and a progressive rollout limits exposure while real traffic confirms the offline result."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "バージョンを固定した古いモデルから、新しいモデルへの移行を計画しています。最も適切な手順はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "利用の少ない時間帯に本番で切り替え、ユーザーからの苦情を監視する。",
+        "note": "ユーザーからの苦情は、リグレッションの検出が遅く、見落としが多く、代償も大きい手段です。"
+      },
+      {
+        "id": "b",
+        "text": "振る舞いを統一するため、全環境の固定バージョンを一度に更新する。",
+        "note": "全員に届く前にリグレッションを見つける機会を、すべて失います。"
+      },
+      {
+        "id": "c",
+        "text": "新しいモデルで評価スイートを実行して比較し、その後段階的に展開する。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "先に新しいモデル向けにプロンプトを書き直し、その後、両方を合わせた変更を評価する。",
+        "note": "モデルとプロンプトを同時に変えるため、どちらの影響も切り分けられません。"
+      }
+    ],
+    "explanation": "変数を1つだけ変えて測定します。評価スイートで何が変わったかを把握し、段階的な展開で影響範囲を抑えながら、実際のトラフィックでオフラインの結果を確認します。"
   },
   "references": [
     {

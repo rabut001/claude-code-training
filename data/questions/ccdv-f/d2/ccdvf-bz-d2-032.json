@@ -38,7 +38,31 @@
     "explanation": "Streaming is a perceived-latency optimisation. Its value appears precisely when output is long enough that waiting for the whole response feels unacceptable."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "単一のブロッキングレスポンスよりストリーミングを使うべきことを、最も強く示す要件はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "毎月のトークン料金を、測定可能な幅で削減する必要がある。",
+        "note": "ストリーミングは課金対象となるトークン数を変えません。"
+      },
+      {
+        "id": "b",
+        "text": "レスポンスが長く、ユーザーが1秒以内に出力の開始を見られる必要がある。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "出力をそれ以降に利用する前に、JSON スキーマに対して検証する必要がある。",
+        "note": "スキーマ検証には完全な文書が必要であり、ブロッキングでの読み取りが適しています。"
+      },
+      {
+        "id": "d",
+        "text": "処理は夜間に実行し、結果は翌朝に利用する。",
+        "note": "誰も見ていないため、逐次配信に利点はありません。"
+      }
+    ],
+    "explanation": "ストリーミングは、体感レイテンシを最適化するものです。その価値は、出力が長く、レスポンス全体を待つことが許容できないと感じられる場合にこそ現れます。"
   },
   "references": [
     {

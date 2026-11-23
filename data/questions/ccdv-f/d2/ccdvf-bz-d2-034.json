@@ -38,7 +38,31 @@
     "explanation": "A self-assessed number looks like a measurement but is not derived from any calibrated process. It is frequently high on confidently wrong answers, which is exactly when users need it to be low."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "アプリケーションが、各回答とともに Claude に生成させた確信度のパーセンテージをユーザーに表示しています。レビュアーが異議を唱えました。最も有力な異議はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "追加のトークンにより、すべてのリクエストのコストが大幅に増える。",
+        "note": "事実ですが、ユーザーに誤解を招く判断材料を示すことに比べれば些細な問題です。"
+      },
+      {
+        "id": "b",
+        "text": "自己申告の数値は較正されておらず、それを信頼するユーザーを誤解させる。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "パーセンテージは、数値ではなく視覚的な指標で表示すべきである。",
+        "note": "表示上の好みであり、元となる数値は較正されていないままです。"
+      },
+      {
+        "id": "d",
+        "text": "回答をすっきりさせるため、確信度は別の呼び出しで求めるべきである。",
+        "note": "2回目の呼び出しでも、同じく較正されていない数値が2倍のコストで得られるだけです。"
+      }
+    ],
+    "explanation": "自己評価による数値は測定値に見えますが、較正された手順から導かれたものではありません。自信に満ちた誤答でも高い値になることが多く、まさにユーザーが低い値を必要とする場面で高くなります。"
   },
   "references": [
     {

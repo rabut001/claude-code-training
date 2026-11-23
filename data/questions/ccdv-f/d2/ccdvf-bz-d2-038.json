@@ -38,7 +38,31 @@
     "explanation": "An open-ended mandate over a financial system is a blast-radius question first. The reversible/irreversible split defines the permission boundary every other design decision sits inside."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "プロダクト部門が、社内の財務システムで「若手アナリストにできることは何でもできる」エージェントを求めています。コードを書く前に明らかにすべき、最も重要なことは何ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "財務分析タスクで最良の推論能力を持つモデルの階層はどれか。",
+        "note": "時期尚早です。能力の要件は、許可する操作の範囲から決まります。"
+      },
+      {
+        "id": "b",
+        "text": "財務システムが維持できるエージェントの同時セッション数はいくつか。",
+        "note": "後で重要になる処理容量の問題であり、設計の方向性を決めるものではありません。"
+      },
+      {
+        "id": "c",
+        "text": "エージェントが推論の手順をエンドユーザーに示すべきかどうか。",
+        "note": "UX 上の判断であり、エージェントに何を許可するかより優先度は低くなります。"
+      },
+      {
+        "id": "d",
+        "text": "元に戻せる操作はどれか、また実行前の承認が必要な操作はどれか。",
+        "note": ""
+      }
+    ],
+    "explanation": "財務システムでの自由度の高い権限付与は、まず被害の影響範囲の問題です。可逆な操作と不可逆な操作の区別が、他のすべての設計判断が従う権限の境界を定めます。"
   },
   "references": [
     {

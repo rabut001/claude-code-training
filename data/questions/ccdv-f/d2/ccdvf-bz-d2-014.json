@@ -38,7 +38,31 @@
     "explanation": "The request may have succeeded before the timeout, so the retry is legitimate. Only an idempotency key lets the server recognise the repeat and decline to act twice."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "支払い調整のエンドポイントの背後で、返金ツールを持つ Claude エージェントが動いています。ネットワークのタイムアウトでクライアントが再試行し、一部の顧客に2回返金されます。実際の不具合に対処する修正はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "システムプロンプトで、決して2回返金しないようエージェントに指示する。",
+        "note": "重複はネットワーク層で発生しており、どのようなプロンプトもそこには作用できません。"
+      },
+      {
+        "id": "b",
+        "text": "クライアントの再試行を削除し、タイムアウトをエラーとしてユーザーに通知する。",
+        "note": "有用な復旧経路を失い、最初の返金の成否も不明なままになります。"
+      },
+      {
+        "id": "c",
+        "text": "すべての返金を記録し、夜間の照合ジョブで重複分を取り消す。",
+        "note": "顧客に既に2回支払われた後で、被害を検出することになります。"
+      },
+      {
+        "id": "d",
+        "text": "冪等性キーを必須にし、繰り返しの呼び出しには元の結果を返す。",
+        "note": ""
+      }
+    ],
+    "explanation": "リクエストはタイムアウト前に成功していた可能性があるため、再試行自体は妥当です。サーバーが繰り返しを識別し、2回目の処理を行わないようにできるのは、冪等性キーだけです。"
   },
   "references": [
     {

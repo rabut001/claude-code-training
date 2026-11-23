@@ -38,7 +38,31 @@
     "explanation": "The key stays server-side while the backend relays the stream onward, so the browser gets incremental output and the credential is never exposed to the client."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Web ページに組み込まれたアシスタントが、ブラウザーに回答をストリーミングする必要があります。API キーはバックエンドが保持しています。正しいアーキテクチャはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "厳格なリファラーの許可リストを適用し、キーをブラウザーに渡す。",
+        "note": "ブラウザーに渡されたキーはすべて公開されたものです。リファラーのチェックは簡単に偽装できます。"
+      },
+      {
+        "id": "b",
+        "text": "有効期間の短いプロキシトークンを使い、ブラウザーから API を直接呼び出す。",
+        "note": "実質的にはプロキシであり、ブラウザーは依然として使用可能な認証情報を保持します。"
+      },
+      {
+        "id": "c",
+        "text": "バックエンドが API を呼び出し、バックエンドからブラウザーへストリーミングする。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "データベースに書き込まれる途中結果を、ブラウザーからバックエンドにポーリングする。",
+        "note": "既にストリーミングが解決する問題のために、ポーリングでレイテンシと複雑さが増えます。"
+      }
+    ],
+    "explanation": "バックエンドがストリームを中継する間もキーはサーバー側に留まるため、ブラウザーは逐次出力を受け取れ、認証情報がクライアントに露出することはありません。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Memory files are hierarchical and cumulative. Broad project conventions live at the root while a subdirectory adds the specifics that apply to its own code."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "リポジトリのプロジェクトルートと packages/api/ 内に、それぞれ CLAUDE.md があります。開発者が packages/api/ 内のファイルで作業しています。これらはどう扱われますか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "最も近いファイルだけが適用され、そのディレクトリではルートのファイルは無視される。",
+        "note": "入れ子のファイルがあるたびに、プロジェクト全体の規約を捨てることになります。"
+      },
+      {
+        "id": "b",
+        "text": "ルートのファイルだけが適用され、入れ子のファイルは明示的にインポートした場合に読み込まれる。",
+        "note": "入れ子のファイルは、作業対象のパスに基づいて自動的に読み込まれます。"
+      },
+      {
+        "id": "c",
+        "text": "両方が適用され、より具体的なファイルの内容がルートのファイルに重ねて適用される。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "競合し、どちらかを削除するまで Claude Code がエラーを報告する。",
+        "note": "重ねて適用するのは設計どおりの振る舞いであり、エラーではありません。"
+      }
+    ],
+    "explanation": "メモリーファイルは階層的かつ累積的です。プロジェクト全体の規約はルートに置き、サブディレクトリでは、そのコードに適用する具体的な内容を追加します。"
   },
   "references": [
     {

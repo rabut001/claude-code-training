@@ -38,7 +38,31 @@
     "explanation": "Quality regressions show up in quality measurements. The eval score is the controlled signal and user corrections are the field signal; together they point at content rather than infrastructure."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "インフラの問題ではなく、プロンプトの変更による品質低下を最も直接的に示す、本番での兆候はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "その機能を提供するエンドポイントの p99 レイテンシの上昇。",
+        "note": "レイテンシはインフラの症状であり、正しさについては何も示しません。"
+      },
+      {
+        "id": "b",
+        "text": "Claude API が返す HTTP 429 レスポンスの増加。",
+        "note": "429 はレート制限を示し、プロンプトの内容とは無関係です。"
+      },
+      {
+        "id": "c",
+        "text": "変更後の評価スコアの低下と、ユーザーによる訂正の増加。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "リクエストあたりの平均入力トークン数の増加。",
+        "note": "トークン数の増加はコストに影響しますが、品質を損なわずにプロンプトが長くなっただけの場合もあります。"
+      }
+    ],
+    "explanation": "品質のリグレッションは、品質の測定に現れます。評価スコアは条件を管理した指標で、ユーザーによる訂正は実利用の指標です。この2つがそろえば、インフラではなく内容の問題を示します。"
   },
   "references": [
     {

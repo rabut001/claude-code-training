@@ -44,7 +44,36 @@
     "explanation": "Those logs are what make cost, truncation, and latency debuggable across all consumers, and centralised configuration lets you change model or parameters without touching callers."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "複数のプロダクトチームが使う社内サービスで Claude API をラップしています。運用のしやすさを最も改善する取り組みを2つ選んでください。（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "呼び出しごとにモデル、トークン数、stop_reason、レイテンシを含む構造化ログを出力する。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "モデルとパラメーターを、呼び出し元ごとのリテラルではなく、設定として公開する。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "同じ質問が再び API に届かないよう、すべてのレスポンスを永続的にキャッシュする。",
+        "note": "上限のない永続キャッシュは、古い回答を返し、際限なく増大します。"
+      },
+      {
+        "id": "d",
+        "text": "利用量を各チームに帰属させるため、チームごとに独自の API キーを指定できるようにする。",
+        "note": "キーが乱立すると、ローテーションと失効の作業が増えます。利用量の帰属にはメタデータを使います。"
+      },
+      {
+        "id": "e",
+        "text": "呼び出し元が処理せずに済むよう、レスポンスから stop_reason を取り除く。",
+        "note": "stop_reason を隠すと、呼び出し元が出力の途切れを検出するために最も必要なフィールドを失います。"
+      }
+    ],
+    "explanation": "これらのログにより、すべての利用側にわたってコスト、出力の途切れ、レイテンシをデバッグできるようになります。また、設定を一元管理すれば、呼び出し元に手を加えずにモデルやパラメーターを変更できます。"
   },
   "references": [
     {

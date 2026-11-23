@@ -38,7 +38,31 @@
     "explanation": "Prompts are tuned against a specific model's behaviour, so an alias that moves underneath you turns an upgrade into an unplanned production change you never evaluated."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "本番のデプロイでは、自動更新されるエイリアスに追従するのではなく、特定のモデルバージョンを固定すべきなのはなぜですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "固定すれば、バージョン変更を、評価を経て意図的に実行し、元に戻せるようにできる。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "固定したモデルバージョンは、エイリアスから参照するものより低い料金で課金される。",
+        "note": "価格はモデルの階層によって決まり、指定方法によっては決まりません。"
+      },
+      {
+        "id": "c",
+        "text": "エイリアスには、組織単位のより厳しいレート制限が適用される。",
+        "note": "そのようなレート制限の区別はありません。"
+      },
+      {
+        "id": "d",
+        "text": "固定したバージョンには、エイリアスより大きいコンテキストウィンドウが用意される。",
+        "note": "コンテキストウィンドウはモデルの特性であり、指定方法に影響されません。"
+      }
+    ],
+    "explanation": "プロンプトは特定のモデルの振る舞いに合わせて調整されているため、参照先が変わるエイリアスは、アップグレードを一度も評価していない予定外の本番変更にしてしまいます。"
   },
   "references": [
     {

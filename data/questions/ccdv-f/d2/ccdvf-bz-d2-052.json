@@ -38,7 +38,31 @@
     "explanation": "Retries are inevitable in distributed systems and the agent will retry on its own. Idempotency keys make a repeat call safe at the system level, which is the only place the guarantee can hold."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "サポートエージェントが返金ツールを呼び出します。実際に返金された後でネットワークのタイムアウトが発生し、エージェントが再試行します。二重返金を防ぐ設計上の性質はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "冪等性。クライアントが指定するキーにより、繰り返しの呼び出しで元の結果を返す。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "決定性。temperature を 0 に設定し、エージェントが毎回同じように振る舞うようにする。",
+        "note": "決定論的なサンプリングは、副作用の重複と無関係です。"
+      },
+      {
+        "id": "c",
+        "text": "指示。システムプロンプトで、エージェントが返金を再試行することを一切禁じる。",
+        "note": "モデルに起因しない可能性もあるネットワーク層の再試行は、プロンプトでは防げません。"
+      },
+      {
+        "id": "d",
+        "text": "可観測性。すべての返金を記録し、後で照合して重複を解消する。",
+        "note": "照合は被害を防ぐのではなく、被害が生じた後に後始末をするものです。"
+      }
+    ],
+    "explanation": "分散システムでは再試行は避けられず、エージェントも自ら再試行します。冪等性キーは、繰り返しの呼び出しをシステムレベルで安全にします。その保証を成立させられるのは、このレベルだけです。"
   },
   "references": [
     {
