@@ -150,3 +150,19 @@
 | embedding | 埋め込み | |
 | parameterised query | パラメーター化クエリー | |
 | sanitise | 無害化する | |
+| indirect prompt injection | 間接的なプロンプトインジェクション | |
+| jailbreak | ジェイルブレイク | |
+| exfiltration | データ流出 | |
+| data minimisation | データ最小化 | |
+| redact | 秘匿化する | |
+| entitlement | アクセス権 | |
+| defence in depth | 多層防御 | |
+| capability restriction | 機能制限 | |
+| content moderation | コンテンツモデレーション | |
+| fail-open / fail-closed | フェイルオープン / フェイルクローズ | |
+| linting | 静的検査 | |
+| secret manager | シークレットマネージャー | |
+| delegated token | 委任トークン | |
+| principal | 主体 | 認可の文脈 |
+| identity model | アイデンティティーモデル | |
+| rotation | ローテーション | キーや認証情報の更新 |

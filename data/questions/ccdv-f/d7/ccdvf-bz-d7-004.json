@@ -38,7 +38,31 @@
     "explanation": "Access control belongs in the retrieval layer, before content reaches the model. Once an unauthorised document is in context, telling the model to keep it secret is a probabilistic guard on a deterministic boundary."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "検索を利用するアシスタントが、依頼したユーザーに閲覧権限のない文書を返しました。設計のどこに問題がありましたか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "適用されるアクセス制御の規則に、システムプロンプトが言及していなかった。",
+        "note": "範囲が広すぎる問い合わせに対して、プロンプトではアクセス権を強制できません。"
+      },
+      {
+        "id": "b",
+        "text": "認証済みユーザーのアクセス権に基づく、検索の絞り込みをしていなかった。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "権限モデルについて推論するには、モデル階層の能力が不十分だった。",
+        "note": "権限の強制は、モデルが行う推論のタスクではありません。"
+      },
+      {
+        "id": "d",
+        "text": "文書自体に、機密という分類ラベルが付いていなかった。",
+        "note": "ラベルはメタデータです。問い合わせに実際にフィルターを適用する必要があります。"
+      }
+    ],
+    "explanation": "アクセス制御は、内容がモデルに届く前に検索層で行います。権限のない文書がコンテキストに入った後で秘密を守るようモデルに伝えても、決定論的であるべき境界に確率的なガードを置くことになります。"
   },
   "references": [
     {

@@ -38,7 +38,31 @@
     "explanation": "Data minimisation works regardless of model behaviour: personal data that was never sent cannot be echoed, logged, or leaked. Redact before the request rather than hoping the output stays clean."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "個人データを含む顧客レコードを、要約のために Claude に送ります。情報の露出を最も減らす制御はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "返す要約に個人データを繰り返し載せないよう、モデルに指示する。",
+        "note": "指示が制御するのは出力であり、データが境界を越えたという事実ではありません。"
+      },
+      {
+        "id": "b",
+        "text": "レコードを一度に送らず段階的に送信するため、ストリーミングを有効にする。",
+        "note": "ストリーミングが変えるのは配信のタイミングであり、情報の露出ではありません。"
+      },
+      {
+        "id": "c",
+        "text": "タスクに必要なフィールドだけを送り、不要な識別情報をマスキングする。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "出力が渡した原文から離れないよう、temperature を0にする。",
+        "note": "サンプリング用の temperature は、プライバシーの制御ではありません。"
+      }
+    ],
+    "explanation": "データ最小化は、モデルの動作にかかわらず機能します。送らなかった個人データは、繰り返し出力されたり、ログに記録されたり、漏えいしたりしません。出力に問題がないことを期待するのではなく、リクエスト前に秘匿化してください。"
   },
   "references": [
     {

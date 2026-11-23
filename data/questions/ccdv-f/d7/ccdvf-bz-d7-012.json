@@ -38,7 +38,31 @@
     "explanation": "Authorisation must be enforced by the system that owns the data, using the real principal. Propagating a scoped delegated token means the downstream API applies that user's permissions with no model behaviour involved."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントが、個々のエンドユーザーに代わって社内 API に対する操作を行う必要があります。正しいアイデンティティーモデルはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "特権を持つ1つのサービスアカウントを使い、プロンプトに現在のユーザー名を記す。",
+        "note": "プロンプトに書かれた身元は未検証であり、インジェクションによって簡単に混乱させられます。"
+      },
+      {
+        "id": "b",
+        "text": "セッションの開始時に、各ユーザーが自分のパスワードをエージェントに渡す。",
+        "note": "パスワードの共有は、認証と監査を完全に損ないます。"
+      },
+      {
+        "id": "c",
+        "text": "ユーザーの身元、または API が権限を強制する委任トークンを呼び出しに含める。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "エージェントを管理者権限で実行し、表示前に結果を絞り込む。",
+        "note": "過剰な権限で実行すると、フィルターが動く前にデータが露出していたことになります。"
+      }
+    ],
+    "explanation": "認可は、実際の主体に基づき、データを所有するシステムが強制する必要があります。権限範囲を絞った委任トークンを伝播させれば、後段の API が、モデルの動作を介さずに、そのユーザーの権限を適用できます。"
   },
   "references": [
     {

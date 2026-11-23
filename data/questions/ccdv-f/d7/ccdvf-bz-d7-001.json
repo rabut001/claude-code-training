@@ -38,7 +38,31 @@
     "explanation": "The payload hides in data the application retrieves on the user's behalf, so a legitimate user issues a harmless request while the attacker's instruction rides in on a page, document, or email."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "間接的なプロンプトインジェクションと、直接的なジェイルブレイクの試みを区別するものは何ですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "間接的なインジェクションには、実行するためにはるかに高度な技能とアクセスが必要である。",
+        "note": "難易度はさまざまで、索引に登録されるページに内容を仕込むのは簡単なこともよくあります。"
+      },
+      {
+        "id": "b",
+        "text": "間接的なインジェクションは、ツールを有効にしていないアプリケーションにだけ影響する。",
+        "note": "ツールは危険性を高めますが、ツールがなくてもインジェクションによる情報開示は起こり得ます。"
+      },
+      {
+        "id": "c",
+        "text": "両者は同じ攻撃を指し、使う用語だけが異なる。",
+        "note": "侵入する経路が根本的に異なるため、必要な防御が変わります。"
+      },
+      {
+        "id": "d",
+        "text": "システムが取り込むコンテンツの中に、悪意のある指示が含まれて届く。",
+        "note": ""
+      }
+    ],
+    "explanation": "ペイロードは、アプリケーションがユーザーに代わって取得するデータに隠れています。正規のユーザーが無害なリクエストを出す一方で、攻撃者の指示がページ、文書、メールに紛れて入ってきます。"
   },
   "references": [
     {

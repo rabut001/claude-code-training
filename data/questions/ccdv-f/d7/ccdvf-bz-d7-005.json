@@ -44,7 +44,36 @@
     "explanation": "Defence in depth is the governing principle, and the strongest single layer is capability restriction, because an action the agent structurally cannot take cannot be triggered by any input."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "エージェントを用いるアプリケーションの防御について、正しい記述はどの2つですか？（2つ選択）",
+    "options": [
+      {
+        "id": "a",
+        "text": "単独で十分な制御はないため、ガードレールは多層にすべきである。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "指示よりも機能制限が優れる。到達できない操作は、誘発できない。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "十分に詳細なシステムプロンプトがあれば、認可チェックは不要になる。",
+        "note": "プロンプトが認可に取って代わることはありません。強制ではなく、指針です。"
+      },
+      {
+        "id": "d",
+        "text": "モデルに届く前に入力を無害化すれば、プロンプトインジェクションは完全に解決する。",
+        "note": "無害化は役立ちますが、攻撃者は言い換え、エンコード、翻訳によって回避します。"
+      },
+      {
+        "id": "e",
+        "text": "すべてのリクエストで temperature を0にすれば、ジェイルブレイクの成功を防げる。",
+        "note": "temperature は、敵対的な指示への影響の受けやすさとは関係がありません。"
+      }
+    ],
+    "explanation": "基本原則は多層防御です。単独で最も強い層は機能制限であり、エージェントが構造的に実行できない操作は、どのような入力でも引き起こせないためです。"
   },
   "references": [
     {

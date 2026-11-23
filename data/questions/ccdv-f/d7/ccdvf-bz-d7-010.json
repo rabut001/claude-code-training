@@ -38,7 +38,31 @@
     "explanation": "\"Every time, without exception\" is the signature of a hook. Post-edit formatting and a pre-commit denial run as code and do not depend on the model remembering to comply."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude Code が編集するすべてのファイルを自動整形し、静的検査を行い、検査が失敗したらコミットをブロックしたいと考えています。適切な仕組みはどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "編集のたびにフォーマッターを実行するよう Claude に依頼する、CLAUDE.md の指示。",
+        "note": "メモリーの指示は通常は守られますが、保証はなく、ブロックするのも困難です。"
+      },
+      {
+        "id": "b",
+        "text": "整形の標準と静的検査の設定を記載した Skill。",
+        "note": "Skill は知識を伝えるもので、実行を強制しません。"
+      },
+      {
+        "id": "c",
+        "text": "コミット前に整形をレビューし、問題を報告するサブエージェント。",
+        "note": "サブエージェントが加えるのは確率的なレビューであり、決定論的なゲートではありません。"
+      },
+      {
+        "id": "d",
+        "text": "編集後に整形し、静的検査に失敗したらコミットを拒否するフック。",
+        "note": ""
+      }
+    ],
+    "explanation": "「例外なく毎回」が、フックを特徴付けます。編集後の整形とコミット前の拒否はコードとして実行され、モデルが指示に従うことを覚えているかには依存しません。"
   },
   "references": [
     {

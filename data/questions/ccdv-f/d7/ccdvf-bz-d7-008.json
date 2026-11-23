@@ -38,7 +38,31 @@
     "explanation": "A model-based filter is a probabilistic component like any other. It needs labelled evaluation, ongoing measurement of both error directions, and an explicit fail-open or fail-closed policy."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "コンテンツモデレーションのガードレールが、配信前に Claude を使って出力を安全か危険かに分類します。運用上、最も重要な考慮事項はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "一貫性のため、生成の呼び出しと同じモデルとプロンプトを再利用すべきである。",
+        "note": "独立したチェックのほうが価値があります。プロンプトとモデルを共有すると、失敗に相関が生じます。"
+      },
+      {
+        "id": "b",
+        "text": "追加の呼び出しでユーザーを待たせないよう、配信後に実行すべきである。",
+        "note": "配信後にチェックすると、目的をまったく果たせません。"
+      },
+      {
+        "id": "c",
+        "text": "それ自体も確率的なので、独自の評価、誤り率、失敗時の方針が必要である。",
+        "note": ""
+      },
+      {
+        "id": "d",
+        "text": "ほかの安全層に取って代わるため、それらは安全に廃止できる。",
+        "note": "多層防御の1つの層であり、ほかの層の代わりではありません。"
+      }
+    ],
+    "explanation": "モデルを使うフィルターも、ほかと同じ確率的な構成要素です。ラベル付きの評価、両方向の誤りの継続的な測定、明示的なフェイルオープンまたはフェイルクローズの方針が必要です。"
   },
   "references": [
     {

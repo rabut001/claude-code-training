@@ -38,7 +38,31 @@
     "explanation": "The dangerous combination is untrusted input plus data access plus an outbound channel. Break the chain structurally, and scope the database credential to the minimum the task requires."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "データベースの読み取り権限とメールツールを持つエージェントが、受信したサポートメールを要約しています。最も重大なリスクと、適切な構造上の対策はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "注入された指示によるデータ流出。この経路から外部送信を取り除く。",
+        "note": ""
+      },
+      {
+        "id": "b",
+        "text": "長いメールスレッドによるトークン支出の暴走。実行ごとの予算上限を適用する。",
+        "note": "実際の運用上の懸念ですが、この設計におけるセキュリティ上のリスクではありません。"
+      },
+      {
+        "id": "c",
+        "text": "不正確な要約が顧客に届くこと。2回目のレビューを加える。",
+        "note": "要約の品質は品質上の問題であり、データ流出の経路ではありません。"
+      },
+      {
+        "id": "d",
+        "text": "長いスレッドによるウィンドウ超過。処理前に各メールを切り詰める。",
+        "note": "容量の懸念であり、この情報露出とは無関係です。"
+      }
+    ],
+    "explanation": "危険なのは、信頼できない入力、データへのアクセス、外部送信経路の組み合わせです。この連鎖を構造的に断ち、データベースの認証情報の権限範囲も、タスクに必要な最小限に絞ってください。"
   },
   "references": [
     {

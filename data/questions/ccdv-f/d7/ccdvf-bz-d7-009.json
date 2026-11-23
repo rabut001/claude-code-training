@@ -38,7 +38,31 @@
     "explanation": "Hooks execute at defined points such as before or after a tool runs, and can approve or deny the pending action. Because they always run, they give guarantees that prompts cannot."
   },
   "ja": {
-    "status": "todo"
+    "status": "draft",
+    "question": "Claude Code のフックを特徴付ける性質はどれですか？",
+    "options": [
+      {
+        "id": "a",
+        "text": "新しいセッションの開始時に毎回渡される、プロンプトの断片である。",
+        "note": "それはメモリーやシステムプロンプトの説明であり、強制ではなく指針です。"
+      },
+      {
+        "id": "b",
+        "text": "ライフサイクルの時点でコードとして動き、実行予定の操作をブロックできる。",
+        "note": ""
+      },
+      {
+        "id": "c",
+        "text": "関係する場合に、モデルが呼び出すことを選べる任意のツールである。",
+        "note": "フックは任意に選ぶものではなく、モデルが選択するものでもありません。"
+      },
+      {
+        "id": "d",
+        "text": "実行時のモデルの動作を変える、設定フラグである。",
+        "note": "フックは自分たちのコードを実行するもので、動作の切り替えではありません。"
+      }
+    ],
+    "explanation": "フックは、ツールの実行前や実行後など、定められた時点で実行され、実行予定の操作を許可または拒否できます。必ず実行されるため、プロンプトにはできない保証を与えます。"
   },
   "references": [
     {
