@@ -2,45 +2,29 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Claude認定 問題集</title>
-  <style>
-    :root { --bg: #fafaf9; --fg: #1c1917; --muted: #78716c; --card: #fff; --line: #e7e5e4; }
-    @media (prefers-color-scheme: dark) {
-      :root { --bg: #1c1917; --fg: #f5f5f4; --muted: #a8a29e; --card: #292524; --line: #44403c; }
-    }
-    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, sans-serif; }
-    main { max-width: 40rem; margin: 0 auto; padding: 24px 16px; }
-    h1 { font-size: 1.4rem; margin: 0 0 4px; }
-    p { color: var(--muted); margin: 0 0 16px; }
-    ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-    li { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
-    small { color: var(--muted); }
-  </style>
+  <meta name="description" content="Claude認定試験（CCDV-F・CCAR-P）の練習問題を日本語で解ける非公式の問題集">
+  <meta name="theme-color" content="#0f766e" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Claude問題集">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles/app.css">
+  <script type="module" src="src/main.js"></script>
 </head>
 <body>
-  <main>
-    <h1>Claude認定 問題集</h1>
-    <p>アプリは準備中です。いま収録されている問題数を表示しています。</p>
-    <ul id="exams"><li>読み込み中…</li></ul>
+  <header class="topbar">
+    <button id="back" class="topbar__back" type="button" aria-label="戻る" hidden>‹</button>
+    <h1 id="title" class="topbar__title">Claude認定 問題集</h1>
+    <a class="topbar__settings" href="#/settings" aria-label="設定">⚙</a>
+  </header>
+  <main id="app" tabindex="-1">
+    <p class="loading">読み込み中…</p>
   </main>
-  <script type="module">
-    // 仮のページ（フェーズ1bでアプリ本体に置き換える）
-    const list = document.getElementById("exams");
-    try {
-      const res = await fetch("data/index.json", { cache: "no-store" });
-      if (!res.ok) throw new Error(res.status);
-      const index = await res.json();
-      list.replaceChildren(...index.exams.map((e) => {
-        const li = document.createElement("li");
-        li.innerHTML = `<strong></strong><br><small></small>`;
-        li.querySelector("strong").textContent = `${e.code} ${e.name.ja}`;
-        li.querySelector("small").textContent = `${e.count}問（和訳済み ${e.translated}問）`;
-        return li;
-      }));
-    } catch {
-      list.innerHTML = "<li>問題データがありません（python3 tools/build.py を実行してください）</li>";
-    }
-  </script>
+  <noscript><p class="empty">このアプリを使うには JavaScript を有効にしてください。</p></noscript>
 </body>
 </html>

@@ -13,6 +13,7 @@ usage() {
 
   check              テスト → 検証 → ビルド（CI と同じ。コミット前に実行する）
   test               validate.py / build.py のテスト
+  e2e [引数]         アプリの E2E テスト（Playwright。サンプル問題で、スマホの画面幅で操作する）
   validate [引数]    データを検証する（例: ./dev validate --strict-counts）
   build [引数]       app/data/ を生成する（例: ./dev build --questions tests/fixtures/questions）
   serve              開発サーバーを起動する（http://localhost:8000、止めるときは Ctrl+C）
@@ -40,6 +41,8 @@ case "$cmd" in
     run sh -c 'python3 -m unittest discover -s tests && python3 tools/validate.py && python3 tools/build.py' ;;
   test)
     run python3 -m unittest discover -s tests "$@" ;;
+  e2e)
+    run python3 -m unittest discover -s tests/e2e -p 'e2e_*.py' "$@" ;;
   validate)
     run python3 tools/validate.py "$@" ;;
   build)
