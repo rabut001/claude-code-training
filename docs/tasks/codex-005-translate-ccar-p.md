@@ -105,8 +105,8 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 | 1 | d3 | 完了 | 43 | `04db453` | 全問 draft、全検証成功。temperature 1問、p95 4問に補足 |
 | 2 | d1 | 完了 | 39 | `6406ca5` | 全問 draft、全検証成功。用語の補足対象なし |
 | 3 | d4 | 完了 | 36 | `753c978` | 全問 draft、全検証成功。4用語各1問に補足 |
-| 4 | d5 | 完了 | 32 | この分野のコミット | 全問 draft、全検証成功。OCR 1問に補足 |
-| 5 | d6 | 未着手 | 32 | | |
+| 4 | d5 | 完了 | 32 | `6b6a8ab` | 全問 draft、全検証成功。OCR 1問に補足 |
+| 5 | d6 | 完了 | 32 | この分野のコミット | 全問 draft、全検証成功。用語の補足対象なし |
 | 6 | d2 | 未着手 | 30 | | |
 | 7 | d7 | 未着手 | 16 | | |
 
@@ -143,6 +143,13 @@ CCAR-P の7分野の `ja` を埋め、`ja.status` を `draft` にします。**�
 - `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功、全408問との照合成功。CCAR-Pは計150問draft。
 - 用語の補足：OCR 1問、ほか12用語は0問。原文の明らかな誤りは見つからなかった。
 - 補足の候補（未追加）：HIPAA・ePHI（`ccarp-bj-5.4-encrypted-ephi-custodian`、`ccarp-bj-5.4-hipaa-feature-path-change`）、BAA（`ccarp-bj-5.4-hipaa-feature-path-change`）、DPIA（`ccarp-bj-5.4-gdpr-significant-decision-gates`）、FedRAMP（`ccarp-bj-5.4-federal-internal-search-boundary`）。原文にある展開形は和訳し、それ以外の説明は足していない。
+
+### d6（2026-11-23）
+
+- 32問（single 23、multi 9）をdraftにした。全選択肢の理由を訳し、人員と処理能力の計算、実測と予測、承認条件、引き継ぎ・廃止・復旧の範囲を保持した。
+- `./dev check` 成功（32テスト、検証、ビルド）、`./dev validate --strict-counts` 成功、全408問との照合成功。CCAR-Pは計182問draft。
+- 用語の補足：13用語すべて0問。原文の明らかな誤りは見つからなかった。
+- 補足の候補（未追加）：SLI・SLO・SLA（`ccarp-bj-6.3-service-commitment-definitions`）、SLA（`ccarp-bj-6.3-language-expansion-gates`）、エラーバジェット（`ccarp-bj-6.3-breach-response-authority`）。原文にある展開形と区別の説明はそのまま訳した。
 
 ### 用語 → 問題 ID（完了分野）
 

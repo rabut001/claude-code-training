@@ -225,3 +225,11 @@
 | electronic protected health information | 電子保護医療情報 | 略語ePHIは英語のまま |
 | data protection impact assessment | データ保護影響評価 | 略語DPIAは英語のまま |
 | confabulation | 作話 | |
+| requirements discovery | 要件調査 | 単にdiscoveryとある場合も、要件を調べる文脈ではこの訳を使う |
+| service level indicator | サービスレベル指標 | 略語SLIは英語のまま |
+| service level objective | サービスレベル目標 | 略語SLOは英語のまま |
+| service level agreement | サービスレベル合意 | 略語SLAは英語のまま |
+| error budget | エラーバジェット | |
+| runbook | 手順書 | |
+| release manifest | リリースの構成一覧 | |
+| decommissioning | 廃止 | サービスの運用終了の文脈 |
