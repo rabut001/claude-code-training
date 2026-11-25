@@ -1,7 +1,7 @@
 // 出題画面
 //
 // 上部：問題番号の帯（横にスクロール）。練習では 正解○・不正解×・選択中• とチェック✔ を出す。模試では何も出さない
-// 下部：前へ・正解を表示（練習だけ）・次へ。未回答のまま次の問題へ進める
+// 下部：前へ・正解を表示（練習だけ）・次へ。未回答のまま次の問題へ進める。最後の問題では「次へ」が「結果へ」になる
 // 右上：一括採点
 
 import { el, formatClock } from "../util.js";
@@ -90,10 +90,13 @@ export async function quizView(ctx) {
       const msg = `${un ? `未回答が ${un}問あります。` : ""}採点して、この模試の結果とチェックの状態で学習記録を上書きしますか？`;
       if (!confirm(msg)) return;
     } else {
+      // 全問を採点し終えていれば、確認せずに結果画面へ進む
       const drafts = session.ids.filter((id) => !session.graded[id] && selOf(id).length);
       const un = session.ids.filter((id) => !session.graded[id] && !selOf(id).length).length;
-      const msg = `選んだまま正解を表示していない ${drafts.length}問を採点し、結果画面へ進みます。${un ? `未回答の ${un}問は未回答のままです。` : ""}`;
-      if (!confirm(msg)) return;
+      if (drafts.length || un) {
+        const msg = `${drafts.length ? `選んだまま正解を表示していない ${drafts.length}問を採点します。` : ""}${un ? `未回答の ${un}問は未回答のままです。` : ""}結果画面へ進みますか？`;
+        if (!confirm(msg)) return;
+      }
       drafts.forEach(grade);
     }
     finish();
@@ -271,13 +274,17 @@ export async function quizView(ctx) {
 
     // 画面の下に固定する操作
     const prev = el("button", { type: "button", class: "btn", disabled: first, onclick: () => go(session.index - 1) }, "前へ");
-    const next = el("button", { type: "button", class: "btn", disabled: last, onclick: () => go(session.index + 1) }, "次へ");
+    // 最後の問題では「次へ」の代わりに「結果へ」を出す（押したときは一括採点と同じ）。
+    // 最後の問題を終えたら（練習は採点、模試は選択肢を選んだら）、主ボタンの色にする
+    const next = last
+      ? el("button", { type: "button", class: `btn${(feedback ? reveal : sel.length > 0) ? " btn--primary" : ""}`, onclick: bulkGrade }, "結果へ")
+      : el("button", { type: "button", class: "btn", onclick: () => go(session.index + 1) }, "次へ");
     let middle = null;
     let hint = "";
     if (feedback) {
       if (reveal) {
         hint = "取り消すと、選んだ選択肢はそのままで採点前に戻ります";
-        middle = el("button", { type: "button", class: "btn", onclick: () => { ungrade(id); save(); draw(); } }, "採点を取り消す");
+        middle = el("button", { type: "button", class: "btn", onclick: () => { ungrade(id); save(); draw(); } }, "採点取消");
       } else {
         const need = q.select - sel.length;
         if (q.type === "multi" && need > 0 && sel.length > 0) hint = `あと${need}つ選んでください`;

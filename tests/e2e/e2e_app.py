@@ -224,8 +224,8 @@ class AppTest(unittest.TestCase):
         expect(self.nums().nth(0)).to_have_attribute("aria-label", "問1、正解")
         self.assertTrue(self.stored("progress:ccdv-f")[q1["id"]]["last"])
 
-        # 採点を取り消す：選んだ選択肢はそのまま、学習記録は採点前（記録なし）に戻る
-        self.btn("採点を取り消す").click()
+        # 採点取消：選んだ選択肢はそのまま、学習記録は採点前（記録なし）に戻る
+        self.btn("採点取消").click()
         expect(self.page.locator(".verdict")).to_have_count(0)
         expect(self.page.locator(".explain")).to_have_count(0)
         for letter in q1["answer"]:
@@ -273,6 +273,43 @@ class AppTest(unittest.TestCase):
         expect(self.page.locator(".score__num")).to_have_text("0")
         expect(self.page.locator(".review--ng")).to_have_count(1)
         self.assertEqual({k: v["last"] for k, v in self.stored("progress:ccdv-f").items()}, {q1["id"]: False})
+
+    def test_last_question_goes_to_result_after_grading_all(self):
+        self.start_quick()
+        for i in range(2):
+            q = self.current_question()
+            self.click_options(self.letters_for(q, True))
+            self.btn("正解を表示").click()
+            if i == 0:
+                expect(self.btn("結果へ")).to_have_count(0)
+                self.btn("次へ").click()
+        # 最後の問題では「次へ」が「結果へ」になり、採点したら主ボタンの色になる
+        expect(self.btn("次へ")).to_have_count(0)
+        expect(self.btn("結果へ")).to_have_class("btn btn--primary")
+        self.btn("結果へ").click()
+        expect(self.page).to_have_url(self.url + "#/result")
+        expect(self.page.locator(".score__num")).to_have_text("100")
+        self.assertEqual(self.dialogs, [], "全問を採点済みなら確認しない")
+
+    def test_last_question_result_button_asks_about_unanswered(self):
+        self.start_quick()
+        self.btn("次へ").click()  # 問1は未回答のまま
+        result = self.btn("結果へ")
+        expect(result).to_have_class("btn")  # 最後の問題を採点するまでは普通の色
+        self.accept_dialogs = False
+        result.click()
+        expect(self.page).to_have_url(self.url + "#/quiz")  # キャンセルしたら残る
+        self.assertEqual(self.dialogs, ["未回答の 2問は未回答のままです。結果画面へ進みますか？"])
+
+        q = self.current_question()
+        self.click_options(self.letters_for(q, True))  # 選んだが、正解は表示しない
+        self.accept_dialogs = True
+        result.click()
+        expect(self.page).to_have_url(self.url + "#/result")
+        self.assertEqual(
+            self.dialogs[1], "選んだまま正解を表示していない 1問を採点します。未回答の 1問は未回答のままです。結果画面へ進みますか？"
+        )
+        expect(self.page.locator(".score__num")).to_have_text("50")
 
     def test_multi_needs_the_right_number_of_choices(self):
         self.open("#/exam/ccdv-f")
@@ -358,6 +395,20 @@ class AppTest(unittest.TestCase):
         expect(self.page.locator(".judge")).to_contain_text("合格の目安（69%）")
         self.assertEqual(self.stored("checks:ccdv-f"), {q["id"]: True})
         self.assertEqual({k: v["last"] for k, v in self.stored("progress:ccdv-f").items()}, {q["id"]: True})
+
+    def test_mock_last_question_goes_to_result(self):
+        self.start_mock()
+        self.btn("次へ").click()
+        result = self.btn("結果へ")
+        expect(result).to_have_class("btn")
+        q = self.current_question()
+        self.click_options(self.letters_for(q, True))
+        expect(result).to_have_class("btn btn--primary")  # 選んだら主ボタンの色
+        result.click()  # 模試の確認ダイアログは accept
+        expect(self.page).to_have_url(self.url + "#/result")
+        self.assertEqual(len(self.dialogs), 1)
+        self.assertIn("学習記録を上書きしますか", self.dialogs[0])
+        expect(self.page.locator(".score__num")).to_have_text("50")
 
     def test_mock_answers_are_kept_when_moving(self):
         self.start_mock()
