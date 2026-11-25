@@ -154,6 +154,8 @@ class AppTest(unittest.TestCase):
     # ---- ホーム・試験トップ ----
     def test_home_lists_exams(self):
         self.open()
+        expect(self.page.locator("#title")).to_have_text("Claude認定資格 問題集")
+        expect(self.page).to_have_title("Claude認定資格 問題集")
         cards = self.page.locator("a.card--exam")
         expect(cards).to_have_count(2)
         expect(cards.nth(0).locator(".card__code")).to_have_text("CCDV-F")

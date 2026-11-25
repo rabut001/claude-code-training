@@ -7,7 +7,7 @@ import { overallStats } from "../quiz.js";
 import { card, countText, emptyState, sessionLabel } from "../components.js";
 
 export async function homeView(ctx) {
-  ctx.setTop({ title: "Claude認定 問題集", back: null });
+  ctx.setTop({ title: "Claude認定資格 問題集", back: null });
   const index = await loadIndex();
 
   const session = getSession();
