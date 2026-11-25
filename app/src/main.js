@@ -63,7 +63,7 @@ async function route() {
     setTop({ title, titleNode = null, back, onBack = null, action = null }) {
       if (token !== renderToken) return;
       titleEl.replaceChildren(titleNode || title);
-      document.title = title === "Claude認定 問題集" ? title : `${title}｜Claude認定 問題集`;
+      document.title = title === "Claude認定資格 問題集" ? title : `${title}｜Claude認定資格 問題集`;
       backEl.hidden = !back;
       backEl.onclick = back
         ? () => {
