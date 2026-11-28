@@ -97,7 +97,8 @@ Codex の実行制限で書き込める場所が起動フォルダの中だけ�
 ```
 AGENTS.md              正本（このファイル）
 CLAUDE.md              @AGENTS.md の1行だけ
-NOTICE.md              元の問題集の著作権表示とライセンス文
+LICENSE                このアプリの MIT ライセンス（コード・ドキュメント・和訳・補足）
+NOTICE.md              このアプリと元の問題集の著作権表示とライセンス文
 docs/
   data-format.md       問題データの仕様（共通の取り決め）
   translation-guide.md 和訳のルール（共通の取り決め）

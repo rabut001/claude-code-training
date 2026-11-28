@@ -7,6 +7,38 @@
 本番の試験問題ではありません。Anthropic とは関係のない非公式の教材です。
 「Claude」は Anthropic, PBC の商標です。
 
+## このアプリのライセンス
+
+このアプリ（コード、ツール、ドキュメント、問題の日本語訳と補足）は、MIT ライセンスで公開しています。全文はリポジトリの LICENSE と同じで、以下に掲載します。
+
+- ソースコード：https://github.com/rabut001/claude-code-training
+- 問題の英語の原文の著作権は、下に挙げる元の問題集の作者にあります。日本語訳と補足は原文をもとに作ったものなので、問題を利用するときは、このアプリの著作権表示に加えて、元の問題集の著作権表示とライセンス文も残してください。
+- 次のものは、このライセンスの対象外です。それぞれの権利者に帰属します：リンク先の外部のドキュメント、試験ガイドからの引用、商標。
+
+```
+MIT License
+
+Copyright (c) 2026 Rabut (https://github.com/rabut001)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
 ---
 
 ## CCDV-F：Breeganzo/CCDV-F-Preparation
