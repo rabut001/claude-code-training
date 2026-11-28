@@ -502,6 +502,7 @@ class AppTest(unittest.TestCase):
         notice = self.page.locator(".notice")
         expect(notice).to_contain_text("Breeganzo/CCDV-F-Preparation")
         expect(notice).to_contain_text("MIT License")
+        expect(notice).to_contain_text("Copyright (c) 2026 Rabut (https://github.com/rabut001)")
         self.page.get_by_role("radio", name="英語（本番と同じ）").click()
         self.assertEqual(self.stored("settings")["lang"], "en")
 
