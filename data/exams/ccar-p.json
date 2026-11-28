@@ -6,6 +6,8 @@
     "en": "Claude Certified Architect – Professional",
     "ja": "Claude認定アーキテクト – プロフェッショナル"
   },
+  "edition": { "from": null, "until": "2026-12-06" },
+  "id_prefix": "ccarp",
   "exam": {
     "questions": 63,
     "minutes": 120,

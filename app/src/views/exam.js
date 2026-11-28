@@ -4,7 +4,7 @@ import { el } from "../util.js";
 import { loadExam } from "../data.js";
 import { getProgress, getChecks, getSession, setSession, getSettings } from "../storage.js";
 import { overallStats, pickQuestions, createSession } from "../quiz.js";
-import { card, countText } from "../components.js";
+import { card, countText, editionLabel, editionNotice } from "../components.js";
 
 /**
  * 新しいセッションを始めて出題画面へ移る。解いている途中のセッションがあれば確認する。
@@ -31,6 +31,8 @@ export async function examView(ctx, examId) {
   ctx.setTop({ title: exam.code, back: "#/" });
 
   const stats = overallStats(exam, data.questions, getProgress(examId));
+  const edition = editionLabel(exam.edition);
+  const notice = editionNotice(exam.edition);
   const mockCount = exam.domains.reduce((n, d) => n + d.mock_items, 0);
 
   const domains = stats.rows.map((r) =>
@@ -55,8 +57,10 @@ export async function examView(ctx, examId) {
         "section",
         { class: "summary" },
         el("p", { class: "summary__title", lang: "en", text: exam.name.en }),
+        edition ? el("p", { class: "summary__edition", text: `${edition}の試験向け` }) : null,
         el("p", { class: "summary__sub", text: countText(stats.total, stats.seen) }),
       ),
+      notice ? el("p", { class: "alert", role: "note", text: notice.long }) : null,
       el("h2", { class: "section-title", text: "出題モード" }),
       card(
         { href: `#/quick/${examId}` },

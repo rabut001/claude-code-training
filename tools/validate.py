@@ -17,14 +17,17 @@ import re
 import sys
 from collections import Counter
 from dataclasses import dataclass, field
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_VERSION = 1
-EXAM_PREFIX = {"ccdv-f": "ccdvf", "ccar-p": "ccarp"}
 JA_STATUSES = ("todo", "draft", "reviewed")
 OPTION_IDS = "abcdef"
-ID_RE = re.compile(r"^(ccdvf|ccarp)-([a-z]{2})-[a-z0-9][a-z0-9.-]*$")
+ID_RE = re.compile(r"^([a-z][a-z0-9]*)-([a-z]{2})-[a-z0-9][a-z0-9.-]*$")
+EXAM_ID_RE = re.compile(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*$")
+ID_PREFIX_RE = re.compile(r"^[a-z][a-z0-9]*$")
+DATE_RE = re.compile(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}$")
 DOMAIN_RE = re.compile(r"^d[0-9]+$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 
@@ -38,7 +41,8 @@ JA_KEYS = {"status", "question", "options", "explanation"}
 OPTION_KEYS = {"id", "text", "note"}
 SOURCE_KEYS = {"repo", "commit", "path", "orig_id", "license"}
 REFERENCE_KEYS = {"title", "url"}
-EXAM_KEYS = {"schema", "id", "code", "name", "exam", "domains", "sources"}
+EXAM_KEYS = {"schema", "id", "code", "name", "edition", "id_prefix", "exam", "domains", "sources"}
+EDITION_KEYS = {"from", "until"}
 EXAM_INFO_KEYS = {"questions", "minutes", "pass_scaled", "scale_min", "scale_max", "pass_raw_estimate"}
 DOMAIN_KEYS = {"id", "name", "weight", "mock_items"}
 EXAM_SOURCE_KEYS = {"abbr", "repo", "commit", "license", "questions"}
@@ -126,20 +130,45 @@ def check_i18n(r: Report, where: str, v) -> None:
                 check_text(r, f"{where}.{lang}", v[lang])
 
 
+def check_date(r: Report, where: str, v) -> bool:
+    """YYYY-MM-DD の実在する日付か。null は呼び出し側で扱う。"""
+    if isinstance(v, str) and DATE_RE.match(v):
+        try:
+            date.fromisoformat(v)
+            return True
+        except ValueError:
+            pass
+    r.error(where, f"YYYY-MM-DD の日付か null にしてください: {v!r}")
+    return False
+
+
+def check_edition(r: Report, where: str, ed) -> None:
+    """その試験ガイドで受験できる期間。from・until は両端を含む。決まっていない側は null。"""
+    if not check_keys(r, where, ed, EDITION_KEYS):
+        return
+    ok = {k: ed.get(k) is None or check_date(r, f"{where}.{k}", ed.get(k)) for k in ("from", "until")}
+    if ok["from"] and ok["until"] and ed.get("from") and ed.get("until") and ed["from"] > ed["until"]:
+        r.error(where, "from が until より後になっています")
+
+
 def check_exam(r: Report, path: Path, ex: dict) -> None:
     w = rel(path)
     if not check_keys(r, w, ex, EXAM_KEYS):
         return
     if ex.get("schema") != SCHEMA_VERSION:
         r.error(w, f"schema は {SCHEMA_VERSION} にしてください")
-    if ex.get("id") not in EXAM_PREFIX:
-        r.error(w, f"id が不正です: {ex.get('id')!r}")
+    if not isinstance(ex.get("id"), str) or not EXAM_ID_RE.match(ex["id"]):
+        r.error(w, f"id が不正です: {ex.get('id')!r}（英小文字・数字をハイフンでつないだもの）")
     elif path.stem != ex["id"]:
         r.error(w, f"ファイル名と id が一致しません（{ex['id']}.json にしてください）")
     if not nonempty_str(ex.get("code")):
         r.error(f"{w}.code", "空です")
     if "name" in ex:
         check_i18n(r, f"{w}.name", ex["name"])
+    if "id_prefix" in ex and (not isinstance(ex["id_prefix"], str) or not ID_PREFIX_RE.match(ex["id_prefix"])):
+        r.error(f"{w}.id_prefix", f"英小文字で始まる英小文字・数字にしてください: {ex['id_prefix']!r}")
+    if "edition" in ex:
+        check_edition(r, f"{w}.edition", ex["edition"])
 
     info = ex.get("exam")
     if check_keys(r, f"{w}.exam", info, EXAM_INFO_KEYS):
@@ -246,8 +275,9 @@ def check_question(r: Report, path: Path, q: dict, exams: dict[str, dict], quest
     else:
         if path.name != f"{qid}.json":
             r.error(w, f"ファイル名を {qid}.json にしてください")
-        if exam_id in EXAM_PREFIX and m.group(1) != EXAM_PREFIX[exam_id]:
-            r.error(f"{w}.id", f"{exam_id} の問題は '{EXAM_PREFIX[exam_id]}-' で始めてください")
+        prefix = exam.get("id_prefix") if exam is not None else None
+        if isinstance(prefix, str) and m.group(1) != prefix:
+            r.error(f"{w}.id", f"{exam_id} の問題は '{prefix}-' で始めてください")
 
     if exam is not None:
         domain_ids = [d.get("id") for d in exam.get("domains", []) if isinstance(d, dict)]
@@ -405,6 +435,10 @@ def load_dataset(r: Report, data_dir: Path, questions_dir: Path, only_exam: str 
             check_exam(r, path, ex)
             if isinstance(ex, dict) and isinstance(ex.get("id"), str):
                 exams[ex["id"]] = ex
+        prefixes = Counter(ex.get("id_prefix") for ex in exams.values() if isinstance(ex.get("id_prefix"), str))
+        for dup, n in prefixes.items():
+            if n > 1:
+                r.error(rel(exam_dir), f"id_prefix '{dup}' が複数の試験で使われています")
 
     questions: list[tuple[Path, dict]] = []
     if questions_dir.is_dir():
@@ -427,6 +461,8 @@ def validate(data_dir: Path, questions_dir: Path, *, only_exam: str | None = Non
              strict_counts: bool = False) -> tuple[Report, Dataset]:
     r = Report()
     ds = load_dataset(r, data_dir, questions_dir, only_exam)
+    if only_exam and only_exam not in ds.exams:
+        r.error(rel(data_dir / "exams"), f"試験 '{only_exam}' がありません（{', '.join(sorted(ds.exams))}）")
     seen: dict[str, Path] = {}
     origin: dict[tuple, Path] = {}
     for path, q in ds.questions:
@@ -439,9 +475,10 @@ def validate(data_dir: Path, questions_dir: Path, *, only_exam: str | None = Non
                 seen.setdefault(qid, path)
             src = q.get("source")
             if isinstance(src, dict):
-                key = (src.get("repo"), src.get("orig_id"))
+                # 試験ガイドの版ごとに試験を分けるので、同じ元問題を別の試験に入れるのはよい
+                key = (q.get("exam"), src.get("repo"), src.get("orig_id"))
                 if key in origin:
-                    r.error(rel(path), f"同じ元問題（{key[0]} {key[1]}）が {rel(origin[key])} にもあります")
+                    r.error(rel(path), f"同じ元問題（{key[1]} {key[2]}）が {rel(origin[key])} にもあります")
                 origin.setdefault(key, path)
 
     for exam_id, ex in ds.exams.items():
@@ -471,7 +508,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="問題データを検証する")
     ap.add_argument("--data", type=Path, default=ROOT / "data", help="data フォルダ（既定: data）")
     ap.add_argument("--questions", type=Path, default=None, help="問題フォルダ（既定: <data>/questions）")
-    ap.add_argument("--exam", choices=sorted(EXAM_PREFIX), help="この試験だけを検証する")
+    ap.add_argument("--exam", help="この試験だけを検証する（試験ID。例: ccdv-f）")
     ap.add_argument("--strict-counts", action="store_true", help="問題数が出典の予定数と違えばエラーにする")
     ap.add_argument("-q", "--quiet", action="store_true", help="警告を表示しない")
     args = ap.parse_args(argv)

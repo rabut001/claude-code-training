@@ -159,6 +159,66 @@ class InvalidQuestions(Base):
         self.assertError("問題数が", strict_counts=True)
 
 
+class Exams(Base):
+    """試験ファイル（data/exams/）の検証。data/ を一時フォルダに複製して書き換える。"""
+
+    def setUp(self):
+        super().setUp()
+        self.data = self.tmp / "data"
+        shutil.copytree(ROOT / "data" / "exams", self.data / "exams")
+
+    def exam(self, exam_id):
+        return json.loads((self.data / "exams" / f"{exam_id}.json").read_text(encoding="utf-8"))
+
+    def save_exam(self, ex):
+        (self.data / "exams" / f"{ex['id']}.json").write_text(json.dumps(ex, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    def errors(self, **kw):
+        report, _ = validate.validate(self.data, self.qdir, **kw)
+        return report.errors
+
+    def test_repo_exams_are_valid(self):
+        self.assertEqual(self.errors(), [])
+
+    def test_edition_is_required(self):
+        ex = self.exam("ccdv-f"); del ex["edition"]; self.save_exam(ex)
+        self.assertError("必須フィールド 'edition'")
+
+    def test_edition_date_must_exist(self):
+        ex = self.exam("ccdv-f"); ex["edition"]["until"] = "2026-02-30"; self.save_exam(ex)
+        self.assertError("YYYY-MM-DD の日付か null")
+
+    def test_edition_from_must_not_be_after_until(self):
+        ex = self.exam("ccdv-f"); ex["edition"] = {"from": "2026-12-07", "until": "2026-12-06"}; self.save_exam(ex)
+        self.assertError("from が until より後")
+
+    def test_question_id_must_use_exam_prefix(self):
+        ex = self.exam("ccdv-f"); ex["id_prefix"] = "ccdvx"; self.save_exam(ex)
+        self.assertError("'ccdvx-' で始めてください")
+
+    def test_id_prefix_must_be_unique(self):
+        ex = self.exam("ccar-p"); ex["id_prefix"] = "ccdvf"; self.save_exam(ex)
+        self.assertError("id_prefix 'ccdvf' が複数の試験")
+
+    def test_unknown_exam_option(self):
+        self.assertError("試験 'nope' がありません", only_exam="nope")
+
+    def test_new_edition_can_hold_same_source_question(self):
+        """試験ガイドの新しい版は別の試験として足す。同じ元問題を二重に持ってよい。"""
+        old = self.exam("ccdv-f")
+        old["edition"]["until"] = "2026-12-06"
+        new = {**copy.deepcopy(old), "id": "ccdv-f-2612", "id_prefix": "ccdvf2612",
+               "edition": {"from": "2026-12-07", "until": None}}
+        self.save_exam(old)
+        self.save_exam(new)
+        q = self.load(SINGLE)
+        q["id"], q["exam"] = "ccdvf2612-bz-d2-001", "ccdv-f-2612"
+        target = self.qdir / "ccdv-f-2612/d2/ccdvf2612-bz-d2-001.json"
+        target.parent.mkdir(parents=True)
+        target.write_text(json.dumps(q, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        self.assertEqual(self.errors(), [])
+
+
 class Build(Base):
     def test_build_outputs_bundles(self):
         out = self.tmp / "out"
@@ -166,6 +226,7 @@ class Build(Base):
         index = json.loads((out / "index.json").read_text(encoding="utf-8"))
         counts = {e["id"]: (e["count"], e["translated"]) for e in index["exams"]}
         self.assertEqual(counts, {"ccdv-f": (2, 2), "ccar-p": (1, 0)})
+        self.assertEqual(index["exams"][0]["edition"], {"from": None, "until": "2026-12-06"})
         bundle = json.loads((out / "ccdv-f.json").read_text(encoding="utf-8"))
         self.assertEqual([q["id"] for q in bundle["questions"]], ["ccdvf-bz-d2-001", "ccdvf-bz-d7-005"])
         self.assertTrue((out / "NOTICE.md").exists())

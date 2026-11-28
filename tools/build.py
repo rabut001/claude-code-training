@@ -72,6 +72,7 @@ def build(data_dir: Path, questions_dir: Path, out_dir: Path) -> int:
             "id": exam_id,
             "code": exam["code"],
             "name": exam["name"],
+            "edition": exam["edition"],
             "file": f"{exam_id}.json",
             "version": version,
             "count": len(questions),

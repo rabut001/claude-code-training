@@ -161,6 +161,10 @@ class AppTest(unittest.TestCase):
         expect(cards.nth(0).locator(".card__code")).to_have_text("CCDV-F")
         expect(cards.nth(0).locator(".card__en")).to_have_text("Claude Certified Developer – Foundations")
         expect(cards.nth(0).locator(".card__count")).to_have_text("2問 (回答済: 0問)")
+        # 試験ガイドの版は試験ごとに表示する（ホーム全体へのお知らせにはしない）
+        expect(cards.nth(0).locator(".card__edition")).to_have_text("2026/12/06 以前の試験向け")
+        expect(cards.nth(0).locator(".card__alert")).to_contain_text("範囲")
+        expect(cards.nth(1).locator(".card__edition")).to_have_text("2026/12/06 以前の試験向け")
         expect(cards.nth(1).locator(".card__code")).to_have_text("CCAR-P")
         expect(cards.nth(1).locator(".card__count")).to_have_text("1問 (回答済: 0問)")
         expect(self.page.locator(".bar")).to_have_count(0)  # 進捗バーは出さない
@@ -169,6 +173,8 @@ class AppTest(unittest.TestCase):
         self.open("#/exam/ccdv-f")
         expect(self.page.locator(".summary__title")).to_have_text("Claude Certified Developer – Foundations")
         expect(self.page.locator(".summary__sub")).to_have_text("2問 (回答済: 0問)")
+        expect(self.page.locator(".summary__edition")).to_have_text("2026/12/06 以前の試験向け")
+        expect(self.page.locator(".alert")).to_contain_text("2026/12/06 以前の試験ガイドに基づ")
         domain = self.page.locator(".card--domain").filter(has_text="アプリケーションと統合")
         expect(domain).to_contain_text("1問 (回答済: 0問)")
         expect(domain).to_be_enabled()
@@ -428,7 +434,7 @@ class AppTest(unittest.TestCase):
         self.page.reload()
         resume = self.page.locator(".card--resume")
         expect(resume).to_contain_text("続きから")
-        expect(resume).to_contain_text("CCDV-F・本番形式の模試")
+        expect(resume).to_contain_text("CCDV-F（2026/12/06 以前）・本番形式の模試")
         expect(resume).to_contain_text("1 / 2問 回答済み")
         resume.click()
         expect(self.page.locator(".timer")).to_be_visible()
@@ -504,6 +510,42 @@ class AppTest(unittest.TestCase):
         expect(notice).to_contain_text("MIT License")
         self.page.get_by_role("radio", name="英語（本番と同じ）").click()
         self.assertEqual(self.stored("settings")["lang"], "en")
+        expect(self.btn("CCDV-F（2026/12/06 以前） の学習記録を消す")).to_be_visible()
+
+    def test_edition_logic(self):
+        self.open()
+        out = self.page.evaluate(
+            """async () => {
+              const c = await import('./src/components.js');
+              const old = { from: null, until: '2026-12-06' };
+              const next = { from: '2026-12-07', until: null };
+              const state = (ed, today) => (c.editionNotice(ed, today) || { state: null }).state;
+              return {
+                labelOld: c.editionLabel(old),
+                labelNext: c.editionLabel(next),
+                labelBoth: c.editionLabel({ from: '2026-12-07', until: '2027-12-06' }),
+                labelNone: c.editionLabel({ from: null, until: null }),
+                title: c.examTitle({ code: 'CCDV-F', edition: next }),
+                titleNone: c.examTitle({ code: 'CCDV-F', edition: { from: null, until: null } }),
+                lastDay: state(old, '2026-12-06'),
+                lastDayText: c.editionNotice(old, '2026-12-06').short,
+                dayAfter: state(old, '2026-12-07'),
+                beforeStart: state(next, '2026-12-06'),
+                started: state(next, '2026-12-07'),
+                none: state({ from: null, until: null }, '2026-12-07'),
+                monthEnd: c.editionNotice({ from: null, until: '2026-12-31' }, '2026-12-01').short,
+                today: /^\\d{4}-\\d{2}-\\d{2}$/.test(c.todayIso()),
+              };
+            }"""
+        )
+        self.assertEqual(
+            out,
+            {"labelOld": "2026/12/06 以前", "labelNext": "2026/12/07 以降", "labelBoth": "2026/12/07〜2027/12/06",
+             "labelNone": "", "title": "CCDV-F（2026/12/07 以降）", "titleNone": "CCDV-F",
+             "lastDay": "changing", "lastDayText": "2026/12/07 から試験の範囲が変わります", "dayAfter": "outdated",
+             "beforeStart": "upcoming", "started": None, "none": None,
+             "monthEnd": "2027/01/01 から試験の範囲が変わります", "today": True},
+        )
 
     def test_quiz_logic(self):
         self.open()

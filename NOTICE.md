@@ -12,6 +12,7 @@
 ## CCDV-F：Breeganzo/CCDV-F-Preparation
 
 - 出典：https://github.com/Breeganzo/CCDV-F-Preparation
+- 対象の試験：CCDV-F（2026/12/06 以前の試験ガイド）
 - 使用した commit：f3f7759c4fff3244ff88ae9bafeb1a2a72890180
 
 ```
@@ -41,6 +42,7 @@ SOFTWARE.
 ## CCAR-P：bajor/claude-architect-professional-quiz
 
 - 出典：https://github.com/bajor/claude-architect-professional-quiz
+- 対象の試験：CCAR-P（2026/12/06 以前の試験ガイド）
 - 使用した commit：05b068db2529b69ea76a2104dae0fd4c197d4d98
 
 ```

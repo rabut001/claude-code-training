@@ -6,6 +6,8 @@
     "en": "Claude Certified Developer – Foundations",
     "ja": "Claude認定デベロッパー – ファンデーション"
   },
+  "edition": { "from": null, "until": "2026-12-06" },
+  "id_prefix": "ccdvf",
   "exam": {
     "questions": 53,
     "minutes": 120,

@@ -4,7 +4,7 @@ import { el } from "../util.js";
 import { loadIndex, loadExam } from "../data.js";
 import { getProgress, getSession } from "../storage.js";
 import { overallStats } from "../quiz.js";
-import { card, countText, emptyState, sessionLabel } from "../components.js";
+import { card, countText, editionLabel, editionNotice, emptyState, examTitle, sessionLabel } from "../components.js";
 
 export async function homeView(ctx) {
   ctx.setTop({ title: "Claude認定資格 問題集", back: null });
@@ -22,7 +22,7 @@ export async function homeView(ctx) {
       resume = card(
         { href: "#/quiz", className: "card--resume" },
         el("p", { class: "card__eyebrow", text: "続きから" }),
-        el("p", { class: "card__title", text: `${entry.code}・${sessionLabel(exam, session)}` }),
+        el("p", { class: "card__title", text: `${examTitle(entry)}・${sessionLabel(exam, session)}` }),
         el("p", { class: "card__sub", text: done }),
       );
     }
@@ -32,12 +32,16 @@ export async function homeView(ctx) {
   for (const entry of index.exams) {
     const exam = await loadExam(entry.id);
     const stats = overallStats(exam.exam, exam.questions, getProgress(entry.id));
+    const edition = editionLabel(entry.edition);
+    const notice = editionNotice(entry.edition);
     cards.push(
       card(
         { href: `#/exam/${entry.id}`, className: "card--exam" },
         el("p", { class: "card__code", text: entry.code }),
+        edition ? el("p", { class: "card__edition", text: `${edition}の試験向け` }) : null,
         el("p", { class: "card__en", lang: "en", text: entry.name.en }),
         el("p", { class: "card__count", text: countText(stats.total, stats.seen) }),
+        notice ? el("p", { class: "card__alert", text: notice.short }) : null,
       ),
     );
   }

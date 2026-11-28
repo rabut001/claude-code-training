@@ -73,10 +73,13 @@ Codex の実行制限で書き込める場所が起動フォルダの中だけ�
 
 ## 3. 問題の出典（ユーザーが決定済み。勝手に増やさない）
 
-| 試験 | 出典 | commit | 問題数 | ライセンス | IDの略号 |
-|---|---|---|---|---|---|
-| CCDV-F | [Breeganzo/CCDV-F-Preparation](https://github.com/Breeganzo/CCDV-F-Preparation) | `f3f7759c4fff3244ff88ae9bafeb1a2a72890180` | 180 | MIT | `bz` |
-| CCAR-P | [bajor/claude-architect-professional-quiz](https://github.com/bajor/claude-architect-professional-quiz) | `05b068db2529b69ea76a2104dae0fd4c197d4d98` | 228 | MIT | `bj` |
+| 試験（試験ID） | 対応する試験ガイド | 出典 | commit | 問題数 | ライセンス | IDの略号 |
+|---|---|---|---|---|---|---|
+| CCDV-F（`ccdv-f`） | 2026/12/06 以前 | [Breeganzo/CCDV-F-Preparation](https://github.com/Breeganzo/CCDV-F-Preparation) | `f3f7759c4fff3244ff88ae9bafeb1a2a72890180` | 180 | MIT | `bz` |
+| CCAR-P（`ccar-p`） | 2026/12/06 以前 | [bajor/claude-architect-professional-quiz](https://github.com/bajor/claude-architect-professional-quiz) | `05b068db2529b69ea76a2104dae0fd4c197d4d98` | 228 | MIT | `bj` |
+
+- 試験ガイドが改訂されたら、**版ごとに別の試験**として扱います（試験IDも問題データも別。`docs/data-format.md` の「4-1」）。
+  いまある試験の ID と問題 ID は変えません。新しい版の出典は、ユーザーが決めてからこの表に足します。
 
 - 取り込むときは、必ず上の commit を使ってください（`git checkout <commit>`）。
 - clone 先は `.cache/upstream/`（git の管理対象外）にします。

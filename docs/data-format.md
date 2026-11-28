@@ -11,7 +11,7 @@ data/exams/<exam>.json                         試験の情報
 data/questions/<exam>/<domain>/<id>.json       1問1ファイル
 ```
 
-- `<exam>` は `ccdv-f` か `ccar-p` です。
+- `<exam>` は試験の `id` です（`ccdv-f`、`ccar-p` など。`data/exams/` にあるもの）。
 - `<domain>` は試験ファイルの分野ID（`d1`, `d2`, …）です。
 - ファイル名は、問題の `id` に `.json` を付けたものです。
 - 文字コードは UTF-8、インデントは2スペース、末尾に改行を入れます。`ensure_ascii` は使わず、日本語はそのまま書きます。
@@ -66,7 +66,7 @@ data/questions/<exam>/<domain>/<id>.json       1問1ファイル
 |---|---|---|---|
 | `schema` | 整数 | ✅ | いまは `1` |
 | `id` | 文字列 | ✅ | 問題ID（「3. ID の決め方」）。**一度決めたら変えない** |
-| `exam` | 文字列 | ✅ | `ccdv-f` / `ccar-p` |
+| `exam` | 文字列 | ✅ | 試験の `id`（`ccdv-f` など）。`data/exams/` にあるもの |
 | `domain` | 文字列 | ✅ | 分野ID。`data/exams/<exam>.json` の `domains[].id` のどれか |
 | `subdomain` | 文字列 / null | ✅ | 分野の中の小項目（英語のまま）。なければ `null` |
 | `type` | 文字列 | ✅ | `single`（1つ選ぶ）/ `multi`（複数選ぶ） |
@@ -150,6 +150,7 @@ data/questions/<exam>/<domain>/<id>.json       1問1ファイル
 ## 3. ID の決め方
 
 `<試験の略号>-<出典の略号>-<元のIDを小文字にしたもの>` とします。使える文字は `a-z 0-9 . -` だけです。
+試験の略号は、試験ファイルの `id_prefix` です。
 
 | 試験 | 出典 | 元のID | 問題ID |
 |---|---|---|---|
@@ -162,13 +163,33 @@ bajor の元のIDは `ccarp-` で始まるので、その部分を取り除い�
 
 | フィールド | 説明 |
 |---|---|
-| `id` / `code` | `ccdv-f` / `CCDV-F` など |
+| `id` / `code` | `ccdv-f` / `CCDV-F` など。`id` は英小文字・数字をハイフンでつないだもの。**一度決めたら変えない**（学習記録のキー） |
 | `name.en` / `name.ja` | 試験名 |
+| `edition.from` / `edition.until` | その試験ガイドで受験できる期間（`YYYY-MM-DD`、両端を含む）。決まっていない側は `null`（「4-1」） |
+| `id_prefix` | 問題IDの先頭に付ける試験の略号（`ccdvf` など）。試験ごとに重複しない |
 | `exam.questions` / `exam.minutes` | 本番の問題数と制限時間 |
 | `exam.pass_scaled` / `scale_min` / `scale_max` | 合格ライン（スケールスコア） |
 | `exam.pass_raw_estimate` | 正答率で見た合格の目安（`(720-100)/900`。公式の値ではない） |
 | `domains[]` | 分野。`id`、`name.en` / `name.ja`、`weight`（配分 %）、`mock_items`（模試での出題数。合計は `exam.questions` と同じ） |
 | `sources[]` | 出典。`abbr`、`repo`、`commit`、`license`、`questions`（取り込む問題数） |
+
+### 4-1. 試験ガイドの版（`edition`）
+
+本番の試験は、試験ガイドの改訂で範囲・分野の配分・問題数が変わることがあります。
+このアプリでは、**試験ガイドの版が違えば別の試験として扱います**。問題データも版ごとに持ちます（同じ元問題を二重に持ってかまいません）。
+
+- いまある試験の `id`・`id_prefix`・問題IDは変えません。
+- 新しい版を足すときは、元の `id` に新しいガイドが有効になる年月（`YYMM`）を付けた試験を作ります。
+  `id_prefix` にも同じ年月を付けます。
+
+| 試験 | `id` | `id_prefix` | `edition` |
+|---|---|---|---|
+| CCDV-F（2026/12/06 以前） | `ccdv-f` | `ccdvf` | `{ "from": null, "until": "2026-12-06" }` |
+| CCDV-F（2026/12/07 以降）※例 | `ccdv-f-2612` | `ccdvf2612` | `{ "from": "2026-12-07", "until": null }` |
+
+- アプリは `edition` から「2026/12/06 以前」「2026/12/07 以降」のような表示を作り、試験名に添えます。
+  `until` がある試験には、範囲が変わること（過ぎたあとは旧版であること）を、その試験の画面に表示します。
+- 改訂の予定がない試験は `{ "from": null, "until": null }` にします。
 
 ## 5. 元データとの対応
 

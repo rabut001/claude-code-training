@@ -23,6 +23,72 @@ export function sessionLabel(exam, session) {
   return { quick: "クイック10問", mock: "本番形式の模試" }[session.mode] || "";
 }
 
+// ---- 試験ガイドの版（data/exams/<exam>.json の edition。docs/data-format.md「4-1」） ----
+// 試験ガイドの版が違えば別の試験として扱うので、試験名には対応する期間を添える。
+
+/** "2026-12-06" → "2026/12/06" */
+function slashDate(iso) {
+  return iso.replaceAll("-", "/");
+}
+
+/** "2026-12-06" → "2026-12-07" */
+function nextDay(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d + 1)).toISOString().slice(0, 10);
+}
+
+/** この端末の今日の日付（"YYYY-MM-DD"） */
+export function todayIso(now = new Date()) {
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+}
+
+/** 対応する期間の表示。「2026/12/06 以前」「2026/12/07 以降」。期間が決まっていなければ "" */
+export function editionLabel(edition) {
+  const { from = null, until = null } = edition || {};
+  if (from && until) return `${slashDate(from)}〜${slashDate(until)}`;
+  if (until) return `${slashDate(until)} 以前`;
+  if (from) return `${slashDate(from)} 以降`;
+  return "";
+}
+
+/** 試験の名前。「CCDV-F（2026/12/06 以前）」。index.json の試験・試験情報のどちらも渡せる */
+export function examTitle(exam) {
+  const label = editionLabel(exam.edition);
+  return label ? `${exam.code}（${label}）` : exam.code;
+}
+
+/**
+ * 試験ガイドの版についての注意。注意がなければ null。
+ *   short：ホームの試験カードに出す1行、long：試験のトップに出す文
+ */
+export function editionNotice(edition, today = todayIso()) {
+  const { from = null, until = null } = edition || {};
+  if (until && today > until) {
+    return {
+      state: "outdated",
+      short: "旧版：いまの試験とは範囲が異なります",
+      long: `この問題集は ${slashDate(until)} 以前の試験ガイドに基づく旧版です。いまの試験とは、出題範囲・分野の配分・問題数が異なります。`,
+    };
+  }
+  if (from && today < from) {
+    return {
+      state: "upcoming",
+      short: `${slashDate(from)} 以降の試験向けです`,
+      long: `この問題集は ${slashDate(from)} 以降に受験する試験向けです。それより前に受験する場合は、出題範囲・分野の配分・問題数が異なります。`,
+    };
+  }
+  if (until) {
+    const next = slashDate(nextDay(until));
+    return {
+      state: "changing",
+      short: `${next} から試験の範囲が変わります`,
+      long: `この問題集は ${slashDate(until)} 以前の試験ガイドに基づいています。${next} 以降に受験する場合は、出題範囲・分野の配分・問題数が変わるため、公式の試験ガイドを確認してください。`,
+    };
+  }
+  return null;
+}
+
 /** 「180問 (回答済: 59問)」 */
 export function countText(total, seen) {
   return `${total}問 (回答済: ${seen}問)`;

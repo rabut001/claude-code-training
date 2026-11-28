@@ -9,12 +9,17 @@ async function fetchJson(path) {
   return res.json();
 }
 
-/** 試験の一覧。表示順は CCDV-F → CCAR-P に固定する。 */
+/**
+ * 試験の一覧。表示順は CCDV-F → CCAR-P → それ以外（コード順）。
+ * 同じ試験で試験ガイドの版が複数あるときは、古い版から並べる。
+ */
 export async function loadIndex() {
   if (!indexCache) {
     const index = await fetchJson("data/index.json");
-    const order = ["ccdv-f", "ccar-p"];
-    index.exams.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+    const order = ["CCDV-F", "CCAR-P"];
+    const rank = (e) => (order.includes(e.code) ? order.indexOf(e.code) : order.length);
+    const start = (e) => (e.edition && e.edition.from) || "";
+    index.exams.sort((a, b) => rank(a) - rank(b) || a.code.localeCompare(b.code) || start(a).localeCompare(start(b)));
     indexCache = index;
   }
   return indexCache;

@@ -2,6 +2,7 @@
 
 import { el } from "../util.js";
 import { loadIndex, loadNotice } from "../data.js";
+import { examTitle } from "../components.js";
 import { getSettings, setSettings, resetProgress, isPersistent } from "../storage.js";
 
 export async function settingsView(ctx) {
@@ -53,13 +54,13 @@ export async function settingsView(ctx) {
           type: "button",
           class: "btn btn--danger",
           onclick: () => {
-            if (confirm(`${e.code} の学習記録とチェックをすべて消しますか？（元に戻せません）`)) {
+            if (confirm(`${examTitle(e)} の学習記録とチェックをすべて消しますか？（元に戻せません）`)) {
               resetProgress(e.id);
-              alert(`${e.code} の学習記録とチェックを消しました。`);
+              alert(`${examTitle(e)} の学習記録とチェックを消しました。`);
             }
           },
         },
-        `${e.code} の学習記録を消す`,
+        `${examTitle(e)} の学習記録を消す`,
       ),
     );
 

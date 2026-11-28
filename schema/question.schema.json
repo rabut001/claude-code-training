@@ -8,8 +8,8 @@
   "required": ["schema", "id", "exam", "domain", "subdomain", "type", "select", "difficulty", "tags", "answer", "en", "ja", "references", "source"],
   "properties": {
     "schema": { "const": 1 },
-    "id": { "type": "string", "pattern": "^(ccdvf|ccarp)-[a-z]{2}-[a-z0-9][a-z0-9.-]*$" },
-    "exam": { "enum": ["ccdv-f", "ccar-p"] },
+    "id": { "type": "string", "description": "<試験の id_prefix>-<出典の略号>-<元のID>", "pattern": "^[a-z][a-z0-9]*-[a-z]{2}-[a-z0-9][a-z0-9.-]*$" },
+    "exam": { "type": "string", "description": "data/exams/ にある試験の id", "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$" },
     "domain": { "type": "string", "pattern": "^d[0-9]+$" },
     "subdomain": { "type": ["string", "null"] },
     "type": { "enum": ["single", "multi"] },
